@@ -5,7 +5,7 @@ const mysql = require('mysql');
 const fs = require('fs');
 const connection = cUtil.connection;
 
-function postPushAlarm() {
+function postPushAlarm(req, res) {
     var token = req.headers['x-access-token'];
     var userSeq = req.body.userSeq;
     var message = req.body.message;
