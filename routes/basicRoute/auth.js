@@ -54,7 +54,7 @@ router.get('/terms', getTerms);
 
 function getTerms(req, res) {
     res.writeHead(200, {'Content-Type': 'text/html'}); // header 설정
-    fs.readFile('contentRoute/terms.html', (err, data) => { // 파일 읽는 메소드
+    fs.readFile('../../views/terms.html', (err, data) => { // 파일 읽는 메소드
         if (err) {
             return console.error(err); // 에러 발생시 에러 기록하고 종료
         }

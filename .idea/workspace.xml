@@ -2,63 +2,52 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="36413532-2186-4b51-bc32-d36d86fd342c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations/bin_www.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ImageMathServer.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth/image_math_ppk.ppk" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth/imagemath.pem" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/www" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/customUtil.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/key/imagemath-server-firebase-adminsdk-tkois-54443dad9e.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/key/rootkey.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nohup.out" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/stylesheets/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/basicRoute/account.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/basicRoute/alarm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/basicRoute/auth.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/basicRoute/checkAuth.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/basicRoute/setting.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/contentRoute/a.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/contentRoute/assignment.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/contentRoute/config.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/contentRoute/lecture.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/contentRoute/notice.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/contentRoute/qna.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/contentRoute/s3_put.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/contentRoute/terms.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/contentRoute/test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/users.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/error.pug" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/index.pug" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/layout.pug" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Server/.idea/Server.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Server/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Server/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Server/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Server/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/ImageMathStudent/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/ImageMathStudent/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/ImageMathStudent/app/release/app-release.aab" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/ImageMathStudent/app/release/app-release.aab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/ImageMathStudent/app/src/main/java/com/haemin/imagemathstudent/Adapter/AssignmentInsideAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/ImageMathStudent/app/src/main/java/com/haemin/imagemathstudent/Adapter/AssignmentInsideAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/ImageMathStudent/app/src/main/java/com/haemin/imagemathstudent/AssignmentInfoMVP/AssignmentInfoActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/ImageMathStudent/app/src/main/java/com/haemin/imagemathstudent/AssignmentInfoMVP/AssignmentInfoActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/ImageMathStudent/app/src/main/java/com/haemin/imagemathstudent/AssignmentInfoMVP/ImageAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/ImageMathStudent/app/src/main/java/com/haemin/imagemathstudent/AssignmentInfoMVP/ImageAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/ImageMathStudent/app/src/main/java/com/haemin/imagemathstudent/SingleTon/GlobalApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/ImageMathStudent/app/src/main/java/com/haemin/imagemathstudent/SingleTon/GlobalApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/ImageMathStudent/app/src/main/java/com/haemin/imagemathstudent/View/Activity/SplashActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/ImageMathStudent/app/src/main/java/com/haemin/imagemathstudent/View/Activity/SplashActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/basicRoute/fcmPush.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Android/ImageMathTutor/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/ImageMathTutor/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Android/ImageMathTutor/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/ImageMathTutor/.idea/caches/gradle_models.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/contentRoute/assignment.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/contentRoute/assignment.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/contentRoute/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/contentRoute/test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/ImageMathTutor/app/src/main/java/com/haemin/imagemathtutor/Retrofit/RetrofitInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/ImageMathTutor/app/src/main/java/com/haemin/imagemathtutor/Retrofit/RetrofitInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/ImageMathTutor/app/src/main/java/com/haemin/imagemathtutor/StudentManageMVP/StudentManageActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/ImageMathTutor/app/src/main/java/com/haemin/imagemathtutor/StudentManageMVP/StudentManageActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/ImageMathTutor/app/src/main/res/layout/activity_student_manage.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/ImageMathTutor/app/src/main/res/layout/activity_student_manage.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/ImageMathTutor/app/src/main/res/layout/recycler_student_manage.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/ImageMathTutor/app/src/main/res/layout/recycler_student_manage.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/basicRoute/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/basicRoute/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/contentRoute/a.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/contentRoute/assignment.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/contentRoute/assignment.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/contentRoute/terms.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/terms.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/.idea/Server.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/basicRoute/account.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/basicRoute/alarm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/basicRoute/auth.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/basicRoute/checkAuth.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/basicRoute/setting.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/contentRoute/a.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/contentRoute/assignment.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/contentRoute/config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/contentRoute/lecture.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/contentRoute/notice.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/contentRoute/qna.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/contentRoute/s3_put.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/contentRoute/terms.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/contentRoute/test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/customUtil.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/db/db.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/db/db2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/image_math_ppk.ppk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/imagemath.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/key/imagemath-server-firebase-adminsdk-tkois-54443dad9e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/key/rootkey.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/logo.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/server.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,6 +58,43 @@
     <execution>
       <executable />
     </execution>
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="imagemath@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="imagemath@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="imagemath@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="ImageMath: schema" type="76f4a085:MysqlImplModel$Schema" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -91,7 +117,9 @@
     <option name="showVisibilityIcons" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -107,10 +135,11 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
+    <property name="settings.editor.selected.configurable" value="SQL Dialects" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\goals\Desktop\SeoulTech\TeachingSolution\ImageMathServer\views" />
       <recent name="C:\Users\goals\Desktop\SeoulTech\TeachingSolution\ImageMathServer\routes\contentRoute" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -119,6 +148,33 @@
       <recent name="C:\Users\goals\Desktop\SeoulTech\TeachingSolution\ImageMathServer" />
       <recent name="C:\Users\goals\Desktop\SeoulTech\TeachingSolution\ImageMathServer\auth" />
     </key>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="root:imagemath@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="root:imagemath@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@3e20bca2" type="9fbbdea:ServiceModel$ServiceNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="root:imagemath@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@2f69b05e" type="9fbbdea:ServiceModel$ServiceNode" />
+              </path>
+            </expand>
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -130,7 +186,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1594705505934</updated>
-      <workItem from="1594705509673" duration="4688000" />
+      <workItem from="1594705509673" duration="9250000" />
+      <workItem from="1594721278781" duration="613000" />
+      <workItem from="1594721922088" duration="1423000" />
     </task>
     <servers />
   </component>
@@ -138,26 +196,58 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="19" y="179" key="#SQL_Dialects" timestamp="1594712362559">
+      <screen x="0" y="0" width="1707" height="1027" />
+    </state>
+    <state x="19" y="179" key="#SQL_Dialects/0.0.1707.1027@0.0.1707.1027" timestamp="1594712362559" />
+    <state x="446" y="176" key="#SQL_Resolution_Scopes" timestamp="1594722097112">
+      <screen x="0" y="0" width="1707" height="1027" />
+    </state>
+    <state x="446" y="176" key="#SQL_Resolution_Scopes/0.0.1707.1027@0.0.1707.1027" timestamp="1594722097112" />
+    <state x="19" y="179" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1594721857397">
+      <screen x="0" y="0" width="1707" height="1027" />
+    </state>
+    <state x="19" y="179" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1707.1027@0.0.1707.1027" timestamp="1594721857397" />
     <state x="1030" y="326" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1594706861600">
       <screen x="0" y="0" width="1707" height="1027" />
     </state>
     <state x="1030" y="326" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1707.1027@0.0.1707.1027" timestamp="1594706861600" />
-    <state width="1663" height="277" key="GridCell.Tab.0.bottom" timestamp="1594709508353">
+    <state width="809" height="276" key="GridCell.Tab.0.bottom" timestamp="1594723368549">
       <screen x="0" y="0" width="1707" height="1027" />
     </state>
-    <state width="1663" height="277" key="GridCell.Tab.0.bottom/0.0.1707.1027@0.0.1707.1027" timestamp="1594709508353" />
-    <state width="1663" height="277" key="GridCell.Tab.0.center" timestamp="1594709508353">
+    <state width="809" height="276" key="GridCell.Tab.0.bottom/0.0.1707.1027@0.0.1707.1027" timestamp="1594723368549" />
+    <state width="809" height="276" key="GridCell.Tab.0.center" timestamp="1594723368548">
       <screen x="0" y="0" width="1707" height="1027" />
     </state>
-    <state width="1663" height="277" key="GridCell.Tab.0.center/0.0.1707.1027@0.0.1707.1027" timestamp="1594709508353" />
-    <state width="1663" height="277" key="GridCell.Tab.0.left" timestamp="1594709508353">
+    <state width="809" height="276" key="GridCell.Tab.0.center/0.0.1707.1027@0.0.1707.1027" timestamp="1594723368548" />
+    <state width="809" height="276" key="GridCell.Tab.0.left" timestamp="1594723368547">
       <screen x="0" y="0" width="1707" height="1027" />
     </state>
-    <state width="1663" height="277" key="GridCell.Tab.0.left/0.0.1707.1027@0.0.1707.1027" timestamp="1594709508353" />
-    <state width="1663" height="277" key="GridCell.Tab.0.right" timestamp="1594709508353">
+    <state width="809" height="276" key="GridCell.Tab.0.left/0.0.1707.1027@0.0.1707.1027" timestamp="1594723368547" />
+    <state width="809" height="276" key="GridCell.Tab.0.right" timestamp="1594723368548">
       <screen x="0" y="0" width="1707" height="1027" />
     </state>
-    <state width="1663" height="277" key="GridCell.Tab.0.right/0.0.1707.1027@0.0.1707.1027" timestamp="1594709508353" />
+    <state width="809" height="276" key="GridCell.Tab.0.right/0.0.1707.1027@0.0.1707.1027" timestamp="1594723368548" />
+    <state x="357" y="159" key="SettingsEditor" timestamp="1594722257170">
+      <screen x="0" y="0" width="1707" height="1027" />
+    </state>
+    <state x="357" y="159" key="SettingsEditor/0.0.1707.1027@0.0.1707.1027" timestamp="1594722257170" />
+    <state width="200" height="461" key="SqlResolveConfigurable" timestamp="1594722091118">
+      <screen x="0" y="0" width="1707" height="1027" />
+    </state>
+    <state width="200" height="461" key="SqlResolveConfigurable/0.0.1707.1027@0.0.1707.1027" timestamp="1594722091118" />
+    <state x="650" y="344" width="407" height="334" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1594712805034">
+      <screen x="0" y="0" width="1707" height="1027" />
+    </state>
+    <state x="650" y="344" width="407" height="334" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog/0.0.1707.1027@0.0.1707.1027" timestamp="1594712805034" />
+    <state x="570" y="162" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1594722208506">
+      <screen x="0" y="0" width="1707" height="1027" />
+    </state>
+    <state x="570" y="162" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1707.1027@0.0.1707.1027" timestamp="1594722208506" />
+    <state x="783" y="342" key="com.intellij.ide.util.TipDialog" timestamp="1594721327471">
+      <screen x="0" y="0" width="1707" height="1027" />
+    </state>
+    <state x="783" y="342" key="com.intellij.ide.util.TipDialog/0.0.1707.1027@0.0.1707.1027" timestamp="1594721327471" />
     <state x="554" y="268" width="726" height="490" key="find.popup" timestamp="1594708830107">
       <screen x="0" y="0" width="1707" height="1027" />
     </state>

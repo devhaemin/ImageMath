@@ -49,7 +49,6 @@ app.use('/alarm', alarmRoute);
 
 const settingRoute = require('./routes/basicRoute/setting');
 app.use('/setting', settingRoute);
-// ALL : ȯ�漳��(��Ÿ �˸� ����, ���̼���)
 
 const uploadFile = require('./routes/contentRoute/s3_put.js');
 app.use('/File', uploadFile);
@@ -85,9 +84,8 @@ const qnaRoute = require('./routes/contentRoute/qna');
 app.use('/qna', qnaRoute);
 // ALL : Qna, Chat
 
-// const fcmRoute = require('./routes/basicRoute/fcmPush');
-// app.use('/push', fcmRoute);
-
+const fcmRoute = require('./routes/basicRoute/fcmPush');
+app.use('/push', fcmRoute);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
