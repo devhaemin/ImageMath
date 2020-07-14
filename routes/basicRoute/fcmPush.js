@@ -24,6 +24,9 @@ function postPushAlarm() {
             } else if(result[0].userType == "tutor"){
                 cUtil.sendPushMessage(userSeq,"이미지수학 알림" ,message);
                 res.status(200).send('Success!');
+            } else{
+                console.log("User Type Error")
+                res.status(500).send("DB ERROR!");
             }
         });
     }

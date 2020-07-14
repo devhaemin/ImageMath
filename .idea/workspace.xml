@@ -2,52 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="36413532-2186-4b51-bc32-d36d86fd342c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/basicRoute/fcmPush.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/ImageMathTutor/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/ImageMathTutor/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/ImageMathTutor/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/ImageMathTutor/.idea/caches/gradle_models.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/ImageMathTutor/app/src/main/java/com/haemin/imagemathtutor/Retrofit/RetrofitInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/ImageMathTutor/app/src/main/java/com/haemin/imagemathtutor/Retrofit/RetrofitInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Android/ImageMathTutor/app/src/main/java/com/haemin/imagemathtutor/StudentManageMVP/StudentManageActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/ImageMathTutor/app/src/main/java/com/haemin/imagemathtutor/StudentManageMVP/StudentManageActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/ImageMathTutor/app/src/main/res/layout/activity_student_manage.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/ImageMathTutor/app/src/main/res/layout/activity_student_manage.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/ImageMathTutor/app/src/main/res/layout/recycler_student_manage.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/ImageMathTutor/app/src/main/res/layout/recycler_student_manage.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/basicRoute/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/basicRoute/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/contentRoute/a.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/contentRoute/assignment.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/contentRoute/assignment.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/contentRoute/terms.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/terms.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/.idea/Server.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/basicRoute/account.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/basicRoute/alarm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/basicRoute/auth.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/basicRoute/checkAuth.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/basicRoute/setting.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/config.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/contentRoute/a.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/contentRoute/assignment.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/contentRoute/config.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/contentRoute/lecture.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/contentRoute/notice.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/contentRoute/qna.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/contentRoute/s3_put.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/contentRoute/terms.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/contentRoute/test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/customUtil.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/db/db.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/db/db2.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/image_math_ppk.ppk" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/imagemath.pem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/key/imagemath-server-firebase-adminsdk-tkois-54443dad9e.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/key/rootkey.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/logo.xls" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/server.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/basicRoute/fcmPush.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/basicRoute/fcmPush.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,7 +145,7 @@
       <updated>1594705505934</updated>
       <workItem from="1594705509673" duration="9250000" />
       <workItem from="1594721278781" duration="613000" />
-      <workItem from="1594721922088" duration="1423000" />
+      <workItem from="1594721922088" duration="2223000" />
     </task>
     <servers />
   </component>
@@ -212,22 +169,22 @@
       <screen x="0" y="0" width="1707" height="1027" />
     </state>
     <state x="1030" y="326" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1707.1027@0.0.1707.1027" timestamp="1594706861600" />
-    <state width="809" height="276" key="GridCell.Tab.0.bottom" timestamp="1594723368549">
+    <state width="809" height="276" key="GridCell.Tab.0.bottom" timestamp="1594724161907">
       <screen x="0" y="0" width="1707" height="1027" />
     </state>
-    <state width="809" height="276" key="GridCell.Tab.0.bottom/0.0.1707.1027@0.0.1707.1027" timestamp="1594723368549" />
-    <state width="809" height="276" key="GridCell.Tab.0.center" timestamp="1594723368548">
+    <state width="809" height="276" key="GridCell.Tab.0.bottom/0.0.1707.1027@0.0.1707.1027" timestamp="1594724161907" />
+    <state width="809" height="276" key="GridCell.Tab.0.center" timestamp="1594724161907">
       <screen x="0" y="0" width="1707" height="1027" />
     </state>
-    <state width="809" height="276" key="GridCell.Tab.0.center/0.0.1707.1027@0.0.1707.1027" timestamp="1594723368548" />
-    <state width="809" height="276" key="GridCell.Tab.0.left" timestamp="1594723368547">
+    <state width="809" height="276" key="GridCell.Tab.0.center/0.0.1707.1027@0.0.1707.1027" timestamp="1594724161907" />
+    <state width="809" height="276" key="GridCell.Tab.0.left" timestamp="1594724161907">
       <screen x="0" y="0" width="1707" height="1027" />
     </state>
-    <state width="809" height="276" key="GridCell.Tab.0.left/0.0.1707.1027@0.0.1707.1027" timestamp="1594723368547" />
-    <state width="809" height="276" key="GridCell.Tab.0.right" timestamp="1594723368548">
+    <state width="809" height="276" key="GridCell.Tab.0.left/0.0.1707.1027@0.0.1707.1027" timestamp="1594724161907" />
+    <state width="809" height="276" key="GridCell.Tab.0.right" timestamp="1594724161907">
       <screen x="0" y="0" width="1707" height="1027" />
     </state>
-    <state width="809" height="276" key="GridCell.Tab.0.right/0.0.1707.1027@0.0.1707.1027" timestamp="1594723368548" />
+    <state width="809" height="276" key="GridCell.Tab.0.right/0.0.1707.1027@0.0.1707.1027" timestamp="1594724161907" />
     <state x="357" y="159" key="SettingsEditor" timestamp="1594722257170">
       <screen x="0" y="0" width="1707" height="1027" />
     </state>
