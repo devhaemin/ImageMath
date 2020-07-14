@@ -4,7 +4,6 @@
     <list default="true" id="36413532-2186-4b51-bc32-d36d86fd342c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../Android/ImageMathTutor/app/src/main/java/com/haemin/imagemathtutor/StudentManageMVP/StudentManageActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/ImageMathTutor/app/src/main/java/com/haemin/imagemathtutor/StudentManageMVP/StudentManageActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/basicRoute/fcmPush.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/basicRoute/fcmPush.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +144,7 @@
       <updated>1594705505934</updated>
       <workItem from="1594705509673" duration="9250000" />
       <workItem from="1594721278781" duration="613000" />
-      <workItem from="1594721922088" duration="2223000" />
+      <workItem from="1594721922088" duration="2865000" />
     </task>
     <servers />
   </component>
