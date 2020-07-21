@@ -66,7 +66,28 @@ util.connect = function handleDisconnect() {
       throw err;
     }
   });
-}
+};
+
+util.tokenMiddleWare = function(req, res, next){
+    var token = req.headers['x-access-token'];
+    if(token){
+        util.connection.query("select * from UserInfo where accessToken = ?", token, function (err ,userInfo) {
+            if(err){
+                console.log(err);
+                next();
+            }else if(userInfo){
+                next();
+            }else if(userInfo.length === 0){
+                next();
+            }else{
+                req.userInfo = userInfo[0];
+                next();
+            }
+        });
+    }else{
+        next();
+    }
+};
 
 
 util.isDelivered = function(arr){

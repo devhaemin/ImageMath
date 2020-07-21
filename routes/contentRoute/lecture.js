@@ -5,26 +5,6 @@ const mysql = require('mysql');
 const connection = cUtil.connection;
 cUtil.connect;
 
-function deleteLecture(index, reqLectureSeqs, userSeq, lectureSeq) {
-    var lectureList = reqLectureSeqs.split('/');
-    if (lectureList[index] == lectureSeq) {
-        lectureList.splice(index, 1);
-        var joinList = lectureList.join('/');
-        console.log("after delete reqLectureSeq : " + joinList);
-        var sql = "update UserInfo set reqLectureSeqs = ? where userSeq = ?";
-        var sql1 = mysql.format(sql, [joinList, userSeq]);
-        console.log("update sql : " + sql1);
-        setTimeout(() => {
-            connection.query(sql1, function (err, result, next) {
-                if (err) {
-                    console.log(err);
-                } else {
-                    return;
-                }
-            })
-        }, 200);
-    }
-}
 
 router.get('/', lecture);
 router.get('/student', studentLectureList);
@@ -32,10 +12,43 @@ router.get('/student/:lectureSeq', getStudentList);
 router.patch('/recognition/:lectureSeq', recognitionLec);
 router.get('/student/:lectureSeq', lecturestu);
 router.delete('/student/:lectureSeq/:userSeq', deleteStudent);
-router.post('/add', addlecture)
+router.post('/add', addlecture);
 router.get('/recognition/:lectureSeq', getRecongition);
 router.post('/add/student', addrecognition);
 router.get('/tutor', getStudentLectureList);
+router.patch('/:lectureSeq', setExpiredLecture);
+router.delete('/:lectureSeq', deleteLecture);
+
+function deleteLecture(req, res) {
+    var userInfo = req.userInfo;
+    var lectureSeq = req.params.lectureSeq;
+    if(!userInfo || userInfo.userType !== 'tutor'){
+        res.status(403).send({"message" : "Token ERROR!"});
+    }else{
+        connection.query('delete from LectureInfo where lectureSeq = ?', lectureSeq, function (err, result) {
+            res.status(200).send({});
+        })
+    }
+}
+function setExpiredLecture(req, res) {
+    var userInfo = req.userInfo;
+    var lectureSeq = req.params.lectureSeq;
+    var isExpired = req.body.isExpired;
+    if(!userInfo || userInfo.userType !== 'tutor'){
+        res.status(403).send({"message" : "Token ERROR!"});
+    }else{
+        connection.query('UPDATE LectureInfo SET isExpired = ? WHERE lectureSeq = ?',[isExpired, lectureSeq], function (err, result) {
+            if(err){
+                console.log(err);
+                res.status(500).send({"message" : "Internal Server MYSQL ERROR!"});
+            }else{
+                res.status(200).send({});
+            }
+        })
+    }
+}
+
+
 
 function getStudentList(req, res) {
     var token = req.headers['x-access-token'];
@@ -195,7 +208,6 @@ function recognitionLec(req, res) {
                     console.log(err);
                     //res.status(400).send("학생을 찾을 수 없습니다.");
                 } else if (result.length == 0) {
-                    console.log("select * from UserInfo where userSeq = " + studentSeq);
                     res.status(400).send("학생을 찾을 수 없습니다.");
                 } else {
                     if (isAccept) {

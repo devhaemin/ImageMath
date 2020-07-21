@@ -32,6 +32,7 @@ app.use((req, res, next) => {
 
   next();
 });
+app.use(cUtil.tokenMiddleWare);
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
