@@ -22,7 +22,7 @@ router.delete('/:lectureSeq', deleteLecture);
 function deleteLecture(req, res) {
     var userInfo = req.userInfo;
     var lectureSeq = req.params.lectureSeq;
-    if(!userInfo || userInfo.userType !== 'tutor'){
+    if(!userInfo || userInfo.userType != 'tutor'){
         res.status(403).send({"message" : "Token ERROR!"});
     }else{
         connection.query('delete from LectureInfo where lectureSeq = ?', lectureSeq, function (err, result) {
@@ -34,7 +34,7 @@ function setExpiredLecture(req, res) {
     var userInfo = req.userInfo;
     var lectureSeq = req.params.lectureSeq;
     var isExpired = req.body.isExpired;
-    if(!userInfo || userInfo.userType !== 'tutor'){
+    if(!userInfo || userInfo.userType != 'tutor'){
         res.status(403).send({"message" : "Token ERROR!"});
     }else{
         connection.query('UPDATE LectureInfo SET isExpired = ? WHERE lectureSeq = ?',[isExpired, lectureSeq], function (err, result) {

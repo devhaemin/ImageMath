@@ -75,7 +75,7 @@ util.tokenMiddleWare = function(req, res, next){
             if(err){
                 console.log(err);
                 next();
-            }else if(userInfo){
+            }else if(!userInfo){
                 next();
             }else if(userInfo.length === 0){
                 next();

@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="36413532-2186-4b51-bc32-d36d86fd342c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../Android/ImageMathTutor/app/src/main/java/com/haemin/imagemathtutor/Adapter/LectureRecyclerAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/ImageMathTutor/app/src/main/java/com/haemin/imagemathtutor/Adapter/LectureRecyclerAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/ImageMathTutor/app/src/main/java/com/haemin/imagemathtutor/Retrofit/RetrofitInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/ImageMathTutor/app/src/main/java/com/haemin/imagemathtutor/Retrofit/RetrofitInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/ImageMathTutor/app/src/main/res/layout/recycler_lecture.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/ImageMathTutor/app/src/main/res/layout/recycler_lecture.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customUtil.js" beforeDir="false" afterPath="$PROJECT_DIR$/customUtil.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/contentRoute/lecture.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/contentRoute/lecture.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,7 +143,7 @@
       <workItem from="1594721922088" duration="3054000" />
       <workItem from="1595231118791" duration="6871000" />
       <workItem from="1595317774756" duration="2305000" />
-      <workItem from="1595320121396" duration="3708000" />
+      <workItem from="1595320121396" duration="4356000" />
     </task>
     <servers />
   </component>
@@ -174,22 +174,22 @@
       <screen x="0" y="0" width="1707" height="1027" />
     </state>
     <state x="767" y="82" key="FileDocumentManager.FileCacheConflict/0.0.1707.1027@0.0.1707.1027" timestamp="1595319615093" />
-    <state width="809" height="275" key="GridCell.Tab.0.bottom" timestamp="1595324374802">
+    <state width="809" height="275" key="GridCell.Tab.0.bottom" timestamp="1595330984610">
       <screen x="0" y="0" width="1707" height="1027" />
     </state>
-    <state width="809" height="275" key="GridCell.Tab.0.bottom/0.0.1707.1027@0.0.1707.1027" timestamp="1595324374802" />
-    <state width="809" height="275" key="GridCell.Tab.0.center" timestamp="1595324374802">
+    <state width="809" height="275" key="GridCell.Tab.0.bottom/0.0.1707.1027@0.0.1707.1027" timestamp="1595330984610" />
+    <state width="809" height="275" key="GridCell.Tab.0.center" timestamp="1595330984610">
       <screen x="0" y="0" width="1707" height="1027" />
     </state>
-    <state width="809" height="275" key="GridCell.Tab.0.center/0.0.1707.1027@0.0.1707.1027" timestamp="1595324374802" />
-    <state width="809" height="275" key="GridCell.Tab.0.left" timestamp="1595324374802">
+    <state width="809" height="275" key="GridCell.Tab.0.center/0.0.1707.1027@0.0.1707.1027" timestamp="1595330984610" />
+    <state width="809" height="275" key="GridCell.Tab.0.left" timestamp="1595330984610">
       <screen x="0" y="0" width="1707" height="1027" />
     </state>
-    <state width="809" height="275" key="GridCell.Tab.0.left/0.0.1707.1027@0.0.1707.1027" timestamp="1595324374802" />
-    <state width="809" height="275" key="GridCell.Tab.0.right" timestamp="1595324374802">
+    <state width="809" height="275" key="GridCell.Tab.0.left/0.0.1707.1027@0.0.1707.1027" timestamp="1595330984610" />
+    <state width="809" height="275" key="GridCell.Tab.0.right" timestamp="1595330984610">
       <screen x="0" y="0" width="1707" height="1027" />
     </state>
-    <state width="809" height="275" key="GridCell.Tab.0.right/0.0.1707.1027@0.0.1707.1027" timestamp="1595324374802" />
+    <state width="809" height="275" key="GridCell.Tab.0.right/0.0.1707.1027@0.0.1707.1027" timestamp="1595330984610" />
     <state width="207" height="477" key="HiddenNamespacesPopup" timestamp="1595235893713">
       <screen x="0" y="0" width="1707" height="1027" />
     </state>
