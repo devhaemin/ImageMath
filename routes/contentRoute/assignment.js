@@ -52,7 +52,12 @@ function connectionQuery(connection, sql, params) {
     });
 }
 
-
+/**
+ * @api {get} / 해당수업 과제 리스트 출력
+ * @apiName assignment
+ * @apiGroup assignment
+ *
+ */
 router.get('/', assignment);//해당수업 과제 리스트 출력
 
 router.post('/add', assignmentadd);
@@ -497,9 +502,8 @@ function studentAssignmentInfo(req, res) {
                 console.log(err);
                 res.status(400).send('token error');
             } else {
-                console.log("else");
-                var userSeq = result[0].userSeq;
-                const sql = "select * from AssignmentAdm AS ad JOIN AssignmentInfo AS ai where ad.userSeq = ? and ad.assignmentSeq = ? and ad.assignmentSeq = ai.assignmentSeq"; //
+                var userSeq = result[0].studentCode;
+                const sql = "select * from AssignmentAdm AS ad JOIN AssignmentInfo AS ai where ad.studentCode = ? and ad.assignmentSeq = ? and ad.assignmentSeq = ai.assignmentSeq"; //
                 const sql3 = "select * from FileInfo where boardType = ? and userSeq = ? and postSeq = " + assignmentSeq + " order by uploadTime desc";  // submitFiles
                 connection.query(sql, [userSeq, assignmentSeq], function (err, result, next) {
                     console.log(sql);
@@ -580,7 +584,7 @@ function assignment(req, res) {
     } else {
         const sql = "select * from UserInfo where accessToken = ?";
         var sql1 = mysql.format(sql, token);
-        var pageData = []
+        var pageData = [];
         const sql2 = "select * from AssignmentInfo order by endTime desc";
         // var sql3 = mysql.format(sql2, lectureSeq);
         connection.query(sql1, function (err, result, next) {
@@ -681,7 +685,7 @@ function assignmentadd(req, res) {
                                 console.log(err2);
                             } else {
                                 for (var i = 0; i < result2.length; i++) {
-                                    connection.query("insert into AssignmentAdm (userSeq, assignmentSeq, uploadTime) values (?, ?, ?)", [result2[i].userSeq, results.insertId, reqbody.postTime], function (err3, result3, next3) {
+                                    connection.query("insert into AssignmentAdm (userSeq, studentCode, assignmentSeq, uploadTime) values (?, ?, ?, ?)", [result2[i].userSeq, result2[i].studentCode, results.insertId, reqbody.postTime], function (err3, result3, next3) {
                                         if (err3) {
                                             console.log(err3);
                                         } else {
@@ -772,7 +776,7 @@ function assignmentStudent(req, res) {
             console.log("token expired");
             res.status(400).send("토큰이 만료되었습니다.");
         } else {
-            connection.query("select * from AssignmentAdm AS ad JOIN AssignmentInfo AS ai where ad.assignmentSeq = ai.assignmentSeq and ad.userSeq = ? order by ai.endTime desc", result[0].userSeq, function (err1, result1, next1) {
+            connection.query("select * from AssignmentAdm AS ad JOIN AssignmentInfo AS ai where ad.assignmentSeq = ai.assignmentSeq and ad.studentCode = ? order by ai.endTime desc", result[0].studentCode, function (err1, result1, next1) {
                 if (err1) {
                     console.log(err1)
                 } else if (result1.length == 0) {

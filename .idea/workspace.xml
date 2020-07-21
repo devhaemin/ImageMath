@@ -2,8 +2,65 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="36413532-2186-4b51-bc32-d36d86fd342c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Android/ImageMathTutor/app/src/main/java/com/haemin/imagemathtutor/StudentManageMVP/StudentManageActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/ImageMathTutor/app/src/main/java/com/haemin/imagemathtutor/StudentManageMVP/StudentManageActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apidoc/api_data.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apidoc/api_data.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apidoc/api_project.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apidoc/api_project.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apidoc/css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apidoc/fonts/glyphicons-halflings-regular.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apidoc/fonts/glyphicons-halflings-regular.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apidoc/fonts/glyphicons-halflings-regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apidoc/fonts/glyphicons-halflings-regular.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apidoc/fonts/glyphicons-halflings-regular.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apidoc/img/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apidoc/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apidoc/locales/ca.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apidoc/locales/cs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apidoc/locales/de.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apidoc/locales/es.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apidoc/locales/fr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apidoc/locales/it.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apidoc/locales/locale.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apidoc/locales/nl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apidoc/locales/pl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apidoc/locales/pt_br.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apidoc/locales/ro.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apidoc/locales/ru.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apidoc/locales/tr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apidoc/locales/vi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apidoc/locales/zh.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apidoc/locales/zh_cn.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apidoc/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apidoc/utils/handlebars_helper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apidoc/utils/send_sample_request.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apidoc/utils/send_sample_request_utils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apidoc/vendor/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apidoc/vendor/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apidoc/vendor/diff_match_patch.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apidoc/vendor/handlebars.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apidoc/vendor/jquery.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apidoc/vendor/list.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apidoc/vendor/lodash.custom.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apidoc/vendor/path-to-regexp/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apidoc/vendor/path-to-regexp/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apidoc/vendor/polyfill.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apidoc/vendor/prism.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apidoc/vendor/prism.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apidoc/vendor/require.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apidoc/vendor/semver.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apidoc/vendor/webfontloader.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/ImageMathStudent/app/src/main/java/com/haemin/imagemathstudent/SingleTon/GlobalApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/ImageMathStudent/app/src/main/java/com/haemin/imagemathstudent/SingleTon/GlobalApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/ImageMathTutor/app/src/main/java/com/haemin/imagemathtutor/Retrofit/RetrofitInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/ImageMathTutor/app/src/main/java/com/haemin/imagemathtutor/Retrofit/RetrofitInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/ImageMathTutor/app/src/main/java/com/haemin/imagemathtutor/View/RegisterProcess/RegisterActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/ImageMathTutor/app/src/main/java/com/haemin/imagemathtutor/View/RegisterProcess/RegisterActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/basicRoute/account.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/basicRoute/account.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/contentRoute/assignment.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/contentRoute/assignment.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/contentRoute/lecture.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/contentRoute/lecture.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,6 +130,7 @@
     <option name="showVisibilityIcons" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -91,7 +149,10 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="SQL Dialects" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -115,16 +176,6 @@
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="root:imagemath@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
               </path>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="root:imagemath@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="com.intellij.database.console.session.MessageBusSession@3e20bca2" type="9fbbdea:ServiceModel$ServiceNode" />
-              </path>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="root:imagemath@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="com.intellij.database.console.session.MessageBusSession@2f69b05e" type="9fbbdea:ServiceModel$ServiceNode" />
-              </path>
             </expand>
             <select />
           </treeState>
@@ -144,12 +195,18 @@
       <updated>1594705505934</updated>
       <workItem from="1594705509673" duration="9250000" />
       <workItem from="1594721278781" duration="613000" />
-      <workItem from="1594721922088" duration="2865000" />
+      <workItem from="1594721922088" duration="3054000" />
+      <workItem from="1595231118791" duration="6871000" />
+      <workItem from="1595317774756" duration="2305000" />
+      <workItem from="1595320121396" duration="1579000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="19" y="179" key="#SQL_Dialects" timestamp="1594712362559">
@@ -160,34 +217,42 @@
       <screen x="0" y="0" width="1707" height="1027" />
     </state>
     <state x="446" y="176" key="#SQL_Resolution_Scopes/0.0.1707.1027@0.0.1707.1027" timestamp="1594722097112" />
-    <state x="19" y="179" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1594721857397">
+    <state x="557" y="148" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1595320038164">
       <screen x="0" y="0" width="1707" height="1027" />
     </state>
-    <state x="19" y="179" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1707.1027@0.0.1707.1027" timestamp="1594721857397" />
+    <state x="557" y="148" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1707.1027@0.0.1707.1027" timestamp="1595320038164" />
     <state x="1030" y="326" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1594706861600">
       <screen x="0" y="0" width="1707" height="1027" />
     </state>
     <state x="1030" y="326" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1707.1027@0.0.1707.1027" timestamp="1594706861600" />
-    <state width="809" height="276" key="GridCell.Tab.0.bottom" timestamp="1594724161907">
+    <state x="767" y="82" key="FileDocumentManager.FileCacheConflict" timestamp="1595319615093">
       <screen x="0" y="0" width="1707" height="1027" />
     </state>
-    <state width="809" height="276" key="GridCell.Tab.0.bottom/0.0.1707.1027@0.0.1707.1027" timestamp="1594724161907" />
-    <state width="809" height="276" key="GridCell.Tab.0.center" timestamp="1594724161907">
+    <state x="767" y="82" key="FileDocumentManager.FileCacheConflict/0.0.1707.1027@0.0.1707.1027" timestamp="1595319615093" />
+    <state width="813" height="275" key="GridCell.Tab.0.bottom" timestamp="1595320003529">
       <screen x="0" y="0" width="1707" height="1027" />
     </state>
-    <state width="809" height="276" key="GridCell.Tab.0.center/0.0.1707.1027@0.0.1707.1027" timestamp="1594724161907" />
-    <state width="809" height="276" key="GridCell.Tab.0.left" timestamp="1594724161907">
+    <state width="813" height="275" key="GridCell.Tab.0.bottom/0.0.1707.1027@0.0.1707.1027" timestamp="1595320003529" />
+    <state width="813" height="275" key="GridCell.Tab.0.center" timestamp="1595320003529">
       <screen x="0" y="0" width="1707" height="1027" />
     </state>
-    <state width="809" height="276" key="GridCell.Tab.0.left/0.0.1707.1027@0.0.1707.1027" timestamp="1594724161907" />
-    <state width="809" height="276" key="GridCell.Tab.0.right" timestamp="1594724161907">
+    <state width="813" height="275" key="GridCell.Tab.0.center/0.0.1707.1027@0.0.1707.1027" timestamp="1595320003529" />
+    <state width="813" height="275" key="GridCell.Tab.0.left" timestamp="1595320003528">
       <screen x="0" y="0" width="1707" height="1027" />
     </state>
-    <state width="809" height="276" key="GridCell.Tab.0.right/0.0.1707.1027@0.0.1707.1027" timestamp="1594724161907" />
-    <state x="357" y="159" key="SettingsEditor" timestamp="1594722257170">
+    <state width="813" height="275" key="GridCell.Tab.0.left/0.0.1707.1027@0.0.1707.1027" timestamp="1595320003528" />
+    <state width="813" height="275" key="GridCell.Tab.0.right" timestamp="1595320003529">
       <screen x="0" y="0" width="1707" height="1027" />
     </state>
-    <state x="357" y="159" key="SettingsEditor/0.0.1707.1027@0.0.1707.1027" timestamp="1594722257170" />
+    <state width="813" height="275" key="GridCell.Tab.0.right/0.0.1707.1027@0.0.1707.1027" timestamp="1595320003529" />
+    <state width="207" height="477" key="HiddenNamespacesPopup" timestamp="1595235893713">
+      <screen x="0" y="0" width="1707" height="1027" />
+    </state>
+    <state width="207" height="477" key="HiddenNamespacesPopup/0.0.1707.1027@0.0.1707.1027" timestamp="1595235893713" />
+    <state x="357" y="159" key="SettingsEditor" timestamp="1595320094958">
+      <screen x="0" y="0" width="1707" height="1027" />
+    </state>
+    <state x="357" y="159" key="SettingsEditor/0.0.1707.1027@0.0.1707.1027" timestamp="1595320094958" />
     <state width="200" height="461" key="SqlResolveConfigurable" timestamp="1594722091118">
       <screen x="0" y="0" width="1707" height="1027" />
     </state>
@@ -196,17 +261,17 @@
       <screen x="0" y="0" width="1707" height="1027" />
     </state>
     <state x="650" y="344" width="407" height="334" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog/0.0.1707.1027@0.0.1707.1027" timestamp="1594712805034" />
-    <state x="570" y="162" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1594722208506">
+    <state x="211" y="168" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1595319439268">
       <screen x="0" y="0" width="1707" height="1027" />
     </state>
-    <state x="570" y="162" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1707.1027@0.0.1707.1027" timestamp="1594722208506" />
-    <state x="783" y="342" key="com.intellij.ide.util.TipDialog" timestamp="1594721327471">
+    <state x="211" y="168" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1707.1027@0.0.1707.1027" timestamp="1595319439268" />
+    <state x="783" y="342" key="com.intellij.ide.util.TipDialog" timestamp="1595320132774">
       <screen x="0" y="0" width="1707" height="1027" />
     </state>
-    <state x="783" y="342" key="com.intellij.ide.util.TipDialog/0.0.1707.1027@0.0.1707.1027" timestamp="1594721327471" />
-    <state x="554" y="268" width="726" height="490" key="find.popup" timestamp="1594708830107">
+    <state x="783" y="342" key="com.intellij.ide.util.TipDialog/0.0.1707.1027@0.0.1707.1027" timestamp="1595320132774" />
+    <state x="554" y="268" width="726" height="490" key="find.popup" timestamp="1595322007790">
       <screen x="0" y="0" width="1707" height="1027" />
     </state>
-    <state x="554" y="268" width="726" height="490" key="find.popup/0.0.1707.1027@0.0.1707.1027" timestamp="1594708830107" />
+    <state x="554" y="268" width="726" height="490" key="find.popup/0.0.1707.1027@0.0.1707.1027" timestamp="1595322007790" />
   </component>
 </project>

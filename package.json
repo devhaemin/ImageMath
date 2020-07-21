@@ -19,6 +19,14 @@
     "fcm-node": "^1.5.2",
     "excel": "^1.0.1",
     "multiparty": "^4.2.1",
-    "xlsx": "^0.16.3"
+    "xlsx": "^0.16.3",
+    "apidoc": "^0.24.0"
+  },
+  "apidoc": {
+    "name" : "이미지수학 API",
+    "title": "이미지 수학 API DOCUMENTATION",
+    "description": "이미지 수학 앱 개발을 위한 REST API 문서입니다.",
+    "url": "http://apidoc.imagemath.kr:3000/",
+    "version": "0.0.0"
   }
 }

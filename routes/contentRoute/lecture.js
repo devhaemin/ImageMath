@@ -102,7 +102,7 @@ function getStudentLectureList(req, res) {
             console.log("잘못된 토큰입니다.");
             res.status(400).send("잘못된 토큰입니다.");
         } else {
-            connection.query("select * from LectureAdm AS la JOIN LectureInfo AS li ON la.lectureSeq = li.lectureSeq and la.userSeq = ?", userSeq, function (err, lectureList) {
+            connection.query("select la.*, li.academyName, li.academySeq, li.name, li.reqStudentCnt, li.studentNum, li.time, li.totalDate, li.week, li.weekDay, IF(li.isExpired, 'true', 'false') as isExpired from LectureAdm AS la JOIN LectureInfo AS li ON la.lectureSeq = li.lectureSeq and la.userSeq = ?", userSeq, function (err, lectureList) {
                 if (err) {
                     console.log(err);
                     res.status(400).send("SQL Error");
@@ -115,7 +115,7 @@ function getStudentLectureList(req, res) {
 }
 
 function lecture(req, res) {
-    var sql = "select * from LectureInfo order by lectureSeq DESC";
+    var sql = "select lectureSeq, name, academySeq, time, weekDay, totalDate, week, studentNum, reqStudentCnt, academyName, IF(isExpired,'true','false') as isExpired from LectureInfo order by lectureSeq DESC";
     connection.query(sql, function (err, result, next) {
         if (err) {
             console.log(err);
@@ -155,7 +155,7 @@ function studentLectureList(req, res) {
                         res.status(200).send([]);
                     }
                     for (var i = 0; i < length; i++) {
-                        var sql3 = 'select * from LectureInfo where lectureSeq = ?';
+                        var sql3 = "select lectureSeq, name, academySeq, time, weekDay, totalDate, week, studentNum, reqStudentCnt, academyName, IF(isExpired,'true','false') as isExpired from LectureInfo where lectureSeq = ?";
                         connection.query(sql3, results[i].lectureSeq, function (error, results, nexts) {
                             ret.push(results[0]);
 
@@ -190,7 +190,7 @@ function recognitionLec(req, res) {
             console.log(err);
             res.status(400).send("토큰이 만료되었습니다.");
         } else if (results[0].userType = "tutor") {
-            connection.query("select * from UserInfo AS ui JOIN LectureInfo AS li where ui.userSeq = ? and li.lectureSeq = ?", [studentSeq, lectureSeq], function (err, result, next) {
+            connection.query("select ui.*, li.lectureSeq, name, academySeq, time, weekDay, totalDate, week, studentNum, reqStudentCnt, academyName, IF(isExpired,'true','false') as isExpired from UserInfo AS ui JOIN LectureInfo AS li where ui.userSeq = ? and li.lectureSeq = ?", [studentSeq, lectureSeq], function (err, result, next) {
                 if (err) {
                     console.log(err);
                     //res.status(400).send("학생을 찾을 수 없습니다.");
@@ -204,6 +204,7 @@ function recognitionLec(req, res) {
                             userSeq: result[0].userSeq,
                             lectureSeq: lectureSeq,
                             time: timestamp,
+                            studentCode: result[0].studentCode
                         }
                         connection.query("insert into LectureAdm set ?", params, function (error, results, nexts) {
                             if (error) {
@@ -230,7 +231,7 @@ function recognitionLec(req, res) {
                             }
                         })
 
-                        connection.query("INSERT IGNORE INTO AssignmentAdm (userSeq, assignmentSeq, uploadTime) SELECT userSeq,assignmentSeq,uploadTime FROM LectureAdm as la JOIN AssignmentInfo AS ai JOIN (SELECT ROUND(UNIX_TIMESTAMP(CURTIME(4)) * 1000) AS uploadTime) AS time where la.lectureSeq = ai.lectureSeq;"
+                        connection.query("INSERT IGNORE INTO AssignmentAdm (userSeq,studentCode, assignmentSeq, uploadTime) SELECT userSeq,studentCode, assignmentSeq,uploadTime FROM LectureAdm as la JOIN AssignmentInfo AS ai JOIN (SELECT ROUND(UNIX_TIMESTAMP(CURTIME(4)) * 1000) AS uploadTime) AS time where la.lectureSeq = ai.lectureSeq;"
                             , function (err, result) {
                                 if (err) {
                                     console.log("add assignment error!");
@@ -304,7 +305,7 @@ function addlecture(req, res) {
             console.log(err);
             res.status(400).send("토큰이 만료되었습니다.");
         } else if (result[0].userType = "tutor") {
-            sql = "INSERT INTO LectureInfo SET ?"
+            sql = "INSERT INTO LectureInfo SET ?";
             param = {
                 academySeq: academySeq,
                 academyName: academyName,
@@ -314,7 +315,7 @@ function addlecture(req, res) {
                 week: week,
                 totalDate: totalDate,
                 studentNum: studentNum
-            }
+            };
 
             connection.query(sql, param, function (err, rows, field) {
                 if (err) {
