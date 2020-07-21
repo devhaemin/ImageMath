@@ -502,10 +502,10 @@ function studentAssignmentInfo(req, res) {
                 console.log(err);
                 res.status(400).send('token error');
             } else {
-                var userSeq = result[0].studentCode;
+                var studentCode = result[0].studentCode;
                 const sql = "select * from AssignmentAdm AS ad JOIN AssignmentInfo AS ai where ad.studentCode = ? and ad.assignmentSeq = ? and ad.assignmentSeq = ai.assignmentSeq"; //
                 const sql3 = "select * from FileInfo where boardType = ? and userSeq = ? and postSeq = " + assignmentSeq + " order by uploadTime desc";  // submitFiles
-                connection.query(sql, [userSeq, assignmentSeq], function (err, result, next) {
+                connection.query(sql, [studentCode, assignmentSeq], function (err, result, next) {
                     console.log(sql);
                     if (err) {
                         console.log(err);
@@ -513,7 +513,7 @@ function studentAssignmentInfo(req, res) {
                     } else {
                         var ret = {};
                         ret = Object.assign(ret, result[0]);
-                        connection.query(sql3, ['assignment-submit-image', userSeq], function (err, result3, next) {
+                        connection.query(sql3, ['assignment-submit-image', result[0].userSeq], function (err, result3, next) {
                             console.log(sql3);
                             if (err) {
                                 console.log(err);
