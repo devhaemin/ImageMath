@@ -3,7 +3,6 @@ const router = express.Router();
 const cUtil = require('../../customUtil');
 const mysql = require('mysql');
 const connection = cUtil.connection;
-cUtil.connect;
 
 
 router.get('/', lecture);

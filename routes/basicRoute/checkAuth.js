@@ -4,7 +4,6 @@ const router = express.Router();
 const cUtil = require('../../customUtil');
 const connection = cUtil.connection;
 
-cUtil.connect;
 const secretKey1 = "stu";
 const secretKey2 = "tut";
 

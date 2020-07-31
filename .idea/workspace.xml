@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="36413532-2186-4b51-bc32-d36d86fd342c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Android/ImageMathTutor/app/src/main/java/com/haemin/imagemathtutor/Adapter/LectureRecyclerAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/ImageMathTutor/app/src/main/java/com/haemin/imagemathtutor/Adapter/LectureRecyclerAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/ImageMathTutor/app/src/main/res/layout/recycler_lecture.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/ImageMathTutor/app/src/main/res/layout/recycler_lecture.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/ImageMathStudent/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/ImageMathStudent/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/ImageMathStudent/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/ImageMathStudent/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/ImageMathTutor/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/ImageMathTutor/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/contentRoute/assignment.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/contentRoute/assignment.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,33 +58,26 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="IgnoredFileRootStore">
-    <option name="generatedRoots">
-      <set>
-        <option value="C:\Users\goals\Desktop\SeoulTech\TeachingSolution\ImageMathServer\.idea" />
-      </set>
-    </option>
-  </component>
   <component name="ProjectId" id="1efH0fqLwyMqq58uK7Vja5u8OYk" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="javascript.nodejs.core.library.configured.version" value="10.15.3" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/routes" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -111,23 +105,6 @@
       <recent name="C:\Users\goals\Desktop\SeoulTech\TeachingSolution\ImageMathServer\auth" />
     </key>
   </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="root:imagemath@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              </path>
-            </expand>
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -144,11 +121,12 @@
       <workItem from="1595231118791" duration="6871000" />
       <workItem from="1595317774756" duration="2305000" />
       <workItem from="1595320121396" duration="5137000" />
+      <workItem from="1595353317985" duration="823000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -162,10 +140,11 @@
       <screen x="0" y="0" width="1707" height="1027" />
     </state>
     <state x="446" y="176" key="#SQL_Resolution_Scopes/0.0.1707.1027@0.0.1707.1027" timestamp="1594722097112" />
-    <state x="557" y="148" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1595320038164">
-      <screen x="0" y="0" width="1707" height="1027" />
+    <state x="548" y="171" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1595353413543">
+      <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="557" y="148" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1707.1027@0.0.1707.1027" timestamp="1595320038164" />
+    <state x="548" y="171" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1680.1027@0.23.1680.1027" timestamp="1595353413543" />
     <state x="1030" y="326" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1594706861600">
       <screen x="0" y="0" width="1707" height="1027" />
     </state>
@@ -194,10 +173,11 @@
       <screen x="0" y="0" width="1707" height="1027" />
     </state>
     <state width="207" height="477" key="HiddenNamespacesPopup/0.0.1707.1027@0.0.1707.1027" timestamp="1595235893713" />
-    <state x="357" y="159" key="SettingsEditor" timestamp="1595320094958">
-      <screen x="0" y="0" width="1707" height="1027" />
+    <state x="351" y="182" key="SettingsEditor" timestamp="1595353555173">
+      <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="357" y="159" key="SettingsEditor/0.0.1707.1027@0.0.1707.1027" timestamp="1595320094958" />
+    <state x="351" y="182" key="SettingsEditor/0.23.1680.1027@0.23.1680.1027" timestamp="1595353555173" />
     <state width="200" height="461" key="SqlResolveConfigurable" timestamp="1594722091118">
       <screen x="0" y="0" width="1707" height="1027" />
     </state>
@@ -218,5 +198,9 @@
       <screen x="0" y="0" width="1707" height="1027" />
     </state>
     <state x="554" y="268" width="726" height="490" key="find.popup/0.0.1707.1027@0.0.1707.1027" timestamp="1595322007790" />
+    <state x="808" y="324" key="jetbrains.nodejs.interpreters-dialog" timestamp="1595353411775">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state x="808" y="324" key="jetbrains.nodejs.interpreters-dialog/0.23.1680.1027@0.23.1680.1027" timestamp="1595353411775" />
   </component>
 </project>

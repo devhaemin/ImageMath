@@ -50,23 +50,24 @@ util.connection = mysql.createConnection({
     port: '3306',
     multipleStatements: true
 });
-util.connect = function handleDisconnect() {
-  util.connection.connect(function(err) {
-    if(err) {
-      console.log('error when connecting to db:', err);
-      setTimeout(handleDisconnect, 2000);
-    }
-  });
 
-  util.connection.on('error', function(err) {
-    console.log('db error', err);
-    if(err.code === 'PROTOCOL_CONNECTION_LOST') {
-      return handleDisconnect();
-    } else {
-      throw err;
-    }
-  });
-};
+// util.connect = function handleDisconnect() {
+//   util.connection.connect(function(err) {
+//     if(err) {
+//       console.log('error when connecting to db:', err);
+//       setTimeout(handleDisconnect, 2000);
+//     }
+//   });
+//
+//   util.connection.on('error', function(err) {
+//     console.log('db error', err);
+//     if(err.code === 'PROTOCOL_CONNECTION_LOST') {
+//       return handleDisconnect();
+//     } else {
+//       throw err;
+//     }
+//   });
+// };
 
 util.tokenMiddleWare = function(req, res, next){
     var token = req.headers['x-access-token'];

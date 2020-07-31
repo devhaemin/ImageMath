@@ -3,7 +3,6 @@ var express = require('express');
 var path = require('path');
 const bodyParser = require('body-parser');
 const cUtil = require('./customUtil');
-cUtil.connect();
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
