@@ -209,7 +209,7 @@ function recognitionLec(req, res) {
                 } else if (result.length == 0) {
                     res.status(400).send("학생을 찾을 수 없습니다.");
                 } else {
-                    if (isAccept) {
+                    if (isAccept == 'true') {
                         var timestamp = new Date().getTime();
                         var params = {
                             userSeq: result[0].userSeq,
