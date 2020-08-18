@@ -20,7 +20,8 @@
     "excel": "^1.0.1",
     "multiparty": "^4.2.1",
     "xlsx": "^0.16.3",
-    "apidoc": "^0.24.0"
+    "apidoc": "^0.24.0",
+    "mysql": "^2.18.1"
   },
   "apidoc": {
     "name": "이미지수학 API",

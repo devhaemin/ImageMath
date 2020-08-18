@@ -202,7 +202,7 @@ function recognitionLec(req, res) {
             console.log(err);
             res.status(400).send("토큰이 만료되었습니다.");
         } else if (results[0].userType = "tutor") {
-            connection.query("select ui.*, li.lectureSeq, name, academySeq, time, weekDay, totalDate, week, studentNum, reqStudentCnt, academyName, IF(isExpired,'true','false') as isExpired from UserInfo AS ui JOIN LectureInfo AS li where ui.userSeq = ? and li.lectureSeq = ?", [studentSeq, lectureSeq], function (err, result, next) {
+            connection.query("select ui.*, li.lectureSeq, li.name, li.academySeq, li.time, li.weekDay, li.totalDate, li.week, li.studentNum, li.reqStudentCnt, li.academyName, IF(li.isExpired,'true','false') as isExpired from UserInfo AS ui JOIN LectureInfo AS li where ui.userSeq = ? and li.lectureSeq = ?", [studentSeq, lectureSeq], function (err, result, next) {
                 if (err) {
                     console.log(err);
                     //res.status(400).send("학생을 찾을 수 없습니다.");
