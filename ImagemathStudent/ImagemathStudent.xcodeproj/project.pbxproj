@@ -1,0 +1,670 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8B771390250548A600D93B29 /* CarMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B77138F250548A600D93B29 /* CarMaker.swift */; };
+		8B7713922505548400D93B29 /* Lecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7713912505548400D93B29 /* Lecture.swift */; };
+		8B771396250556AA00D93B29 /* LectureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B771395250556AA00D93B29 /* LectureCell.swift */; };
+		8B77139825056B4300D93B29 /* NoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B77139725056B4300D93B29 /* NoticeView.swift */; };
+		8B77139A25064BBF00D93B29 /* AbstractModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B77139925064BBF00D93B29 /* AbstractModels.swift */; };
+		8B86BA88250348B80085A0D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B86BA87250348B80085A0D6 /* AppDelegate.swift */; };
+		8B86BA8A250348B80085A0D6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B86BA89250348B80085A0D6 /* SceneDelegate.swift */; };
+		8B86BA8C250348B80085A0D6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B86BA8B250348B80085A0D6 /* ContentView.swift */; };
+		8B86BA8E250348BA0085A0D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B86BA8D250348BA0085A0D6 /* Assets.xcassets */; };
+		8B86BA91250348BA0085A0D6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B86BA90250348BA0085A0D6 /* Preview Assets.xcassets */; };
+		8B86BA94250348BA0085A0D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B86BA92250348BA0085A0D6 /* LaunchScreen.storyboard */; };
+		8B86BA9F250348BB0085A0D6 /* ImagemathStudentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B86BA9E250348BB0085A0D6 /* ImagemathStudentTests.swift */; };
+		8B86BAAA250348BB0085A0D6 /* ImagemathStudentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B86BAA9250348BB0085A0D6 /* ImagemathStudentUITests.swift */; };
+		8BB0B13125069EC9009D5128 /* Assignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0B13025069EC9009D5128 /* Assignment.swift */; };
+		8BB0B13425069F06009D5128 /* AssignmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0B13325069F06009D5128 /* AssignmentCell.swift */; };
+		8BB0B13725069F31009D5128 /* TestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0B13625069F31009D5128 /* TestCell.swift */; };
+		8BB0B13925069F45009D5128 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0B13825069F45009D5128 /* Test.swift */; };
+		8BB0B13D25069F84009D5128 /* TestDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0B13C25069F84009D5128 /* TestDetailView.swift */; };
+		8BB0B13F25069F95009D5128 /* AssignmentDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0B13E25069F95009D5128 /* AssignmentDetailView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8B86BA9B250348BB0085A0D6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8B86BA7C250348B80085A0D6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8B86BA83250348B80085A0D6;
+			remoteInfo = ImagemathStudent;
+		};
+		8B86BAA6250348BB0085A0D6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8B86BA7C250348B80085A0D6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8B86BA83250348B80085A0D6;
+			remoteInfo = ImagemathStudent;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8B77138F250548A600D93B29 /* CarMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarMaker.swift; sourceTree = "<group>"; };
+		8B7713912505548400D93B29 /* Lecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lecture.swift; sourceTree = "<group>"; };
+		8B771395250556AA00D93B29 /* LectureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureCell.swift; sourceTree = "<group>"; };
+		8B77139725056B4300D93B29 /* NoticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeView.swift; sourceTree = "<group>"; };
+		8B77139925064BBF00D93B29 /* AbstractModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractModels.swift; sourceTree = "<group>"; };
+		8B86BA84250348B80085A0D6 /* ImagemathStudent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImagemathStudent.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B86BA87250348B80085A0D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8B86BA89250348B80085A0D6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		8B86BA8B250348B80085A0D6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		8B86BA8D250348BA0085A0D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8B86BA90250348BA0085A0D6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8B86BA93250348BA0085A0D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8B86BA95250348BA0085A0D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B86BA9A250348BB0085A0D6 /* ImagemathStudentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImagemathStudentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B86BA9E250348BB0085A0D6 /* ImagemathStudentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagemathStudentTests.swift; sourceTree = "<group>"; };
+		8B86BAA0250348BB0085A0D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B86BAA5250348BB0085A0D6 /* ImagemathStudentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImagemathStudentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B86BAA9250348BB0085A0D6 /* ImagemathStudentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagemathStudentUITests.swift; sourceTree = "<group>"; };
+		8B86BAAB250348BB0085A0D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8BB0B13025069EC9009D5128 /* Assignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assignment.swift; sourceTree = "<group>"; };
+		8BB0B13325069F06009D5128 /* AssignmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentCell.swift; sourceTree = "<group>"; };
+		8BB0B13625069F31009D5128 /* TestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCell.swift; sourceTree = "<group>"; };
+		8BB0B13825069F45009D5128 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		8BB0B13C25069F84009D5128 /* TestDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDetailView.swift; sourceTree = "<group>"; };
+		8BB0B13E25069F95009D5128 /* AssignmentDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentDetailView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8B86BA81250348B80085A0D6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B86BA97250348BB0085A0D6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B86BAA2250348BB0085A0D6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8B7713942505568B00D93B29 /* Lecture */ = {
+			isa = PBXGroup;
+			children = (
+				8B7713912505548400D93B29 /* Lecture.swift */,
+				8B771395250556AA00D93B29 /* LectureCell.swift */,
+				8B77139725056B4300D93B29 /* NoticeView.swift */,
+			);
+			name = Lecture;
+			path = ImagemathStudent/Lecture;
+			sourceTree = SOURCE_ROOT;
+		};
+		8B86BA7B250348B80085A0D6 = {
+			isa = PBXGroup;
+			children = (
+				8B86BA86250348B80085A0D6 /* ImagemathStudent */,
+				8B86BA9D250348BB0085A0D6 /* ImagemathStudentTests */,
+				8B86BAA8250348BB0085A0D6 /* ImagemathStudentUITests */,
+				8B86BA85250348B80085A0D6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8B86BA85250348B80085A0D6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8B86BA84250348B80085A0D6 /* ImagemathStudent.app */,
+				8B86BA9A250348BB0085A0D6 /* ImagemathStudentTests.xctest */,
+				8B86BAA5250348BB0085A0D6 /* ImagemathStudentUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8B86BA86250348B80085A0D6 /* ImagemathStudent */ = {
+			isa = PBXGroup;
+			children = (
+				8BB0B13525069F22009D5128 /* Test */,
+				8BB0B12D25069EA7009D5128 /* Assignment */,
+				8B7713942505568B00D93B29 /* Lecture */,
+				8B86BA87250348B80085A0D6 /* AppDelegate.swift */,
+				8B77139925064BBF00D93B29 /* AbstractModels.swift */,
+				8B86BA89250348B80085A0D6 /* SceneDelegate.swift */,
+				8B86BA8B250348B80085A0D6 /* ContentView.swift */,
+				8B86BA8D250348BA0085A0D6 /* Assets.xcassets */,
+				8B86BA92250348BA0085A0D6 /* LaunchScreen.storyboard */,
+				8B86BA95250348BA0085A0D6 /* Info.plist */,
+				8B86BA8F250348BA0085A0D6 /* Preview Content */,
+				8B77138F250548A600D93B29 /* CarMaker.swift */,
+			);
+			path = ImagemathStudent;
+			sourceTree = "<group>";
+		};
+		8B86BA8F250348BA0085A0D6 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				8B86BA90250348BA0085A0D6 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		8B86BA9D250348BB0085A0D6 /* ImagemathStudentTests */ = {
+			isa = PBXGroup;
+			children = (
+				8B86BA9E250348BB0085A0D6 /* ImagemathStudentTests.swift */,
+				8B86BAA0250348BB0085A0D6 /* Info.plist */,
+			);
+			path = ImagemathStudentTests;
+			sourceTree = "<group>";
+		};
+		8B86BAA8250348BB0085A0D6 /* ImagemathStudentUITests */ = {
+			isa = PBXGroup;
+			children = (
+				8B86BAA9250348BB0085A0D6 /* ImagemathStudentUITests.swift */,
+				8B86BAAB250348BB0085A0D6 /* Info.plist */,
+			);
+			path = ImagemathStudentUITests;
+			sourceTree = "<group>";
+		};
+		8BB0B12D25069EA7009D5128 /* Assignment */ = {
+			isa = PBXGroup;
+			children = (
+				8BB0B13025069EC9009D5128 /* Assignment.swift */,
+				8BB0B13325069F06009D5128 /* AssignmentCell.swift */,
+				8BB0B13E25069F95009D5128 /* AssignmentDetailView.swift */,
+			);
+			name = Assignment;
+			path = ImagemathStudent/Assignment;
+			sourceTree = SOURCE_ROOT;
+		};
+		8BB0B13525069F22009D5128 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				8BB0B13625069F31009D5128 /* TestCell.swift */,
+				8BB0B13825069F45009D5128 /* Test.swift */,
+				8BB0B13C25069F84009D5128 /* TestDetailView.swift */,
+			);
+			name = Test;
+			path = ImagemathStudent/Test;
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8B86BA83250348B80085A0D6 /* ImagemathStudent */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8B86BAAE250348BB0085A0D6 /* Build configuration list for PBXNativeTarget "ImagemathStudent" */;
+			buildPhases = (
+				8B86BA80250348B80085A0D6 /* Sources */,
+				8B86BA81250348B80085A0D6 /* Frameworks */,
+				8B86BA82250348B80085A0D6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ImagemathStudent;
+			productName = ImagemathStudent;
+			productReference = 8B86BA84250348B80085A0D6 /* ImagemathStudent.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8B86BA99250348BB0085A0D6 /* ImagemathStudentTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8B86BAB1250348BB0085A0D6 /* Build configuration list for PBXNativeTarget "ImagemathStudentTests" */;
+			buildPhases = (
+				8B86BA96250348BB0085A0D6 /* Sources */,
+				8B86BA97250348BB0085A0D6 /* Frameworks */,
+				8B86BA98250348BB0085A0D6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8B86BA9C250348BB0085A0D6 /* PBXTargetDependency */,
+			);
+			name = ImagemathStudentTests;
+			productName = ImagemathStudentTests;
+			productReference = 8B86BA9A250348BB0085A0D6 /* ImagemathStudentTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		8B86BAA4250348BB0085A0D6 /* ImagemathStudentUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8B86BAB4250348BB0085A0D6 /* Build configuration list for PBXNativeTarget "ImagemathStudentUITests" */;
+			buildPhases = (
+				8B86BAA1250348BB0085A0D6 /* Sources */,
+				8B86BAA2250348BB0085A0D6 /* Frameworks */,
+				8B86BAA3250348BB0085A0D6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8B86BAA7250348BB0085A0D6 /* PBXTargetDependency */,
+			);
+			name = ImagemathStudentUITests;
+			productName = ImagemathStudentUITests;
+			productReference = 8B86BAA5250348BB0085A0D6 /* ImagemathStudentUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8B86BA7C250348B80085A0D6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1170;
+				LastUpgradeCheck = 1170;
+				ORGANIZATIONNAME = "정해민";
+				TargetAttributes = {
+					8B86BA83250348B80085A0D6 = {
+						CreatedOnToolsVersion = 11.7;
+					};
+					8B86BA99250348BB0085A0D6 = {
+						CreatedOnToolsVersion = 11.7;
+						TestTargetID = 8B86BA83250348B80085A0D6;
+					};
+					8B86BAA4250348BB0085A0D6 = {
+						CreatedOnToolsVersion = 11.7;
+						TestTargetID = 8B86BA83250348B80085A0D6;
+					};
+				};
+			};
+			buildConfigurationList = 8B86BA7F250348B80085A0D6 /* Build configuration list for PBXProject "ImagemathStudent" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8B86BA7B250348B80085A0D6;
+			productRefGroup = 8B86BA85250348B80085A0D6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8B86BA83250348B80085A0D6 /* ImagemathStudent */,
+				8B86BA99250348BB0085A0D6 /* ImagemathStudentTests */,
+				8B86BAA4250348BB0085A0D6 /* ImagemathStudentUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8B86BA82250348B80085A0D6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B86BA94250348BA0085A0D6 /* LaunchScreen.storyboard in Resources */,
+				8B86BA91250348BA0085A0D6 /* Preview Assets.xcassets in Resources */,
+				8B86BA8E250348BA0085A0D6 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B86BA98250348BB0085A0D6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B86BAA3250348BB0085A0D6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8B86BA80250348B80085A0D6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8BB0B13725069F31009D5128 /* TestCell.swift in Sources */,
+				8BB0B13425069F06009D5128 /* AssignmentCell.swift in Sources */,
+				8BB0B13F25069F95009D5128 /* AssignmentDetailView.swift in Sources */,
+				8B771396250556AA00D93B29 /* LectureCell.swift in Sources */,
+				8B7713922505548400D93B29 /* Lecture.swift in Sources */,
+				8B86BA88250348B80085A0D6 /* AppDelegate.swift in Sources */,
+				8BB0B13925069F45009D5128 /* Test.swift in Sources */,
+				8B86BA8A250348B80085A0D6 /* SceneDelegate.swift in Sources */,
+				8B86BA8C250348B80085A0D6 /* ContentView.swift in Sources */,
+				8B771390250548A600D93B29 /* CarMaker.swift in Sources */,
+				8B77139825056B4300D93B29 /* NoticeView.swift in Sources */,
+				8BB0B13125069EC9009D5128 /* Assignment.swift in Sources */,
+				8B77139A25064BBF00D93B29 /* AbstractModels.swift in Sources */,
+				8BB0B13D25069F84009D5128 /* TestDetailView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B86BA96250348BB0085A0D6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B86BA9F250348BB0085A0D6 /* ImagemathStudentTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B86BAA1250348BB0085A0D6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B86BAAA250348BB0085A0D6 /* ImagemathStudentUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8B86BA9C250348BB0085A0D6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8B86BA83250348B80085A0D6 /* ImagemathStudent */;
+			targetProxy = 8B86BA9B250348BB0085A0D6 /* PBXContainerItemProxy */;
+		};
+		8B86BAA7250348BB0085A0D6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8B86BA83250348B80085A0D6 /* ImagemathStudent */;
+			targetProxy = 8B86BAA6250348BB0085A0D6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8B86BA92250348BA0085A0D6 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8B86BA93250348BA0085A0D6 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8B86BAAC250348BB0085A0D6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8B86BAAD250348BB0085A0D6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8B86BAAF250348BB0085A0D6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"ImagemathStudent/Preview Content\"";
+				DEVELOPMENT_TEAM = YXSYRS3DCD;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = ImagemathStudent/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.haemin.ImagemathStudent;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8B86BAB0250348BB0085A0D6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"ImagemathStudent/Preview Content\"";
+				DEVELOPMENT_TEAM = YXSYRS3DCD;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = ImagemathStudent/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.haemin.ImagemathStudent;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		8B86BAB2250348BB0085A0D6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YXSYRS3DCD;
+				INFOPLIST_FILE = ImagemathStudentTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.haemin.ImagemathStudentTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ImagemathStudent.app/ImagemathStudent";
+			};
+			name = Debug;
+		};
+		8B86BAB3250348BB0085A0D6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YXSYRS3DCD;
+				INFOPLIST_FILE = ImagemathStudentTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.haemin.ImagemathStudentTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ImagemathStudent.app/ImagemathStudent";
+			};
+			name = Release;
+		};
+		8B86BAB5250348BB0085A0D6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YXSYRS3DCD;
+				INFOPLIST_FILE = ImagemathStudentUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.haemin.ImagemathStudentUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ImagemathStudent;
+			};
+			name = Debug;
+		};
+		8B86BAB6250348BB0085A0D6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YXSYRS3DCD;
+				INFOPLIST_FILE = ImagemathStudentUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.haemin.ImagemathStudentUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ImagemathStudent;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8B86BA7F250348B80085A0D6 /* Build configuration list for PBXProject "ImagemathStudent" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B86BAAC250348BB0085A0D6 /* Debug */,
+				8B86BAAD250348BB0085A0D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8B86BAAE250348BB0085A0D6 /* Build configuration list for PBXNativeTarget "ImagemathStudent" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B86BAAF250348BB0085A0D6 /* Debug */,
+				8B86BAB0250348BB0085A0D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8B86BAB1250348BB0085A0D6 /* Build configuration list for PBXNativeTarget "ImagemathStudentTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B86BAB2250348BB0085A0D6 /* Debug */,
+				8B86BAB3250348BB0085A0D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8B86BAB4250348BB0085A0D6 /* Build configuration list for PBXNativeTarget "ImagemathStudentUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B86BAB5250348BB0085A0D6 /* Debug */,
+				8B86BAB6250348BB0085A0D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8B86BA7C250348B80085A0D6 /* Project object */;
+}
