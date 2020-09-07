@@ -2,6 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="36413532-2186-4b51-bc32-d36d86fd342c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent.xcodeproj/project.pbxproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent/AppDelegate.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent/Assets.xcassets/AppIcon.appiconset/Contents.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent/Assets.xcassets/Contents.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent/Assets.xcassets/first.imageset/Contents.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent/Assets.xcassets/first.imageset/first.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent/Assets.xcassets/second.imageset/Contents.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent/Assets.xcassets/second.imageset/second.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent/Base.lproj/LaunchScreen.storyboard" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent/ContentView.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent/Info.plist" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent/Preview Content/Preview Assets.xcassets/Contents.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent/SceneDelegate.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudentTests/ImagemathStudentTests.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudentTests/Info.plist" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudentUITests/ImagemathStudentUITests.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudentUITests/Info.plist" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Android/ImageMathTutor/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/ImageMathTutor/.idea/caches/build_file_checksums.ser" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -119,7 +136,14 @@
       <workItem from="1595320121396" duration="5137000" />
       <workItem from="1595353317985" duration="823000" />
       <workItem from="1596219864023" duration="1647000" />
-      <workItem from="1597738040638" duration="785000" />
+      <workItem from="1597738040638" duration="1052000" />
+      <workItem from="1597820933203" duration="308000" />
+      <workItem from="1597837053187" duration="595000" />
+      <workItem from="1598235251209" duration="597000" />
+      <workItem from="1598941370578" duration="46000" />
+      <workItem from="1598945067911" duration="243000" />
+      <workItem from="1599364565086" duration="287000" />
+      <workItem from="1599374317822" duration="604000" />
     </task>
     <servers />
   </component>
@@ -205,5 +229,13 @@
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="808" y="324" key="jetbrains.nodejs.interpreters-dialog/0.23.1680.1027@0.23.1680.1027" timestamp="1595353411775" />
+    <state x="416" y="222" key="new project wizard" timestamp="1598945084898">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state x="416" y="222" key="new project wizard/0.23.1680.1027@0.23.1680.1027" timestamp="1598945084898" />
+    <state x="925" y="250" width="670" height="676" key="search.everywhere.popup" timestamp="1599378343387">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state x="925" y="250" width="670" height="676" key="search.everywhere.popup/0.23.1680.1027@0.23.1680.1027" timestamp="1599378343387" />
   </component>
 </project>
