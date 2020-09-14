@@ -18,116 +18,16 @@ router.get('/tutor', getStudentLectureList);
 router.patch('/:lectureSeq', setExpiredLecture);
 router.delete('/:lectureSeq', deleteLecture);
 
-function deleteLecture(req, res) {
-    var userInfo = req.userInfo;
-    var lectureSeq = req.params.lectureSeq;
-    if(!userInfo || userInfo.userType != 'tutor'){
-        res.status(403).send({"message" : "Token ERROR!"});
-    }else{
-        connection.query('delete from LectureInfo where lectureSeq = ?', lectureSeq, function (err, result) {
-            res.status(200).send({});
-        })
-    }
-}
-function setExpiredLecture(req, res) {
-    var userInfo = req.userInfo;
-    var lectureSeq = req.params.lectureSeq;
-    var isExpired = req.body.isExpired;
-    if(!userInfo || userInfo.userType != 'tutor'){
-        res.status(403).send({"message" : "Token ERROR!"});
-    }else{
-        connection.query('UPDATE LectureInfo SET isExpired = ? WHERE lectureSeq = ?',[isExpired, lectureSeq], function (err, result) {
-            if(err){
-                console.log(err);
-                res.status(500).send({"message" : "Internal Server MYSQL ERROR!"});
-            }else{
-                res.status(200).send({});
-            }
-        })
-    }
-}
-
-
-
-function getStudentList(req, res) {
-    var token = req.headers['x-access-token'];
-    var lectureSeq = req.params.lectureSeq;
-
-    connection.query("select * from UserInfo where accessToken = ?", token, function (err, result, next) {
-        if (err) {
-            console.log(err);
-            res.status(400).send("토큰이 만료되었습니다.");
-        } else if (result.length == 0 || result[0].userType == "student") {
-            console.log("잘못된 토큰입니다.");
-            res.status(400).send("잘못된 토큰입니다.");
-        } else {
-            connection.query("select * from LectureAdm as la JOIN UserInfo as ui where la.lectureSeq = ? and la.userSeq = ui.userSeq", [lectureSeq], function (err, studentInfos) {
-                if (err) {
-                    console.log(err);
-                    res.status(400);
-                } else {
-                    res.status(200).send(studentInfos);
-                }
-            })
-        }
-    });
-
-}
-
-function deleteStudent(req, res) {
-    var token = req.headers['x-access-token'];
-    var lectureSeq = req.params.lectureSeq;
-    var userSeq = req.params.userSeq;
-
-    connection.query("select * from UserInfo where accessToken = ?", token, function (err, result, next) {
-        if (err) {
-            console.log(err);
-            res.status(400).send("토큰이 만료되었습니다.");
-        } else if (result.length == 0 || result[0].userType == "student") {
-            console.log("잘못된 토큰입니다.");
-            res.status(400).send("잘못된 토큰입니다.");
-        } else {
-            connection.query("delete from LectureAdm where lectureSeq = ? and userSeq = ?", [lectureSeq, userSeq], function (err, nope) {
-                if (err) {
-                    console.log(err);
-                    res.status(400);
-                } else {
-                    res.status(200);
-                }
-            })
-        }
-    });
-
-}
-
-function getStudentLectureList(req, res) {
-
-    var token = req.headers['x-access-token'];
-    var userSeq = req.query.userSeq;
-    var sql = "select * from UserInfo where accessToken = ?";
-    var sql1 = mysql.format(sql, token);
-    connection.query(sql1, function (err, result, next) {
-        if (err) {
-            console.log(err);
-            res.status(400).send("토큰이 만료되었습니다.");
-        } else if (result.length == 0 || result[0].userType == "student") {
-            console.log("잘못된 토큰입니다.");
-            res.status(400).send("잘못된 토큰입니다.");
-        } else {
-            connection.query("select la.*, li.academyName, li.academySeq, li.name, li.reqStudentCnt, li.studentNum, li.time, li.totalDate, li.week, li.weekDay, IF(li.isExpired, 'true', 'false') as isExpired from LectureAdm AS la JOIN LectureInfo AS li ON la.lectureSeq = li.lectureSeq and la.userSeq = ?", userSeq, function (err, lectureList) {
-                if (err) {
-                    console.log(err);
-                    res.status(400).send("SQL Error");
-                } else {
-                    res.status(200).send(lectureList);
-                }
-            });
-        }
-    });
-}
+/**
+ *
+ * @api {get} /lecture 전체 수업 목록
+ * @apiName Get LectureList
+ * @apiGroup Lecture
+ * @apiPermission normal
+ */
 
 function lecture(req, res) {
-    var sql = "select lectureSeq, name, academySeq, time, weekDay, totalDate, week, studentNum, reqStudentCnt, academyName, IF(isExpired,'true','false') as isExpired from LectureInfo order by lectureSeq DESC";
+    const sql = "select lectureSeq, name, academySeq, time, weekDay, totalDate, week, studentNum, reqStudentCnt, academyName, IF(isExpired,'true','false') as isExpired from LectureInfo order by lectureSeq DESC";
     connection.query(sql, function (err, result, next) {
         if (err) {
             console.log(err);
@@ -139,22 +39,26 @@ function lecture(req, res) {
     })
 }
 
+/**
+ *
+ * @api {get} /lecture/student 학생 전용 수업 목록
+ * @apiName Get Student LectureList
+ * @apiGroup Lecture
+ * @apiPermission student
+ *
+ * @apiHeader {String} x-access-token
+ * @apiParam {Number} id Users unique ID.
+ *
+ */
+
 function studentLectureList(req, res) {
-    console.log("studentLectureList");
-    const token = req.headers['x-access-token'];
-    const page = req.query.page;
-    var sql = "select * from UserInfo where accessToken = ?";
-    var sql1 = mysql.format(sql, token);
-    connection.query(sql1, function (err, result, next) {
-        if (err) {
-            console.log(err);
-            res.status(400).send("토큰이 만료되었습니다.");
-        } else if (result.length == 0) {
-            console.log("잘못된 토큰입니다.");
-            res.status(400).send("잘못된 토큰입니다.");
-        } else if (result[0].userType == "student") {
-            var sql2 = "select lectureSeq from LectureAdm where userSeq = ? order by lectureSeq desc";
-            connection.query(sql2, result[0].userSeq, function (error, results, nexts) {
+
+    const userInfo = req.userInfo;
+
+    if (userInfo && userInfo.userType === "student") {
+        var sql2 = "select lectureSeq from LectureAdm where userSeq = ? order by lectureSeq desc";
+
+        connection.query(sql2, result[0].userSeq, function (error, results) {
                 if (error) {
                     console.log(error);
                     res.status(400).send("수업 시퀀스 에러");
@@ -163,7 +67,7 @@ function studentLectureList(req, res) {
                     var length = results.length;
 
                     var idx = 0;
-                    if (length == 0) {
+                    if (length === 0) {
                         res.status(200).send([]);
                     }
                     for (var i = 0; i < length; i++) {
@@ -171,7 +75,7 @@ function studentLectureList(req, res) {
                         connection.query(sql3, results[i].lectureSeq, function (error, results, nexts) {
                             ret.push(results[0]);
 
-                            if (idx == length - 1) {
+                            if (idx === length - 1) {
                                 res.status(200).send(ret);
                                 console.log(result[0].userSeq + "의 수업목록을 조회합니다.");
                             }
@@ -179,99 +83,219 @@ function studentLectureList(req, res) {
                         });
                     }
                 }
-            })
-        } else {
-            console.log("permission error : " + result[0].userType);
-            res.status(400).send("권한이 없습니다.");
-        }
-
-    })
+            }
+        );
+    } else if (!userInfo) {
+        res.status(400).send("권한이 없습니다.");
+    } else {
+        console.log("permission error : " + userInfo.userType);
+        res.status(400).send("권한이 없습니다.");
+    }
 
 }
 
+/**
+ *
+ * @api {get} /lecture/student/:lectureSeq 수업별 학 목록
+ * @apiName Get Student LectureList
+ * @apiGroup Lecture
+ * @apiPermission tutor
+ *
+ * @apiHeader {String} x-access-token
+ * @apiParam {Number} id Users unique ID.
+ *
+ */
+
+function getStudentList(req, res) {
+    const userInfo = req.userInfo;
+    const lectureSeq = req.params.lectureSeq;
+
+    if (!userInfo || userInfo.userType === "student") {
+        console.log("잘못된 토큰입니다.");
+        res.status(400).send("잘못된 토큰입니다.");
+    } else {
+        connection.query("select * from LectureAdm as la JOIN UserInfo as ui where la.lectureSeq = ? and la.userSeq = ui.userSeq", [lectureSeq], function (err, studentInfos) {
+            if (err) {
+                console.log(err);
+                res.status(400);
+            } else {
+                res.status(200).send(studentInfos);
+            }
+        })
+    }
+}
+
+/**
+ *
+ * @api {patch} /lecture/student/:lectureSeq 수업 인증 확인
+ * @apiName Patch Request Lecture recognition
+ * @apiGroup Lecture
+ * @apiPermission tutor
+ *
+ * @apiHeader {String} x-access-token
+ * @apiParam {Int} studentSeq;
+ * @apiParam {Int} isAccept
+ *
+ */
+//todo: studentSeq 변수명 확인하기
+
 function recognitionLec(req, res) {
-    const token = req.headers['x-access-token'];
+    const userInfo = req.userInfo;
     var lectureSeq = req.params.lectureSeq;
     var studentSeq = req.body.studentSeq;
     var isAccept = req.body.isAccept;
-    var sql = "select * from UserInfo where accessToken = ?";
-    var sql1 = mysql.format(sql, token);
-    console.log("lectureSeq = " + lectureSeq);
-    connection.query(sql1, function (err, results, next) {
-        if (err || results.length == 0) {
-            console.log(err);
-            res.status(400).send("토큰이 만료되었습니다.");
-        } else if (results[0].userType = "tutor") {
-            connection.query("select ui.*, li.lectureSeq, li.name, li.academySeq, li.time, li.weekDay, li.totalDate, li.week, li.studentNum, li.reqStudentCnt, li.academyName, IF(li.isExpired,'true','false') as isExpired from UserInfo AS ui JOIN LectureInfo AS li where ui.userSeq = ? and li.lectureSeq = ?", [studentSeq, lectureSeq], function (err, result, next) {
-                if (err) {
-                    console.log(err);
-                    //res.status(400).send("학생을 찾을 수 없습니다.");
-                } else if (result.length == 0) {
-                    res.status(400).send("학생을 찾을 수 없습니다.");
-                } else {
-                    if (isAccept == 'true') {
-                        var timestamp = new Date().getTime();
-                        var params = {
-                            userSeq: result[0].userSeq,
-                            lectureSeq: lectureSeq,
-                            time: timestamp,
-                            studentCode: result[0].studentCode
-                        }
-                        connection.query("insert into LectureAdm set ?", params, function (error, results, nexts) {
-                            if (error) {
-                                console.log(error);
-                            } else {
-                                console.log("insert success");
 
-                                cUtil.sendPushMessage(studentSeq, result[0].name + "", "수업 추가 요청이 승인되었습니다.");
-                                res.status(200).send("인증이 완료되었습니다.");
-                            }
-                        });
-                        connection.query("update LectureInfo set studentNum = studentNum+1 where lectureSeq = ?", lectureSeq, function (err, result, next) {
-                            if (err) {
-                                console.log(err);
-                            }
-                        });
-
-                        connection.query("delete from Recognition where userSeq = ? and lectureSeq = ?", [result[0].userSeq, lectureSeq], function (err, result, next) {
-                            if (err) {
-                                console.log("delete error");
-                                console.log(error);
-                            } else {
-                                console.log("delete Recognition");
-                            }
-                        })
-
-                        connection.query("INSERT IGNORE INTO AssignmentAdm (userSeq,studentCode, assignmentSeq, uploadTime) SELECT userSeq,studentCode, assignmentSeq,uploadTime FROM LectureAdm as la JOIN AssignmentInfo AS ai JOIN (SELECT ROUND(UNIX_TIMESTAMP(CURTIME(4)) * 1000) AS uploadTime) AS time where la.lectureSeq = ai.lectureSeq;"
-                            , function (err, result) {
-                                if (err) {
-                                    console.log("add assignment error!");
-                                }
-                            });
-                    } else {
-                        connection.query("delete from Recognition where userSeq = ? and lectureSeq = ?", [result[0].userSeq, lectureSeq], function (err, result, next) {
-                            if (err) {
-                                console.log("delete error");
-                                console.log(error);
-                            } else {
-                                console.log("delete Recognition");
-                            }
-                        })
-
-                        res.status(200).send("인증이 취소되었습니다.");
+    if (!userInfo) {
+        console.log(err);
+        res.status(400).send("토큰이 만료되었습니다.");
+    } else if (userInfo.userType === "tutor") {
+        connection.query("select ui.*, li.lectureSeq, li.name, li.academySeq, li.time, li.weekDay, li.totalDate, li.week, li.studentNum, li.reqStudentCnt, li.academyName, IF(li.isExpired,'true','false') as isExpired from UserInfo AS ui JOIN LectureInfo AS li where ui.userSeq = ? and li.lectureSeq = ?", [studentSeq, lectureSeq], function (err, result, next) {
+            if (err) {
+                console.log(err);
+                res.status(400).send("학생을 찾을 수 없습니다.");
+            } else if (result.length === 0) {
+                res.status(400).send("학생을 찾을 수 없습니다.");
+            } else {
+                if (isAccept === 'true') {
+                    var timestamp = new Date().getTime();
+                    var params = {
+                        userSeq: result[0].userSeq,
+                        lectureSeq: lectureSeq,
+                        time: timestamp,
+                        studentCode: result[0].studentCode
                     }
+                    connection.query("insert into LectureAdm set ?", params, function (error, results, nexts) {
+                        if (error) {
+                            console.log(error);
+                        } else {
+                            console.log("insert success");
+
+                            cUtil.sendPushMessage(studentSeq, result[0].name + "", "수업 추가 요청이 승인되었습니다.");
+                            res.status(200).send("인증이 완료되었습니다.");
+                        }
+                    });
+                    connection.query("update LectureInfo set studentNum = studentNum+1 where lectureSeq = ?", lectureSeq, function (err, result, next) {
+                        if (err) {
+                            console.log(err);
+                        }
+                    });
+
+                    connection.query("delete from Recognition where userSeq = ? and lectureSeq = ?", [result[0].userSeq, lectureSeq], function (err, result, next) {
+                        if (err) {
+                            console.log("delete error");
+                            console.log(error);
+                        } else {
+                            console.log("delete Recognition");
+                        }
+                    })
+
+                    connection.query("INSERT IGNORE INTO AssignmentAdm (userSeq,studentCode, assignmentSeq, uploadTime) SELECT userSeq,studentCode, assignmentSeq,uploadTime FROM LectureAdm as la JOIN AssignmentInfo AS ai JOIN (SELECT ROUND(UNIX_TIMESTAMP(CURTIME(4)) * 1000) AS uploadTime) AS time where la.lectureSeq = ai.lectureSeq;"
+                        , function (err, result) {
+                            if (err) {
+                                console.log("add assignment error!");
+                            }
+                        });
+                } else {
+                    connection.query("delete from Recognition where userSeq = ? and lectureSeq = ?", [result[0].userSeq, lectureSeq], function (err, result, next) {
+                        if (err) {
+                            console.log("delete error");
+                            console.log(error);
+                        } else {
+                            console.log("delete Recognition");
+                        }
+                    })
+
+                    res.status(200).send("인증이 취소되었습니다.");
                 }
-            })
-        } else {
-            console.log("permission error");
-            res.status(400).send("권한이 없습니다.");
-        }
-    })
+            }
+        })
+    } else {
+        console.log("permission error");
+        res.status(400).send("권한이 없습니다.");
+    }
 }
 
 
+
+function deleteLecture(req, res) {
+    const userInfo = req.userInfo;
+    const lectureSeq = req.params.lectureSeq;
+    if (!userInfo || userInfo.userType !== 'tutor') {
+        res.status(403).send({"message": "Token ERROR!"});
+    } else {
+        connection.query('delete from LectureInfo where lectureSeq = ?', lectureSeq, function (err) {
+            if (err) {
+                res.status(400).send({});
+            } else {
+                res.status(200).send({});
+            }
+        })
+    }
+}
+
+function setExpiredLecture(req, res) {
+    const userInfo = req.userInfo;
+    const lectureSeq = req.params.lectureSeq;
+    const isExpired = req.body.isExpired;
+    if (!userInfo || userInfo.userType !== 'tutor') {
+        res.status(403).send({"message": "Token ERROR!"});
+    } else {
+        connection.query('UPDATE LectureInfo SET isExpired = ? WHERE lectureSeq = ?', [isExpired, lectureSeq], function (err) {
+            if (err) {
+                console.log(err);
+                res.status(500).send({"message": "Internal Server MYSQL ERROR!"});
+            } else {
+                res.status(200).send({});
+            }
+        })
+    }
+}
+
+
+
+
+function deleteStudent(req, res) {
+    const userInfo = req.userInfo;
+    const lectureSeq = req.params.lectureSeq;
+    const userSeq = req.params.userSeq;
+
+    if (!userInfo || userInfo.userType === "student") {
+        console.log("잘못된 토큰입니다.");
+        res.status(400).send("잘못된 토큰입니다.");
+    } else {
+        connection.query("delete from LectureAdm where lectureSeq = ? and userSeq = ?", [lectureSeq, userSeq], function (err, nope) {
+            if (err) {
+                console.log(err);
+                res.status(400);
+            } else {
+                res.status(200);
+            }
+        })
+    }
+}
+
+function getStudentLectureList(req, res) {
+
+    const userInfo = req.userInfo;
+    const userSeq = req.query.userSeq;
+    if (!userInfo || userInfo.userType === "student") {
+        console.log("잘못된 토큰 입니다.");
+        res.status(400).send("잘못된 토큰 입니다.");
+    } else {
+        connection.query("select la.*, li.academyName, li.academySeq, li.name, li.reqStudentCnt, li.studentNum, li.time, li.totalDate, li.week, li.weekDay, IF(li.isExpired, 'true', 'false') as isExpired from LectureAdm AS la JOIN LectureInfo AS li ON la.lectureSeq = li.lectureSeq and la.userSeq = ?", userSeq, function (err, lectureList) {
+            if (err) {
+                console.log(err);
+                res.status(400).send("SQL Error");
+            } else {
+                res.status(200).send(lectureList);
+            }
+        });
+    }
+
+}
+
 function lecturestu(req, res) {
-    const token = req.headers['x-access-token'];
+    const userInfo = req.userInfo;
     const page = req.query.page;
     const lectureSeq = req.params.lectureSeq;
 
@@ -280,10 +304,10 @@ function lecturestu(req, res) {
     } else {
         var sql1 = "select * from UserInfo where accessToken = ?";
         connection.query(sql1, token, function (err, result, next) {
-            if (err || result.length == 0) {
+            if (err || result.length === 0) {
                 console.log(err);
                 res.status(400).send("토큰이 만료되었습니다.");
-            } else if (result[0].userType == "student") {
+            } else if (result[0].userType === "student") {
                 console.log("Token Error");
                 res.status(400).send("token error");
             } else {
@@ -301,7 +325,8 @@ function lecturestu(req, res) {
 }
 
 function addlecture(req, res) {
-    const token = req.headers['x-access-token'];
+    const userInfo = req.userInfo;
+
     const academySeq = req.body.academySeq;
     const academyName = req.body.academyName;
     const name = req.body.name;
@@ -311,37 +336,36 @@ function addlecture(req, res) {
     const week = req.body.week;
     const studentNum = req.body.studentNum;
 
-    connection.query("select * from UserInfo where accessToken = ?", token, function (err, result, next) {
-        if (err || result.length == 0) {
-            console.log(err);
-            res.status(400).send("토큰이 만료되었습니다.");
-        } else if (result[0].userType = "tutor") {
-            sql = "INSERT INTO LectureInfo SET ?";
-            param = {
-                academySeq: academySeq,
-                academyName: academyName,
-                name: name,
-                weekDay: weekDay,
-                time: time,
-                week: week,
-                totalDate: totalDate,
-                studentNum: studentNum
-            };
+    if (!userInfo) {
+        console.log(err);
+        res.status(400).send("토큰이 만료되었습니다.");
+    } else if (userInfo.userType === "tutor") {
+        sql = "INSERT INTO LectureInfo SET ?";
+        param = {
+            academySeq: academySeq,
+            academyName: academyName,
+            name: name,
+            weekDay: weekDay,
+            time: time,
+            week: week,
+            totalDate: totalDate,
+            studentNum: studentNum
+        };
 
-            connection.query(sql, param, function (err, rows, field) {
-                if (err) {
-                    console.error(err);
-                    res.status(500).send('500 SERVER ERROR');
-                } else {
-                    console.log("lectureadd");
-                    res.status(200).send("수업이 개설되었습니다.");
-                }
-            })
-        } else {
-            console.log("permission error");
-            res.status(400).send("권한이 없습니다");
-        }
-    })
+        connection.query(sql, param, function (err, rows, field) {
+            if (err) {
+                console.error(err);
+                res.status(500).send('500 SERVER ERROR');
+            } else {
+                console.log("lectureadd");
+                res.status(200).send("수업이 개설되었습니다.");
+            }
+        })
+    } else {
+        console.log("permission error");
+        res.status(400).send("권한이 없습니다");
+    }
+
 }
 
 function getRecongition(req, res) {
@@ -406,44 +430,6 @@ function addrecognition(req, res) {
                 }
             })
         }
-        /*var reqSeq = result[0].reqLectureSeqs.indexOf('/'+lectureSeq+'/');
-        if(reqSeq==-1){
-
-            var lecList = result[0].reqLectureSeqs.split('/');
-            lecList.pop();
-            lecList.push(lectureSeq);
-            lecList.push('0');
-            var List = lecList.join('/');
-            connection.query("update UserInfo set reqLectureSeqs = ? where userSeq = ?", [List, result[0].userSeq], function(error, results, nexts){
-                if(error){
-                    console.log(error);
-                }else{
-                    console.log("update success");
-                }
-            })
-
-            var timestamp = new Date().getTime();
-            var params = {
-                userSeq : result[0].userSeq,
-                lectureSeq : lectureSeq,
-                time : timestamp,
-                schoolname : result[0].shoolSeq
-            }
-            connection.query("insert into Recognition set ?", params, function(error, results, nexts){
-                if(error){
-                    console.log(error);
-                }else{
-                    console.log("insert success");
-                    res.status(200).send("신청 완료");
-                }
-            })
-        }else{
-            console.log("이미 신청되있음");
-            res.status(400).send("이미 신청이 되어있습니다.");
-        }
-
-    }
-    */
     })
 }
 

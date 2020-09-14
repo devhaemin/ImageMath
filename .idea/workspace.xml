@@ -1,25 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="36413532-2186-4b51-bc32-d36d86fd342c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent.xcodeproj/project.pbxproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent/AppDelegate.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent/Assets.xcassets/AppIcon.appiconset/Contents.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent/Assets.xcassets/Contents.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent/Assets.xcassets/first.imageset/Contents.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent/Assets.xcassets/first.imageset/first.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent/Assets.xcassets/second.imageset/Contents.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent/Assets.xcassets/second.imageset/second.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent/Base.lproj/LaunchScreen.storyboard" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent/ContentView.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent/Info.plist" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent/Preview Content/Preview Assets.xcassets/Contents.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent/SceneDelegate.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudentTests/ImagemathStudentTests.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudentTests/Info.plist" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudentUITests/ImagemathStudentUITests.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudentUITests/Info.plist" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/apiDefine.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Android/ImageMathTutor/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/ImageMathTutor/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/ImageMathTutor/app/src/main/java/com/haemin/imagemathtutor/GlobalApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/ImageMathTutor/app/src/main/java/com/haemin/imagemathtutor/GlobalApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent.xcodeproj/project.xcworkspace/contents.xcworkspacedata" beforeDir="false" afterPath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent.xcodeproj/project.xcworkspace/contents.xcworkspacedata" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent.xcodeproj/project.xcworkspace/xcuserdata/haemin.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent.xcodeproj/project.xcworkspace/xcuserdata/haemin.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent/AbstractModels.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent/Assignment/Assignment.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent/Assignment/Assignment.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent/Assignment/AssignmentCell.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent/Assignment/AssignmentCell.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent/ContentView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent/ContentView.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent/Lecture/Lecture.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent/Lecture/Lecture.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent/SceneDelegate.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent/Test/Test.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent/Test/Test.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent/Test/TestCell.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent/Test/TestCell.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent/Test/TestDetailView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent/Test/TestDetailView.swift" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,36 +45,6 @@
     <execution>
       <executable />
     </execution>
-  </component>
-  <component name="DatabaseView">
-    <option name="SHOW_INTERMEDIATE" value="true" />
-    <option name="GROUP_DATA_SOURCES" value="true" />
-    <option name="GROUP_SCHEMA" value="true" />
-    <option name="GROUP_CONTENTS" value="false" />
-    <option name="SORT_POSITIONED" value="false" />
-    <option name="SHOW_EMPTY_GROUPS" value="false" />
-    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
-    <option name="HIDDEN_KINDS">
-      <set />
-    </option>
-    <expand>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="imagemath@localhost" type="feb32156:DbDataSourceImpl" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="imagemath@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="imagemath@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="ImageMath: schema" type="76f4a085:MysqlImplModel$Schema" />
-      </path>
-    </expand>
-    <select />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -86,6 +71,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -144,11 +130,24 @@
       <workItem from="1598945067911" duration="243000" />
       <workItem from="1599364565086" duration="287000" />
       <workItem from="1599374317822" duration="604000" />
+      <workItem from="1599970426104" duration="1685000" />
+      <workItem from="1600001032955" duration="5801000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -162,11 +161,11 @@
       <screen x="0" y="0" width="1707" height="1027" />
     </state>
     <state x="446" y="176" key="#SQL_Resolution_Scopes/0.0.1707.1027@0.0.1707.1027" timestamp="1594722097112" />
-    <state x="548" y="171" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1595353413543">
+    <state x="870" y="118" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600096557430">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="557" y="148" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1707.1027@0.0.1707.1027" timestamp="1595320038164" />
-    <state x="548" y="171" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1680.1027@0.23.1680.1027" timestamp="1595353413543" />
+    <state x="870" y="118" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1680.1027@0.23.1680.1027" timestamp="1600096557430" />
     <state x="1030" y="326" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1594706861600">
       <screen x="0" y="0" width="1707" height="1027" />
     </state>
@@ -175,30 +174,31 @@
       <screen x="0" y="0" width="1707" height="1027" />
     </state>
     <state x="767" y="82" key="FileDocumentManager.FileCacheConflict/0.0.1707.1027@0.0.1707.1027" timestamp="1595319615093" />
-    <state width="1006" height="280" key="GridCell.Tab.0.bottom" timestamp="1596379483024">
+    <state width="1638" height="411" key="GridCell.Tab.0.bottom" timestamp="1600099681854">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state width="1663" height="275" key="GridCell.Tab.0.bottom/0.0.1707.1027@0.0.1707.1027" timestamp="1595331489963" />
-    <state width="1006" height="280" key="GridCell.Tab.0.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1596379483024" />
-    <state width="1006" height="280" key="GridCell.Tab.0.center" timestamp="1596379483023">
+    <state width="1638" height="411" key="GridCell.Tab.0.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1600099681854" />
+    <state width="1638" height="411" key="GridCell.Tab.0.center" timestamp="1600099681852">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state width="1663" height="275" key="GridCell.Tab.0.center/0.0.1707.1027@0.0.1707.1027" timestamp="1595331489963" />
-    <state width="1006" height="280" key="GridCell.Tab.0.center/0.23.1680.1027@0.23.1680.1027" timestamp="1596379483023" />
-    <state width="1006" height="280" key="GridCell.Tab.0.left" timestamp="1596379483023">
+    <state width="1638" height="411" key="GridCell.Tab.0.center/0.23.1680.1027@0.23.1680.1027" timestamp="1600099681852" />
+    <state width="1638" height="411" key="GridCell.Tab.0.left" timestamp="1600099681851">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state width="1663" height="275" key="GridCell.Tab.0.left/0.0.1707.1027@0.0.1707.1027" timestamp="1595331489963" />
-    <state width="1006" height="280" key="GridCell.Tab.0.left/0.23.1680.1027@0.23.1680.1027" timestamp="1596379483023" />
-    <state width="1006" height="280" key="GridCell.Tab.0.right" timestamp="1596379483024">
+    <state width="1638" height="411" key="GridCell.Tab.0.left/0.23.1680.1027@0.23.1680.1027" timestamp="1600099681851" />
+    <state width="1638" height="411" key="GridCell.Tab.0.right" timestamp="1600099681852">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state width="1663" height="275" key="GridCell.Tab.0.right/0.0.1707.1027@0.0.1707.1027" timestamp="1595331489963" />
-    <state width="1006" height="280" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1596379483024" />
-    <state width="207" height="477" key="HiddenNamespacesPopup" timestamp="1595235893713">
-      <screen x="0" y="0" width="1707" height="1027" />
+    <state width="1638" height="411" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1600099681852" />
+    <state width="243" height="477" key="HiddenNamespacesPopup" timestamp="1600095128455">
+      <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state width="207" height="477" key="HiddenNamespacesPopup/0.0.1707.1027@0.0.1707.1027" timestamp="1595235893713" />
+    <state width="243" height="477" key="HiddenNamespacesPopup/0.23.1680.1027@0.23.1680.1027" timestamp="1600095128455" />
     <state x="351" y="182" key="SettingsEditor" timestamp="1595353555173">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
@@ -212,19 +212,20 @@
       <screen x="0" y="0" width="1707" height="1027" />
     </state>
     <state x="650" y="344" width="407" height="334" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog/0.0.1707.1027@0.0.1707.1027" timestamp="1594712805034" />
-    <state x="211" y="168" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1595319439268">
-      <screen x="0" y="0" width="1707" height="1027" />
+    <state x="781" y="216" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1600004165473">
+      <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="211" y="168" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1707.1027@0.0.1707.1027" timestamp="1595319439268" />
+    <state x="781" y="216" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.23.1680.1027@0.23.1680.1027" timestamp="1600004165473" />
     <state x="783" y="342" key="com.intellij.ide.util.TipDialog" timestamp="1595320132774">
       <screen x="0" y="0" width="1707" height="1027" />
     </state>
     <state x="783" y="342" key="com.intellij.ide.util.TipDialog/0.0.1707.1027@0.0.1707.1027" timestamp="1595320132774" />
-    <state x="545" y="291" width="715" height="490" key="find.popup" timestamp="1596219971296">
+    <state x="545" y="291" width="715" height="490" key="find.popup" timestamp="1599986282718">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="554" y="268" width="726" height="490" key="find.popup/0.0.1707.1027@0.0.1707.1027" timestamp="1595322007790" />
-    <state x="545" y="291" width="715" height="490" key="find.popup/0.23.1680.1027@0.23.1680.1027" timestamp="1596219971296" />
+    <state x="545" y="291" width="715" height="490" key="find.popup/0.23.1680.1027@0.23.1680.1027" timestamp="1599986282718" />
     <state x="808" y="324" key="jetbrains.nodejs.interpreters-dialog" timestamp="1595353411775">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>

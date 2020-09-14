@@ -53,11 +53,12 @@ function connectionQuery(connection, sql, params) {
 }
 
 /**
- * @api {get} / 해당수업 과제 리스트 출력
+ * @api {get} / 수업별 과제 리스트 출력
  * @apiName assignment
  * @apiGroup assignment
- *
+ * @apiPermission normal
  */
+
 router.get('/', assignment);//해당수업 과제 리스트 출력
 
 router.post('/add', assignmentadd);

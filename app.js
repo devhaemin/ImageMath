@@ -108,5 +108,4 @@ setInterval(function () {
   cUtil.connection.query('SELECT 1');
 }, 5000);
 
-
 module.exports = app;
