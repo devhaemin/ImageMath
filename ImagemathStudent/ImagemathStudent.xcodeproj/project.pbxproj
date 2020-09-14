@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,21 +11,29 @@
 		8B7713922505548400D93B29 /* Lecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7713912505548400D93B29 /* Lecture.swift */; };
 		8B771396250556AA00D93B29 /* LectureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B771395250556AA00D93B29 /* LectureCell.swift */; };
 		8B77139825056B4300D93B29 /* NoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B77139725056B4300D93B29 /* NoticeView.swift */; };
-		8B77139A25064BBF00D93B29 /* AbstractModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B77139925064BBF00D93B29 /* AbstractModels.swift */; };
+		8B77139A25064BBF00D93B29 /* ServerModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B77139925064BBF00D93B29 /* ServerModels.swift */; };
 		8B86BA88250348B80085A0D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B86BA87250348B80085A0D6 /* AppDelegate.swift */; };
-		8B86BA8A250348B80085A0D6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B86BA89250348B80085A0D6 /* SceneDelegate.swift */; };
 		8B86BA8C250348B80085A0D6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B86BA8B250348B80085A0D6 /* ContentView.swift */; };
 		8B86BA8E250348BA0085A0D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B86BA8D250348BA0085A0D6 /* Assets.xcassets */; };
 		8B86BA91250348BA0085A0D6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B86BA90250348BA0085A0D6 /* Preview Assets.xcassets */; };
 		8B86BA94250348BA0085A0D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B86BA92250348BA0085A0D6 /* LaunchScreen.storyboard */; };
 		8B86BA9F250348BB0085A0D6 /* ImagemathStudentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B86BA9E250348BB0085A0D6 /* ImagemathStudentTests.swift */; };
 		8B86BAAA250348BB0085A0D6 /* ImagemathStudentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B86BAA9250348BB0085A0D6 /* ImagemathStudentUITests.swift */; };
+		8B984F9B250D2E1600AA5E8E /* RouterEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B984F9A250D2E1600AA5E8E /* RouterEnums.swift */; };
 		8BB0B13125069EC9009D5128 /* Assignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0B13025069EC9009D5128 /* Assignment.swift */; };
 		8BB0B13425069F06009D5128 /* AssignmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0B13325069F06009D5128 /* AssignmentCell.swift */; };
 		8BB0B13725069F31009D5128 /* TestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0B13625069F31009D5128 /* TestCell.swift */; };
 		8BB0B13925069F45009D5128 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0B13825069F45009D5128 /* Test.swift */; };
 		8BB0B13D25069F84009D5128 /* TestDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0B13C25069F84009D5128 /* TestDetailView.swift */; };
 		8BB0B13F25069F95009D5128 /* AssignmentDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0B13E25069F95009D5128 /* AssignmentDetailView.swift */; };
+		8BB0B1422507B8FB009D5128 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 8BB0B1412507B8FB009D5128 /* SwiftUICharts */; };
+		8BB0B1452507E1F9009D5128 /* QnACell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0B1442507E1F9009D5128 /* QnACell.swift */; };
+		8BB0B1472507E20A009D5128 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0B1462507E20A009D5128 /* Question.swift */; };
+		8BB0B1492507E22C009D5128 /* QnADetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0B1482507E22C009D5128 /* QnADetailView.swift */; };
+		8BB0B14B250802B4009D5128 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0B14A250802B4009D5128 /* SceneDelegate.swift */; };
+		8BB0B14E250BE7EA009D5128 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 8BB0B14D250BE7EA009D5128 /* Alamofire */; };
+		8BB0B150250D03A3009D5128 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0B14F250D03A3009D5128 /* APIClient.swift */; };
+		8BB0B153250D08A2009D5128 /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0B152250D08A2009D5128 /* URLs.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,10 +58,9 @@
 		8B7713912505548400D93B29 /* Lecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lecture.swift; sourceTree = "<group>"; };
 		8B771395250556AA00D93B29 /* LectureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureCell.swift; sourceTree = "<group>"; };
 		8B77139725056B4300D93B29 /* NoticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeView.swift; sourceTree = "<group>"; };
-		8B77139925064BBF00D93B29 /* AbstractModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractModels.swift; sourceTree = "<group>"; };
+		8B77139925064BBF00D93B29 /* ServerModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerModels.swift; sourceTree = "<group>"; };
 		8B86BA84250348B80085A0D6 /* ImagemathStudent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImagemathStudent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B86BA87250348B80085A0D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8B86BA89250348B80085A0D6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8B86BA8B250348B80085A0D6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8B86BA8D250348BA0085A0D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8B86BA90250348BA0085A0D6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -65,12 +72,19 @@
 		8B86BAA5250348BB0085A0D6 /* ImagemathStudentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImagemathStudentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B86BAA9250348BB0085A0D6 /* ImagemathStudentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagemathStudentUITests.swift; sourceTree = "<group>"; };
 		8B86BAAB250348BB0085A0D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8BB0B13025069EC9009D5128 /* Assignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assignment.swift; sourceTree = "<group>"; };
+		8B984F9A250D2E1600AA5E8E /* RouterEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterEnums.swift; sourceTree = "<group>"; };
+		8BB0B13025069EC9009D5128 /* Assignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Assignment.swift; path = ImagemathStudent/Assignment/Assignment.swift; sourceTree = SOURCE_ROOT; };
 		8BB0B13325069F06009D5128 /* AssignmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentCell.swift; sourceTree = "<group>"; };
 		8BB0B13625069F31009D5128 /* TestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCell.swift; sourceTree = "<group>"; };
 		8BB0B13825069F45009D5128 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		8BB0B13C25069F84009D5128 /* TestDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDetailView.swift; sourceTree = "<group>"; };
 		8BB0B13E25069F95009D5128 /* AssignmentDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentDetailView.swift; sourceTree = "<group>"; };
+		8BB0B1442507E1F9009D5128 /* QnACell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QnACell.swift; sourceTree = "<group>"; };
+		8BB0B1462507E20A009D5128 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		8BB0B1482507E22C009D5128 /* QnADetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QnADetailView.swift; sourceTree = "<group>"; };
+		8BB0B14A250802B4009D5128 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SceneDelegate.swift; path = ../../../../.Trash/SceneDelegate.swift; sourceTree = "<group>"; };
+		8BB0B14F250D03A3009D5128 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = APIClient.swift; path = ImagemathStudent/APIConnection/APIClient.swift; sourceTree = SOURCE_ROOT; };
+		8BB0B152250D08A2009D5128 /* URLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +92,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BB0B1422507B8FB009D5128 /* SwiftUICharts in Frameworks */,
+				8BB0B14E250BE7EA009D5128 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,12 +148,13 @@
 		8B86BA86250348B80085A0D6 /* ImagemathStudent */ = {
 			isa = PBXGroup;
 			children = (
+				8BB0B151250D0883009D5128 /* APIConnection */,
+				8BB0B1432507E1CA009D5128 /* QnA */,
 				8BB0B13525069F22009D5128 /* Test */,
 				8BB0B12D25069EA7009D5128 /* Assignment */,
 				8B7713942505568B00D93B29 /* Lecture */,
 				8B86BA87250348B80085A0D6 /* AppDelegate.swift */,
-				8B77139925064BBF00D93B29 /* AbstractModels.swift */,
-				8B86BA89250348B80085A0D6 /* SceneDelegate.swift */,
+				8BB0B14A250802B4009D5128 /* SceneDelegate.swift */,
 				8B86BA8B250348B80085A0D6 /* ContentView.swift */,
 				8B86BA8D250348BA0085A0D6 /* Assets.xcassets */,
 				8B86BA92250348BA0085A0D6 /* LaunchScreen.storyboard */,
@@ -196,6 +213,28 @@
 			path = ImagemathStudent/Test;
 			sourceTree = SOURCE_ROOT;
 		};
+		8BB0B1432507E1CA009D5128 /* QnA */ = {
+			isa = PBXGroup;
+			children = (
+				8BB0B1442507E1F9009D5128 /* QnACell.swift */,
+				8BB0B1462507E20A009D5128 /* Question.swift */,
+				8BB0B1482507E22C009D5128 /* QnADetailView.swift */,
+			);
+			path = QnA;
+			sourceTree = "<group>";
+		};
+		8BB0B151250D0883009D5128 /* APIConnection */ = {
+			isa = PBXGroup;
+			children = (
+				8B77139925064BBF00D93B29 /* ServerModels.swift */,
+				8BB0B14F250D03A3009D5128 /* APIClient.swift */,
+				8BB0B152250D08A2009D5128 /* URLs.swift */,
+				8B984F9A250D2E1600AA5E8E /* RouterEnums.swift */,
+			);
+			name = APIConnection;
+			path = ImagemathStudent/APIConnection;
+			sourceTree = SOURCE_ROOT;
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -212,6 +251,10 @@
 			dependencies = (
 			);
 			name = ImagemathStudent;
+			packageProductDependencies = (
+				8BB0B1412507B8FB009D5128 /* SwiftUICharts */,
+				8BB0B14D250BE7EA009D5128 /* Alamofire */,
+			);
 			productName = ImagemathStudent;
 			productReference = 8B86BA84250348B80085A0D6 /* ImagemathStudent.app */;
 			productType = "com.apple.product-type.application";
@@ -284,6 +327,10 @@
 				Base,
 			);
 			mainGroup = 8B86BA7B250348B80085A0D6;
+			packageReferences = (
+				8BB0B1402507B8FB009D5128 /* XCRemoteSwiftPackageReference "ChartView" */,
+				8BB0B14C250BE7EA009D5128 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 8B86BA85250348B80085A0D6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -328,18 +375,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BB0B13725069F31009D5128 /* TestCell.swift in Sources */,
+				8B984F9B250D2E1600AA5E8E /* RouterEnums.swift in Sources */,
+				8BB0B1472507E20A009D5128 /* Question.swift in Sources */,
+				8BB0B1492507E22C009D5128 /* QnADetailView.swift in Sources */,
 				8BB0B13425069F06009D5128 /* AssignmentCell.swift in Sources */,
 				8BB0B13F25069F95009D5128 /* AssignmentDetailView.swift in Sources */,
 				8B771396250556AA00D93B29 /* LectureCell.swift in Sources */,
 				8B7713922505548400D93B29 /* Lecture.swift in Sources */,
+				8BB0B14B250802B4009D5128 /* SceneDelegate.swift in Sources */,
 				8B86BA88250348B80085A0D6 /* AppDelegate.swift in Sources */,
 				8BB0B13925069F45009D5128 /* Test.swift in Sources */,
-				8B86BA8A250348B80085A0D6 /* SceneDelegate.swift in Sources */,
+				8BB0B1452507E1F9009D5128 /* QnACell.swift in Sources */,
 				8B86BA8C250348B80085A0D6 /* ContentView.swift in Sources */,
+				8BB0B150250D03A3009D5128 /* APIClient.swift in Sources */,
 				8B771390250548A600D93B29 /* CarMaker.swift in Sources */,
 				8B77139825056B4300D93B29 /* NoticeView.swift in Sources */,
 				8BB0B13125069EC9009D5128 /* Assignment.swift in Sources */,
-				8B77139A25064BBF00D93B29 /* AbstractModels.swift in Sources */,
+				8B77139A25064BBF00D93B29 /* ServerModels.swift in Sources */,
+				8BB0B153250D08A2009D5128 /* URLs.swift in Sources */,
 				8BB0B13D25069F84009D5128 /* TestDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -665,6 +718,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8BB0B1402507B8FB009D5128 /* XCRemoteSwiftPackageReference "ChartView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppPear/ChartView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.4;
+			};
+		};
+		8BB0B14C250BE7EA009D5128 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.2.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8BB0B1412507B8FB009D5128 /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8BB0B1402507B8FB009D5128 /* XCRemoteSwiftPackageReference "ChartView" */;
+			productName = SwiftUICharts;
+		};
+		8BB0B14D250BE7EA009D5128 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8BB0B14C250BE7EA009D5128 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8B86BA7C250348B80085A0D6 /* Project object */;
 }

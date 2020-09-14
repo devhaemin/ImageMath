@@ -13,9 +13,11 @@ struct ContentView: View {
     let carMakers = CarMaker.all();
     let lectures = Lecture.getDummyData();
     let assignments = Assignment.getAssignmentDummyData();
+    let tests = Test.getDummyData();
     @State var selectedView = 0
     @State var isExceptOn = false
     @State var showingSheet = false
+    @State var testAverageScore = 100;
     
     
     var body: some View{
@@ -113,7 +115,6 @@ struct ContentView: View {
             
             NavigationView{
                 VStack{
-                    
                     HStack{
                         Spacer().frame(width:24)
                         Text("수업").font(.system(size: 18))
@@ -131,17 +132,36 @@ struct ContentView: View {
                             .stroke()
                             .foregroundColor(Color("borderColor"))
                     ).padding()
+                    HStack(spacing:0){
+                        ZStack{
+                            Image(uiImage: #imageLiteral(resourceName: "box_showstate")).resizable()
+                                .frame(height: 100)
+                            Text(String(tests[0].rank)+"등").font(.system(size: 24)).foregroundColor(Color.white).padding(.bottom)
+                        }
+                        ZStack{
+                            Image(uiImage: #imageLiteral(resourceName: "box_showavgscore")).resizable()
+                                .frame(height: 100)
+                            Text(String(self.testAverageScore)+"점").font(.system(size: 24)).foregroundColor(Color.white).padding(.bottom)
+                        }
+                        ZStack{
+                            Image(uiImage: #imageLiteral(resourceName: "box_showrecentscore")).resizable()
+                                .frame(height: 100)
+                            Text(String(tests[0].score)+"점").font(.system(size: 24)).foregroundColor(Color.white).padding(.bottom)
+                        }
+                    }.padding(.horizontal)
                     
-                    List(self.carMakers, id: \.name) { carMaker in
+                    List(self.tests, id: \.testAdmSeq) { test in
                         
+                        ZStack{
+                            
+                            TestCell(test: test)
                         NavigationLink(destination:
-                            Text(carMaker.name))
+                            Text(test.title))
                         {
-                            CarMakerCell(carMaker: carMaker);
+                            EmptyView()
+                            }.buttonStyle(PlainButtonStyle())
                         }
                     }
-                    
-                    
                 }
                     
                 .navigationBarTitle("", displayMode: .inline)
@@ -185,7 +205,7 @@ struct ContentView: View {
             }.tag(3)
             
         }.onAppear(){
-            self.selectedView = 2
+            self.selectedView = 1
         }
         
     }
