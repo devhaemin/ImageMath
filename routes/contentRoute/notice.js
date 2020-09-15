@@ -3,9 +3,7 @@ const router = express.Router();
 const cUtil = require('../../customUtil');
 const multer = require('multer');
 const storage = multer.memoryStorage();
-const upload = multer({storage});
 var AWS = require('aws-sdk');
-var fs = require('fs');
 AWS.config.region = 'ap-northeast-2';
 
 const multerS3 = require('multer-s3');
@@ -59,25 +57,35 @@ router.get('/', noticeList);
 router.get('/file', getNoticeFile);
 router.delete('/delete/:noticeSeq', noticeDelete);
 
-function getNoticeFile(req, res) {
-    const token = req.headers['x-access-token'];
-    connection.query("select * from UserInfo where accessToken = ?", token, function (err, result) {
-        if (err) {
-            console.log(err);
-            res.status(400).send("토큰이 만료되었습니다.");
-        } else {
-            connection.query("select * from FileInfo where boardType = ? and postSeq = ?", [notice_board_type, req.query.noticeSeq],
-                function (err, fileList) {
+/**
+ * @api {get} notice/file 공지사항 첨부파일
+ * @apiName Get Notice attached file list
+ * @apiGroup Notice
+ * @apiHeader x-access-token 사용자 액세스 토큰
+ * @apiPermission normal
+ * @apiParam {Int} noticeSeq
+ *
+ */
 
-                    if (err) {
-                        console.log(err);
-                        res.status(400).send("File Query Error!");
-                    } else {
-                        res.status(200).send(fileList);
-                    }
-                });
-        }
-    })
+function getNoticeFile(req, res) {
+    const userInfo = req.userInfo;
+    const noticeSeq = req.query.noticeSeq;
+    if (!userInfo) {
+        connection.query("select * from FileInfo where boardType = ? and postSeq = ?", [notice_board_type, noticeSeq],
+            function (err, fileList) {
+
+                if (err) {
+                    console.log(err);
+                    res.status(400).send("File Query Error!");
+                } else {
+                    res.status(200).send(fileList);
+                }
+            });
+    } else {
+        console.log("token error");
+        res.status(403).send("token error!");
+    }
+
 }
 
 function addNotice(req, res) {
@@ -173,26 +181,34 @@ function editNotice(req, res) {
     })
 }
 
+
+/**
+ * @api {get} notice 수업별 공지사항 리스트
+ * @apiName Get Notice group by lecture
+ * @apiGroup Notice
+ * @apiHeader x-access-token 사용자 액세스 토큰
+ * @apiPermission normal
+ * @apiParam {Int} lectureSeq
+ *
+ *
+ */
+
 function noticeList(req, res) {
-    const token = req.headers['x-access-token'];
-    connection.query("select * from UserInfo where accessToken = ?", token, function (err, result, next) {
-        if (err) {
-            console.log("token error");
-            res.status(400).send("토큰이 만료되었습니다.");
-        } else {
-            var lectureSeq = req.query.lectureSeq;
-            //console.log(lectureSeq);
-            connection.query("select * from NoticeInfo where lectureSeq = ?", lectureSeq, function (err, result, next) {
-                if (err) {
-                    console.log(err);
-                    res.status(400).send("공지를 불러오지 못했습니다.");
-                } else {
-                    var column = 0;
-                    res.status(200).send(result);
-                }
-            })
-        }
-    })
+    const userInfo = req.userInfo;
+    const lectureSeq = req.query.lectureSeq;
+    if (!userInfo) {
+        console.log("token error");
+        res.status(400).send("토큰이 만료되었습니다.");
+    } else {
+        connection.query("select * from NoticeInfo where lectureSeq = ?", lectureSeq, function (err, result) {
+            if (err) {
+                console.log(err);
+                res.status(400).send("공지를 불러오지 못했습니다.");
+            } else {
+                res.status(200).send(result);
+            }
+        })
+    }
 }
 
 

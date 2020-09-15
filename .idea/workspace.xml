@@ -21,20 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="36413532-2186-4b51-bc32-d36d86fd342c" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/routes/apiDefine.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/ImageMathTutor/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/ImageMathTutor/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/ImageMathTutor/app/src/main/java/com/haemin/imagemathtutor/GlobalApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/ImageMathTutor/app/src/main/java/com/haemin/imagemathtutor/GlobalApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent.xcodeproj/project.xcworkspace/contents.xcworkspacedata" beforeDir="false" afterPath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent.xcodeproj/project.xcworkspace/contents.xcworkspacedata" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent.xcodeproj/project.xcworkspace/xcuserdata/haemin.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent.xcodeproj/project.xcworkspace/xcuserdata/haemin.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent/AbstractModels.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent/Assignment/Assignment.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent/Assignment/Assignment.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent/Assignment/AssignmentCell.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent/Assignment/AssignmentCell.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent/ContentView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent/ContentView.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent/Lecture/Lecture.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent/Lecture/Lecture.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent/SceneDelegate.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent/Test/Test.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent/Test/Test.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent/Test/TestCell.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent/Test/TestCell.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent/Test/TestDetailView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent/Test/TestDetailView.swift" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,7 +118,7 @@
       <workItem from="1599364565086" duration="287000" />
       <workItem from="1599374317822" duration="604000" />
       <workItem from="1599970426104" duration="1685000" />
-      <workItem from="1600001032955" duration="5801000" />
+      <workItem from="1600001032955" duration="14458000" />
     </task>
     <servers />
   </component>
@@ -174,26 +161,26 @@
       <screen x="0" y="0" width="1707" height="1027" />
     </state>
     <state x="767" y="82" key="FileDocumentManager.FileCacheConflict/0.0.1707.1027@0.0.1707.1027" timestamp="1595319615093" />
-    <state width="1638" height="411" key="GridCell.Tab.0.bottom" timestamp="1600099681854">
+    <state width="1638" height="411" key="GridCell.Tab.0.bottom" timestamp="1600106479909">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state width="1663" height="275" key="GridCell.Tab.0.bottom/0.0.1707.1027@0.0.1707.1027" timestamp="1595331489963" />
-    <state width="1638" height="411" key="GridCell.Tab.0.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1600099681854" />
-    <state width="1638" height="411" key="GridCell.Tab.0.center" timestamp="1600099681852">
+    <state width="1638" height="411" key="GridCell.Tab.0.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1600106479909" />
+    <state width="1638" height="411" key="GridCell.Tab.0.center" timestamp="1600106479908">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state width="1663" height="275" key="GridCell.Tab.0.center/0.0.1707.1027@0.0.1707.1027" timestamp="1595331489963" />
-    <state width="1638" height="411" key="GridCell.Tab.0.center/0.23.1680.1027@0.23.1680.1027" timestamp="1600099681852" />
-    <state width="1638" height="411" key="GridCell.Tab.0.left" timestamp="1600099681851">
+    <state width="1638" height="411" key="GridCell.Tab.0.center/0.23.1680.1027@0.23.1680.1027" timestamp="1600106479908" />
+    <state width="1638" height="411" key="GridCell.Tab.0.left" timestamp="1600106479907">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state width="1663" height="275" key="GridCell.Tab.0.left/0.0.1707.1027@0.0.1707.1027" timestamp="1595331489963" />
-    <state width="1638" height="411" key="GridCell.Tab.0.left/0.23.1680.1027@0.23.1680.1027" timestamp="1600099681851" />
-    <state width="1638" height="411" key="GridCell.Tab.0.right" timestamp="1600099681852">
+    <state width="1638" height="411" key="GridCell.Tab.0.left/0.23.1680.1027@0.23.1680.1027" timestamp="1600106479907" />
+    <state width="1638" height="411" key="GridCell.Tab.0.right" timestamp="1600106479908">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state width="1663" height="275" key="GridCell.Tab.0.right/0.0.1707.1027@0.0.1707.1027" timestamp="1595331489963" />
-    <state width="1638" height="411" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1600099681852" />
+    <state width="1638" height="411" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1600106479908" />
     <state width="243" height="477" key="HiddenNamespacesPopup" timestamp="1600095128455">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
@@ -221,11 +208,11 @@
       <screen x="0" y="0" width="1707" height="1027" />
     </state>
     <state x="783" y="342" key="com.intellij.ide.util.TipDialog/0.0.1707.1027@0.0.1707.1027" timestamp="1595320132774" />
-    <state x="545" y="291" width="715" height="490" key="find.popup" timestamp="1599986282718">
+    <state x="545" y="277" width="715" height="562" key="find.popup" timestamp="1600148390569">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="554" y="268" width="726" height="490" key="find.popup/0.0.1707.1027@0.0.1707.1027" timestamp="1595322007790" />
-    <state x="545" y="291" width="715" height="490" key="find.popup/0.23.1680.1027@0.23.1680.1027" timestamp="1599986282718" />
+    <state x="545" y="277" width="715" height="562" key="find.popup/0.23.1680.1027@0.23.1680.1027" timestamp="1600148390569" />
     <state x="808" y="324" key="jetbrains.nodejs.interpreters-dialog" timestamp="1595353411775">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
@@ -234,9 +221,9 @@
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="416" y="222" key="new project wizard/0.23.1680.1027@0.23.1680.1027" timestamp="1598945084898" />
-    <state x="925" y="250" width="670" height="676" key="search.everywhere.popup" timestamp="1599378343387">
+    <state x="925" y="250" width="670" height="676" key="search.everywhere.popup" timestamp="1600147066890">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state x="925" y="250" width="670" height="676" key="search.everywhere.popup/0.23.1680.1027@0.23.1680.1027" timestamp="1599378343387" />
+    <state x="925" y="250" width="670" height="676" key="search.everywhere.popup/0.23.1680.1027@0.23.1680.1027" timestamp="1600147066890" />
   </component>
 </project>

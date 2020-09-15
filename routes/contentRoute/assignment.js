@@ -5,10 +5,8 @@ const cUtil = require('../../customUtil');
 const mysql = require('mysql');
 const multer = require('multer');
 const multerS3 = require('multer-s3');
-const checkAuth = cUtil.checkAuth;
 
 var AWS = require('aws-sdk');
-var fs = require('fs');
 AWS.config.loadFromPath("./config.json");
 var s3 = new AWS.S3();
 
@@ -32,7 +30,7 @@ const upload = multer({
 
 function connectionQuery(connection, sql, params) {
     return new Promise((resolve, reject) => {
-        if (params.length == 0) {
+        if (params.length === 0) {
             connection.query(sql, function (error, results, next) {
                 if (error) {
                     reject(error);
@@ -52,24 +50,25 @@ function connectionQuery(connection, sql, params) {
     });
 }
 
-/**
- * @api {get} / 수업별 과제 리스트 출력
- * @apiName assignment
- * @apiGroup assignment
- * @apiPermission normal
- */
-
-router.get('/', assignment);//해당수업 과제 리스트 출력
-
-router.post('/add', assignmentadd);
-
-router.post('/add/answerFile/:assignmentSeq', upload.single('file'), assignmentAddAnswerFile);
+router.get('/', assignment); //해당 수업 과제 리스트 출력
 
 router.get('/student', assignmentStudent);
 
 router.get('/:assignmentSeq', assignmentSeq);//특정 과제 출력
 
 router.get('/student/:assignmentSeq', studentAssignmentInfo);
+
+/**************************
+ *
+ *
+ * 튜터 전용 API
+ *
+ *
+ */
+
+router.post('/add', assignmentadd);
+
+router.post('/add/answerFile/:assignmentSeq', upload.single('file'), assignmentAddAnswerFile);
 
 router.get('/tutor/:assignmentSeq', tutorAssignmentInfo); // 튜터 전용, 한 과제당 총 인원 +
 
@@ -95,7 +94,7 @@ function deleteAssignmentInfo(req, res) {
         if (err) {
             console.log(err);
             res.status(400).send();
-        } else if (userInfos.length == 0 || userInfos[0].userType == "student") {
+        } else if (userInfos.length === 0 || userInfos[0].userType === "student") {
             res.status(400).send("잘못된 토큰입니다.");
         } else {
             connection.query("delete from AssignmentInfo where assignmentSeq = ?", assignmentSeq, function (err, result) {
@@ -120,7 +119,7 @@ function deleteAnswerFile(req, res) {
         if (err) {
             console.log(err);
             res.status(400).send("토큰이 만료되었습니다.");
-        } else if (result.length == 0 || result[0].userType == "student") {
+        } else if (result.length === 0 || result[0].userType === "student") {
             console.log("잘못된 토큰입니다.");
             res.status(400).send("잘못된 토큰입니다.");
         } else {
@@ -136,6 +135,7 @@ function deleteAnswerFile(req, res) {
         }
     });
 }
+
 
 function getStudentSubmitAssignmentList(req, res) {
     var token = req.headers['x-access-token'];
@@ -490,71 +490,84 @@ router.post('/submit/:assignmentSeq', upload.single('submitFile'), (req, res) =>
 
 });
 
+
+/**
+ * @api {get} assignment/student/:assignmentSeq 학생의 과제 제출 정보
+ * @apiName Get StudentAssignment Submit Detail
+ * @apiGroup Assignment
+ * @apiHeader x-access-token 사용자 액세스 토큰
+ * @apiPermission student
+ *
+ */
+
+
 function studentAssignmentInfo(req, res) {
     const assignmentSeq = req.params.assignmentSeq;
-    const token = req.headers['x-access-token'];
-    if (!token) {
-        res.status(400).send('TOKEN IS REQUIRED');
+    const userInfo = req.userInfo;
 
+    if (!userInfo) {
+        res.status(400).send('token error');
     } else {
-
-        connection.query("select * from UserInfo where accessToken = ?", token, function (err, result, next) {
+        var studentCode = userInfo.studentCode;
+        const sql = "select * from AssignmentAdm AS ad JOIN AssignmentInfo AS ai where ad.studentCode = ? and ad.assignmentSeq = ? and ad.assignmentSeq = ai.assignmentSeq"; //
+        const sql3 = "select * from FileInfo where boardType = ? and userSeq = ? and postSeq = " + assignmentSeq + " order by uploadTime desc";  // submitFiles
+        connection.query(sql, [studentCode, assignmentSeq], function (err, result) {
+            console.log(sql);
             if (err) {
                 console.log(err);
-                res.status(400).send('token error');
+                res.status(400).send(err);
             } else {
-                var studentCode = result[0].studentCode;
-                const sql = "select * from AssignmentAdm AS ad JOIN AssignmentInfo AS ai where ad.studentCode = ? and ad.assignmentSeq = ? and ad.assignmentSeq = ai.assignmentSeq"; //
-                const sql3 = "select * from FileInfo where boardType = ? and userSeq = ? and postSeq = " + assignmentSeq + " order by uploadTime desc";  // submitFiles
-                connection.query(sql, [studentCode, assignmentSeq], function (err, result, next) {
-                    console.log(sql);
+                let ret = {};
+                ret = Object.assign(ret, result[0]);
+                connection.query(sql3, ['assignment-submit-image', result[0].userSeq], function (err, result3, next) {
+                    console.log(sql3);
                     if (err) {
                         console.log(err);
                         res.status(400).send(err);
                     } else {
-                        var ret = {};
-                        ret = Object.assign(ret, result[0]);
-                        connection.query(sql3, ['assignment-submit-image', result[0].userSeq], function (err, result3, next) {
-                            console.log(sql3);
-                            if (err) {
-                                console.log(err);
-                                res.status(400).send(err);
-                            } else {
-                                var temp = [];
-                                var cnt = 0;
+                        let temp = [];
+                        let cnt = 0;
 
-                                for (var i = 0; i < result3.length; i++) {
-                                    temp.push(result3[i]);
-                                    console.log(cnt, result3.length);
-                                    if (cnt == result3.length - 1) {
-                                        ret = Object.assign(ret, {submitFiles: temp});
-                                        console.log(ret);
-                                        res.status(200).send(ret);
-                                    }
-                                    cnt++;
-                                }
-
-                                if (result3.length == 0) {
-                                    ret = Object.assign(ret, {submitFiles: temp});
-                                    console.log(ret);
-                                    res.status(200).send(ret);
-                                }
+                        for (let i = 0; i < result3.length; i++) {
+                            temp.push(result3[i]);
+                            console.log(cnt, result3.length);
+                            if (cnt === result3.length - 1) {
+                                ret = Object.assign(ret, {submitFiles: temp});
+                                console.log(ret);
+                                res.status(200).send(ret);
                             }
-                        });
+                            cnt++;
+                        }
 
+                        if (result3.length === 0) {
+                            ret = Object.assign(ret, {submitFiles: temp});
+                            console.log(ret);
+                            res.status(200).send(ret);
+                        }
                     }
                 });
+
             }
-        })
+        });
     }
 }
 
+
+/**
+ * @api {get} assignment/:assignmentSeq 과제 정보 디테일
+ * @apiName Get StudentAssignment Detail
+ * @apiGroup Assignment
+ * @apiHeader x-access-token 사용자 액세스 토큰
+ * @apiPermission student
+ *
+ */
+
+
 function assignmentSeq(req, res) {
     const assignmentSeq = req.params.assignmentSeq;
-    console.log(assignmentSeq);
     const sql = "select * from AssignmentInfo where assignmentSeq = ? order by endTime desc";
     var sql1 = mysql.format(sql, assignmentSeq);
-    connection.query(sql1, function (err, result, next) {
+    connection.query(sql1, function (err, result) {
         if (err) {
             console.log(err);
             res.status(400).send("assignmentSeq error");
@@ -564,10 +577,10 @@ function assignmentSeq(req, res) {
                 if (err) {
                     console.log(err);
                     res.status(400).send("error");
-                } else if (answerFilesSql.length == 0) {
+                } else if (answerFilesSql.length === 0) {
                     res.status(200).send(result[0]);
                 } else {
-                    var ret = result[0];
+                    let ret = result[0];
                     ret.answerFiles = answerFilesSql;
                     console.log(ret);
                     res.status(200).send(ret);
@@ -577,86 +590,67 @@ function assignmentSeq(req, res) {
     })
 }
 
+/**
+ * @api {get} assignment 수업별 과제 리스트 출력
+ * @apiName Get Assignment List
+ * @apiGroup Assignment
+ * @apiHeader x-access-token 사용자 액세스 토큰
+ * @apiPermission normal
+ *
+ */
+
 function assignment(req, res) {
-    const token = req.headers['x-access-token'];
-    var page = req.query.page;
-    if (!token) {
-        res.status(400).send('TOKEN IS REQUIRED');
+    const userInfo = req.userInfo;
+    const sql2 = "select * from AssignmentInfo order by endTime desc";
+    if (!userInfo) {
+        res.status(400).send("token error");
     } else {
-        const sql = "select * from UserInfo where accessToken = ?";
-        var sql1 = mysql.format(sql, token);
-        var pageData = [];
-        const sql2 = "select * from AssignmentInfo order by endTime desc";
-        // var sql3 = mysql.format(sql2, lectureSeq);
-        connection.query(sql1, function (err, result, next) {
-            if (err) {
-                console.log(err);
-                res.status(400).send("token error");
+        connection.query(sql2, function (error, results) {
+            if (error) {
+                console.log(error);
+                res.status(400).send("assignment query error");
             } else {
-                connection.query(sql2, function (error, results, nexts) {
-                    if (error) {
-                        console.log(error);
-                        res.status(400).send("assignment query error");
-                    } else {
-                        console.log("assignmentList get");
-                        /*
-                        for(var i = 0; i < 20 && i <= results.length;i++){
-                            pageData[i] = results[page * 20 - 20 + i];
-                        }*/
-                        res.status(200).send(results);
-                    }
-                })
+                console.log("assignmentList get");
+                res.status(200).send(results);
             }
         })
     }
-
 }
 
 function editAssignmentInfo(req, res) {
-    const token = req.headers['x-access-token'];
-    var reqbody = {
+    const userInfo = req.userInfo;
+    let reqbody = {
         title: req.body.title,
-        postTime: req.body.postTime,
+        postTime: Date.now(),
         endTime: req.body.endTime,
         lectureTime: req.body.lectureTime,
         lectureSeq: req.body.lectureSeq,
         lectureName: req.body.lectureName,
         contents: req.body.contents
     };
-    var assignmentSeq = req.body.assignmentSeq;
-    reqbody.postTime = Date.now();
-    if (!token) {
-        res.status(400).send('TOKEN IS REQUIRED');
-    } else {
-        const sql = "select * from UserInfo where accessToken = ?";
-        var sql1 = mysql.format(sql, token);
-        connection.query(sql1, function (err, result, next) {
-            if (err || result == undefined) {
-                console.log("token error");
-                res.status(400).send("token error");
-            } else if (result[0].userType == "tutor") {
-                connection.query("update AssignmentInfo set ? where assignmentSeq = ?", [reqbody, assignmentSeq], function (error, results, nexts) {
-                    if (error) {
-                        console.log(error);
-                    } else {
-
-                        res.status(200).send(req.body);
-                    }
-                })
-                //var content;
-                //cUtil.fcmpush(token, content, userSeq, lectureSeq);
+    let assignmentSeq = req.body.assignmentSeq;
+    if (!userInfo) {
+        console.log("token error");
+        res.status(400).send("token error");
+    } else if (userInfo.userType === "tutor") {
+        connection.query("update AssignmentInfo set ? where assignmentSeq = ?", [reqbody, assignmentSeq], function (error) {
+            if (error) {
+                console.log(error);
             } else {
-                console.log("permission denied");
-                res.status(400).send("권한이 없습니다.");
+
+                res.status(200).send(req.body);
             }
         })
+    } else {
+        console.log("permission denied");
+        res.status(400).send("권한이 없습니다.");
     }
 }
 
 function assignmentadd(req, res) {
-    const token = req.headers['x-access-token'];
+    const userInfo = req.userInfo;
 
-    var reqbody = {
+    let reqbody = {
         title: req.body.title,
         postTime: req.body.postTime,
         endTime: req.body.endTime,
@@ -666,52 +660,43 @@ function assignmentadd(req, res) {
         contents: req.body.contents
     };
     reqbody.postTime = Date.now();
-    if (!token) {
-        res.status(400).send('TOKEN IS REQUIRED');
-    } else {
-        const sql = "select * from UserInfo where accessToken = ?";
-        var sql1 = mysql.format(sql, token);
-        connection.query(sql1, function (err, result, next) {
-            if (err) {
-                console.log("token error");
-                res.status(400).send("token error");
-            } else if (result[0].userType == "tutor") {
-                connection.query("insert into AssignmentInfo set ?", reqbody, function (error, results, nexts) {
-                    if (error) {
-                        console.log(error);
+
+    if (!userInfo) {
+        console.log("token error");
+        res.status(400).send("token error");
+    } else if (userInfo.userType === "tutor") {
+        connection.query("insert into AssignmentInfo set ?", reqbody, function (error, results) {
+            if (error) {
+                console.log(error);
+            } else {
+                connection.query("select * from LectureAdm where lectureSeq = ?", reqbody.lectureSeq, function (err2, result2) {
+                    if (err2) {
+                        console.log(err2);
                     } else {
-                        //    var lectureSeqs = "%/" + reqbody.lectureSeq + "/%";
-                        connection.query("select * from LectureAdm where lectureSeq = ?", reqbody.lectureSeq, function (err2, result2, next2) {
-                            if (err2) {
-                                console.log(err2);
-                            } else {
-                                for (var i = 0; i < result2.length; i++) {
-                                    connection.query("insert into AssignmentAdm (userSeq, studentCode, assignmentSeq, uploadTime) values (?, ?, ?, ?)", [result2[i].userSeq, result2[i].studentCode, results.insertId, reqbody.postTime], function (err3, result3, next3) {
-                                        if (err3) {
-                                            console.log(err3);
-                                        } else {
-                                            console.log("insert AssignmentAdm");
-                                        }
-                                    })
+                        for (let i = 0; i < result2.length; i++) {
+                            connection.query("insert into AssignmentAdm (userSeq, studentCode, assignmentSeq, uploadTime) values (?, ?, ?, ?)", [result2[i].userSeq, result2[i].studentCode, results.insertId, reqbody.postTime], function (err3) {
+                                if (err3) {
+                                    console.log(err3);
+                                } else {
+                                    cUtil.sendPushMessage(result2[i].userSeq, "신규 과제가 등록", reqbody.title + " 과제가 등록되었습니다.");
+                                    console.log("insert AssignmentAdm");
                                 }
-                                reqbody.assignmentSeq = results.insertId
-                                connection.query("update AssignmentInfo set studentNum = ? where assignmentSeq = ?", [result2.length, reqbody.assignmentSeq], function (err, resq) {
-                                    if (err) {
-                                        console.log(err);
-                                    }
-                                });
-                                res.status(200).send(reqbody);
+                            })
+                        }
+                        reqbody.assignmentSeq = results.insertId
+                        connection.query("update AssignmentInfo set studentNum = ? where assignmentSeq = ?", [result2.length, reqbody.assignmentSeq], function (err, resq) {
+                            if (err) {
+                                console.log(err);
                             }
-                        })
+                        });
+                        res.status(200).send(reqbody);
                     }
                 })
-                //var content;
-                //cUtil.fcmpush(token, content, userSeq, lectureSeq);
-            } else {
-                console.log("permission denied");
-                res.status(400).send("권한이 없습니다.");
             }
         })
+    } else {
+        console.log("permission denied");
+        res.status(400).send("권한이 없습니다.");
     }
 }
 
@@ -765,29 +750,31 @@ function assignmentAddAnswerFile(req, res) {
     );
 }
 
+/**
+ * @api {get} assignment/student 학생의 과제 정보 리스트
+ * @apiName Get StudentAssignment List
+ * @apiGroup Assignment
+ * @apiHeader x-access-token 사용자 액세스 토큰
+ * @apiPermission student
+ *
+ */
+
 function assignmentStudent(req, res) {
-    console.log('assignmentStudent');
-    const token = req.headers['x-access-token'];
-    var page = req.query.page;
-    connection.query("select * from UserInfo where accessToken = ?", token, function (err, result, next) {
-        if (err) {
-            console.log("token error");
-            res.status(400).send("토큰이 만료되었습니다.");
-        } else if (result.length == 0) {
-            console.log("token expired");
-            res.status(400).send("토큰이 만료되었습니다.");
-        } else {
-            connection.query("select * from AssignmentAdm AS ad JOIN AssignmentInfo AS ai where ad.assignmentSeq = ai.assignmentSeq and ad.studentCode = ? order by ai.endTime desc", result[0].studentCode, function (err1, result1, next1) {
-                if (err1) {
-                    console.log(err1)
-                } else if (result1.length == 0) {
-                    res.status(200).send([]);
-                } else {
-                    res.status(200).send(result1);
-                }
-            })
-        }
-    })
+    const userInfo = req.userInfo;
+    if (!userInfo) {
+        console.log("token expired");
+        res.status(400).send("토큰이 만료되었습니다.");
+    } else {
+        connection.query("select * from AssignmentAdm AS ad JOIN AssignmentInfo AS ai where ad.assignmentSeq = ai.assignmentSeq and ad.studentCode = ? order by ai.endTime desc", userInfo.studentCode, function (err1, result1) {
+            if (err1) {
+                console.log(err1)
+            } else if (result1.length === 0) {
+                res.status(200).send([]);
+            } else {
+                res.status(200).send(result1);
+            }
+        })
+    }
 }
 
 module.exports = router;

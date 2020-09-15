@@ -2,9 +2,6 @@ var express = require('express');
 var router = express.Router();
 const cUtil = require('../../customUtil');
 const mysql = require('mysql');
-const parseXlsx = require('excel');
-const multiparty = require('multiparty');
-const bodyParser = require('body-parser');
 const XLSX = require('xlsx');
 const multer = require('multer');
 const storage = multer.memoryStorage();
@@ -32,7 +29,7 @@ const testUpload = multer({
 
 function connectionQuery(connection, sql, params) {
     return new Promise((resolve, reject) => {
-        if (params.length == 0) {
+        if (params.length === 0) {
             connection.query(sql, function (error, results, next) {
                 if (error) {
                     reject(error);
@@ -52,20 +49,15 @@ function connectionQuery(connection, sql, params) {
     });
 }
 
-
-cUtil.connect;
-
 router.post('/', upload.single('file'), testtest);
 router.get('/student/:lectureSeq', studentTest); // 한 강의에 대한 학생 하나의 모든 테스트 기록
 router.get('/student', testInfo); // 한 학생에 대해서 모든 테스트 결과
 router.get('/tutor/:lectureSeq', tutorTest);
 router.get('/tutor', getTestInfo);
 router.get('/result', testresult); // 한 테스트에 대해서 모든 학생들의 테스트 결과
-//router.post('/:testSeq', testAdm);
 router.post('/add', addTestInfo);
 router.post('/answer/:testSeq', testUpload.single('file'), uploadAnswerFile);
 router.post('/tutor/uploadXls/:testSeq', testUpload.single('file'), uploadXls);
-
 
 router.delete('/:testSeq', deleteTestInfo);
 
@@ -311,95 +303,90 @@ function testtest(file, req, res) {
     }
 }
 
-function studentTest(req, res) {
-    const token = req.headers['x-access-token'];
-    var lectureSeq = req.params.lectureSeq;
-    console.log("lectureSeq = " + lectureSeq)
-    var page = req.query.page;
-    var sql = "select * from UserInfo where accessToken = ?";
-    var sql1 = mysql.format(sql, token);
-    connection.query(sql1, function (err, result, next) {
-        if (err) {
-            console.log(err);
-            res.status(400).send("token error");
-        } else if (result[0].userType == "student") {
-            var sql2 = "select * from TestAdm AS ta JOIN TestInfo AS ti where ta.studentCode = ? and ta.lectureSeq = ? and ta.testSeq = ti.testSeq order by lectureTime";
-            var sql3 = mysql.format(sql2, [result[0].studentCode, lectureSeq]);
-            connection.query(sql3, function (error, results) {
-                if (error) {
-                    console.log(error);
-                    res.status(400).send("search error");
-                } else {
-                    console.log("search test by lecture");
-                    res.status(200).send(results);
-                }
-            })
-        }
-    })
-}
+/**
+ * @api {get} test/student/:lectureSeq
+ * @apiName Get Test list group by lecture
+ * @apiGroup Test
+ * @apiHeader x-access-token 사용자 액세스 토큰
+ * @apiPermission normal
+ *
+ */
 
-function testInfo(req, res) {
-    const token = req.headers['x-access-token'];
-    var testAdmSeq = req.query.testAdmSeq;
-    if (!token) {
-        res.status(400).send('TOKEN IS REQUIRED');
-    } else {
-        var sql = "select * from UserInfo where accessToken = ?";
-        var sql1 = mysql.format(sql, token);
-        connection.query(sql1, function (err, result, next) {
-            if (err) {
-                console.log(err);
-                res.status(500).send("token error");
-            } else if (result[0].userType == "student") {
-                var sql2 = "select * from TestAdm AS ta JOIN TestInfo AS ti where ta.testAdmSeq = ? and ti.testSeq = ta.testSeq order by lectureTime";
-                var Seqs = [testAdmSeq];
-                connection.query(sql2, Seqs, function (error, results, nexts) {
-                    if (error) {
-                        console.log(error);
-                        res.status(400).send("Seq error");
-                    } else {
-                        console.log("testAdm search");
-                        res.status(200).send(results[0]);
-                    }
-                })
+function studentTest(req, res) {
+    const userInfo = req.userInfo;
+    const lectureSeq = req.params.lectureSeq;
+    if (!userInfo) {
+        res.status(400).send("token error");
+    } else if (userInfo.userType === "student") {
+        const sql2 = "select * from TestAdm AS ta JOIN TestInfo AS ti where ta.studentCode = ? and ta.lectureSeq = ? and ta.testSeq = ti.testSeq order by lectureTime";
+        const sql3 = mysql.format(sql2, [userInfo.studentCode, lectureSeq]);
+        connection.query(sql3, function (error, results) {
+            if (error) {
+                console.log(error);
+                res.status(400).send("search error");
             } else {
-                console.log("permission error");
-                res.status(400).send("Permission error");
+                console.log("search test by lecture");
+                res.status(200).send(results);
             }
         })
     }
 }
 
+/**
+ * @api {get} test/student
+ * @apiName Get Test detail for student
+ * @apiGroup Test
+ * @apiHeader x-access-token 사용자 액세스 토큰
+ * @apiPermission student
+ * @apiParam {Int} testAdmSeq
+ */
+
+function testInfo(req, res) {
+    const userInfo = req.userInfo;
+    const testAdmSeq = req.query.testAdmSeq;
+    if (!userInfo) {
+        res.status(500).send("token error");
+    } else if (userInfo.userType === "student") {
+        const sql2 = "select * from TestAdm AS ta JOIN TestInfo AS ti where ta.testAdmSeq = ? and ti.testSeq = ta.testSeq order by lectureTime";
+        connection.query(sql2, testAdmSeq, function (error, results) {
+            if (error) {
+                console.log(error);
+                res.status(400).send("Seq error");
+            } else {
+                console.log("testAdm search");
+                res.status(200).send(results[0]);
+            }
+        })
+    } else {
+        console.log("permission error");
+        res.status(400).send("Permission error");
+    }
+
+}
+
 function tutorTest(req, res) {
     const token = req.headers['x-access-token'];
-    var lectureSeq = req.params.lectureSeq;
-    //var page = req.query.page;
-    //var pageData = [];//{}인지 []인지는 나중에 확인필요
+    const lectureSeq = req.params.lectureSeq;
     if (!token) {
         res.status(400).send('TOKEN IS REQUIRED');
     } else {
         var sql = "select * from UserInfo where accessToken = ? ";
         var sql1 = mysql.format(sql, token);
-        connection.query(sql1, function (err, result, next) {
+        connection.query(sql1, function (err, result) {
             if (err) {
                 console.log(err);
                 res.status(500).send("token error");
-            } else if (result.length == 0) {
+            } else if (result.length === 0) {
                 res.status(400).send("token error!");
-            } else if (result[0].userType == "tutor") {
+            } else if (result[0].userType === "tutor") {
                 var sql2 = "select * from TestInfo where lectureSeq = ?  order by testSeq DESC";
                 var sql3 = mysql.format(sql2, lectureSeq);
-                connection.query(sql3, function (error, results, nexts) {
+                connection.query(sql3, function (error, results) {
                     if (error) {
                         console.log(error);
                         res.status(500).send("lectureSeq error");
                     } else {
                         console.log("testList by lectureSeq");
-                        /*
-                                                for (var i = 0; i < 5 && i <= results.length; i++) {
-                                                    pageData[i] = results[page * 5 - 5 + i];
-                                                }
-                                                */
                         res.status(200).send(results);
                     }
                 })
@@ -456,8 +443,6 @@ function getTestInfo(req, res) {
 function testresult(req, res) {
     const token = req.headers['x-access-token'];
     var testSeq = req.query.testSeq;
-    //var page = req.query.page;
-    //var pageData = [];
     if (!token) {
         res.status(400).send('TOKEN IS REQUIRED');
     } else {
@@ -467,7 +452,7 @@ function testresult(req, res) {
             if (err) {
                 console.log(err);
                 res.status(500).send("token error");
-            } else if (result[0].userType == "tutor") {
+            } else if (result[0].userType === "tutor") {
                 var sql2 = "select ta.score,ta.rank,ti.averageScore,ta.studentCode, ta.userName, ti.testSeq, ti.title, ti.postTime, ti.endTime, ti.lectureTime, ti.studentNum, ti.contents, ti.lectureName from TestAdm AS ta JOIN TestInfo AS ti where ta.testSeq = ? and ta.testSeq = ti.testSeq order by score desc"
                 var sql3 = mysql.format(sql2, testSeq);
                 connection.query(sql3, function (error, results, nexts) {
@@ -476,16 +461,12 @@ function testresult(req, res) {
                         res.status(400).send("testSeq error");
                     } else {
                         console.log("test result tutor");
-                        /*  for (var i = 0; i < 20 && i <= results.length; i++) {
-                              pageData[i] = results[page * 20 - 20 + i];
-                          }*/
                         res.status(200).send(results);
                     }
                 })
             } else {
                 var sql2 = "select ta.score,ta.rank,ti.averageScore,ta.studentCode, ta.userName, ti.testSeq, ti.title, ti.postTime, ti.endTime, ti.lectureTime, ti.studentNum, ti.contents, ti.lectureName from TestAdm AS ta JOIN TestInfo AS ti where ta.testSeq = ? and ta.testSeq = ti.testSeq order by score desc limit5";
-                // var sql3 = mysql.format(sql2, testSeq);
-                connection.query(sql2, testSeq, function (error, results, nexts) {
+                connection.query(sql2, testSeq, function (error, results) {
                     if (error) {
                         console.log(error);
                         res.status(500).send("testSeq error");
@@ -500,33 +481,4 @@ function testresult(req, res) {
         })
     }
 }
-
-function testAdm(req, res) {
-    const token = req.headers['x-access-token'];
-    var testSeq = req.params.testSeq;
-    //file을 multipart로 보내는거
-    if (!token) {
-        res.status(400).send('TOKEN IS REQUIRED');
-    } else {
-        connection.query("select * from UserInfo where accessToken = ?", token, function (error, results, nexts) {
-            if (error) {
-                console.log(error);
-            } else {
-                parseXlsx(file, function (err, data) {
-                        for (var i = 0; i < data.length - 1; i++) {
-                            connection.query("insert into TestAdm set ?", data[i], function (err, result, next) {
-                                if (err) {
-                                    console.log(err);
-                                } else {
-                                    res.status(200).send("업로드가 완료되었습니다.");
-                                }
-                            })
-                        }
-                    }
-                )
-            }
-        })
-    }
-}
-
 module.exports = router;

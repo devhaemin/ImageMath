@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const cUtil = require('../../customUtil');
-const mysql = require('mysql');
 const connection = cUtil.connection;
 
 
@@ -9,9 +8,8 @@ router.get('/', lecture);
 router.get('/student', studentLectureList);
 router.get('/student/:lectureSeq', getStudentList);
 router.patch('/recognition/:lectureSeq', recognitionLec);
-router.get('/student/:lectureSeq', lecturestu);
 router.delete('/student/:lectureSeq/:userSeq', deleteStudent);
-router.post('/add', addlecture);
+router.post('/add', addLecture);
 router.get('/recognition/:lectureSeq', getRecongition);
 router.post('/add/student', addrecognition);
 router.get('/tutor', getStudentLectureList);
@@ -20,7 +18,7 @@ router.delete('/:lectureSeq', deleteLecture);
 
 /**
  *
- * @api {get} /lecture 전체 수업 목록
+ * @api {get} lecture 전체 수업 목록
  * @apiName Get LectureList
  * @apiGroup Lecture
  * @apiPermission normal
@@ -28,7 +26,7 @@ router.delete('/:lectureSeq', deleteLecture);
 
 function lecture(req, res) {
     const sql = "select lectureSeq, name, academySeq, time, weekDay, totalDate, week, studentNum, reqStudentCnt, academyName, IF(isExpired,'true','false') as isExpired from LectureInfo order by lectureSeq DESC";
-    connection.query(sql, function (err, result, next) {
+    connection.query(sql, function (err, result) {
         if (err) {
             console.log(err);
             res.status(400).send("lecture search error");
@@ -41,12 +39,12 @@ function lecture(req, res) {
 
 /**
  *
- * @api {get} /lecture/student 학생 전용 수업 목록
+ * @api {get} lecture/student 학생 전용 수업 목록
  * @apiName Get Student LectureList
  * @apiGroup Lecture
  * @apiPermission student
  *
- * @apiHeader {String} x-access-token
+ * @apiHeader {String} x-access-token 유저 액세스 토큰
  * @apiParam {Number} id Users unique ID.
  *
  */
@@ -56,28 +54,28 @@ function studentLectureList(req, res) {
     const userInfo = req.userInfo;
 
     if (userInfo && userInfo.userType === "student") {
-        var sql2 = "select lectureSeq from LectureAdm where userSeq = ? order by lectureSeq desc";
+        const sql2 = "select lectureSeq from LectureAdm where userSeq = ? order by lectureSeq desc";
 
-        connection.query(sql2, result[0].userSeq, function (error, results) {
+        connection.query(sql2, userInfo.userSeq, function (error, results) {
                 if (error) {
                     console.log(error);
                     res.status(400).send("수업 시퀀스 에러");
                 } else {
-                    var ret = [];
-                    var length = results.length;
+                    let ret = [];
+                    let length = results.length;
 
-                    var idx = 0;
+                    let idx = 0;
                     if (length === 0) {
                         res.status(200).send([]);
                     }
-                    for (var i = 0; i < length; i++) {
-                        var sql3 = "select lectureSeq, name, academySeq, time, weekDay, totalDate, week, studentNum, reqStudentCnt, academyName, IF(isExpired,'true','false') as isExpired from LectureInfo where lectureSeq = ?";
-                        connection.query(sql3, results[i].lectureSeq, function (error, results, nexts) {
+                    for (let i = 0; i < length; i++) {
+                        let sql3 = "select lectureSeq, name, academySeq, time, weekDay, totalDate, week, studentNum, reqStudentCnt, academyName, IF(isExpired,'true','false') as isExpired from LectureInfo where lectureSeq = ?";
+                        connection.query(sql3, results[i].lectureSeq, function (error, results) {
                             ret.push(results[0]);
 
                             if (idx === length - 1) {
                                 res.status(200).send(ret);
-                                console.log(result[0].userSeq + "의 수업목록을 조회합니다.");
+                                console.log(userInfo.userSeq + "의 수업목록을 조회합니다.");
                             }
                             idx++;
                         });
@@ -96,12 +94,12 @@ function studentLectureList(req, res) {
 
 /**
  *
- * @api {get} /lecture/student/:lectureSeq 수업별 학 목록
+ * @api {get} lecture/student/:lectureSeq 수업별 학생 목록
  * @apiName Get Student LectureList
  * @apiGroup Lecture
  * @apiPermission tutor
  *
- * @apiHeader {String} x-access-token
+ * @apiHeader {String} x-access-token 유저 액세스 토큰
  * @apiParam {Number} id Users unique ID.
  *
  */
@@ -127,29 +125,29 @@ function getStudentList(req, res) {
 
 /**
  *
- * @api {patch} /lecture/student/:lectureSeq 수업 인증 확인
+ * @api {patch} lecture/student/:lectureSeq 수업 인증 확인
  * @apiName Patch Request Lecture recognition
  * @apiGroup Lecture
  * @apiPermission tutor
  *
- * @apiHeader {String} x-access-token
- * @apiParam {Int} studentSeq;
- * @apiParam {Int} isAccept
+ * @apiHeader {String} x-access-token 유저 액세스 토큰
+ * @apiParam {Int} studentSeq
+ * @apiParam {String} isAccept
+ *
  *
  */
 //todo: studentSeq 변수명 확인하기
 
 function recognitionLec(req, res) {
     const userInfo = req.userInfo;
-    var lectureSeq = req.params.lectureSeq;
-    var studentSeq = req.body.studentSeq;
-    var isAccept = req.body.isAccept;
+    const lectureSeq = req.params.lectureSeq;
+    const studentSeq = req.body.studentSeq;
+    const isAccept = req.body.isAccept;
 
     if (!userInfo) {
-        console.log(err);
         res.status(400).send("토큰이 만료되었습니다.");
     } else if (userInfo.userType === "tutor") {
-        connection.query("select ui.*, li.lectureSeq, li.name, li.academySeq, li.time, li.weekDay, li.totalDate, li.week, li.studentNum, li.reqStudentCnt, li.academyName, IF(li.isExpired,'true','false') as isExpired from UserInfo AS ui JOIN LectureInfo AS li where ui.userSeq = ? and li.lectureSeq = ?", [studentSeq, lectureSeq], function (err, result, next) {
+        connection.query("select ui.userSeq, ui.studentCode from UserInfo AS ui JOIN LectureInfo AS li where ui.userSeq = ? and li.lectureSeq = ?", [studentSeq, lectureSeq], function (err, result) {
             if (err) {
                 console.log(err);
                 res.status(400).send("학생을 찾을 수 없습니다.");
@@ -157,14 +155,14 @@ function recognitionLec(req, res) {
                 res.status(400).send("학생을 찾을 수 없습니다.");
             } else {
                 if (isAccept === 'true') {
-                    var timestamp = new Date().getTime();
-                    var params = {
+                    let timestamp = new Date().getTime();
+                    let params = {
                         userSeq: result[0].userSeq,
                         lectureSeq: lectureSeq,
                         time: timestamp,
                         studentCode: result[0].studentCode
                     }
-                    connection.query("insert into LectureAdm set ?", params, function (error, results, nexts) {
+                    connection.query("insert into LectureAdm set ? ", params, function (error, results, nexts) {
                         if (error) {
                             console.log(error);
                         } else {
@@ -174,13 +172,13 @@ function recognitionLec(req, res) {
                             res.status(200).send("인증이 완료되었습니다.");
                         }
                     });
-                    connection.query("update LectureInfo set studentNum = studentNum+1 where lectureSeq = ?", lectureSeq, function (err, result, next) {
+                    connection.query("update LectureInfo set studentNum = studentNum+1 where lectureSeq = ?", lectureSeq, function (err) {
                         if (err) {
                             console.log(err);
                         }
                     });
 
-                    connection.query("delete from Recognition where userSeq = ? and lectureSeq = ?", [result[0].userSeq, lectureSeq], function (err, result, next) {
+                    connection.query("delete from Recognition where userSeq = ? and lectureSeq = ?", [result[0].userSeq, lectureSeq], function (err) {
                         if (err) {
                             console.log("delete error");
                             console.log(error);
@@ -190,13 +188,13 @@ function recognitionLec(req, res) {
                     })
 
                     connection.query("INSERT IGNORE INTO AssignmentAdm (userSeq,studentCode, assignmentSeq, uploadTime) SELECT userSeq,studentCode, assignmentSeq,uploadTime FROM LectureAdm as la JOIN AssignmentInfo AS ai JOIN (SELECT ROUND(UNIX_TIMESTAMP(CURTIME(4)) * 1000) AS uploadTime) AS time where la.lectureSeq = ai.lectureSeq;"
-                        , function (err, result) {
+                        , function (err) {
                             if (err) {
                                 console.log("add assignment error!");
                             }
                         });
                 } else {
-                    connection.query("delete from Recognition where userSeq = ? and lectureSeq = ?", [result[0].userSeq, lectureSeq], function (err, result, next) {
+                    connection.query("delete from Recognition where userSeq = ? and lectureSeq = ?", [result[0].userSeq, lectureSeq], function (err) {
                         if (err) {
                             console.log("delete error");
                             console.log(error);
@@ -205,7 +203,7 @@ function recognitionLec(req, res) {
                         }
                     })
 
-                    res.status(200).send("인증이 취소되었습니다.");
+                    res.status(200).send("인증이 취소 되었습니다.");
                 }
             }
         })
@@ -215,44 +213,17 @@ function recognitionLec(req, res) {
     }
 }
 
-
-
-function deleteLecture(req, res) {
-    const userInfo = req.userInfo;
-    const lectureSeq = req.params.lectureSeq;
-    if (!userInfo || userInfo.userType !== 'tutor') {
-        res.status(403).send({"message": "Token ERROR!"});
-    } else {
-        connection.query('delete from LectureInfo where lectureSeq = ?', lectureSeq, function (err) {
-            if (err) {
-                res.status(400).send({});
-            } else {
-                res.status(200).send({});
-            }
-        })
-    }
-}
-
-function setExpiredLecture(req, res) {
-    const userInfo = req.userInfo;
-    const lectureSeq = req.params.lectureSeq;
-    const isExpired = req.body.isExpired;
-    if (!userInfo || userInfo.userType !== 'tutor') {
-        res.status(403).send({"message": "Token ERROR!"});
-    } else {
-        connection.query('UPDATE LectureInfo SET isExpired = ? WHERE lectureSeq = ?', [isExpired, lectureSeq], function (err) {
-            if (err) {
-                console.log(err);
-                res.status(500).send({"message": "Internal Server MYSQL ERROR!"});
-            } else {
-                res.status(200).send({});
-            }
-        })
-    }
-}
-
-
-
+/**
+ *
+ * @api {delete} lecture/student/:lectureSeq/:userSeq 수업에서 학생 삭제
+ * @apiName Delete student on lecture for tutor
+ * @apiGroup Lecture
+ * @apiPermission tutor
+ *
+ * @apiHeader {String} x-access-token 유저 액세스 토큰
+ *
+ *
+ */
 
 function deleteStudent(req, res) {
     const userInfo = req.userInfo;
@@ -263,7 +234,7 @@ function deleteStudent(req, res) {
         console.log("잘못된 토큰입니다.");
         res.status(400).send("잘못된 토큰입니다.");
     } else {
-        connection.query("delete from LectureAdm where lectureSeq = ? and userSeq = ?", [lectureSeq, userSeq], function (err, nope) {
+        connection.query("delete from LectureAdm where lectureSeq = ? and userSeq = ?", [lectureSeq, userSeq], function (err) {
             if (err) {
                 console.log(err);
                 res.status(400);
@@ -273,7 +244,18 @@ function deleteStudent(req, res) {
         })
     }
 }
-
+/**
+ *
+ * @api {get} lecture/tutor 튜터용 학생의 수업 목록 조회
+ * @apiName Get student lecture list for tutor
+ * @apiGroup Lecture
+ * @apiPermission tutor
+ *
+ * @apiHeader {String} x-access-token 유저 액세스 토큰
+ * @apiParam {String} userSeq 학생 시퀀스 번호
+ *
+ *
+ */
 function getStudentLectureList(req, res) {
 
     const userInfo = req.userInfo;
@@ -294,37 +276,21 @@ function getStudentLectureList(req, res) {
 
 }
 
-function lecturestu(req, res) {
-    const userInfo = req.userInfo;
-    const page = req.query.page;
-    const lectureSeq = req.params.lectureSeq;
+/**
+ *
+ * @api {post} lecture/add 신규 수업 개설
+ * @apiName Add Lecture
+ * @apiGroup Lecture
+ * @apiPermission tutor
+ *
+ * @apiHeader {String} x-access-token 유저 액세스 토큰
+ * @apiUse AcademyInfo
+ * @apiUse LectureInfo
+ *
+ *
+ */
 
-    if (!token) {
-        res.status(400).send('TOKEN IS REQUIRED');
-    } else {
-        var sql1 = "select * from UserInfo where accessToken = ?";
-        connection.query(sql1, token, function (err, result, next) {
-            if (err || result.length === 0) {
-                console.log(err);
-                res.status(400).send("토큰이 만료되었습니다.");
-            } else if (result[0].userType === "student") {
-                console.log("Token Error");
-                res.status(400).send("token error");
-            } else {
-                connect.query("select * from LectureAdm where lectureSeq = ?", lectureSeq, function (err, userInfos) {
-                    if (err) {
-                        console.log(err);
-                        res.status(400).send("Query Error");
-                    } else {
-                        res.status(200).send(userInfos);
-                    }
-                })
-            }
-        });
-    }
-}
-
-function addlecture(req, res) {
+function addLecture(req, res) {
     const userInfo = req.userInfo;
 
     const academySeq = req.body.academySeq;
@@ -337,11 +303,10 @@ function addlecture(req, res) {
     const studentNum = req.body.studentNum;
 
     if (!userInfo) {
-        console.log(err);
         res.status(400).send("토큰이 만료되었습니다.");
     } else if (userInfo.userType === "tutor") {
-        sql = "INSERT INTO LectureInfo SET ?";
-        param = {
+        const sql = "INSERT INTO LectureInfo SET ?";
+        const param = {
             academySeq: academySeq,
             academyName: academyName,
             name: name,
@@ -352,7 +317,7 @@ function addlecture(req, res) {
             studentNum: studentNum
         };
 
-        connection.query(sql, param, function (err, rows, field) {
+        connection.query(sql, param, function (err) {
             if (err) {
                 console.error(err);
                 res.status(500).send('500 SERVER ERROR');
@@ -368,69 +333,149 @@ function addlecture(req, res) {
 
 }
 
+/**
+ *
+ * @api {get} lecture/recognition/:lectureSeq 수업 인증 요청 목록
+ * @apiName Get Lecture recognition request list
+ * @apiGroup Lecture
+ * @apiPermission tutor
+ *
+ * @apiHeader {String} x-access-token 유저 액세스 토큰
+ *
+ *
+ */
+
+
 function getRecongition(req, res) {
-    const token = req.headers['x-access-token'];
+    const userInfo = req.userInfo;
     const lectureSeq = req.params.lectureSeq;
-    const page = req.query.page;
-    var sql = "select * from UserInfo where accessToken = ?";
-    var sql1 = mysql.format(sql, token);
-    connection.query(sql1, function (err, result, next) {
-        if (err || result.length == 0) {
-            console.log(err);
-            res.status(400).send("토큰이 만료되었습니다.");
-        } else if (result[0].userType == "tutor") {
-            var sql2 = "select * from Recognition where lectureSeq = ? ";
-            connection.query(sql2, lectureSeq, function (error, results, nexts) {
-                if (error) {
-                    console.log(error);
-                    res.status(400).send("수업 시퀀스 에러");
-                } else {
-                    res.status(200).send(results);
-                }
-            })
-        } else {
-            console.log("permission error : " + result[0].userType);
-            res.status(400).send("권한이 없습니다.");
-        }
-    })
+
+    if (!userInfo) {
+        res.status(400).send("만료된 토큰 입니다.");
+    } else if (userInfo.userType === "tutor") {
+        let sql2 = "select * from Recognition where lectureSeq = ? ";
+        connection.query(sql2, lectureSeq, function (error, results) {
+            if (error) {
+                console.log(error);
+                res.status(400).send("수업 시퀀스 에러");
+            } else {
+                res.status(200).send(results);
+            }
+        })
+    } else {
+        console.log("permission error : " + userInfo.userType);
+        res.status(400).send("권한이 없습니다.");
+    }
 }
 
+/**
+ *
+ * @api {post} lecture/add/student 인증 요청하기
+ * @apiName Request Lecture Recognition
+ * @apiGroup Lecture
+ * @apiPermission student
+ *
+ * @apiHeader {String} x-access-token 유저 액세스 토큰
+ * @apiParam {String} lectureSeq
+ *
+ *
+ */
+
+
 function addrecognition(req, res) {
-    const token = req.headers['x-access-token'];
+    const userInfo = req.userInfo;
     const lectureSeq = req.body.lectureSeq;
-    const lectureName = req.body.lectureName;
-    connection.query("select * from UserInfo where accessToken = ?", token, function (err, result, next) {
-        if (err || result.length == 0) {
-            console.log(err);
-            res.status(400).send("토큰이 만료되었습니다.");
-        } else {
-            var userSeq = result[0].userSeq;
-            connection.query("SELECT lectureSeq FROM Recognition WHERE userSeq = ? AND lectureSeq = ? UNION SELECT lectureSeq FROM LectureAdm WHERE userSeq = ? AND lectureSeq = ?", [result[0].userSeq, lectureSeq, result[0].userSeq, lectureSeq], function (err, result, next) {
-                if (err) {
-                    console.log(err);
-                } else if (result.length == 0) {
-                    var timestamp = new Date().getTime();
-                    var params = {
-                        userSeq: userSeq,
-                        lectureSeq: lectureSeq,
-                        time: timestamp,
-                        //schoolname : result[0].shoolSeq
-                    }
-                    connection.query("insert into Recognition set ?", params, function (error, results, nexts) {
-                        if (error) {
-                            console.log(error);
-                        } else {
-                            console.log("insert success");
-                            res.status(200).send("신청 완료");
-                        }
-                    })
-                } else {
-                    console.log("이미 신청되있음");
-                    res.status(400).send("이미 신청이 되어있습니다.");
+
+    if (!userInfo) {
+        res.status(400).send("토큰이 만료되었습니다.");
+    } else {
+        let userSeq = userInfo.userSeq;
+        connection.query("SELECT lectureSeq FROM Recognition WHERE userSeq = ? AND lectureSeq = ? UNION SELECT lectureSeq FROM LectureAdm WHERE userSeq = ? AND lectureSeq = ?", [userInfo.userSeq, lectureSeq, userInfo.userSeq, lectureSeq], function (err, result) {
+            if (err) {
+                console.log(err);
+            } else if (result.length === 0) {
+                let timestamp = new Date().getTime();
+                let params = {
+                    userSeq: userSeq,
+                    lectureSeq: lectureSeq,
+                    time: timestamp,
                 }
-            })
-        }
-    })
+                connection.query("insert into Recognition set ? ", params, function (error, results, nexts) {
+                    if (error) {
+                        console.log(error);
+                    } else {
+                        console.log("insert success");
+                        res.status(200).send("신청 완료");
+                    }
+                })
+            } else {
+                console.log("이미 신청되있음");
+                res.status(400).send("이미 신청이 되어있습니다.");
+            }
+        })
+    }
 }
+
+/**
+ *
+ * @api {patch} lecture/:lectureSeq 수업 폐강 처리
+ * @apiName Patch Lecture Expired
+ * @apiGroup Lecture
+ * @apiPermission tutor
+ *
+ * @apiHeader {String} x-access-token 유저 액세스 토큰
+ * @apiParam {String} isExpired
+ *
+ *
+ */
+
+function setExpiredLecture(req, res) {
+    const userInfo = req.userInfo;
+    const lectureSeq = req.params.lectureSeq;
+    const isExpired = req.body.isExpired;
+    if (!userInfo || userInfo.userType !== 'tutor') {
+        res.status(403).send({"message": "Token ERROR!"});
+    } else {
+        connection.query('UPDATE LectureInfo SET isExpired = ? WHERE lectureSeq = ?', [isExpired, lectureSeq], function (err) {
+            if (err) {
+                console.log(err);
+                res.status(500).send({"message": "Internal Server MYSQL ERROR!"});
+            } else {
+                res.status(200).send({});
+            }
+        })
+    }
+}
+
+/**
+ *
+ * @api {delete} lecture/:lectureSeq 수업 삭제 처리
+ * @apiName Delete Lecture
+ * @apiGroup Lecture
+ * @apiPermission tutor
+ *
+ * @apiHeader {String} x-access-token 유저 액세스 토큰
+ * @apiParam {String} isExpired
+ *
+ *
+ */
+
+
+function deleteLecture(req, res) {
+    const userInfo = req.userInfo;
+    const lectureSeq = req.params.lectureSeq;
+    if (!userInfo || userInfo.userType !== 'tutor') {
+        res.status(403).send({"message": "Token ERROR!"});
+    } else {
+        connection.query('delete from LectureInfo where lectureSeq = ?', lectureSeq, function (err) {
+            if (err) {
+                res.status(400).send({});
+            } else {
+                res.status(200).send({});
+            }
+        })
+    }
+}
+
 
 module.exports = router;
