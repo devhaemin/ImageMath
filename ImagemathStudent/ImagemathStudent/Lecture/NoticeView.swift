@@ -11,11 +11,12 @@ import SwiftUI
 struct NoticeView: View {
     
     let notices: [Notice]
+    let lectureName: String
     
     var body: some View {
         VStack(alignment: .leading){
             HStack{
-                Text("고3 fly 모의고사 나형 대치이강").font(.system(size: 14))
+                Text(lectureName).font(.system(size: 14))
                 Spacer()
             }.padding(.leading)
             Spacer().frame(height: 20)
@@ -58,6 +59,6 @@ struct NoticeCell: View{
 
 struct NoticeView_Previews: PreviewProvider {
     static var previews: some View {
-        NoticeView(notices: Notice.getLectureNotice(lectureSeq: 0))
+        NoticeView(notices: Notice.getLectureNotice(lectureSeq: 0), lectureName: "고3 대치이강 나형 모의고사")
     }
 }

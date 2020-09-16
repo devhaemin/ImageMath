@@ -27,7 +27,7 @@ struct AssignmentCell: View {
                     
                     ZStack{
                         AssignmentMiniCell(assignment: assignment)
-                        NavigationLink(destination: Text("LOL!")){
+                        NavigationLink(destination: AssignmentDetailView(assignment: assignment)){
                             EmptyView()
                         }.buttonStyle(PlainButtonStyle())
                     }

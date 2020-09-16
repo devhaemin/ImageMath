@@ -10,19 +10,28 @@ import SwiftUI
 
 struct QnACell: View {
     
+    let question:Question
+    
     var body: some View {
         ZStack{
-            HStack{
-                VStack{
-                    Text("")
+            HStack(alignment:.top){
+                VStack(alignment: .leading){
+                    Text(question.title)
+                    Rectangle().frame(width:50,height: 3).foregroundColor(Color.red)
+                    Spacer()
+                    Text(question.contents)
                 }
-            }
-        }
+                Spacer()
+                Text("아직 답변 대기중인 질문입니다.").font(.system(size:12)).foregroundColor(Color.gray)
+            }.padding()
+        }.frame(height:110)
+            .overlay(RoundedRectangle(cornerRadius: 4).stroke().foregroundColor(Color("borderColor")))
+            .background(Image(uiImage: #imageLiteral(resourceName: "box_content_msg")).resizable())
     }
 }
 
 struct QnACell_Previews: PreviewProvider {
     static var previews: some View {
-        QnACell()
+        QnACell(question: Question.getDummyData()[0])
     }
 }

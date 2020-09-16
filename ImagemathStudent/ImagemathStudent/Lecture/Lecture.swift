@@ -7,7 +7,7 @@
 //
 import Alamofire
 
-struct Lecture{
+struct Lecture: Codable{
     let lectureSeq: Int
     let time: String
     let name: String
@@ -35,20 +35,19 @@ extension Lecture{
     }
 }
 
-struct Notice{
+struct Notice:Codable{
     let noticeSeq: Int
     let title: String
     let postTime: Int
     let contents: String
     let lectureSeq: Int
-    let files: [ServerFile]
 }
 
 extension Notice{
     static func getLectureNotice(lectureSeq:Int) -> [Notice]{
         return[
-            Notice(noticeSeq: 0, title: "Test1", postTime: 1599483746100, contents: "테스트용 공지사항입니다.", lectureSeq: 0, files: ServerFile.getDummyData()),
-            Notice(noticeSeq: 1, title: "Test1", postTime: 1599483746100, contents: "테스트용 공지사항입니다.", lectureSeq: 0, files: ServerFile.getDummyData())
+            Notice(noticeSeq: 0, title: "Test1", postTime: 1599483746100, contents: "테스트용 공지사항입니다.", lectureSeq: 0),
+            Notice(noticeSeq: 1, title: "Test1", postTime: 1599483746100, contents: "테스트용 공지사항입니다.", lectureSeq: 0)
         ]
     }
 }
