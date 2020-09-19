@@ -20,8 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="36413532-2186-4b51-bc32-d36d86fd342c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/routes/apiDefine.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent.xcodeproj/project.xcworkspace/xcuserdata/haemin.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/../IOS/ImagemathStudent/ImagemathStudent.xcodeproj/project.xcworkspace/xcuserdata/haemin.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.dockerignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DockerFile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +62,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
+    <property name="android.sdk.path" value="$PROJECT_DIR$/../AppData/Local/Android/Sdk" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="javascript.nodejs.core.library.configured.version" value="14.5.0" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -77,7 +79,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.tabs" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -90,6 +92,26 @@
       <recent name="C:\Users\goals\Desktop\SeoulTech\TeachingSolution\ImageMathServer" />
       <recent name="C:\Users\goals\Desktop\SeoulTech\TeachingSolution\ImageMathServer\auth" />
     </key>
+  </component>
+  <component name="RunManager" selected="Docker.Unnamed">
+    <configuration name="Unnamed" type="docker-deploy" factoryName="dockerfile" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="imageTag" value="" />
+          <option name="buildCliOptions" value="" />
+          <option name="command" value="" />
+          <option name="containerName" value="" />
+          <option name="entrypoint" value="" />
+          <option name="commandLineOptions" value="" />
+          <option name="sourceFilePath" value="DockerFile" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Docker.Unnamed" />
+      <item itemvalue="Node.js.bin\www" />
+    </list>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -119,6 +141,8 @@
       <workItem from="1599374317822" duration="604000" />
       <workItem from="1599970426104" duration="1685000" />
       <workItem from="1600001032955" duration="14458000" />
+      <workItem from="1600261004728" duration="61000" />
+      <workItem from="1600521969248" duration="758000" />
     </task>
     <servers />
   </component>
@@ -135,6 +159,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -148,15 +173,16 @@
       <screen x="0" y="0" width="1707" height="1027" />
     </state>
     <state x="446" y="176" key="#SQL_Resolution_Scopes/0.0.1707.1027@0.0.1707.1027" timestamp="1594722097112" />
-    <state x="870" y="118" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600096557430">
+    <state x="609" y="118" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600522820818">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="557" y="148" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1707.1027@0.0.1707.1027" timestamp="1595320038164" />
-    <state x="870" y="118" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1680.1027@0.23.1680.1027" timestamp="1600096557430" />
-    <state x="1030" y="326" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1594706861600">
-      <screen x="0" y="0" width="1707" height="1027" />
+    <state x="609" y="118" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1680.1027@0.23.1680.1027" timestamp="1600522820818" />
+    <state x="690" y="316" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1600522652371">
+      <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="1030" y="326" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1707.1027@0.0.1707.1027" timestamp="1594706861600" />
+    <state x="690" y="316" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1680.1027@0.23.1680.1027" timestamp="1600522652371" />
     <state x="767" y="82" key="FileDocumentManager.FileCacheConflict" timestamp="1595319615093">
       <screen x="0" y="0" width="1707" height="1027" />
     </state>
@@ -186,11 +212,11 @@
     </state>
     <state width="207" height="477" key="HiddenNamespacesPopup/0.0.1707.1027@0.0.1707.1027" timestamp="1595235893713" />
     <state width="243" height="477" key="HiddenNamespacesPopup/0.23.1680.1027@0.23.1680.1027" timestamp="1600095128455" />
-    <state x="351" y="182" key="SettingsEditor" timestamp="1595353555173">
+    <state x="351" y="182" key="SettingsEditor" timestamp="1600522680329">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="357" y="159" key="SettingsEditor/0.0.1707.1027@0.0.1707.1027" timestamp="1595320094958" />
-    <state x="351" y="182" key="SettingsEditor/0.23.1680.1027@0.23.1680.1027" timestamp="1595353555173" />
+    <state x="351" y="182" key="SettingsEditor/0.23.1680.1027@0.23.1680.1027" timestamp="1600522680329" />
     <state width="200" height="461" key="SqlResolveConfigurable" timestamp="1594722091118">
       <screen x="0" y="0" width="1707" height="1027" />
     </state>
