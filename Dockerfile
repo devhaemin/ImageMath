@@ -15,5 +15,7 @@ RUN npm install
 # 앱 소스 추가
 COPY . .
 
+ENV NODE_ENV=test
+
 EXPOSE 8080
 CMD [ "node", "server.js" ]
