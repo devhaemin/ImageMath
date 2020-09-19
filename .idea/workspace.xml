@@ -19,7 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="36413532-2186-4b51-bc32-d36d86fd342c" name="Default Changelist" comment="" />
+    <list default="true" id="36413532-2186-4b51-bc32-d36d86fd342c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -157,7 +159,7 @@
       <workItem from="1599970426104" duration="1685000" />
       <workItem from="1600001032955" duration="14458000" />
       <workItem from="1600261004728" duration="61000" />
-      <workItem from="1600521969248" duration="1256000" />
+      <workItem from="1600521969248" duration="1704000" />
     </task>
     <servers />
   </component>
