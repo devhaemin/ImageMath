@@ -17,5 +17,4 @@ COPY ./ /usr/src/app/
 
 ENV NODE_ENV=test
 
-EXPOSE 8080
 CMD [ "node", "./bin/www" ]
