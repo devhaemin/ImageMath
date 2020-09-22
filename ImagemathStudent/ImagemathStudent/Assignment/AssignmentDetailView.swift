@@ -19,9 +19,9 @@ struct AssignmentDetailView: View {
              첫번째 블록 ( 제목, 수업 이름, 학원 명)
              */
             VStack(alignment: .leading){
-                Text(assignment.lectureName!).font(.system(size:10)).foregroundColor(Color.gray)
+                Text(assignment.lectureName).font(.system(size:10)).foregroundColor(Color.gray)
                 Spacer().frame(height: 12)
-                Text(assignment.title!).foregroundColor(Color.black)
+                Text(assignment.title).foregroundColor(Color.black)
                 HStack{
                     Spacer()
                     Text("미제출").font(.system(size:12))
@@ -57,12 +57,13 @@ struct AssignmentDetailView: View {
                 Rectangle().frame(height: 1).foregroundColor(Color("borderColor"))
                     .padding(.bottom,12)
             }.frame(width: 260).padding(.horizontal)
+            .padding(.vertical,18)
             /**
              내용 작성 칸
              */
             HStack{
                 Rectangle().frame(width: 2, height: 30)
-                Text(assignment.contents!)
+                Text(assignment.contents).font(.system(size: 12))
             }.padding(.horizontal)
             /**
              해설지 파일 설치칸
@@ -99,7 +100,7 @@ struct AssignmentDetailView: View {
                  }
             }.frame(height: 100)
             Spacer()
-        }
+        }.navigationBarTitle("과제 상세보기")
     }
 }
 

@@ -8,8 +8,36 @@
 
 import Foundation
 
+struct User : Codable{
+    let email:String?
+    let password:String?
+    let userSeq:Int?
+    let name:String?
+    let birthday:String?
+    let accessToken:String?
+    let fcmToken:String?
+    let gender:Int?
+    let userType:String?
+    let phone:String?
+    let studentCode:String?
+    let schoolName:String?
+    let registerTime:Int?
+}
+extension User{
+    
+    static func emailLogin(email:String, password:String, completion: @escaping (Result<User, Error>) -> Void){
+        let router = UserRouter.login(email: email, password: password)
+        APIClient.perform(router, completion: completion)
+    }
+}
+extension User{
+    static func tokenLogin(completion: @escaping (Result<User,Error>) -> Void){
+        let router = UserRouter.tokenLogin
+        APIClient.perform(router, completion: completion)
+    }
+}
 
-struct ServerFile{
+struct ServerFile : Codable{
     
     let fileSeq: Int
     let fileName: String

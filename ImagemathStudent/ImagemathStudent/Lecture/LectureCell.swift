@@ -15,14 +15,14 @@ struct LectureCell: View{
         VStack{
             Spacer().frame( height: 20)
             HStack{
-                Text(lecture.name).font(.title).lineLimit(1)
+                Text(lecture.name!).font(.title).lineLimit(1)
                 Spacer()
                 VStack(alignment: .trailing, spacing: 0){
-                    Text(lecture.time)
+                    Text(lecture.time!)
                         .font(.system(size: 10))
-                    Text(lecture.academyName)
+                    Text(lecture.academyName!)
                         .font(.system(size: 10))
-                    Text(lecture.totalDate)
+                    Text(lecture.totalDate!)
                         .font(.system(size: 10))
                 }
             }.padding(.horizontal, 14)
@@ -53,7 +53,13 @@ struct LectureCell: View{
                             Text(notices[1].title).font(.system(size: 14))
                         }
                     }.onAppear {
-                        self.notices = self.lecture.getNoticeInfo()
+                        Notice.getNoticeList(lectureSeq: lecture.lectureSeq!, completion: { (response) in
+                            do{
+                                self.notices = try response.get()
+                            }catch{
+                                print(response)
+                            }
+                        })
                     }
                     Spacer()
                 }.padding(.bottom, 14)

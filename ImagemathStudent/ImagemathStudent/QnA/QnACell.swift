@@ -14,6 +14,7 @@ struct QnACell: View {
     
     var body: some View {
         ZStack{
+            
             HStack(alignment:.top){
                 VStack(alignment: .leading){
                     Text(question.title)
@@ -24,9 +25,11 @@ struct QnACell: View {
                 Spacer()
                 Text("아직 답변 대기중인 질문입니다.").font(.system(size:12)).foregroundColor(Color.gray)
             }.padding()
-        }.frame(height:110)
+        }.frame(height:210)
             .overlay(RoundedRectangle(cornerRadius: 4).stroke().foregroundColor(Color("borderColor")))
-            .background(Image(uiImage: #imageLiteral(resourceName: "box_content_msg")).resizable())
+            .background(Image("box_content_msg").frame(maxWidth: .infinity)
+                .fixedSize(horizontal: true, vertical: false).aspectRatio(contentMode: .fit))
+            
     }
 }
 

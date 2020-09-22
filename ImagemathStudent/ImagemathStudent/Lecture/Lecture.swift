@@ -8,30 +8,41 @@
 import Alamofire
 
 struct Lecture: Codable{
-    let lectureSeq: Int
-    let time: String
-    let name: String
-    let totalDate: String
-    let reqStudentCnt: Int
-    let studentNum: String
-    let academyName: String
-    let academySeq: String
-    let isExpired: Bool
+    let lectureSeq: Int?
+    let time: String?
+    let name: String?
+    let totalDate: String?
+    let reqStudentCnt: Int?
+    let studentNum: Int?
+    let academyName: String?
+    let academySeq: Int?
+    let isExpired: String?
+}
+
+extension Lecture{
+    static func getAllLectureList(completion : @escaping (Result<[Lecture],Error>)->Void){
+        let router = LectureRouter.getAllLectureList
+        APIClient.perform(router, completion: completion)
+    }
+    static func getMyLectureList(completion : @escaping (Result<[Lecture],Error>)->Void){
+        let router = LectureRouter.getMyLectureList
+        APIClient.perform(router, completion: completion)
+    }
+    static func requestAddLecture(lectureSeq: Int, completion : @escaping (Result<[Lecture],Error>)->Void){
+        let router = LectureRouter.requestAddLecture(lectureSeq: lectureSeq)
+        APIClient.perform(router, completion: completion)
+    }
 }
 
 extension Lecture{
     static func getDummyData() -> [Lecture]{
         return [
-            Lecture(lectureSeq: 0, time: "18:30~22:10", name: "Jump 나형", totalDate: "2020.06.20~2020.08.30", reqStudentCnt: 0, studentNum: "10", academyName: "대치 이강학원", academySeq: "0", isExpired: false),
-            Lecture(lectureSeq: 0, time: "18:30~22:10", name: "Jump 가형", totalDate: "2020.06.20~2020.08.30", reqStudentCnt: 0, studentNum: "10", academyName: "대치 이강학원", academySeq: "0", isExpired: false),
-            Lecture(lectureSeq: 0, time: "18:30~22:10", name: "Test용", totalDate: "2020.06.20~2020.08.30", reqStudentCnt: 0, studentNum: "10", academyName: "대치 이강학원", academySeq: "0", isExpired: false)
+            Lecture(lectureSeq: 0, time: "18:30~22:10", name: "Jump 나형", totalDate: "2020.06.20~2020.08.30", reqStudentCnt: 0, studentNum: 10, academyName: "대치 이강학원", academySeq: 0, isExpired: "false"),
+            Lecture(lectureSeq: 0, time: "18:30~22:10", name: "Jump 가형", totalDate: "2020.06.20~2020.08.30", reqStudentCnt: 0, studentNum: 10, academyName: "대치 이강학원", academySeq: 0, isExpired: "false")
         ]
     }
     static func getPreviewDummyData() -> Lecture{
-        return Lecture(lectureSeq: 0, time: "18:30~22:10", name: "Jump 나형", totalDate: "2020.06.20~2020.08.30", reqStudentCnt: 0, studentNum: "10", academyName: "대치 이강학원", academySeq: "0", isExpired: false);
-    }
-    func getNoticeInfo() -> [Notice]{
-        return Notice.getLectureNotice(lectureSeq: self.lectureSeq);
+        return Lecture(lectureSeq: 0, time: "18:30~22:10", name: "Jump 나형", totalDate: "2020.06.20~2020.08.30", reqStudentCnt: 0, studentNum: 10, academyName: "대치 이강학원", academySeq: 0 , isExpired: "false");
     }
 }
 
@@ -41,6 +52,18 @@ struct Notice:Codable{
     let postTime: Int
     let contents: String
     let lectureSeq: Int
+}
+extension Notice{
+    static func getNoticeList(lectureSeq: Int, completion: @escaping (Result<[Notice],Error>)->Void){
+        let router = LectureRouter.getNoticeList(lectureSeq: lectureSeq)
+        APIClient.perform(router, completion: completion)
+    }
+}
+extension ServerFile{
+    static func getNoticeFiles(noticeSeq: Int, completion: @escaping (Result<[ServerFile], Error>)-> Void){
+        let router = LectureRouter.getNoticeFiles(noticeSeq: noticeSeq)
+        APIClient.perform(router, completion: completion)
+    }
 }
 
 extension Notice{

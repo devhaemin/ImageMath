@@ -9,13 +9,13 @@
 import SwiftUI
 
 struct MainView: View {
-    let lectures = Lecture.getDummyData();
-    let assignments = Assignment.getAssignmentDummyData();
+    
+    
     let tests = Test.getDummyData();
     let questions = Question.getDummyData();
+    
     @State var selectedView = 0
-    @State var isExceptOn = false
-    @State var showingSheet = false
+    
     @State var testAverageScore = 100;
     
     
@@ -28,43 +28,11 @@ struct MainView: View {
             //*********************************
             
             NavigationView{
-                VStack{
-                    HStack{
-                        Toggle(isOn: $isExceptOn){
-                            Text("")
-                        }
-                        .toggleStyle(CheckboxToggleStyle())
-                        .labelsHidden()
-                        Text("종료된 강좌 제외")
-                        Spacer()
-                        Button(action: {
-                            self.showingSheet = true
-                        }) {
-                            Text("+추가하기")
-                        }.actionSheet(isPresented: $showingSheet) {
-                            ActionSheet(title: Text("수업 선택하기"), message: Text("승인 요청할 수업을 선택해주세요."), buttons: [.default(Text("고3 fly 모의고사")), .cancel(Text("Cancel"))])
-                        }
-                    }.padding(.top)
-                        .padding(.horizontal)
-                    List(self.lectures, id: \.lectureSeq) { lecture in
-                        ZStack {
-                            LectureCell(lecture: lecture, notices: Notice.getLectureNotice(lectureSeq: lecture.lectureSeq))
-                            NavigationLink(destination: NoticeView(notices: Notice.getLectureNotice(lectureSeq: lecture.lectureSeq), lectureName: "고3 대치이강 나형 모의고사")) {
-                                EmptyView()
-                            }.buttonStyle(PlainButtonStyle())
-                        }
-                    }
-                }
-                .navigationBarTitle("", displayMode: .inline)
-                .navigationBarItems(leading: Image(uiImage: #imageLiteral(resourceName: "logo_img_small")).resizable().frame(width:140,height: 50), trailing: HStack{
-                    Image(uiImage: #imageLiteral(resourceName: "img_alarm")).resizable()
-                        .frame(width:40, height: 40)
-                    Image(uiImage: #imageLiteral(resourceName: "img_setting")).resizable()
-                        .frame(width:40, height: 40)
-                })
+               LectureView()
             }.tabItem {
                 Image(uiImage: #imageLiteral(resourceName: "second"))
                 Text("수강중인 강좌")
+                    
             }.tag(0)
             
             
@@ -73,34 +41,7 @@ struct MainView: View {
             //*********************************
             
             NavigationView{
-                VStack{
-                    HStack{
-                        Spacer()
-                        Circle().frame(width:12,height: 12)
-                        Text("미제출")
-                        Circle().frame(width:12,height: 12)
-                            .foregroundColor(Color.yellow)
-                        Text("제출")
-                        Circle().frame(width:12,height: 12)
-                            .foregroundColor(Color.red)
-                        Text("불성실")
-                        Circle().frame(width:12,height: 12)
-                            .foregroundColor(Color("etoosColor"))
-                        Text("통과")
-                        
-                    }.padding(.trailing)
-                        .padding(.top)
-                    Spacer().frame(height:14)
-                    List(self.assignments, id: \.assignmentSeq) { assignment in
-                        AssignmentCell(dailyAssignments: self.assignments)
-                    }
-                }.navigationBarTitle("", displayMode: .inline)
-                    .navigationBarItems(leading: Image(uiImage: #imageLiteral(resourceName: "logo_img_small")).resizable().frame(width:140,height: 50), trailing: HStack{
-                        Image(uiImage: #imageLiteral(resourceName: "img_alarm")).resizable()
-                            .frame(width:40, height: 40)
-                        Image(uiImage: #imageLiteral(resourceName: "img_setting")).resizable()
-                            .frame(width:40, height: 40)
-                    })
+                AssignmentView()
             }.tabItem {
                 Image(uiImage: #imageLiteral(resourceName: "second"))
                 Text("과제")
@@ -127,9 +68,9 @@ struct MainView: View {
                         }
                         Spacer().frame(width:14)
                     }.padding()
-                        .overlay(RoundedRectangle(cornerRadius: 14)
-                            .stroke()
-                            .foregroundColor(Color("borderColor"))
+                    .overlay(RoundedRectangle(cornerRadius: 14)
+                                .stroke()
+                                .foregroundColor(Color("borderColor"))
                     ).padding()
                     HStack(spacing:0){
                         ZStack{
@@ -155,20 +96,24 @@ struct MainView: View {
                             
                             TestCell(test: test)
                             NavigationLink(destination:
-                                Text(test.title))
+                                            TestDetailView(test: test))
                             {
                                 EmptyView()
                             }.buttonStyle(PlainButtonStyle())
                         }
                     }
                 }
-                    
                 .navigationBarTitle("", displayMode: .inline)
                 .navigationBarItems(leading: Image(uiImage: #imageLiteral(resourceName: "logo_img_small")).resizable().frame(width:140,height: 50), trailing: HStack{
-                    Image(uiImage: #imageLiteral(resourceName: "img_alarm")).resizable()
-                        .frame(width:40, height: 40)
-                    Image(uiImage: #imageLiteral(resourceName: "img_setting")).resizable()
-                        .frame(width:40, height: 40)
+                    NavigationLink(destination:AlarmView()){
+                        Image(uiImage: #imageLiteral(resourceName: "img_alarm"))
+                            .resizable()
+                            .frame(width:40, height: 40)
+                    }.buttonStyle(PlainButtonStyle())
+                    NavigationLink(destination:SettingView()){
+                        Image(uiImage: #imageLiteral(resourceName: "img_setting")).resizable()
+                            .frame(width:40, height: 40)
+                    }.buttonStyle(PlainButtonStyle())
                 })
                 
             }.tabItem {
@@ -188,18 +133,23 @@ struct MainView: View {
                         
                         QnACell(question: question)
                         NavigationLink(destination:
-                            Text(question.title))
+                                        Text(question.title))
                         {
                             EmptyView()
                         }.buttonStyle(PlainButtonStyle())
                     }
                 }.navigationBarTitle("", displayMode: .inline)
-                    .navigationBarItems(leading: Image(uiImage: #imageLiteral(resourceName: "logo_img_small")).resizable().frame(width:140,height: 50), trailing: HStack{
-                        Image(uiImage: #imageLiteral(resourceName: "img_alarm")).resizable()
+                .navigationBarItems(leading: Image(uiImage: #imageLiteral(resourceName: "logo_img_small")).resizable().frame(width:140,height: 50), trailing: HStack{
+                    NavigationLink(destination:AlarmView()){
+                        Image(uiImage: #imageLiteral(resourceName: "img_alarm"))
+                            .resizable()
                             .frame(width:40, height: 40)
+                    }.buttonStyle(PlainButtonStyle())
+                    NavigationLink(destination:SettingView()){
                         Image(uiImage: #imageLiteral(resourceName: "img_setting")).resizable()
                             .frame(width:40, height: 40)
-                    })
+                    }.buttonStyle(PlainButtonStyle())
+                })
                 
             }.tabItem {
                 Image(uiImage: #imageLiteral(resourceName: "second"))
@@ -207,11 +157,23 @@ struct MainView: View {
             }.tag(3)
             
         }.onAppear(){
-            self.selectedView = 3
+            self.selectedView = 0
         }
         
     }
 }
+
+struct CheckboxToggleStyle: ToggleStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        return HStack {
+            Image(systemName: configuration.isOn ? "checkmark.square" : "square")
+                .resizable()
+                .frame(width: 22, height: 22)
+                .onTapGesture { configuration.isOn.toggle() }
+        }
+    }
+}
+
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {

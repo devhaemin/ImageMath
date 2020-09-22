@@ -9,5 +9,6 @@
 import Foundation
 
 struct URLs{
-    public static let baseURL = URL(string: "http://api-doc.imagemath.co.kr:3000/")
+    public static let baseURL = URL(string: "http://api-doc.imagemath.kr:3000")
+    
 }

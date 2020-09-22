@@ -24,7 +24,6 @@ struct AssignmentCell: View {
             VStack{
                 ForEach(dailyAssignments, id: \.assignmentSeq){
                     assignment in
-                    
                     ZStack{
                         AssignmentMiniCell(assignment: assignment)
                         NavigationLink(destination: AssignmentDetailView(assignment: assignment)){
@@ -43,10 +42,10 @@ struct AssignmentMiniCell: View{
         VStack(alignment: .trailing){
             HStack{
                 Circle().frame(width:12,height: 12)
-                Text(assignment.title!)
+                Text(assignment.title)
                 Spacer()
             }
-            Text(assignment.lectureName!).font(.system(size: 12))
+            Text(assignment.lectureName).font(.system(size: 12))
         }
     }
 }

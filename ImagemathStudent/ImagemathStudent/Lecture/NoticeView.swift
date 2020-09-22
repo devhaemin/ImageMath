@@ -27,6 +27,7 @@ struct NoticeView: View {
                 notice in NoticeCell(notice: notice)
             }
         }.padding(.top, 20)
+        .navigationBarTitle("공지사항")
     }
 }
 

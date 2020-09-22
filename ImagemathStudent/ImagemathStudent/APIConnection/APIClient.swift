@@ -20,7 +20,8 @@ public protocol APIRouteable: URLRequestConvertible{
 extension APIRouteable {
     var baseURL: URL { return URLs.baseURL! }
     var token:String{
-        return ""
+        let userDefaultManager = UserDefaultsManager();
+        return userDefaultManager.accessToken;
     }
     func asURLRequest() throws -> URLRequest {
         let url = baseURL.appendingPathComponent(path)
@@ -39,6 +40,12 @@ extension APIRouteable {
         return request
     }
 }
+class UserDefaultsManager: ObservableObject {
+    
+    @Published var accessToken: String = UserDefaults.standard.string(forKey: "AccessToken") ?? ""{
+        didSet { UserDefaults.standard.set(self.accessToken, forKey: "AccessToken")}
+    }
+}
 
 struct APIClient{
     public static func perform<T: Decodable>(_ apiRoute: APIRouteable,
@@ -46,9 +53,7 @@ struct APIClient{
         let dataRequest = AF.request(apiRoute)
         dataRequest
             .validate(statusCode: 200..<300)
-    
             .responseDecodable{ (response: AFDataResponse<T>) in
-                
                 let responseData = response.data ?? Data()
                 let string = String(data: responseData, encoding: .utf8)
                 print("Repsonse string: \(string ?? "")")

@@ -9,21 +9,35 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @ObservedObject var userDefaultsManager = UserDefaultsManager()
+    @State var loginAble:Bool = false;
+    @State var isNetworkAlert:Bool = false;
+    @State var autoLoginAble:Bool = true;
         var body: some View {
-            MainView()
+            if(autoLoginAble){
+                Text("로그인 중입니다...")
+                    .onAppear(perform: {
+                        User.tokenLogin { (response) in
+                            do{
+                                _ = try response.get()
+                                loginAble = true;
+                                autoLoginAble = false;
+                            }catch{
+                                loginAble = false;
+                                autoLoginAble = false;
+                            }
+                        }
+                    })
+            }else if(loginAble){
+                MainView()
+            }else{
+                LoginView(loginAble: $loginAble, isNetworkAlertVisible: $isNetworkAlert)
+                    .alert(isPresented: $isNetworkAlert, content: {
+                    Alert(title: Text("네트워크 오류"),message: Text("아이디 혹은 비밀번호가 일치하지 않습니다.\n혹은 네트워크 연결 상태를 확인해주세요."))
+                    })
+            }
         }
-
-}
-struct CheckboxToggleStyle: ToggleStyle {
-    func makeBody(configuration: Configuration) -> some View {
-        return HStack {
-            
-            Image(systemName: configuration.isOn ? "checkmark.square" : "square")
-                .resizable()
-                .frame(width: 22, height: 22)
-                .onTapGesture { configuration.isOn.toggle() }
-        }
-    }
 }
 
 struct ContentView_Previews: PreviewProvider {

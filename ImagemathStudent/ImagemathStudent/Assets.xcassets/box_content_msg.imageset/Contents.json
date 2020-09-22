@@ -3,6 +3,20 @@
     {
       "filename" : "box_content_msg.jpeg",
       "idiom" : "universal",
+      "resizing" : {
+        "cap-insets" : {
+          "bottom" : 92,
+          "left" : 0,
+          "right" : 205,
+          "top" : 65
+        },
+        "center" : {
+          "height" : 11,
+          "mode" : "tile",
+          "width" : 1
+        },
+        "mode" : "9-part"
+      },
       "scale" : "1x"
     },
     {
@@ -17,5 +31,8 @@
   "info" : {
     "author" : "xcode",
     "version" : 1
+  },
+  "properties" : {
+    "auto-scaling" : "auto"
   }
 }

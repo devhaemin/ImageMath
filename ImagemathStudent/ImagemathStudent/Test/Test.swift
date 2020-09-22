@@ -22,6 +22,16 @@ struct Test :Codable{
     let rank:Int
     let testAdmSeq:Int
 }
+extension Test{
+    static func getTestList(lectureSeq: Int, completion: @escaping (Result<[Test],Error>) -> Void){
+        let router = TestRouter.getTestList(lectureSeq: lectureSeq)
+        APIClient.perform(router, completion: completion)
+    }
+    static func getTestDetail(testSeq: Int, completion: @escaping (Result<[Test],Error>) -> Void){
+        let router = TestRouter.getTestDetail(testSeq: testSeq)
+        APIClient.perform(router, completion: completion)
+    }
+}
 
 extension Test{
     static func getDummyData() -> [Test]{

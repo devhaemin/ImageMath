@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		8B11610E25122DE9006886F2 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B11610D25122DE9006886F2 /* MainView.swift */; };
+		8B116110251242C3006886F2 /* QnADetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B11610F251242C3006886F2 /* QnADetailView.swift */; };
+		8B58D9A42519EC21008E8089 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B58D9A32519EC21008E8089 /* LoginView.swift */; };
 		8B6CB1ED2510A6E000800990 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6CB1EC2510A6E000800990 /* SceneDelegate.swift */; };
 		8B7713922505548400D93B29 /* Lecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7713912505548400D93B29 /* Lecture.swift */; };
 		8B771396250556AA00D93B29 /* LectureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B771395250556AA00D93B29 /* LectureCell.swift */; };
@@ -20,7 +22,7 @@
 		8B86BA94250348BA0085A0D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B86BA92250348BA0085A0D6 /* LaunchScreen.storyboard */; };
 		8B86BA9F250348BB0085A0D6 /* ImagemathStudentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B86BA9E250348BB0085A0D6 /* ImagemathStudentTests.swift */; };
 		8B86BAAA250348BB0085A0D6 /* ImagemathStudentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B86BAA9250348BB0085A0D6 /* ImagemathStudentUITests.swift */; };
-		8B984F9B250D2E1600AA5E8E /* RouterEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B984F9A250D2E1600AA5E8E /* RouterEnums.swift */; };
+		8B984F9B250D2E1600AA5E8E /* AssignmentRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B984F9A250D2E1600AA5E8E /* AssignmentRouter.swift */; };
 		8BB0B13125069EC9009D5128 /* Assignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0B13025069EC9009D5128 /* Assignment.swift */; };
 		8BB0B13425069F06009D5128 /* AssignmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0B13325069F06009D5128 /* AssignmentCell.swift */; };
 		8BB0B13725069F31009D5128 /* TestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0B13625069F31009D5128 /* TestCell.swift */; };
@@ -30,10 +32,17 @@
 		8BB0B1422507B8FB009D5128 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 8BB0B1412507B8FB009D5128 /* SwiftUICharts */; };
 		8BB0B1452507E1F9009D5128 /* QnACell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0B1442507E1F9009D5128 /* QnACell.swift */; };
 		8BB0B1472507E20A009D5128 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0B1462507E20A009D5128 /* Question.swift */; };
-		8BB0B1492507E22C009D5128 /* QnADetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0B1482507E22C009D5128 /* QnADetailView.swift */; };
 		8BB0B14E250BE7EA009D5128 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 8BB0B14D250BE7EA009D5128 /* Alamofire */; };
 		8BB0B150250D03A3009D5128 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0B14F250D03A3009D5128 /* APIClient.swift */; };
 		8BB0B153250D08A2009D5128 /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0B152250D08A2009D5128 /* URLs.swift */; };
+		8BC08281251A2617005C2B22 /* AlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC08280251A2617005C2B22 /* AlarmView.swift */; };
+		8BC08289251A2624005C2B22 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC08288251A2624005C2B22 /* SettingView.swift */; };
+		8BC0828E251A2D87005C2B22 /* UserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC0828D251A2D87005C2B22 /* UserRouter.swift */; };
+		8BC08298251A3075005C2B22 /* LectureRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC08297251A3075005C2B22 /* LectureRouter.swift */; };
+		8BC0829D251A3330005C2B22 /* QnARouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC0829C251A3330005C2B22 /* QnARouter.swift */; };
+		8BC082A2251A3338005C2B22 /* TestRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC082A1251A3338005C2B22 /* TestRouter.swift */; };
+		8BC082AA251A3EE3005C2B22 /* LectureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC082A9251A3EE3005C2B22 /* LectureView.swift */; };
+		8BC082AF251A4240005C2B22 /* AssignmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC082AE251A4240005C2B22 /* AssignmentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +65,8 @@
 /* Begin PBXFileReference section */
 		8B11610C25122A99006886F2 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		8B11610D25122DE9006886F2 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		8B11610F251242C3006886F2 /* QnADetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QnADetailView.swift; sourceTree = "<group>"; };
+		8B58D9A32519EC21008E8089 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		8B6CB1EC2510A6E000800990 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8B7713912505548400D93B29 /* Lecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lecture.swift; sourceTree = "<group>"; };
 		8B771395250556AA00D93B29 /* LectureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureCell.swift; sourceTree = "<group>"; };
@@ -74,7 +85,7 @@
 		8B86BAA5250348BB0085A0D6 /* ImagemathStudentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImagemathStudentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B86BAA9250348BB0085A0D6 /* ImagemathStudentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagemathStudentUITests.swift; sourceTree = "<group>"; };
 		8B86BAAB250348BB0085A0D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8B984F9A250D2E1600AA5E8E /* RouterEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterEnums.swift; sourceTree = "<group>"; };
+		8B984F9A250D2E1600AA5E8E /* AssignmentRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentRouter.swift; sourceTree = "<group>"; };
 		8BB0B13025069EC9009D5128 /* Assignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Assignment.swift; path = ImagemathStudent/Assignment/Assignment.swift; sourceTree = SOURCE_ROOT; };
 		8BB0B13325069F06009D5128 /* AssignmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentCell.swift; sourceTree = "<group>"; };
 		8BB0B13625069F31009D5128 /* TestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCell.swift; sourceTree = "<group>"; };
@@ -83,9 +94,16 @@
 		8BB0B13E25069F95009D5128 /* AssignmentDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentDetailView.swift; sourceTree = "<group>"; };
 		8BB0B1442507E1F9009D5128 /* QnACell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QnACell.swift; sourceTree = "<group>"; };
 		8BB0B1462507E20A009D5128 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
-		8BB0B1482507E22C009D5128 /* QnADetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QnADetailView.swift; sourceTree = "<group>"; };
 		8BB0B14F250D03A3009D5128 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = APIClient.swift; path = ImagemathStudent/APIConnection/APIClient.swift; sourceTree = SOURCE_ROOT; };
 		8BB0B152250D08A2009D5128 /* URLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
+		8BC08280251A2617005C2B22 /* AlarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmView.swift; sourceTree = "<group>"; };
+		8BC08288251A2624005C2B22 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		8BC0828D251A2D87005C2B22 /* UserRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRouter.swift; sourceTree = "<group>"; };
+		8BC08297251A3075005C2B22 /* LectureRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureRouter.swift; sourceTree = "<group>"; };
+		8BC0829C251A3330005C2B22 /* QnARouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QnARouter.swift; sourceTree = "<group>"; };
+		8BC082A1251A3338005C2B22 /* TestRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRouter.swift; sourceTree = "<group>"; };
+		8BC082A9251A3EE3005C2B22 /* LectureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureView.swift; sourceTree = "<group>"; };
+		8BC082AE251A4240005C2B22 /* AssignmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +139,7 @@
 				8B7713912505548400D93B29 /* Lecture.swift */,
 				8B771395250556AA00D93B29 /* LectureCell.swift */,
 				8B77139725056B4300D93B29 /* NoticeView.swift */,
+				8BC082A9251A3EE3005C2B22 /* LectureView.swift */,
 			);
 			name = Lecture;
 			path = ImagemathStudent/Lecture;
@@ -149,6 +168,8 @@
 		8B86BA86250348B80085A0D6 /* ImagemathStudent */ = {
 			isa = PBXGroup;
 			children = (
+				8B86BA8D250348BA0085A0D6 /* Assets.xcassets */,
+				8BC0827F251A25FF005C2B22 /* MenuScene */,
 				8BB0B151250D0883009D5128 /* APIConnection */,
 				8BB0B1432507E1CA009D5128 /* QnA */,
 				8BB0B13525069F22009D5128 /* Test */,
@@ -157,8 +178,8 @@
 				8B86BA87250348B80085A0D6 /* AppDelegate.swift */,
 				8B6CB1EC2510A6E000800990 /* SceneDelegate.swift */,
 				8B11610D25122DE9006886F2 /* MainView.swift */,
+				8B58D9A32519EC21008E8089 /* LoginView.swift */,
 				8B86BA8B250348B80085A0D6 /* ContentView.swift */,
-				8B86BA8D250348BA0085A0D6 /* Assets.xcassets */,
 				8B86BA92250348BA0085A0D6 /* LaunchScreen.storyboard */,
 				8B86BA95250348BA0085A0D6 /* Info.plist */,
 				8B86BA8F250348BA0085A0D6 /* Preview Content */,
@@ -198,6 +219,7 @@
 				8BB0B13025069EC9009D5128 /* Assignment.swift */,
 				8BB0B13325069F06009D5128 /* AssignmentCell.swift */,
 				8BB0B13E25069F95009D5128 /* AssignmentDetailView.swift */,
+				8BC082AE251A4240005C2B22 /* AssignmentView.swift */,
 			);
 			name = Assignment;
 			path = ImagemathStudent/Assignment;
@@ -219,7 +241,7 @@
 			children = (
 				8BB0B1442507E1F9009D5128 /* QnACell.swift */,
 				8BB0B1462507E20A009D5128 /* Question.swift */,
-				8BB0B1482507E22C009D5128 /* QnADetailView.swift */,
+				8B11610F251242C3006886F2 /* QnADetailView.swift */,
 			);
 			path = QnA;
 			sourceTree = "<group>";
@@ -227,14 +249,35 @@
 		8BB0B151250D0883009D5128 /* APIConnection */ = {
 			isa = PBXGroup;
 			children = (
+				8BC08296251A2DA1005C2B22 /* Routers */,
 				8B77139925064BBF00D93B29 /* ServerModels.swift */,
 				8BB0B14F250D03A3009D5128 /* APIClient.swift */,
 				8BB0B152250D08A2009D5128 /* URLs.swift */,
-				8B984F9A250D2E1600AA5E8E /* RouterEnums.swift */,
 			);
 			name = APIConnection;
 			path = ImagemathStudent/APIConnection;
 			sourceTree = SOURCE_ROOT;
+		};
+		8BC0827F251A25FF005C2B22 /* MenuScene */ = {
+			isa = PBXGroup;
+			children = (
+				8BC08280251A2617005C2B22 /* AlarmView.swift */,
+				8BC08288251A2624005C2B22 /* SettingView.swift */,
+			);
+			path = MenuScene;
+			sourceTree = "<group>";
+		};
+		8BC08296251A2DA1005C2B22 /* Routers */ = {
+			isa = PBXGroup;
+			children = (
+				8B984F9A250D2E1600AA5E8E /* AssignmentRouter.swift */,
+				8BC0828D251A2D87005C2B22 /* UserRouter.swift */,
+				8BC08297251A3075005C2B22 /* LectureRouter.swift */,
+				8BC0829C251A3330005C2B22 /* QnARouter.swift */,
+				8BC082A1251A3338005C2B22 /* TestRouter.swift */,
+			);
+			path = Routers;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -303,7 +346,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1170;
-				LastUpgradeCheck = 1170;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "정해민";
 				TargetAttributes = {
 					8B86BA83250348B80085A0D6 = {
@@ -376,11 +419,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BC082AF251A4240005C2B22 /* AssignmentView.swift in Sources */,
 				8BB0B13725069F31009D5128 /* TestCell.swift in Sources */,
 				8B11610E25122DE9006886F2 /* MainView.swift in Sources */,
-				8B984F9B250D2E1600AA5E8E /* RouterEnums.swift in Sources */,
+				8B984F9B250D2E1600AA5E8E /* AssignmentRouter.swift in Sources */,
 				8BB0B1472507E20A009D5128 /* Question.swift in Sources */,
-				8BB0B1492507E22C009D5128 /* QnADetailView.swift in Sources */,
+				8BC08289251A2624005C2B22 /* SettingView.swift in Sources */,
 				8BB0B13425069F06009D5128 /* AssignmentCell.swift in Sources */,
 				8BB0B13F25069F95009D5128 /* AssignmentDetailView.swift in Sources */,
 				8B771396250556AA00D93B29 /* LectureCell.swift in Sources */,
@@ -389,13 +433,21 @@
 				8BB0B13925069F45009D5128 /* Test.swift in Sources */,
 				8BB0B1452507E1F9009D5128 /* QnACell.swift in Sources */,
 				8B86BA8C250348B80085A0D6 /* ContentView.swift in Sources */,
+				8B116110251242C3006886F2 /* QnADetailView.swift in Sources */,
 				8BB0B150250D03A3009D5128 /* APIClient.swift in Sources */,
 				8B77139825056B4300D93B29 /* NoticeView.swift in Sources */,
+				8B58D9A42519EC21008E8089 /* LoginView.swift in Sources */,
 				8B6CB1ED2510A6E000800990 /* SceneDelegate.swift in Sources */,
 				8BB0B13125069EC9009D5128 /* Assignment.swift in Sources */,
+				8BC0829D251A3330005C2B22 /* QnARouter.swift in Sources */,
+				8BC0828E251A2D87005C2B22 /* UserRouter.swift in Sources */,
+				8BC08281251A2617005C2B22 /* AlarmView.swift in Sources */,
 				8B77139A25064BBF00D93B29 /* ServerModels.swift in Sources */,
+				8BC082AA251A3EE3005C2B22 /* LectureView.swift in Sources */,
+				8BC082A2251A3338005C2B22 /* TestRouter.swift in Sources */,
 				8BB0B153250D08A2009D5128 /* URLs.swift in Sources */,
 				8BB0B13D25069F84009D5128 /* TestDetailView.swift in Sources */,
+				8BC08298251A3075005C2B22 /* LectureRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,6 +522,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -531,6 +584,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
