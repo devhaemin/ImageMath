@@ -22,8 +22,8 @@ function academy(req, res) {
 }
 
 function getUserInfo(req, res) {
-    var accessToken = req.headers['x-access-token'];
-    var userSeq = req.params.userSeq;
+    let accessToken = req.headers['x-access-token'];
+    let userSeq = req.params.userSeq;
     connection.query("select * from UserInfo where accessToken = ?", accessToken, function (err, requestUser) {
         if (err) {
             console.log(err);

@@ -1,7 +1,7 @@
-var express = require('express');
-var router = express.Router();
-var admin = require('firebase-admin');
-var FCM = require('fcm-node');
+let express = require('express');
+let router = express.Router();
+let admin = require('firebase-admin');
+let FCM = require('fcm-node');
 const cUtil = require('../../customUtil');
 const mysql = require('mysql');
 
@@ -37,15 +37,15 @@ function alarmList(req, res) {
         res.status(400).send('TOKEN IS REQUIRED');
     } else {
         const sql = "select * from UserInfo where accessToken = ?";
-        var sql1 = mysql.format(sql, token);
+        let sql1 = mysql.format(sql, token);
         const sql2 = "select * from Alarm";
         connection.query(sql1, function (err, result, next) {
             if (err || result.length == 0) {
                 console.log(err);
                 res.status(400).send("토큰이 만료되었습니다.");
             } else {
-                var userSeq = result[0].userSeq;
-                var AlarmData = {};
+                let userSeq = result[0].userSeq;
+                let AlarmData = {};
                 connection.query("select * from Alarm where userSeq = ? order by postTime desc", userSeq, function (error, results, nexts) {
                     if (error) {
                         console.log(error);
@@ -62,14 +62,14 @@ function alarmList(req, res) {
 
 //알람 보내기
 function sendAlarm(req, res) {
-    var token = req.headers['x-access-token'];
-    var lectureSeq = req.query.lectureSeq;
-    var content = req.query.content;
-    var sql = "select * from UserInfo where accessToken = ?";
-    var sql1 = mysql.format(sql, token);
-    var sql2 = "select * from UserInfo where userType = 'student' and lectureSeqs like ";
-    var sql3 = sql2 + '"%/' + lectureSeq + '/%"';
-    var sql4 = "select fcmToken from UserInfo where userSeq = ?";
+    let token = req.headers['x-access-token'];
+    let lectureSeq = req.query.lectureSeq;
+    let content = req.query.content;
+    let sql = "select * from UserInfo where accessToken = ?";
+    let sql1 = mysql.format(sql, token);
+    let sql2 = "select * from UserInfo where userType = 'student' and lectureSeqs like ";
+    let sql3 = sql2 + '"%/' + lectureSeq + '/%"';
+    let sql4 = "select fcmToken from UserInfo where userSeq = ?";
     connection.query(sql1, function (err, result, next) {
         if (err) {
             console.log(err);
@@ -81,9 +81,9 @@ function sendAlarm(req, res) {
                     res.status(400).send("다시 시도해주세요.");
                 } else {
                     console.log("before send Alarm : " + results);
-                    for (var i = 0; i < results.length; i++) {
+                    for (let i = 0; i < results.length; i++) {
                         console.log("알람 전송 : " + results[i].userSeq);
-                        var push_data = {
+                        let push_data = {
                             to: results[i].fcmToken,
                             data: {
                                 "title": "수업 알림",

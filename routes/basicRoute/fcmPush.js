@@ -6,9 +6,9 @@ const fs = require('fs');
 const connection = cUtil.connection;
 
 function postPushAlarm(req, res) {
-    var token = req.headers['x-access-token'];
-    var userSeq = req.body.userSeq;
-    var message = req.body.message;
+    let token = req.headers['x-access-token'];
+    let userSeq = req.body.userSeq;
+    let message = req.body.message;
 
 
     if (!token) {

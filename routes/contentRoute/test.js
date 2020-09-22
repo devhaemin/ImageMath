@@ -1,5 +1,5 @@
-var express = require('express');
-var router = express.Router();
+let express = require('express');
+let router = express.Router();
 const cUtil = require('../../customUtil');
 const mysql = require('mysql');
 const XLSX = require('xlsx');
@@ -9,8 +9,8 @@ const upload = multer({storage});
 const connection = cUtil.connection;
 
 const multerS3 = require('multer-s3');
-var AWS = require('aws-sdk');
-var s3 = new AWS.S3();
+let AWS = require('aws-sdk');
+let s3 = new AWS.S3();
 const testUpload = multer({
     storage: multerS3({
         s3: s3,
@@ -18,8 +18,8 @@ const testUpload = multer({
         ContentType: multerS3.AUTO_CONTENT_TYPE,
         key: (req, file, cb) => {
             console.log(file);
-            var str = file.originalname;
-            var res = str.substring(str.length - 5, str.length);
+            let str = file.originalname;
+            let res = str.substring(str.length - 5, str.length);
             cb(null, Date.now() + "_" + res);
         },
         acl: 'public-read',
@@ -62,8 +62,8 @@ router.post('/tutor/uploadXls/:testSeq', testUpload.single('file'), uploadXls);
 router.delete('/:testSeq', deleteTestInfo);
 
 function deleteTestInfo(req, res) {
-    var token = req.headers['x-access-token'];
-    var testSeq = req.params.testSeq;
+    let token = req.headers['x-access-token'];
+    let testSeq = req.params.testSeq;
 
     connection.query("select * from UserInfo where accessToken = ?", token, function (err, userInfos) {
         if (err) {
@@ -84,14 +84,14 @@ function deleteTestInfo(req, res) {
 }
 
 function addTestInfo(req, res) {
-    var token = req.headers['x-access-token'];
-    var title = req.body.title;
-    var postTime = req.body.postTime;
-    var endTime = req.body.endTime;
-    var lectureTime = req.body.lectureTime;
-    var lectureSeq = req.body.lectureSeq;
-    var lectureName = req.body.lectureName;
-    var contents = req.body.contents;
+    let token = req.headers['x-access-token'];
+    let title = req.body.title;
+    let postTime = req.body.postTime;
+    let endTime = req.body.endTime;
+    let lectureTime = req.body.lectureTime;
+    let lectureSeq = req.body.lectureSeq;
+    let lectureName = req.body.lectureName;
+    let contents = req.body.contents;
     console.log("Add TestInfo");
 
     connection.query("select * from UserInfo where accessToken = ?", token, function (err, result, next) {
@@ -101,7 +101,7 @@ function addTestInfo(req, res) {
             res.status(400).send();
         } else if (result[0].userType = "tutor") {
             sql = "INSERT INTO TestInfo SET ?"
-            var param = {
+            let param = {
                 title: title,
                 postTime: postTime,
                 endTime: endTime,
@@ -130,20 +130,20 @@ function addTestInfo(req, res) {
 }
 
 function uploadAnswerFile(req, res) {
-    var token = req.headers['x-access-token'];
-    var testSeq = req.params.testSeq;
-    var file = req.file;
+    let token = req.headers['x-access-token'];
+    let testSeq = req.params.testSeq;
+    let file = req.file;
 
-    var sql = 'select * from UserInfo where accessToken = ?'
-    var params = [token];
+    let sql = 'select * from UserInfo where accessToken = ?'
+    let params = [token];
     connectionQuery(connection, sql, params).then(
         response => {
             if (response.length == 0) {
                 return Promise.resolve(-1);
             } else if (response[0].userType == 'tutor') {
                 console.log(file);
-                var sql = 'insert into FileInfo set ?';
-                var params = [{
+                let sql = 'insert into FileInfo set ?';
+                let params = [{
                     boardType: 'test-submit-answer',
                     postSeq: testSeq,
                     bucket: 'imagemath',
@@ -180,20 +180,20 @@ function uploadAnswerFile(req, res) {
 }
 
 function uploadXls(req, res) {
-    var token = req.headers['x-access-token'];
-    var testSeq = req.params.testSeq;
-    var file = req.file;
+    let token = req.headers['x-access-token'];
+    let testSeq = req.params.testSeq;
+    let file = req.file;
 
-    var sql = 'select * from UserInfo where accessToken = ?'
-    var params = [token];
+    let sql = 'select * from UserInfo where accessToken = ?'
+    let params = [token];
     connectionQuery(connection, sql, params).then(
         response => {
             if (response.length == 0) {
                 return Promise.resolve(-1);
             } else if (response[0].userType == 'tutor') {
 
-                var sql = 'insert into FileInfo set ?';
-                var params = [{
+                let sql = 'insert into FileInfo set ?';
+                let params = [{
                     boardType: 'test-submit-xls',
                     postSeq: testSeq,
                     bucket: 'imagemath',
@@ -218,12 +218,12 @@ function uploadXls(req, res) {
                 console.log("엑세스 토큰이 만료되었습니다.")
                 res.status(400).send("엑세스 토큰이 만료되었습니다.");
             } else {
-                var AWS = require('aws-sdk');
+                let AWS = require('aws-sdk');
                 AWS.config.region = 'ap-northeast-2';
-                var s3 = new AWS.S3();
-                var fileS3 = require('fs').createWriteStream('logo.xlsx');
-                var params = {Bucket: 'imagemath', Key: req.file.key};
-                var readStream = s3.getObject(params).createReadStream().pipe(fileS3);
+                let s3 = new AWS.S3();
+                let fileS3 = require('fs').createWriteStream('logo.xlsx');
+                let params = {Bucket: 'imagemath', Key: req.file.key};
+                let readStream = s3.getObject(params).createReadStream().pipe(fileS3);
                 readStream.on('finish', function () {
                     testtest("logo.xlsx", req, res);
                 });
@@ -240,23 +240,23 @@ function testtest(file, req, res) {
     let workbook = XLSX.readFile(file);
     let sheet = workbook.SheetNames[0];
     let worksheet = workbook.Sheets[sheet];
-    var xlsLength = req.body.xlsLength;
-    var cnt = 4;
-    for (var i = 4; i < xlsLength - 1; i++) {
-        var studentCode = worksheet["D" + i];
-        var userName = worksheet["C" + i];
-        var score = worksheet["F" + i];
-        var rank = worksheet["A" + i];
-        var averageScore = worksheet["F" + (xlsLength - 1)];
+    let xlsLength = req.body.xlsLength;
+    let cnt = 4;
+    for (let i = 4; i < xlsLength - 1; i++) {
+        let studentCode = worksheet["D" + i];
+        let userName = worksheet["C" + i];
+        let score = worksheet["F" + i];
+        let rank = worksheet["A" + i];
+        let averageScore = worksheet["F" + (xlsLength - 1)];
         if (studentCode == undefined || userName == undefined || score == undefined || rank == undefined || averageScore == undefined) {
             res.status(400).send("NOT EXCEL!");
             console.log("적합하지 않은 액셀 형식입니다.");
             return;
         }
 
-        var lectureSeq = req.body.lectureSeq.replace(/\"/gi, "");
+        let lectureSeq = req.body.lectureSeq.replace(/\"/gi, "");
 
-        var params = {
+        let params = {
             submitState: 1,
             submitFileUrl: "",
             uploadTime: new Date().getTime(),
@@ -370,8 +370,8 @@ function tutorTest(req, res) {
     if (!token) {
         res.status(400).send('TOKEN IS REQUIRED');
     } else {
-        var sql = "select * from UserInfo where accessToken = ? ";
-        var sql1 = mysql.format(sql, token);
+        let sql = "select * from UserInfo where accessToken = ? ";
+        let sql1 = mysql.format(sql, token);
         connection.query(sql1, function (err, result) {
             if (err) {
                 console.log(err);
@@ -379,8 +379,8 @@ function tutorTest(req, res) {
             } else if (result.length === 0) {
                 res.status(400).send("token error!");
             } else if (result[0].userType === "tutor") {
-                var sql2 = "select * from TestInfo where lectureSeq = ?  order by testSeq DESC";
-                var sql3 = mysql.format(sql2, lectureSeq);
+                let sql2 = "select * from TestInfo where lectureSeq = ?  order by testSeq DESC";
+                let sql3 = mysql.format(sql2, lectureSeq);
                 connection.query(sql3, function (error, results) {
                     if (error) {
                         console.log(error);
@@ -401,19 +401,19 @@ function tutorTest(req, res) {
 
 function getTestInfo(req, res) {
     const token = req.headers['x-access-token'];
-    var testSeq = req.query.testSeq;
+    let testSeq = req.query.testSeq;
     if (!token) {
         res.status(400).send('TOKEN IS REQUIRED');
     } else {
-        var sql = "select * from UserInfo where accessToken = ?";
-        var sql1 = mysql.format(sql, token);
+        let sql = "select * from UserInfo where accessToken = ?";
+        let sql1 = mysql.format(sql, token);
         connection.query(sql1, function (err, userInfos, next) {
             if (err) {
                 console.log(err);
                 res.status(500).send("token error");
             } else {
-                var sql2 = "select * from TestInfo where testSeq = ?";
-                var sql3 = mysql.format(sql2, testSeq);
+                let sql2 = "select * from TestInfo where testSeq = ?";
+                let sql3 = mysql.format(sql2, testSeq);
                 connection.query(sql3, function (error, results, nexts) {
                     if (error) {
                         console.log(error);
@@ -427,7 +427,7 @@ function getTestInfo(req, res) {
                             } else if (answerFilesSql.length == 0) {
                                 res.status(200).send(results[0]);
                             } else {
-                                var ret = results[0];
+                                let ret = results[0];
                                 ret.answerFiles = answerFilesSql;
                                 console.log(ret);
                                 res.status(200).send(ret);
@@ -442,19 +442,19 @@ function getTestInfo(req, res) {
 
 function testresult(req, res) {
     const token = req.headers['x-access-token'];
-    var testSeq = req.query.testSeq;
+    let testSeq = req.query.testSeq;
     if (!token) {
         res.status(400).send('TOKEN IS REQUIRED');
     } else {
-        var sql = "select * from UserInfo where accessToken = ?";
-        var sql1 = mysql.format(sql, token);
+        let sql = "select * from UserInfo where accessToken = ?";
+        let sql1 = mysql.format(sql, token);
         connection.query(sql1, function (err, result, next) {
             if (err) {
                 console.log(err);
                 res.status(500).send("token error");
             } else if (result[0].userType === "tutor") {
-                var sql2 = "select ta.score,ta.rank,ti.averageScore,ta.studentCode, ta.userName, ti.testSeq, ti.title, ti.postTime, ti.endTime, ti.lectureTime, ti.studentNum, ti.contents, ti.lectureName from TestAdm AS ta JOIN TestInfo AS ti where ta.testSeq = ? and ta.testSeq = ti.testSeq order by score desc"
-                var sql3 = mysql.format(sql2, testSeq);
+                let sql2 = "select ta.score,ta.rank,ti.averageScore,ta.studentCode, ta.userName, ti.testSeq, ti.title, ti.postTime, ti.endTime, ti.lectureTime, ti.studentNum, ti.contents, ti.lectureName from TestAdm AS ta JOIN TestInfo AS ti where ta.testSeq = ? and ta.testSeq = ti.testSeq order by score desc"
+                let sql3 = mysql.format(sql2, testSeq);
                 connection.query(sql3, function (error, results, nexts) {
                     if (error) {
                         console.log(error);
@@ -465,7 +465,7 @@ function testresult(req, res) {
                     }
                 })
             } else {
-                var sql2 = "select ta.score,ta.rank,ti.averageScore,ta.studentCode, ta.userName, ti.testSeq, ti.title, ti.postTime, ti.endTime, ti.lectureTime, ti.studentNum, ti.contents, ti.lectureName from TestAdm AS ta JOIN TestInfo AS ti where ta.testSeq = ? and ta.testSeq = ti.testSeq order by score desc limit5";
+                let sql2 = "select ta.score,ta.rank,ti.averageScore,ta.studentCode, ta.userName, ti.testSeq, ti.title, ti.postTime, ti.endTime, ti.lectureTime, ti.studentNum, ti.contents, ti.lectureName from TestAdm AS ta JOIN TestInfo AS ti where ta.testSeq = ? and ta.testSeq = ti.testSeq order by score desc limit5";
                 connection.query(sql2, testSeq, function (error, results) {
                     if (error) {
                         console.log(error);

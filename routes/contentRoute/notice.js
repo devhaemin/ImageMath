@@ -3,12 +3,12 @@ const router = express.Router();
 const cUtil = require('../../customUtil');
 const multer = require('multer');
 const storage = multer.memoryStorage();
-var AWS = require('aws-sdk');
+let AWS = require('aws-sdk');
 AWS.config.region = 'ap-northeast-2';
 
 const multerS3 = require('multer-s3');
 AWS.config.loadFromPath("./config.json");
-var s3 = new AWS.S3();
+let s3 = new AWS.S3();
 const mysql = require('mysql');
 const connection = cUtil.connection;
 const notice_board_type = 'notice-submit-images';
@@ -20,8 +20,8 @@ const noticeUpload = multer({
         ContentType: multerS3.AUTO_CONTENT_TYPE,
         key: (req, file, cb) => {
             console.log(file);
-            var str = file.originalname;
-            var res = str.substring(str.length - 5, str.length);
+            let str = file.originalname;
+            let res = str.substring(str.length - 5, str.length);
             cb(null, Date.now() + "_" + res);
         },
         acl: 'public-read',
@@ -130,7 +130,7 @@ function addNotice(req, res) {
 
                                 } else {
                                     res.status(200).send(result2[0]);
-                                    for (var i = 0; i < result.length; i++) {
+                                    for (let i = 0; i < result.length; i++) {
                                         cUtil.sendPushMessage(result[i].userSeq, title, '"' + req.body.title + '"' + " 공지가 등록되었습니다.");
                                     }
                                 }
@@ -148,15 +148,15 @@ function addNotice(req, res) {
 function editNotice(req, res) {
     console.log("editNotice");
     const token = req.headers['x-access-token'];
-    var noticeSeq = req.params.noticeSeq;
+    let noticeSeq = req.params.noticeSeq;
     connection.query("select * from UserInfo where accessToken = ?", token, function (err, result, next) {
         if (err) {
             console.log("token error");
             res.status(400).send("토큰이 만료되었습니다.");
         } else if (result[0].userType == "tutor") {
             console.log(result);
-            var sql = 'insert into FileInfo set ?';
-            var params = [{
+            let sql = 'insert into FileInfo set ?';
+            let params = [{
                 boardType: notice_board_type,
                 postSeq: noticeSeq,
                 bucket: 'imagemath',
@@ -220,8 +220,8 @@ function noticeDelete(req, res) {
             console.log("token error");
             res.status(400).send("토큰이 만료되었습니다.");
         } else {
-            var sql = 'delete from NoticeInfo where noticeSeq = ?'
-            var params = [noticeSeq];
+            let sql = 'delete from NoticeInfo where noticeSeq = ?'
+            let params = [noticeSeq];
             console.log(sql);
             connectionQuery(connection, sql, params).then(
                 response => {

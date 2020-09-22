@@ -117,6 +117,470 @@
   },
   {
     "type": "post",
+    "url": "auth/login",
+    "title": "이메일로 토큰 발급하기",
+    "name": "ObtainToken_with_email_login",
+    "group": "Auth",
+    "permission": [
+      {
+        "name": "normal",
+        "title": "User access only",
+        "description": "<p>This optional description belong to to the group normal</p>"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "password",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/basicRoute/auth.js",
+    "groupTitle": "Auth",
+    "success": {
+      "fields": {
+        "200": [
+          {
+            "group": "200",
+            "type": "Int",
+            "optional": false,
+            "field": "userSeq",
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "optional": false,
+            "field": "birthday",
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "optional": false,
+            "field": "password",
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "optional": false,
+            "field": "accessToken",
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "optional": false,
+            "field": "fcmToken",
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "optional": false,
+            "field": "gender",
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "optional": false,
+            "field": "salt",
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "optional": false,
+            "field": "userType",
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "optional": false,
+            "field": "phone",
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "optional": false,
+            "field": "studentCode",
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "optional": false,
+            "field": "schoolName",
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Int",
+            "optional": false,
+            "field": "registerTime",
+            "description": ""
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "get",
+    "url": "auth/autologin",
+    "title": "토큰 로그인",
+    "name": "ObtainToken_with_email_login",
+    "group": "Auth",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "optional": false,
+            "field": "x-access-token",
+            "description": "<p>사용자 액세스 토큰</p>"
+          }
+        ]
+      }
+    },
+    "permission": [
+      {
+        "name": "normal",
+        "title": "User access only",
+        "description": "<p>This optional description belong to to the group normal</p>"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "routes/basicRoute/auth.js",
+    "groupTitle": "Auth",
+    "success": {
+      "fields": {
+        "200": [
+          {
+            "group": "200",
+            "type": "Int",
+            "optional": false,
+            "field": "userSeq",
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "optional": false,
+            "field": "birthday",
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "optional": false,
+            "field": "password",
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "optional": false,
+            "field": "accessToken",
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "optional": false,
+            "field": "fcmToken",
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "optional": false,
+            "field": "gender",
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "optional": false,
+            "field": "salt",
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "optional": false,
+            "field": "userType",
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "optional": false,
+            "field": "phone",
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "optional": false,
+            "field": "studentCode",
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "optional": false,
+            "field": "schoolName",
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Int",
+            "optional": false,
+            "field": "registerTime",
+            "description": ""
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "post",
+    "url": "auth/register",
+    "title": "회원가입",
+    "name": "Register_with_email",
+    "group": "Auth",
+    "permission": [
+      {
+        "name": "normal",
+        "title": "User access only",
+        "description": "<p>This optional description belong to to the group normal</p>"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "password",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "birthday",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Int",
+            "optional": false,
+            "field": "gender",
+            "description": "<p>0: 남자, 1: 여자</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "userType",
+            "description": "<p>student : 학생 tutor : 조교</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "phone",
+            "description": "<p>휴대폰 번호</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "schoolName",
+            "description": "<p>학교 이름 ex)대성고</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "studentCode",
+            "description": "<p>학생 스쿨링코드</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/basicRoute/auth.js",
+    "groupTitle": "Auth",
+    "success": {
+      "fields": {
+        "200": [
+          {
+            "group": "200",
+            "type": "Int",
+            "optional": false,
+            "field": "userSeq",
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "optional": false,
+            "field": "birthday",
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "optional": false,
+            "field": "password",
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "optional": false,
+            "field": "accessToken",
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "optional": false,
+            "field": "fcmToken",
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "optional": false,
+            "field": "gender",
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "optional": false,
+            "field": "salt",
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "optional": false,
+            "field": "userType",
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "optional": false,
+            "field": "phone",
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "optional": false,
+            "field": "studentCode",
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "optional": false,
+            "field": "schoolName",
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "Int",
+            "optional": false,
+            "field": "registerTime",
+            "description": ""
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "post",
     "url": "lecture/add",
     "title": "신규 수업 개설",
     "name": "Add_Lecture",

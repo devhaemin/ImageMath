@@ -1,14 +1,14 @@
-var express = require('express');
-var router = express.Router();
+let express = require('express');
+let router = express.Router();
 
 const cUtil = require('../../customUtil');
 const mysql = require('mysql');
 const multer = require('multer');
 const multerS3 = require('multer-s3');
 
-var AWS = require('aws-sdk');
+let AWS = require('aws-sdk');
 AWS.config.loadFromPath("./config.json");
-var s3 = new AWS.S3();
+let s3 = new AWS.S3();
 
 const connection = cUtil.connection;
 
@@ -19,8 +19,8 @@ const upload = multer({
         ContentType: multerS3.AUTO_CONTENT_TYPE,
         key: (req, file, cb) => {
             console.log(file);
-            var str = file.originalname;
-            var res = str.substring(str.length - 5, str.length);
+            let str = file.originalname;
+            let res = str.substring(str.length - 5, str.length);
             cb(null, Date.now() + "_" + res);
         },
         acl: 'public-read',
@@ -87,8 +87,8 @@ router.delete('/delete/answerFile/:fileSeq', deleteAnswerFile);
 router.delete('/:assignmentSeq', deleteAssignmentInfo);
 
 function deleteAssignmentInfo(req, res) {
-    var token = req.headers['x-access-token'];
-    var assignmentSeq = req.params.assignmentSeq;
+    let token = req.headers['x-access-token'];
+    let assignmentSeq = req.params.assignmentSeq;
 
     connection.query("select * from UserInfo where accessToken = ?", token, function (err, userInfos) {
         if (err) {
@@ -110,10 +110,10 @@ function deleteAssignmentInfo(req, res) {
 
 function deleteAnswerFile(req, res) {
 
-    var token = req.headers['x-access-token'];
-    var fileSeq = req.params.fileSeq;
-    var sql = "select * from UserInfo where accessToken = ?";
-    var sql1 = mysql.format(sql, token);
+    let token = req.headers['x-access-token'];
+    let fileSeq = req.params.fileSeq;
+    let sql = "select * from UserInfo where accessToken = ?";
+    let sql1 = mysql.format(sql, token);
 
     connection.query(sql1, function (err, result, next) {
         if (err) {
@@ -138,10 +138,10 @@ function deleteAnswerFile(req, res) {
 
 
 function getStudentSubmitAssignmentList(req, res) {
-    var token = req.headers['x-access-token'];
-    var userSeq = req.query.userSeq;
-    var sql = "select * from UserInfo where accessToken = ?";
-    var sql1 = mysql.format(sql, token);
+    let token = req.headers['x-access-token'];
+    let userSeq = req.query.userSeq;
+    let sql = "select * from UserInfo where accessToken = ?";
+    let sql1 = mysql.format(sql, token);
 
     connection.query(sql1, function (err, result, next) {
         if (err) {
@@ -164,9 +164,9 @@ function getStudentSubmitAssignmentList(req, res) {
 }
 
 function patchSubmitState(req, res) {
-    var token = req.headers['x-access-token'];
-    var submitState = req.body.submitState;
-    var assignmentAdmSeq = req.params.assignmentAdmSeq;
+    let token = req.headers['x-access-token'];
+    let submitState = req.body.submitState;
+    let assignmentAdmSeq = req.params.assignmentAdmSeq;
 
     connection.query('select * from AssignmentAdm where assignmentAdmSeq = ?', assignmentAdmSeq, function (err, result2) {
         if (err) {
@@ -189,12 +189,12 @@ function patchSubmitState(req, res) {
 }
 
 function getSubmitFiles(req, res) {
-    var token = req.headers['x-access-token'];
+    let token = req.headers['x-access-token'];
 
-    var sql = 'select * from UserInfo where accessToken = ?';
-    var params = [token];
-    var userSeq = req.query.userSeq;
-    var assignmentSeq = req.params.assignmentSeq;
+    let sql = 'select * from UserInfo where accessToken = ?';
+    let params = [token];
+    let userSeq = req.query.userSeq;
+    let assignmentSeq = req.params.assignmentSeq;
 
     connectionQuery(connection, sql, params).then(
         response => {
@@ -203,8 +203,8 @@ function getSubmitFiles(req, res) {
                 return Promise.resolve(-1);
             } else if (response[0].userType == 'tutor') {
 
-                var sql = 'select * from AssignmentAdm order by userSeq';
-                var params = [];
+                let sql = 'select * from AssignmentAdm order by userSeq';
+                let params = [];
                 return connectionQuery(connection, sql, params);
             } else {
                 return Promise.resolve(-1);
@@ -220,8 +220,8 @@ function getSubmitFiles(req, res) {
             } else {
                 console.log(userSeq + "/" + assignmentSeq);
 
-                var sql = 'select * from FileInfo where boardType = ? and userSeq = ? and postSeq = ? order by uploadTime desc';
-                var params = ['assignment-submit-image', userSeq, assignmentSeq];
+                let sql = 'select * from FileInfo where boardType = ? and userSeq = ? and postSeq = ? order by uploadTime desc';
+                let params = ['assignment-submit-image', userSeq, assignmentSeq];
                 return connectionQuery(connection, sql, params);
 
             }
@@ -245,12 +245,12 @@ function getSubmitFiles(req, res) {
 
 function tutorAssignmentInfoAll(req, res) {
 
-    var ret = [];
+    let ret = [];
 
-    var token = req.headers['x-access-token'];
+    let token = req.headers['x-access-token'];
 
-    var sql = 'select * from UserInfo where accessToken = ?'
-    var params = [token];
+    let sql = 'select * from UserInfo where accessToken = ?'
+    let params = [token];
     connectionQuery(connection, sql, params).then(
         response => {
             console.log(response);
@@ -258,8 +258,8 @@ function tutorAssignmentInfoAll(req, res) {
                 return Promise.resolve(-1);
             } else if (response[0].userType == 'tutor') {
 
-                var sql = 'select * from AssignmentAdm order by userSeq';
-                var params = [];
+                let sql = 'select * from AssignmentAdm order by userSeq';
+                let params = [];
                 return connectionQuery(connection, sql, params);
             } else {
                 return Promise.resolve(-1);
@@ -275,9 +275,9 @@ function tutorAssignmentInfoAll(req, res) {
             } else {
                 console.log(response); //
 
-                var sql = 'select * from FileInfo where boardType = ? order by userSeq';
-                var params = ['assignment-submit-image'];
-                for (var i = 0; i < response.length; i++) {
+                let sql = 'select * from FileInfo where boardType = ? order by userSeq';
+                let params = ['assignment-submit-image'];
+                for (let i = 0; i < response.length; i++) {
                     ret.push(response[i]);
                     if (i == response.length - 1) {
                         return connectionQuery(connection, sql, params);
@@ -292,11 +292,11 @@ function tutorAssignmentInfoAll(req, res) {
                 res.status(200).send([]);
             } else {
                 console.log(response);
-                var a = 0;
-                var submitFiles = [];
-                for (var i = 0; i < ret.length; i++) {
+                let a = 0;
+                let submitFiles = [];
+                for (let i = 0; i < ret.length; i++) {
                     ret[i].submitFiles = []
-                    for (var j = 0; j < response.length; j++) {
+                    for (let j = 0; j < response.length; j++) {
                         if (ret[i].userSeq == response[j].userSeq) {
                             ret[i].submitFiles.push(response[j]);
 
@@ -319,21 +319,21 @@ function tutorAssignmentInfoAll(req, res) {
 
 
 function tutorAssignmentInfo(req, res) {
-    var ret = [];
+    let ret = [];
 
-    var token = req.headers['x-access-token'];
-    var assignmentSeq = req.params.assignmentSeq;
+    let token = req.headers['x-access-token'];
+    let assignmentSeq = req.params.assignmentSeq;
 
-    var sql = 'select * from UserInfo where accessToken = ?';
-    var params = [token];
+    let sql = 'select * from UserInfo where accessToken = ?';
+    let params = [token];
     connectionQuery(connection, sql, params).then(
         response => {
             if (response.length == 0) {
                 return Promise.resolve(-1);
             } else if (response[0].userType == 'tutor') {
 
-                var sql = 'select * from AssignmentAdm where assignmentSeq = ? order by userSeq';
-                var params = [assignmentSeq];
+                let sql = 'select * from AssignmentAdm where assignmentSeq = ? order by userSeq';
+                let params = [assignmentSeq];
                 return connectionQuery(connection, sql, params);
             } else {
                 return Promise.resolve(-1);
@@ -353,9 +353,9 @@ function tutorAssignmentInfo(req, res) {
             } else {
                 console.log(response); //
 
-                var sql = 'select * from FileInfo where postSeq = ? and boardType = ? order by userSeq';
-                var params = [assignmentSeq, 'assignment-submit-image'];
-                for (var i = 0; i < response.length; i++) {
+                let sql = 'select * from FileInfo where postSeq = ? and boardType = ? order by userSeq';
+                let params = [assignmentSeq, 'assignment-submit-image'];
+                for (let i = 0; i < response.length; i++) {
                     ret.push(response[i]);
                     if (i == response.length - 1) {
                         return connectionQuery(connection, sql, params);
@@ -374,11 +374,11 @@ function tutorAssignmentInfo(req, res) {
                 res.status(200).send(ret);
             } else {
                 console.log(response);
-                var a = 0;
-                var submitFiles = [];
-                for (var i = 0; i < ret.length; i++) {
+                let a = 0;
+                let submitFiles = [];
+                for (let i = 0; i < ret.length; i++) {
                     ret[i].submitFiles = [];
-                    for (var j = 0; j < response.length; j++) {
+                    for (let j = 0; j < response.length; j++) {
                         if (ret[i].userSeq == response[j].userSeq) {
                             ret[i].submitFiles.push(response[j]);
                             if (i == ret.length - 1 || j == response.length - 1) {
@@ -417,16 +417,16 @@ router.post('/submit/:assignmentSeq', upload.single('submitFile'), (req, res) =>
                 res.status(400).send('token error');
             } else {
                 console.log(req.file);
-                var assignmentSeq = req.params.assignmentSeq;
-                var userSeq = result[0].userSeq;
-                var bucket = 'imagemath/' + 'assingment/' + assignmentSeq + '/' + userSeq;
-                var fileBucket = 'imagemath'
-                var fileName = req.file.key;
-                var fileType = 'image';
-                var fileUrl = req.file.location;
+                let assignmentSeq = req.params.assignmentSeq;
+                let userSeq = result[0].userSeq;
+                let bucket = 'imagemath/' + 'assingment/' + assignmentSeq + '/' + userSeq;
+                let fileBucket = 'imagemath'
+                let fileName = req.file.key;
+                let fileType = 'image';
+                let fileUrl = req.file.location;
 
 
-                var values = {
+                let values = {
                     'boardType': 'assignment-submit-image',
                     'postSeq': assignmentSeq,
                     'bucket': fileBucket,
@@ -443,13 +443,13 @@ router.post('/submit/:assignmentSeq', upload.single('submitFile'), (req, res) =>
 
                         // submitstate를 0에서 1로 변경 UserInfo
                     } else {
-                        var sql = 'select * from AssignmentAdm where userSeq = ?';
-                        var params = [userSeq];
+                        let sql = 'select * from AssignmentAdm where userSeq = ?';
+                        let params = [userSeq];
                         connectionQuery(connection, sql, params).then(
                             response => {
                                 if (response[0].submitState == 0) {
-                                    var sql = 'update AssignmentInfo set submitNum = submitNum + 1 where assignmentSeq = ?'
-                                    var params = [assignmentSeq];
+                                    let sql = 'update AssignmentInfo set submitNum = submitNum + 1 where assignmentSeq = ?'
+                                    let params = [assignmentSeq];
 
                                     return connectionQuery(connection, sql, params);
                                 } else {
@@ -462,8 +462,8 @@ router.post('/submit/:assignmentSeq', upload.single('submitFile'), (req, res) =>
                             }
                         ).then(
                             response => {
-                                var sql = 'update AssignmentAdm set submitState = 1 where assignmentSeq = ? and userSeq = ?'
-                                var params = [assignmentSeq, userSeq];
+                                let sql = 'update AssignmentAdm set submitState = 1 where assignmentSeq = ? and userSeq = ?'
+                                let params = [assignmentSeq, userSeq];
 
                                 return connectionQuery(connection, sql, params);
 
@@ -508,7 +508,7 @@ function studentAssignmentInfo(req, res) {
     if (!userInfo) {
         res.status(400).send('token error');
     } else {
-        var studentCode = userInfo.studentCode;
+        let studentCode = userInfo.studentCode;
         const sql = "select * from AssignmentAdm AS ad JOIN AssignmentInfo AS ai where ad.studentCode = ? and ad.assignmentSeq = ? and ad.assignmentSeq = ai.assignmentSeq"; //
         const sql3 = "select * from FileInfo where boardType = ? and userSeq = ? and postSeq = " + assignmentSeq + " order by uploadTime desc";  // submitFiles
         connection.query(sql, [studentCode, assignmentSeq], function (err, result) {
@@ -566,7 +566,7 @@ function studentAssignmentInfo(req, res) {
 function assignmentSeq(req, res) {
     const assignmentSeq = req.params.assignmentSeq;
     const sql = "select * from AssignmentInfo where assignmentSeq = ? order by endTime desc";
-    var sql1 = mysql.format(sql, assignmentSeq);
+    let sql1 = mysql.format(sql, assignmentSeq);
     connection.query(sql1, function (err, result) {
         if (err) {
             console.log(err);
@@ -701,20 +701,20 @@ function assignmentadd(req, res) {
 }
 
 function assignmentAddAnswerFile(req, res) {
-    var token = req.headers['x-access-token'];
-    var assignmentSeq = req.params.assignmentSeq;
-    var file = req.file;
+    let token = req.headers['x-access-token'];
+    let assignmentSeq = req.params.assignmentSeq;
+    let file = req.file;
 
-    var sql = 'select * from UserInfo where accessToken = ?'
-    var params = [token];
+    let sql = 'select * from UserInfo where accessToken = ?'
+    let params = [token];
     connectionQuery(connection, sql, params).then(
         response => {
             if (response.length == 0) {
                 return Promise.resolve(-1);
             } else if (response[0].userType == 'tutor') {
 
-                var sql = 'insert into FileInfo set ?';
-                var params = [{
+                let sql = 'insert into FileInfo set ?';
+                let params = [{
                     boardType: 'assignment-answer',
                     postSeq: assignmentSeq,
                     bucket: 'imagemath',

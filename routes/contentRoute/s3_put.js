@@ -1,14 +1,14 @@
-var express = require('express');
-var router = express.Router();
-var AWS = require('aws-sdk');
-var fs = require('fs');
+let express = require('express');
+let router = express.Router();
+let AWS = require('aws-sdk');
+let fs = require('fs');
 AWS.config.region = 'ap-northeast-2';
-var s3 = new AWS.S3();
+let s3 = new AWS.S3();
 
 router.post('/upload', function (req, res) {
-    var noticeSeq = req.body.noticeSeq;
-    var bucket = 'imagemath-notice/' + noticeSeq;
-    var param = {
+    let noticeSeq = req.body.noticeSeq;
+    let bucket = 'imagemath-notice/' + noticeSeq;
+    let param = {
         'Bucket': bucket,
         'Key': 'aaa.png',
         'ACL': 'public-read',

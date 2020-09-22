@@ -22,6 +22,23 @@
  * @apiParam {String} academyName 학원 이름
  *
  */
+/**
+ * @apiDefine UserInfo
+ * @apiSuccess (200) {Int} userSeq
+ * @apiSuccess (200) {String} name
+ * @apiSuccess (200) {String} birthday
+ * @apiSuccess (200) {String} email
+ * @apiSuccess (200) {String} password
+ * @apiSuccess (200) {String} accessToken
+ * @apiSuccess (200) {String} fcmToken
+ * @apiSuccess (200) {String} gender
+ * @apiSuccess (200) {String} salt
+ * @apiSuccess (200) {String} userType
+ * @apiSuccess (200) {String} phone
+ * @apiSuccess (200) {String} studentCode
+ * @apiSuccess (200) {String} schoolName
+ * @apiSuccess (200) {Int} registerTime
+ */
 
 /**
  * @apiDefine LectureInfo

@@ -39,10 +39,6 @@ app.use('/users', usersRouter);
 const authRoute = require('./routes/basicRoute/auth');
 app.use('/auth', authRoute);
 // ALL : Login, (token : refresh, isAuthenticated), account
-
-// ----------------- checkAuthByToken --------------------//
-const checkAuth = require('./routes/basicRoute/checkAuth');
-app.use('/checkAuth', checkAuth);
 // -------------------------------------------------------//
 
 const alarmRoute = require('./routes/basicRoute/alarm');

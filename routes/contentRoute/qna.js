@@ -1,13 +1,13 @@
-var express = require('express');
-var router = express.Router();
+let express = require('express');
+let router = express.Router();
 const cUtil = require('../../customUtil');
 const multer = require('multer');
-var AWS = require('aws-sdk');
+let AWS = require('aws-sdk');
 AWS.config.region = 'ap-northeast-2';
 
 const multerS3 = require('multer-s3');
 AWS.config.loadFromPath("./config.json");
-var s3 = new AWS.S3();
+let s3 = new AWS.S3();
 const connection = cUtil.connection;
 
 const questionUpload = multer({
@@ -17,8 +17,8 @@ const questionUpload = multer({
         ContentType: multerS3.AUTO_CONTENT_TYPE,
         key: (req, file, cb) => {
             console.log(file);
-            var str = file.originalname;
-            var res = str.substring(str.length - 5, str.length);
+            let str = file.originalname;
+            let res = str.substring(str.length - 5, str.length);
             cb(null, Date.now() + "_" + res);
         },
         acl: 'public-read',
@@ -32,8 +32,8 @@ const answerUpload = multer({
         ContentType: multerS3.AUTO_CONTENT_TYPE,
         key: (req, file, cb) => {
             console.log(file);
-            var str = file.originalname;
-            var res = str.substring(str.length - 5, str.length);
+            let str = file.originalname;
+            let res = str.substring(str.length - 5, str.length);
             cb(null, Date.now() + "_" + res);
         },
         acl: 'public-read',
@@ -254,7 +254,7 @@ function addAnswer(req, res) {
             console.log(err);
             res.status(400).send("토큰이 만료되었습니다.");
         } else {
-            var params = {
+            let params = {
                 uploaderSeq: result[0].userSeq,
                 title: req.body.title,
                 contents: req.body.contents,
@@ -268,7 +268,7 @@ function addAnswer(req, res) {
                     res.status(400).send("Insert Error!");
                 } else {
                     console.log(result);
-                    var answer = {
+                    let answer = {
                         answerSeq: result.insertId
                     }
                     res.status(200).send(answer);
@@ -296,15 +296,15 @@ function addAnswer(req, res) {
 function editAnswer(req, res) {
     console.log("editAnswer");
     const token = req.headers['x-access-token'];
-    var answerSeq = req.params.answerSeq;
+    let answerSeq = req.params.answerSeq;
     connection.query("select * from UserInfo where accessToken = ?", token, function (err, result, next) {
         if (err || result.length == 0) {
             console.log(err);
             res.status(400).send("토큰이 만료되었습니다.");
         } else {
             console.log(result);
-            var sql = 'insert into FileInfo set ?';
-            var params = [{
+            let sql = 'insert into FileInfo set ?';
+            let params = [{
                 boardType: answer_board_type,
                 postSeq: answerSeq,
                 bucket: 'imagemath',
