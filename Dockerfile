@@ -17,4 +17,4 @@ COPY ./ /usr/src/app/
 
 ENV NODE_ENV=test
 
-CMD [ "node", "./bin/www" ]
+CMD [ "nodemon", "./bin/www" ]
