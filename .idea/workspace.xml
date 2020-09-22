@@ -122,8 +122,8 @@
     </configuration>
     <list>
       <item itemvalue="Docker.Unnamed" />
-      <item itemvalue="Node.js.bin\www" />
       <item itemvalue="Docker.Dockerfile" />
+      <item itemvalue="Node.js.bin\www" />
     </list>
     <recent_temporary>
       <list>
@@ -160,7 +160,7 @@
       <workItem from="1599970426104" duration="1685000" />
       <workItem from="1600001032955" duration="14458000" />
       <workItem from="1600261004728" duration="61000" />
-      <workItem from="1600521969248" duration="2050000" />
+      <workItem from="1600521969248" duration="3412000" />
     </task>
     <servers />
   </component>

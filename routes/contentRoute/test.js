@@ -304,7 +304,7 @@ function testtest(file, req, res) {
 }
 
 /**
- * @api {get} test/student/:lectureSeq
+ * @api {get} test/student/:lectureSeq GetTestList by Lecture
  * @apiName Get Test list group by lecture
  * @apiGroup Test
  * @apiHeader x-access-token 사용자 액세스 토큰
@@ -333,7 +333,7 @@ function studentTest(req, res) {
 }
 
 /**
- * @api {get} test/student
+ * @api {get} test/student GetTestDetail for Student
  * @apiName Get Test detail for student
  * @apiGroup Test
  * @apiHeader x-access-token 사용자 액세스 토큰

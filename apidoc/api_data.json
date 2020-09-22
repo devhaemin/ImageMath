@@ -886,7 +886,7 @@
   {
     "type": "get",
     "url": "test/student",
-    "title": "",
+    "title": "GetTestDetail for Student",
     "name": "Get_Test_detail_for_student",
     "group": "Test",
     "header": {
@@ -928,7 +928,7 @@
   {
     "type": "get",
     "url": "test/student/:lectureSeq",
-    "title": "",
+    "title": "GetTestList by Lecture",
     "name": "Get_Test_list_group_by_lecture",
     "group": "Test",
     "header": {
