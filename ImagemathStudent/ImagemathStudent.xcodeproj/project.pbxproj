@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		8B11610E25122DE9006886F2 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B11610D25122DE9006886F2 /* MainView.swift */; };
 		8B116110251242C3006886F2 /* QnADetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B11610F251242C3006886F2 /* QnADetailView.swift */; };
+		8B500795251D9144005184DB /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B500794251D9144005184DB /* TestView.swift */; };
+		8B50079A251DA104005184DB /* QnAView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B500799251DA104005184DB /* QnAView.swift */; };
 		8B58D9A42519EC21008E8089 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B58D9A32519EC21008E8089 /* LoginView.swift */; };
 		8B6CB1ED2510A6E000800990 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6CB1EC2510A6E000800990 /* SceneDelegate.swift */; };
 		8B7713922505548400D93B29 /* Lecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7713912505548400D93B29 /* Lecture.swift */; };
@@ -66,6 +68,8 @@
 		8B11610C25122A99006886F2 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		8B11610D25122DE9006886F2 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		8B11610F251242C3006886F2 /* QnADetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QnADetailView.swift; sourceTree = "<group>"; };
+		8B500794251D9144005184DB /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		8B500799251DA104005184DB /* QnAView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QnAView.swift; sourceTree = "<group>"; };
 		8B58D9A32519EC21008E8089 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		8B6CB1EC2510A6E000800990 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8B7713912505548400D93B29 /* Lecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lecture.swift; sourceTree = "<group>"; };
@@ -231,6 +235,7 @@
 				8BB0B13625069F31009D5128 /* TestCell.swift */,
 				8BB0B13825069F45009D5128 /* Test.swift */,
 				8BB0B13C25069F84009D5128 /* TestDetailView.swift */,
+				8B500794251D9144005184DB /* TestView.swift */,
 			);
 			name = Test;
 			path = ImagemathStudent/Test;
@@ -242,6 +247,7 @@
 				8BB0B1442507E1F9009D5128 /* QnACell.swift */,
 				8BB0B1462507E20A009D5128 /* Question.swift */,
 				8B11610F251242C3006886F2 /* QnADetailView.swift */,
+				8B500799251DA104005184DB /* QnAView.swift */,
 			);
 			path = QnA;
 			sourceTree = "<group>";
@@ -425,6 +431,7 @@
 				8B984F9B250D2E1600AA5E8E /* AssignmentRouter.swift in Sources */,
 				8BB0B1472507E20A009D5128 /* Question.swift in Sources */,
 				8BC08289251A2624005C2B22 /* SettingView.swift in Sources */,
+				8B500795251D9144005184DB /* TestView.swift in Sources */,
 				8BB0B13425069F06009D5128 /* AssignmentCell.swift in Sources */,
 				8BB0B13F25069F95009D5128 /* AssignmentDetailView.swift in Sources */,
 				8B771396250556AA00D93B29 /* LectureCell.swift in Sources */,
@@ -441,6 +448,7 @@
 				8BB0B13125069EC9009D5128 /* Assignment.swift in Sources */,
 				8BC0829D251A3330005C2B22 /* QnARouter.swift in Sources */,
 				8BC0828E251A2D87005C2B22 /* UserRouter.swift in Sources */,
+				8B50079A251DA104005184DB /* QnAView.swift in Sources */,
 				8BC08281251A2617005C2B22 /* AlarmView.swift in Sources */,
 				8B77139A25064BBF00D93B29 /* ServerModels.swift in Sources */,
 				8BC082AA251A3EE3005C2B22 /* LectureView.swift in Sources */,

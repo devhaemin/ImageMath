@@ -5,6 +5,7 @@
 //  Created by 정해민 on 2020/09/08.
 //  Copyright © 2020 정해민. All rights reserved.
 //
+import Foundation
 import Alamofire
 
 struct Assignment : Codable{
@@ -42,7 +43,9 @@ extension ServerFile{
 
 extension Assignment{
     static func getAssignmentDummyData() -> [Assignment]{
-        return [Assignment(userSeq: 0, submitState: 0, assignmentSeq: 0, title: "2주차", contents: ".", postTime: 100, endTime: 100, lectureTime: 100, lectureName: "고3 fly 모의고사 나형 대치이강"),Assignment(userSeq: 0, submitState: 0, assignmentSeq: 0, title: "2주차", contents: ".", postTime: 100, endTime: 100, lectureTime: 100, lectureName: "고3 fly 모의고사 나형 대치이강"),Assignment(userSeq: 0, submitState: 0, assignmentSeq: 0, title: "2주차", contents: ".", postTime: 100, endTime: 100, lectureTime: 100, lectureName: "고3 fly 모의고사 나형 대치이강")]
+        return [Assignment(userSeq: 0, submitState: 0, assignmentSeq: 0, title: "2주차", contents: ".", postTime: 100, endTime: 1599476400830, lectureTime: 100, lectureName: "고3 fly 모의고사 나형 대치이강"),
+                Assignment(userSeq: 0, submitState: 0, assignmentSeq: 0, title: "2주차", contents: ".", postTime: 100, endTime: 1599476410830, lectureTime: 100, lectureName: "고3 fly 모의고사 나형 대치이강"),
+                Assignment(userSeq: 0, submitState: 0, assignmentSeq: 0, title: "2주차", contents: ".", postTime: 100, endTime: 1599476500830, lectureTime: 100, lectureName: "고3 fly 모의고사 나형 대치이강")]
     }
 }
 extension Assignment{

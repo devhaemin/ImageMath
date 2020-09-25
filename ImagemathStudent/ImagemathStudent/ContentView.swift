@@ -30,7 +30,7 @@ struct ContentView: View {
                         }
                     })
             }else if(loginAble){
-                MainView()
+                MainView().background(Color.white)
             }else{
                 LoginView(loginAble: $loginAble, isNetworkAlertVisible: $isNetworkAlert)
                     .alert(isPresented: $isNetworkAlert, content: {

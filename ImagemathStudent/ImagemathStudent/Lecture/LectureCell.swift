@@ -10,7 +10,8 @@ import SwiftUI
 
 struct LectureCell: View{
     let lecture: Lecture
-    @State var notices: [Notice]
+    
+    @State var notices: [Notice] = Notice.getLectureNotice(lectureSeq: 0)
     var body: some View{
         VStack{
             Spacer().frame( height: 20)
@@ -67,10 +68,20 @@ struct LectureCell: View{
                 
             }.frame(height: 120)
                 .background(Image(uiImage: #imageLiteral(resourceName: "box_lecture_on_notice")).resizable())
-        }.overlay(
+        }
+        .overlay(
             RoundedRectangle(cornerRadius: 4)
                 .stroke(Color("borderColor"), lineWidth: 1))
             .frame(height: 300)
+        .onAppear{
+            Notice.getNoticeList(lectureSeq: lecture.lectureSeq!, completion: { (response) in
+                do{
+                    notices = try response.get()
+                }catch{
+                    print(response)
+                }
+            })
+        }
     }
 }
 

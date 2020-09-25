@@ -9,6 +9,29 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>ImagemathStudentTests.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>8B86BA83250348B80085A0D6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8B86BA99250348BB0085A0D6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8B86BAA4250348BB0085A0D6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 	</dict>
 </dict>
 </plist>

@@ -13,6 +13,7 @@ struct LectureView: View {
     @State var isExceptOn = false
     @State var showingSheet = false
     @State var lectures = Lecture.getDummyData();
+    @State var allLectures = Lecture.getDummyData();
     
     var body: some View {
         VStack{
@@ -29,22 +30,43 @@ struct LectureView: View {
                 }) {
                     Text("+추가하기")
                 }.actionSheet(isPresented: $showingSheet) {
-                    ActionSheet(title: Text("수업 선택하기"), message: Text("승인 요청할 수업을 선택해주세요."), buttons: [.default(Text("고3 fly 모의고사")), .cancel(Text("Cancel"))])
+                    
+                    var buttons: [ActionSheet.Button] = allLectures.map {
+                        let lectureSeq = $0.lectureSeq!
+                        return ActionSheet.Button.default(Text($0.name!), action: {
+                            requestLecture(lectureSeq: lectureSeq)
+                        })
+                    }
+                    buttons.append(ActionSheet.Button.cancel(Text("취소")))
+                    return ActionSheet(title: Text("수업 선택하기"), message: Text("승인 요청할 수업을 선택해주세요."), buttons:buttons
+                    )
                 }
             }.padding(.top)
             .padding(.horizontal)
-            List(self.lectures, id: \.lectureSeq) { lecture in
-                ZStack {
-                    LectureCell(lecture: lecture, notices: Notice.getLectureNotice(lectureSeq: lecture.lectureSeq!))
-                    NavigationLink(destination: NoticeView(notices: Notice.getLectureNotice(lectureSeq: lecture.lectureSeq!), lectureName: "고3 대치이강 나형 모의고사")) {
-                        EmptyView()
-                    }.buttonStyle(PlainButtonStyle())
+            List {
+                ForEach(self.lectures, id: \.lectureSeq){ lecture in
+                    ZStack {
+                        LectureCell(lecture: lecture)
+                        NavigationLink(destination: NoticeView(lecture: lecture)) {
+                            EmptyView()
+                        }.buttonStyle(PlainButtonStyle())
+                    }
+                    .listRowInsets(EdgeInsets())
+                    .padding(.vertical,8)
+                    .background(Color.white)
                 }
             }
         }.onAppear(perform: {
             Lecture.getMyLectureList { (response) in
                 do{
                     lectures = try response.get()
+                }catch{
+                    print(response)
+                }
+            }
+            Lecture.getAllLectureList { (response) in
+                do{
+                    allLectures = try response.get()
                 }catch{
                     print(response)
                 }
@@ -65,6 +87,12 @@ struct LectureView: View {
         })
     }
 }
+func requestLecture(lectureSeq:Int){
+    Lecture.requestAddLecture(lectureSeq: lectureSeq) { response in
+        
+    }
+}
+
 
 struct LectureView_Previews: PreviewProvider {
     static var previews: some View {

@@ -15,6 +15,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        UITableView.appearance().backgroundColor = UIColor.white
+        if #available(iOS 14.0, *) {
+                // iOS 14 doesn't have extra separators below the list by default.
+            } else {
+                // To remove only extra separators below the list:
+                UITableView.appearance().tableFooterView = UIView()
+            }
+
+            // To remove all separators including the actual ones:
+        UITableView.appearance().separatorColor = .clear
+        UINavigationBar.appearance().backgroundColor = .white
         return true
     }
 

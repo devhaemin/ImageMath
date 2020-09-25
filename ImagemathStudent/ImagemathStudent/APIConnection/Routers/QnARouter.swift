@@ -19,13 +19,13 @@ enum QnARouter:APIRouteable{
     var path: String{
         switch self{
         case .getQuestionList:
-            return "/question"
+            return "/qna/question"
         case .getQuestionFileList(let questionSeq):
-            return "/question/file/"+String(questionSeq)
+            return "/qna/question/file/"+String(questionSeq)
         case .getAnswerList(let questionSeq):
-            return "/answer/"+String(questionSeq)
+            return "/qna/answer/"+String(questionSeq)
         case .getAnswerFileList(let answerSeq):
-            return "/answer/file/"+String(answerSeq)
+            return "/qna/answer/file/"+String(answerSeq)
         }
     }
     

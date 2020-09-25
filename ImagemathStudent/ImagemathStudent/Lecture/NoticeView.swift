@@ -10,13 +10,13 @@ import SwiftUI
 
 struct NoticeView: View {
     
-    let notices: [Notice]
-    let lectureName: String
+    @State var notices: [Notice] = Notice.getLectureNotice(lectureSeq: 0)
+    let lecture:Lecture
     
     var body: some View {
         VStack(alignment: .leading){
             HStack{
-                Text(lectureName).font(.system(size: 14))
+                Text(lecture.name!).font(.system(size: 14))
                 Spacer()
             }.padding(.leading)
             Spacer().frame(height: 20)
@@ -28,6 +28,15 @@ struct NoticeView: View {
             }
         }.padding(.top, 20)
         .navigationBarTitle("공지사항")
+        .onAppear(perform: {
+            Notice.getNoticeList(lectureSeq: lecture.lectureSeq!) { (response) in
+                do{
+                    notices = try response.get()
+                }catch{
+                    print(response)
+                }
+            }
+        })
     }
 }
 
@@ -60,6 +69,6 @@ struct NoticeCell: View{
 
 struct NoticeView_Previews: PreviewProvider {
     static var previews: some View {
-        NoticeView(notices: Notice.getLectureNotice(lectureSeq: 0), lectureName: "고3 대치이강 나형 모의고사")
+        NoticeView(lecture: Lecture.getDummyData()[0])
     }
 }
