@@ -47,8 +47,8 @@ app.use('/alarm', alarmRoute);
 const settingRoute = require('./routes/basicRoute/setting');
 app.use('/setting', settingRoute);
 
-const uploadFile = require('./routes/contentRoute/s3_put.js');
-app.use('/File', uploadFile);
+const fileRoute = require('./routes/contentRoute/serverfile');
+app.use('/file',fileRoute);
 
 const accountRoute = require('./routes/basicRoute/account');
 app.use('/account', accountRoute);

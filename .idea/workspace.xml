@@ -20,26 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="36413532-2186-4b51-bc32-d36d86fd342c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/routes/contentRoute/serverfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apidoc/api_data.js" beforeDir="false" afterPath="$PROJECT_DIR$/apidoc/api_data.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apidoc/api_data.json" beforeDir="false" afterPath="$PROJECT_DIR$/apidoc/api_data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apidoc/api_project.js" beforeDir="false" afterPath="$PROJECT_DIR$/apidoc/api_project.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apidoc/api_project.json" beforeDir="false" afterPath="$PROJECT_DIR$/apidoc/api_project.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/apiDefine.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/apiDefine.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/basicRoute/account.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/basicRoute/account.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/basicRoute/alarm.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/basicRoute/alarm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/basicRoute/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/basicRoute/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/basicRoute/checkAuth.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/basicRoute/fcmPush.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/basicRoute/fcmPush.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/basicRoute/setting.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/basicRoute/setting.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/contentRoute/assignment.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/contentRoute/assignment.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/contentRoute/notice.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/contentRoute/notice.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/contentRoute/qna.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/contentRoute/qna.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/contentRoute/s3_put.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/contentRoute/s3_put.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/contentRoute/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/contentRoute/test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/users.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/contentRoute/s3_put.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +80,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.tabs" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -179,7 +164,9 @@
       <workItem from="1600001032955" duration="14458000" />
       <workItem from="1600261004728" duration="61000" />
       <workItem from="1600521969248" duration="3412000" />
-      <workItem from="1600757397981" duration="2506000" />
+      <workItem from="1600757397981" duration="2706000" />
+      <workItem from="1600840757291" duration="32000" />
+      <workItem from="1601108377061" duration="5006000" />
     </task>
     <servers />
   </component>
@@ -200,6 +187,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/.." />
+    </ignored-roots>
   </component>
   <component name="WindowStateProjectService">
     <state x="946" y="94" key="#Dockerfile" timestamp="1600523016558">
@@ -236,36 +226,36 @@
       <screen x="0" y="0" width="1707" height="1027" />
     </state>
     <state x="767" y="82" key="FileDocumentManager.FileCacheConflict/0.0.1707.1027@0.0.1707.1027" timestamp="1595319615093" />
-    <state width="1638" height="411" key="GridCell.Tab.0.bottom" timestamp="1600106479909">
+    <state width="1638" height="411" key="GridCell.Tab.0.bottom" timestamp="1600760153788">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state width="1663" height="275" key="GridCell.Tab.0.bottom/0.0.1707.1027@0.0.1707.1027" timestamp="1595331489963" />
-    <state width="1638" height="411" key="GridCell.Tab.0.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1600106479909" />
-    <state width="1638" height="411" key="GridCell.Tab.0.center" timestamp="1600106479908">
+    <state width="1638" height="411" key="GridCell.Tab.0.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1600760153788" />
+    <state width="1638" height="411" key="GridCell.Tab.0.center" timestamp="1600760153787">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state width="1663" height="275" key="GridCell.Tab.0.center/0.0.1707.1027@0.0.1707.1027" timestamp="1595331489963" />
-    <state width="1638" height="411" key="GridCell.Tab.0.center/0.23.1680.1027@0.23.1680.1027" timestamp="1600106479908" />
-    <state width="1638" height="411" key="GridCell.Tab.0.left" timestamp="1600106479907">
+    <state width="1638" height="411" key="GridCell.Tab.0.center/0.23.1680.1027@0.23.1680.1027" timestamp="1600760153787" />
+    <state width="1638" height="411" key="GridCell.Tab.0.left" timestamp="1600760153787">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state width="1663" height="275" key="GridCell.Tab.0.left/0.0.1707.1027@0.0.1707.1027" timestamp="1595331489963" />
-    <state width="1638" height="411" key="GridCell.Tab.0.left/0.23.1680.1027@0.23.1680.1027" timestamp="1600106479907" />
-    <state width="1638" height="411" key="GridCell.Tab.0.right" timestamp="1600106479908">
+    <state width="1638" height="411" key="GridCell.Tab.0.left/0.23.1680.1027@0.23.1680.1027" timestamp="1600760153787" />
+    <state width="1638" height="411" key="GridCell.Tab.0.right" timestamp="1600760153787">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state width="1663" height="275" key="GridCell.Tab.0.right/0.0.1707.1027@0.0.1707.1027" timestamp="1595331489963" />
-    <state width="1638" height="411" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1600106479908" />
+    <state width="1638" height="411" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1600760153787" />
     <state width="243" height="477" key="HiddenNamespacesPopup" timestamp="1600758423561">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state width="207" height="477" key="HiddenNamespacesPopup/0.0.1707.1027@0.0.1707.1027" timestamp="1595235893713" />
     <state width="243" height="477" key="HiddenNamespacesPopup/0.23.1680.1027@0.23.1680.1027" timestamp="1600758423561" />
-    <state x="351" y="182" key="SettingsEditor" timestamp="1600522680329">
+    <state x="351" y="182" key="SettingsEditor" timestamp="1601185974325">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="357" y="159" key="SettingsEditor/0.0.1707.1027@0.0.1707.1027" timestamp="1595320094958" />
-    <state x="351" y="182" key="SettingsEditor/0.23.1680.1027@0.23.1680.1027" timestamp="1600522680329" />
+    <state x="351" y="182" key="SettingsEditor/0.23.1680.1027@0.23.1680.1027" timestamp="1601185974325" />
     <state width="200" height="461" key="SqlResolveConfigurable" timestamp="1594722091118">
       <screen x="0" y="0" width="1707" height="1027" />
     </state>
