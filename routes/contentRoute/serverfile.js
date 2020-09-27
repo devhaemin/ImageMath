@@ -148,7 +148,7 @@ function getQuestionAttachFile(req, res) {
 function getAnswerAttachFile(req, res) {
     const userInfo = req.userInfo;
     const answerSeq = req.query.answerSeq;
-    if (!userInfo) {
+    if (userInfo) {
         res.status(400).send("토큰이 만료되었습니다.");
     } else {
         connection.query("select * from FileInfo where boardType = ? and postSeq = ?", [BOARD_ANSWER_ATTACH_FILE, answerSeq],
@@ -177,7 +177,7 @@ function getAnswerAttachFile(req, res) {
 function getNoticeAttachFile(req, res) {
     const userInfo = req.userInfo;
     const noticeSeq = req.query.noticeSeq;
-    if (!userInfo) {
+    if (userInfo) {
         connection.query("select * from FileInfo where boardType = ? and postSeq = ?", [BOARD_NOTICE_ATTACH_FILE, noticeSeq],
             function (err, fileList) {
                 if (err) {
