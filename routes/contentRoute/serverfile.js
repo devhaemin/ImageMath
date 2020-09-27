@@ -9,6 +9,7 @@ const BOARD_ASSIGNMENT_ANSWER_FILE = "assignment-answer"
 const BOARD_TEST_ANSWER_FILE = "test-submit-answer"
 const BOARD_QUESTION_ATTACH_FILE = "question-submit-files"
 const BOARD_ANSWER_ATTACH_FILE = "answer-submit-files";
+const BOARD_NOTICE_ATTACH_FILE = 'notice-submit-images';
 
 
 const connection = cUtil.connection;
@@ -19,6 +20,7 @@ router.get("/assignment/answer", getAssignmentAnswer)
 router.get("/test/answer",getTestAnswer)
 router.get("/question/attachedFile", getQuestionAttachFile)
 router.get("/answer/attachedFile", getAnswerAttachFile)
+router.get("/notice/attachedFile", getNoticeAttachFile)
 
 /**
  * @api file/assignment/ownsubmit 과제 제출된 파일 확인
@@ -159,5 +161,36 @@ function getAnswerAttachFile(req, res) {
                 }
             });
     }
+}
+
+
+/**
+ * @api {get} file/notice/attachedFile 공지사항 첨부파일
+ * @apiName Get Notice attached file list
+ * @apiGroup Notice
+ * @apiHeader x-access-token 사용자 액세스 토큰
+ * @apiPermission normal
+ * @apiParam {Int} noticeSeq
+ *
+ */
+
+function getNoticeAttachFile(req, res) {
+    const userInfo = req.userInfo;
+    const noticeSeq = req.query.noticeSeq;
+    if (!userInfo) {
+        connection.query("select * from FileInfo where boardType = ? and postSeq = ?", [BOARD_NOTICE_ATTACH_FILE, noticeSeq],
+            function (err, fileList) {
+                if (err) {
+                    console.log(err);
+                    res.status(400).send("File Query Error!");
+                } else {
+                    res.status(200).send(fileList);
+                }
+            });
+    } else {
+        console.log("token error");
+        res.status(403).send("token error!");
+    }
+
 }
 module.exports = router;
