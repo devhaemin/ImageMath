@@ -1100,6 +1100,48 @@ define({ "api": [
   },
   {
     "type": "get",
+    "url": "file/notice/attachedFile",
+    "title": "공지사항 첨부파일",
+    "name": "Get_Notice_attached_file_list",
+    "group": "Notice",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "optional": false,
+            "field": "x-access-token",
+            "description": "<p>사용자 액세스 토큰</p>"
+          }
+        ]
+      }
+    },
+    "permission": [
+      {
+        "name": "normal",
+        "title": "User access only",
+        "description": "<p>This optional description belong to to the group normal</p>"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Int",
+            "optional": false,
+            "field": "noticeSeq",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/contentRoute/serverfile.js",
+    "groupTitle": "Notice"
+  },
+  {
+    "type": "get",
     "url": "notice",
     "title": "수업별 공지사항 리스트",
     "name": "Get_Notice_group_by_lecture",
