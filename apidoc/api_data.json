@@ -1349,6 +1349,187 @@
   },
   {
     "type": "get",
+    "url": "/file/question/attachedFile",
+    "title": "질문 첨부파일",
+    "name": "GET_question_attached_file",
+    "group": "ServerFile",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "optional": false,
+            "field": "x-access-token",
+            "description": "<p>사용자 액세스 토큰</p>"
+          }
+        ]
+      }
+    },
+    "permission": [
+      {
+        "name": "normal",
+        "title": "User access only",
+        "description": "<p>This optional description belong to to the group normal</p>"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "routes/contentRoute/serverfile.js",
+    "groupTitle": "ServerFile"
+  },
+  {
+    "type": "get",
+    "url": "/file/answer/attachedFile",
+    "title": "답변 목록",
+    "name": "Get_Answer_List_by_questionSeq",
+    "group": "ServerFile",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "optional": false,
+            "field": "x-access-token",
+            "description": "<p>사용자 액세스 토큰</p>"
+          }
+        ]
+      }
+    },
+    "permission": [
+      {
+        "name": "normal",
+        "title": "User access only",
+        "description": "<p>This optional description belong to to the group normal</p>"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "routes/contentRoute/serverfile.js",
+    "groupTitle": "ServerFile"
+  },
+  {
+    "type": "",
+    "url": "file/assignment/answer",
+    "title": "과제 답안지 파일 확인",
+    "name": "getAssignmentAnswer",
+    "group": "ServerFile",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "optional": false,
+            "field": "x-access-token",
+            "description": "<p>사용자 액세스 토큰</p>"
+          }
+        ]
+      }
+    },
+    "permission": [
+      {
+        "name": "normal",
+        "title": "User access only",
+        "description": "<p>This optional description belong to to the group normal</p>"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "optional": false,
+            "field": "Int",
+            "description": "<p>assignmentSeq 과제 번호</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/contentRoute/serverfile.js",
+    "groupTitle": "ServerFile"
+  },
+  {
+    "type": "",
+    "url": "file/assignment/ownsubmit",
+    "title": "과제 제출된 파일 확인",
+    "name": "getOwnAssignmentSubmitFiles",
+    "group": "ServerFile",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "optional": false,
+            "field": "x-access-token",
+            "description": "<p>사용자 액세스 토큰</p>"
+          }
+        ]
+      }
+    },
+    "permission": [
+      {
+        "name": "student",
+        "title": "User access only",
+        "description": "<p>This optional description belong to to the group student</p>"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "optional": false,
+            "field": "Int",
+            "description": "<p>assignmentSeq 과제 번호</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/contentRoute/serverfile.js",
+    "groupTitle": "ServerFile"
+  },
+  {
+    "type": "",
+    "url": "file/test/answer",
+    "title": "테스트 답안지 파일 확인",
+    "name": "getTestAnswer",
+    "group": "ServerFile",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "optional": false,
+            "field": "x-access-token",
+            "description": "<p>사용자 액세스 토큰</p>"
+          }
+        ]
+      }
+    },
+    "permission": [
+      {
+        "name": "normal",
+        "title": "User access only",
+        "description": "<p>This optional description belong to to the group normal</p>"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "optional": false,
+            "field": "Int",
+            "description": "<p>testSeq 테스 번호</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/contentRoute/serverfile.js",
+    "groupTitle": "ServerFile"
+  },
+  {
+    "type": "get",
     "url": "test/student",
     "title": "GetTestDetail for Student",
     "name": "Get_Test_detail_for_student",
