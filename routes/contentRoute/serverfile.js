@@ -34,7 +34,7 @@ router.get("/notice/attachedFile", getNoticeAttachFile)
  */
 function getAssignmentSubmitFiles(req, res) {
 
-    const userInfo = req.query.userInfo;
+    const userInfo = req.userInfo;
     const assignmentSeq = req.query.assignmentSeq;
 
     if(!userInfo){
@@ -64,7 +64,7 @@ function getAssignmentSubmitFiles(req, res) {
  */
 
 function getAssignmentAnswer(req, res){
-    const userInfo = req.query.userInfo;
+    const userInfo = req.userInfo;
     const assignmentSeq = req.query.assignmentSeq;
 
     if(!userInfo){
@@ -93,7 +93,7 @@ function getAssignmentAnswer(req, res){
  */
 
 function getTestAnswer(req, res){
-    const userInfo = req.query.userInfo;
+    const userInfo = req.userInfo;
     const testSeq = req.query.testSeq;
 
     if(!userInfo){
@@ -177,6 +177,7 @@ function getAnswerAttachFile(req, res) {
 function getNoticeAttachFile(req, res) {
     const userInfo = req.userInfo;
     const noticeSeq = req.query.noticeSeq;
+    console.log(req.userInfo)
     if (userInfo) {
         connection.query("select * from FileInfo where boardType = ? and postSeq = ?", [BOARD_NOTICE_ATTACH_FILE, noticeSeq],
             function (err, fileList) {
