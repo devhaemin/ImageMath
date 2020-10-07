@@ -7,14 +7,17 @@
 //
 
 import SwiftUI
+import Charts
 
 struct TestView: View {
     
     @State var tests = Test.getDummyData()
     @State var testAverageScore = 100
-    @State var selectLectureVisible = true
+    @State var selectLectureVisible = false
     @State var myLectures = [Lecture]()
     @State var currentLecture = Lecture.getDummyData()[0]
+    @State var scoreEntry = [ChartDataEntry]()
+    @State var averageEntry = [ChartDataEntry]()
     
     var body: some View {
         VStack{
@@ -37,6 +40,7 @@ struct TestView: View {
             ).padding()
             
             if(tests.count != 0){
+                TestChartView(scoreEntries: scoreEntry, averageEntries: averageEntry)
                 HStack(spacing:0){
                     ZStack{
                         Image(uiImage: #imageLiteral(resourceName: "box_showstate")).resizable()
@@ -54,24 +58,26 @@ struct TestView: View {
                         Text(String(tests[0].score)+"점").font(.system(size: 24)).foregroundColor(Color.white).padding(.bottom)
                     }
                 }.padding(.horizontal)
-                List{
-                    ForEach(self.tests, id: \.testAdmSeq){ test in
-                        ZStack{
+                ScrollView{
+                    VStack{
+                        ForEach(self.tests, id: \.testAdmSeq){ test in
+                                NavigationLink(destination:
+                                                TestDetailView(test: test))
+                                {
+                                        TestCell(test: test)
+                                }.buttonStyle(PlainButtonStyle())
                             
-                            TestCell(test: test)
-                            NavigationLink(destination:
-                                            TestDetailView(test: test))
-                            {
-                                EmptyView()
-                            }.buttonStyle(PlainButtonStyle())
-                        }.listRowInsets(EdgeInsets())
-                        .background(Color.white)
-                        .padding(.vertical, 8)
+                            .background(Color.white)
+                            .padding(.vertical, 8)
+                            .padding(.horizontal)
+                        }
                     }
                 }
-            }else{
-                Text("등록된 시험 결과가 없습니다.\n수업을 선택해주세요.")
-            }
+                }else{
+                    Spacer()
+                    Text("등록된 시험 결과가 없습니다.\n수업을 선택해주세요.")
+                    Spacer()
+                }
         }
         
         .actionSheet(isPresented: $selectLectureVisible) {
@@ -86,7 +92,6 @@ struct TestView: View {
             return ActionSheet(title: Text("수업 선택하기"), message: Text("승인 요청할 수업을 선택해주세요."), buttons:buttons
             )
         }
-        
         .navigationBarTitle("", displayMode: .inline)
         .navigationBarItems(leading: Image(uiImage: #imageLiteral(resourceName: "logo_img_small")).resizable().frame(width:140,height: 50), trailing: HStack{
             NavigationLink(destination:AlarmView()){
@@ -111,6 +116,18 @@ struct TestView: View {
         })
         
     }
+    
+    
+}
+extension TestView{
+    func updateChart(){
+        var i = 0;
+        for test in tests{
+            scoreEntry.append(ChartDataEntry(x: Double(i), y: Double(test.score)))
+            averageEntry.append(ChartDataEntry(x: Double(i), y: Double(test.averageScore)))
+            i+=1
+        }
+    }
 }
 extension TestView{
     func refresh() {
@@ -126,6 +143,7 @@ extension TestView{
                 if(numTest != 0){
                     testAverageScore = sumScore / numTest
                 }
+                updateChart()
             }catch{
                 print(response)
             }

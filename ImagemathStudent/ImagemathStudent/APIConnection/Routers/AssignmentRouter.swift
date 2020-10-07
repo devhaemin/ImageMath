@@ -13,7 +13,6 @@ enum AssignmentRouter: APIRouteable{
     case getAssignmentList
     case getAssignmentDetail(assignmentSeq:Int)
     case getStudentAssignmentList
-    case getStudentSubmitFiles(assignmentSeq:Int)
     
     
     var parameters: [String : String]?{
@@ -23,8 +22,6 @@ enum AssignmentRouter: APIRouteable{
         case .getAssignmentDetail:
             return nil
         case .getStudentAssignmentList:
-            return nil
-        case .getStudentSubmitFiles:
             return nil
         }
     }
@@ -37,8 +34,6 @@ enum AssignmentRouter: APIRouteable{
             return "/assignment/"+String(assignmentSeq)
         case .getStudentAssignmentList:
             return "/assignment/student"
-        case .getStudentSubmitFiles(let assignmentSeq):
-            return "/assignment/student/"+String(assignmentSeq)
         }
     }
     
@@ -49,8 +44,6 @@ enum AssignmentRouter: APIRouteable{
         case .getAssignmentDetail:
             return .get
         case .getStudentAssignmentList:
-            return .get
-        case .getStudentSubmitFiles:
             return .get
         }
     }

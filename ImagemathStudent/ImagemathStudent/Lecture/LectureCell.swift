@@ -48,10 +48,10 @@ struct LectureCell: View{
                         if(notices.count == 0){
                             Text("공지사항이 없습니다.").font(.system(size: 14))
                         }else if(notices.count == 1){
-                            Text(notices[0].title).font(.system(size: 14))
+                            Text(notices[0].title!).font(.system(size: 14))
                         }else{
-                            Text(notices[0].title).font(.system(size: 14))
-                            Text(notices[1].title).font(.system(size: 14))
+                            Text(notices[0].title!).font(.system(size: 14))
+                            Text(notices[1].title!).font(.system(size: 14))
                         }
                     }.onAppear {
                         Notice.getNoticeList(lectureSeq: lecture.lectureSeq!, completion: { (response) in

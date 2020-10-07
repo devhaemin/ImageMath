@@ -14,6 +14,8 @@ struct ContentView: View {
     @State var loginAble:Bool = false;
     @State var isNetworkAlert:Bool = false;
     @State var autoLoginAble:Bool = true;
+    @State var registerVisible:Bool = false;
+    
         var body: some View {
             if(autoLoginAble){
                 Text("로그인 중입니다...")
@@ -28,14 +30,28 @@ struct ContentView: View {
                                 autoLoginAble = false;
                             }
                         }
+                        User.sendPushToken(fcmToken: userDefaultsManager.fcmToken){ (response) in
+                            
+                        }
                     })
             }else if(loginAble){
                 MainView().background(Color.white)
+                    .onAppear{
+                        User.sendPushToken(fcmToken: userDefaultsManager.fcmToken){ (response) in
+                            
+                        }
+                    }
             }else{
-                LoginView(loginAble: $loginAble, isNetworkAlertVisible: $isNetworkAlert)
+                ZStack{
+                    if(!registerVisible){
+                LoginView(loginAble: $loginAble, isNetworkAlertVisible: $isNetworkAlert, registerVisible: $registerVisible)
                     .alert(isPresented: $isNetworkAlert, content: {
                     Alert(title: Text("네트워크 오류"),message: Text("아이디 혹은 비밀번호가 일치하지 않습니다.\n혹은 네트워크 연결 상태를 확인해주세요."))
                     })
+                    }else{
+                        RegisterView()
+                    }
+                }
             }
         }
 }

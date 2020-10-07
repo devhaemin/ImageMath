@@ -10,23 +10,20 @@ import SwiftUI
 
 struct QnADetailView: View {
     let question:Question;
+    @State var answers = [Answer]()
     
     var body: some View {
         VStack{
-            ZStack{
-                HStack(alignment:.top){
-                    VStack(alignment: .leading){
-                        Text(question.title)
-                        Rectangle().frame(width:50,height: 3).foregroundColor(Color.red)
-                        Spacer().frame(height: 30)
-                        Text(question.contents)
+            QnACell(question: question)
+            Rectangle().frame( height: 1, alignment: .center)
+            Text("답변")
+            ScrollView(.vertical, showsIndicators: true){
+                VStack{
+                    ForEach(answers, id: \.answerSeq) { answer in
+                        AnswerCell(answer: answer)
                     }
-                    Spacer()
-                    Text("아직 답변 대기중인 질문입니다.").font(.system(size:12)).foregroundColor(Color.gray)
-                }.padding()
+                }
             }
-                .overlay(RoundedRectangle(cornerRadius: 4).stroke().foregroundColor(Color("borderColor")))
-                .background(Image(uiImage: #imageLiteral(resourceName: "box_content_msg")).resizable())
         }.navigationBarTitle("답변 확인하기")
     }
 }

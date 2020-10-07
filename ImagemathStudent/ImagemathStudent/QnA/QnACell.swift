@@ -23,13 +23,48 @@ struct QnACell: View {
                     Text(question.contents)
                 }
                 Spacer()
-                Text("아직 답변 대기중인 질문입니다.").font(.system(size:12)).foregroundColor(Color.gray)
+                Text(getAnswerPostTime()).font(.system(size:12)).foregroundColor(Color.gray)
             }.padding()
         }.frame(height:210)
             .overlay(RoundedRectangle(cornerRadius: 4).stroke().foregroundColor(Color("borderColor")))
             .background(Image("box_content_msg").frame(maxWidth: .infinity)
                 .fixedSize(horizontal: true, vertical: false).aspectRatio(contentMode: .fit))
             
+    }
+    func getAnswerPostTime()->String{
+        if( question.updateTime == 0){
+            return "아직 답변 대기중인 질문입니다."
+        }else{
+            return DateUtils.getRelativeTimeString(unixtime: question.updateTime)
+        }
+    }
+}
+struct AnswerCell: View {
+    
+    let answer:Answer
+    
+    var body: some View {
+        ZStack{
+            
+            HStack(alignment:.top){
+                VStack(alignment: .leading){
+                    Text(answer.title)
+                    Rectangle().frame(width:50,height: 3).foregroundColor(Color.red)
+                    Spacer()
+                    Text(answer.contents)
+                }
+                Spacer()
+                Text(getAnswerPostTime()).font(.system(size:12)).foregroundColor(Color.gray)
+            }.padding()
+        }.frame(height:210)
+            .overlay(RoundedRectangle(cornerRadius: 4).stroke().foregroundColor(Color("borderColor")))
+            .background(Image("box_content_msg").frame(maxWidth: .infinity)
+                .fixedSize(horizontal: true, vertical: false).aspectRatio(contentMode: .fit))
+            
+    }
+    func getAnswerPostTime()->String{
+        DateUtils.getRelativeTimeString(unixtime: answer.updateTime)
+        
     }
 }
 

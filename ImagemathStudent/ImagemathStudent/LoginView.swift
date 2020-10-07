@@ -18,6 +18,7 @@ struct LoginView: View {
     
     @Binding var loginAble: Bool
     @Binding var isNetworkAlertVisible: Bool
+    @Binding var registerVisible:Bool
     
     var body: some View {
         VStack{
@@ -90,7 +91,7 @@ struct LoginView: View {
                     .padding(.horizontal)
                 HStack{
                     Button("회원가입") {
-                        
+                        registerVisible = true
                     }.foregroundColor(.black).font(.system(size:12))
                     Text(".")
                         .padding(.bottom,10)
@@ -110,7 +111,8 @@ struct LoginView: View {
 struct LoginView_Previews: PreviewProvider {
     @State static var loginAble : Bool = false;
     @State static var isNetworkAlertVisible = false;
+    @State static var registerVisible = false;
     static var previews: some View {
-        LoginView(loginAble: $loginAble,isNetworkAlertVisible:$isNetworkAlertVisible )
+        LoginView(loginAble: $loginAble,isNetworkAlertVisible:$isNetworkAlertVisible, registerVisible: $registerVisible )
     }
 }

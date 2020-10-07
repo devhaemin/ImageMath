@@ -34,13 +34,13 @@ struct TestDetailView: View {
                 HStack{
                     Text("등록일").font(.system(size:12))
                     Spacer()
-                    Text("3일 전").font(.system(size:12))
+                    Text(DateUtils.getRelativeTimeString(unixtime: test.postTime)).font(.system(size:12))
                 }.padding(.horizontal)
                     .padding(.vertical,12)
                 HStack{
                     Text("수업일").font(.system(size:12))
                     Spacer()
-                    Text("3일 전").font(.system(size:12))
+                    Text(DateUtils.getRelativeTimeString(unixtime: test.lectureTime)).font(.system(size:12))
                 }.padding(.horizontal)
                     .padding(.vertical,12)
                 Rectangle().frame(height: 1).foregroundColor(Color("borderColor"))

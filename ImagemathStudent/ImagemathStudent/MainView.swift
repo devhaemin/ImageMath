@@ -11,9 +11,6 @@ import SwiftUI
 
 struct MainView: View {
     
-    
-    
-    
     @State var selectedView = 0
     
     
@@ -38,7 +35,7 @@ struct MainView: View {
             //*********************************
             
             NavigationView{
-                AssignmentView().padding(0)
+                AssignmentView()
             }.tabItem {
                 Image(uiImage: #imageLiteral(resourceName: "second"))
                 Text("과제")

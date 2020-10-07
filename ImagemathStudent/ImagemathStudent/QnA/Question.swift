@@ -10,6 +10,7 @@ import Foundation
 
 
 struct Question: Codable{
+    
     let questionSeq:Int
     let title:String
     let contents:String
@@ -21,6 +22,10 @@ struct Question: Codable{
 extension Question{
     static func getQuestionList(completion: @escaping (Result<[Question],Error>) -> Void){
         let router = QnARouter.getQuestionList
+        APIClient.perform(router, completion: completion)
+    }
+    static func postQuestion(title:String, contents:String, completion: @escaping (Result<Question,Error>) ->Void){
+        let router = QnARouter.postQuestion(title: title, contents: contents)
         APIClient.perform(router, completion: completion)
     }
 }

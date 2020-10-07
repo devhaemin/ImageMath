@@ -8,50 +8,23 @@
 
 import SwiftUI
 
-struct AssignmentCell: View {
-    
-    let dailyAssignments: [Assignment]
-    
-    var body: some View {
-        VStack{
-            HStack{
-                Rectangle().frame(width:2, height: 40)
-                    .foregroundColor(Color.init("etoosColor"))
-                Text("9. 10 목").font(.system(size: 24))
-                Spacer()
-            }.padding(.horizontal)
-            
-            VStack{
-                ForEach(dailyAssignments, id: \.assignmentSeq){
-                    assignment in
-                    ZStack{
-                        AssignmentMiniCell(assignment: assignment)
-                        NavigationLink(destination: AssignmentDetailView(assignment: assignment)){
-                            EmptyView()
-                        }.buttonStyle(PlainButtonStyle())
-                    }
-                }
-            }.padding()
-        }
-    }
-}
 struct AssignmentMiniCell: View{
     let assignment:Assignment
     
     var body: some View{
-        VStack(alignment: .trailing){
-            HStack{
-                Circle().frame(width:12,height: 12)
-                Text(assignment.title)
-                Spacer()
+            VStack(alignment: .trailing){
+                HStack{
+                    Circle().frame(width:12,height: 12).foregroundColor(assignment.getStatusColor())
+                    Text(assignment.title)
+                    Spacer()
+                }
+                Text(assignment.lectureName).font(.system(size: 12))
             }
-            Text(assignment.lectureName).font(.system(size: 12))
-        }
     }
 }
 
-struct AssignmentCell_Previews: PreviewProvider {
+struct AssignmentMiniCell_Previews: PreviewProvider {
     static var previews: some View {
-        AssignmentCell(dailyAssignments: Assignment.getAssignmentDummyData())
+        AssignmentMiniCell(assignment: Assignment.getAssignmentDummyData()[0])
     }
 }

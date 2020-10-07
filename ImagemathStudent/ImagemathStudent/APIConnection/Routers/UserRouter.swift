@@ -13,6 +13,8 @@ enum UserRouter: APIRouteable{
     case tokenLogin
     case login(email: String, password: String)
     case register(user: User)
+    case sendPushToken(fcmToken: String)
+    
     var parameters: [String : String]?{
         switch self {
         case .tokenLogin:
@@ -26,6 +28,8 @@ enum UserRouter: APIRouteable{
                     "phone":user.phone!, "schoolName":user.schoolName!,
                     "studentCode":user.studentCode!
             ]
+        case .sendPushToken(let fcmToken):
+            return ["fcmToken": fcmToken]
         }
     }
     var path: String{
@@ -36,6 +40,8 @@ enum UserRouter: APIRouteable{
             return "/auth/login"
         case .register:
             return "/auth/register"
+        case .sendPushToken:
+            return "/alarm/pushToken"
         }
     }
     var method: HTTPMethod{
@@ -46,6 +52,9 @@ enum UserRouter: APIRouteable{
             return .post
         case .register:
             return .post
+        case .sendPushToken:
+            return .post
+            
         }
     }
 }

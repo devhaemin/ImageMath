@@ -23,6 +23,10 @@ struct User : Codable{
     let schoolName:String?
     let registerTime:Int?
 }
+
+struct DefaultServerModel: Decodable{
+    
+}
 extension User{
     
     static func emailLogin(email:String, password:String, completion: @escaping (Result<User, Error>) -> Void){
@@ -35,24 +39,28 @@ extension User{
         let router = UserRouter.tokenLogin
         APIClient.perform(router, completion: completion)
     }
+    static func sendPushToken(fcmToken:String, completion: @escaping (Result<DefaultServerModel, Error>)->Void){
+        let router = UserRouter.sendPushToken(fcmToken: fcmToken)
+        APIClient.perform(router, completion: completion)
+    }
 }
 
-struct ServerFile : Codable{
-    
-    let fileSeq: Int
-    let fileName: String
-    let fileType: String
-    let postSeq: Int
-    let uploadTime: Int
-    let userSeq: Int
+struct Alarm : Codable{
+    let alarmSeq:Int
+    let title:String?
+    let content:String?
+    let type:String?
+    let postTime:Int?
     
 }
-extension ServerFile{
-    
-    static func getDummyData() -> [ServerFile]{
-        return [
-            ServerFile(fileSeq: 0, fileName: "test_1.png", fileType: "normal", postSeq: 0, uploadTime: 1599483746100, userSeq: 0),
-                ServerFile(fileSeq: 1, fileName: "test_2.png", fileType: "normal", postSeq: 0, uploadTime: 1599483746100, userSeq: 0)
-        ]
+extension Alarm{
+    static func getAlarmList(completion: @escaping (Result<[Alarm],Error>)->Void){
+        let router = AlarmRouter.getAlarmList
+        APIClient.perform(router, completion: completion)
+    }
+}
+extension Alarm{
+    static func getDummyData()->[Alarm]{
+        return [Alarm(alarmSeq: 0, title: "답변이 등록되었습니다.", content: "Test에 대한 답변이 등록되었습니다.", type: "lol", postTime: 1599483746100)]
     }
 }

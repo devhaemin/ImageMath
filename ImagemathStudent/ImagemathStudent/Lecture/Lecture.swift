@@ -37,8 +37,7 @@ extension Lecture{
 extension Lecture{
     static func getDummyData() -> [Lecture]{
         return [
-            Lecture(lectureSeq: 0, time: "18:30~22:10", name: "Jump 나형", totalDate: "2020.06.20~2020.08.30", reqStudentCnt: 0, studentNum: 10, academyName: "대치 이강학원", academySeq: 0, isExpired: "false"),
-            Lecture(lectureSeq: 0, time: "18:30~22:10", name: "Jump 가형", totalDate: "2020.06.20~2020.08.30", reqStudentCnt: 0, studentNum: 10, academyName: "대치 이강학원", academySeq: 0, isExpired: "false")
+            Lecture(lectureSeq: 0, time: "00:00~00:00", name: "수업을 선택해주세요.", totalDate: "2020.06.20~2020.08.30", reqStudentCnt: 0, studentNum: 10, academyName: "", academySeq: 0, isExpired: "")
         ]
     }
     static func getPreviewDummyData() -> Lecture{
@@ -47,11 +46,11 @@ extension Lecture{
 }
 
 struct Notice:Codable{
-    let noticeSeq: Int
-    let title: String
-    let postTime: Int
-    let contents: String
-    let lectureSeq: Int
+    let noticeSeq: Int?
+    let title: String?
+    let postTime: Int?
+    let contents: String?
+    let lectureSeq: Int?
 }
 extension Notice{
     static func getNoticeList(lectureSeq: Int, completion: @escaping (Result<[Notice],Error>)->Void){
@@ -61,7 +60,7 @@ extension Notice{
 }
 extension ServerFile{
     static func getNoticeFiles(noticeSeq: Int, completion: @escaping (Result<[ServerFile], Error>)-> Void){
-        let router = LectureRouter.getNoticeFiles(noticeSeq: noticeSeq)
+        let router = FileRouter.getNoticeAttachFile(noticeSeq: noticeSeq)
         APIClient.perform(router, completion: completion)
     }
 }

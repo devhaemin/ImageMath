@@ -11,6 +11,7 @@ import SwiftUI
 struct NoticeView: View {
     
     @State var notices: [Notice] = Notice.getLectureNotice(lectureSeq: 0)
+    
     let lecture:Lecture
     
     var body: some View {
@@ -42,27 +43,37 @@ struct NoticeView: View {
 
 struct NoticeCell: View{
     let notice: Notice
+    @State var attachFiles = [ServerFile]()
     
     var body: some View{
         VStack(alignment: .leading){
             HStack{
-                Text("NO. "+String(notice.noticeSeq)).font(.system(size: 12))
+                Text("NO. "+String(notice.noticeSeq!)).font(.system(size: 12))
                 Spacer()
                 Text("3시간 전 게시").font(.system(size: 12))
             }
             Spacer().frame(height: 4)
-            Text(notice.title)
-            Spacer()
+            Text(notice.title!)
+            Spacer().frame(height: 24)
             Rectangle().frame(width:30, height: 3)
-            Spacer()
-            Text(notice.contents)
-            Spacer()
+            Spacer().frame(height: 24)
+            Text(notice.contents!)
+            Spacer().frame(height: 24)
+            ServerFileView(fileList: $attachFiles)
         }
         .padding()
         .overlay(
             RoundedRectangle(cornerRadius: 4)
                 .stroke(Color("borderColor"), lineWidth: 1))
-            .frame(height: 200)
+        .onAppear{
+            ServerFile.getNoticeFiles(noticeSeq: notice.noticeSeq!) { (response) in
+                do{
+                    attachFiles = try response.get()
+                }catch{
+                    print(response)
+                }
+            }
+        }
     }
     
 }

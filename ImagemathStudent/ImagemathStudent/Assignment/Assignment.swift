@@ -34,12 +34,6 @@ extension Assignment{
     }
     
 }
-extension ServerFile{
-    static func getStudentSubmitFiles(assignmentSeq:Int, completion: @escaping (Result<[ServerFile],Error>)->Void){
-        let router = AssignmentRouter.getStudentSubmitFiles(assignmentSeq: assignmentSeq)
-        APIClient.perform(router, completion: completion)
-    }
-}
 
 extension Assignment{
     static func getAssignmentDummyData() -> [Assignment]{

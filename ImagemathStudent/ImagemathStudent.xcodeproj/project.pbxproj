@@ -7,10 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E14146DDFDDA557F8D5F677 /* Pods_ImagemathStudent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9820C30BEB480BD624DAD2D3 /* Pods_ImagemathStudent.framework */; };
+		7812307CDF649827D58744C0 /* Pods_ImagemathStudentTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAE5247912673C61EAA2C527 /* Pods_ImagemathStudentTests.framework */; };
 		8B11610E25122DE9006886F2 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B11610D25122DE9006886F2 /* MainView.swift */; };
 		8B116110251242C3006886F2 /* QnADetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B11610F251242C3006886F2 /* QnADetailView.swift */; };
+		8B49C118252492DE001089DE /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B49C117252492DE001089DE /* RegisterView.swift */; };
 		8B500795251D9144005184DB /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B500794251D9144005184DB /* TestView.swift */; };
 		8B50079A251DA104005184DB /* QnAView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B500799251DA104005184DB /* QnAView.swift */; };
+		8B5288D625233BD700B3069A /* AlarmRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5288D525233BD700B3069A /* AlarmRouter.swift */; };
+		8B5288DB252341BF00B3069A /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 8B5288DA252341BF00B3069A /* Charts */; };
+		8B5288E12523425400B3069A /* TestChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5288E02523425400B3069A /* TestChartView.swift */; };
+		8B551E882520ACFB0071E83C /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 8B551E872520ACFB0071E83C /* URLImage */; };
 		8B58D9A42519EC21008E8089 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B58D9A32519EC21008E8089 /* LoginView.swift */; };
 		8B6CB1ED2510A6E000800990 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6CB1EC2510A6E000800990 /* SceneDelegate.swift */; };
 		8B7713922505548400D93B29 /* Lecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7713912505548400D93B29 /* Lecture.swift */; };
@@ -24,6 +31,10 @@
 		8B86BA94250348BA0085A0D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B86BA92250348BA0085A0D6 /* LaunchScreen.storyboard */; };
 		8B86BA9F250348BB0085A0D6 /* ImagemathStudentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B86BA9E250348BB0085A0D6 /* ImagemathStudentTests.swift */; };
 		8B86BAAA250348BB0085A0D6 /* ImagemathStudentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B86BAA9250348BB0085A0D6 /* ImagemathStudentUITests.swift */; };
+		8B922D1625221E9A00C61E30 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B922D1525221E9A00C61E30 /* DateUtils.swift */; };
+		8B922D1B252229AC00C61E30 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B922D1A252229AB00C61E30 /* ImagePicker.swift */; };
+		8B922D202522F5FC00C61E30 /* QnAPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B922D1F2522F5FC00C61E30 /* QnAPostView.swift */; };
+		8B922D33252317A300C61E30 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B922D32252317A300C61E30 /* GoogleService-Info.plist */; };
 		8B984F9B250D2E1600AA5E8E /* AssignmentRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B984F9A250D2E1600AA5E8E /* AssignmentRouter.swift */; };
 		8BB0B13125069EC9009D5128 /* Assignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0B13025069EC9009D5128 /* Assignment.swift */; };
 		8BB0B13425069F06009D5128 /* AssignmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0B13325069F06009D5128 /* AssignmentCell.swift */; };
@@ -31,12 +42,14 @@
 		8BB0B13925069F45009D5128 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0B13825069F45009D5128 /* Test.swift */; };
 		8BB0B13D25069F84009D5128 /* TestDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0B13C25069F84009D5128 /* TestDetailView.swift */; };
 		8BB0B13F25069F95009D5128 /* AssignmentDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0B13E25069F95009D5128 /* AssignmentDetailView.swift */; };
-		8BB0B1422507B8FB009D5128 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 8BB0B1412507B8FB009D5128 /* SwiftUICharts */; };
 		8BB0B1452507E1F9009D5128 /* QnACell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0B1442507E1F9009D5128 /* QnACell.swift */; };
 		8BB0B1472507E20A009D5128 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0B1462507E20A009D5128 /* Question.swift */; };
 		8BB0B14E250BE7EA009D5128 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 8BB0B14D250BE7EA009D5128 /* Alamofire */; };
 		8BB0B150250D03A3009D5128 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0B14F250D03A3009D5128 /* APIClient.swift */; };
 		8BB0B153250D08A2009D5128 /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0B152250D08A2009D5128 /* URLs.swift */; };
+		8BBDB26E252074F7003D6E81 /* FileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBDB26D252074F7003D6E81 /* FileRouter.swift */; };
+		8BBDB274252077C6003D6E81 /* ServerFileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBDB273252077C6003D6E81 /* ServerFileView.swift */; };
+		8BBDB27C25207B12003D6E81 /* ServerFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBDB27B25207B12003D6E81 /* ServerFile.swift */; };
 		8BC08281251A2617005C2B22 /* AlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC08280251A2617005C2B22 /* AlarmView.swift */; };
 		8BC08289251A2624005C2B22 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC08288251A2624005C2B22 /* SettingView.swift */; };
 		8BC0828E251A2D87005C2B22 /* UserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC0828D251A2D87005C2B22 /* UserRouter.swift */; };
@@ -45,6 +58,8 @@
 		8BC082A2251A3338005C2B22 /* TestRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC082A1251A3338005C2B22 /* TestRouter.swift */; };
 		8BC082AA251A3EE3005C2B22 /* LectureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC082A9251A3EE3005C2B22 /* LectureView.swift */; };
 		8BC082AF251A4240005C2B22 /* AssignmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC082AE251A4240005C2B22 /* AssignmentView.swift */; };
+		8BFFDB3325233347005671BA /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E31D7BBDFBB1A9AF6A71640B /* Pods_ImagemathStudent_ImagemathStudentUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85762493E68F4F8BB60FCD0A /* Pods_ImagemathStudent_ImagemathStudentUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,12 +79,34 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		8BFFDB3425233347005671BA /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8BFFDB3325233347005671BA /* (null) in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		07CBEFE37643183F9ACABEC8 /* Pods-ImagemathStudent.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImagemathStudent.release.xcconfig"; path = "Target Support Files/Pods-ImagemathStudent/Pods-ImagemathStudent.release.xcconfig"; sourceTree = "<group>"; };
+		58F5051250B51610BFF829A8 /* Pods-ImagemathStudent-ImagemathStudentUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImagemathStudent-ImagemathStudentUITests.debug.xcconfig"; path = "Target Support Files/Pods-ImagemathStudent-ImagemathStudentUITests/Pods-ImagemathStudent-ImagemathStudentUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		71974AD9B2FB4FE6860B607C /* Pods-ImagemathStudentTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImagemathStudentTests.debug.xcconfig"; path = "Target Support Files/Pods-ImagemathStudentTests/Pods-ImagemathStudentTests.debug.xcconfig"; sourceTree = "<group>"; };
+		85762493E68F4F8BB60FCD0A /* Pods_ImagemathStudent_ImagemathStudentUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ImagemathStudent_ImagemathStudentUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		85A5256602173EBDCF893530 /* Pods-ImagemathStudent.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImagemathStudent.debug.xcconfig"; path = "Target Support Files/Pods-ImagemathStudent/Pods-ImagemathStudent.debug.xcconfig"; sourceTree = "<group>"; };
 		8B11610C25122A99006886F2 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		8B11610D25122DE9006886F2 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		8B11610F251242C3006886F2 /* QnADetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QnADetailView.swift; sourceTree = "<group>"; };
+		8B49C117252492DE001089DE /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		8B500794251D9144005184DB /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		8B500799251DA104005184DB /* QnAView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QnAView.swift; sourceTree = "<group>"; };
+		8B5288D525233BD700B3069A /* AlarmRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmRouter.swift; sourceTree = "<group>"; };
+		8B5288E02523425400B3069A /* TestChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestChartView.swift; sourceTree = "<group>"; };
 		8B58D9A32519EC21008E8089 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		8B6CB1EC2510A6E000800990 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8B7713912505548400D93B29 /* Lecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lecture.swift; sourceTree = "<group>"; };
@@ -89,6 +126,10 @@
 		8B86BAA5250348BB0085A0D6 /* ImagemathStudentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImagemathStudentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B86BAA9250348BB0085A0D6 /* ImagemathStudentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagemathStudentUITests.swift; sourceTree = "<group>"; };
 		8B86BAAB250348BB0085A0D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B922D1525221E9A00C61E30 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
+		8B922D1A252229AB00C61E30 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		8B922D1F2522F5FC00C61E30 /* QnAPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QnAPostView.swift; sourceTree = "<group>"; };
+		8B922D32252317A300C61E30 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8B984F9A250D2E1600AA5E8E /* AssignmentRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentRouter.swift; sourceTree = "<group>"; };
 		8BB0B13025069EC9009D5128 /* Assignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Assignment.swift; path = ImagemathStudent/Assignment/Assignment.swift; sourceTree = SOURCE_ROOT; };
 		8BB0B13325069F06009D5128 /* AssignmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentCell.swift; sourceTree = "<group>"; };
@@ -100,6 +141,9 @@
 		8BB0B1462507E20A009D5128 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		8BB0B14F250D03A3009D5128 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = APIClient.swift; path = ImagemathStudent/APIConnection/APIClient.swift; sourceTree = SOURCE_ROOT; };
 		8BB0B152250D08A2009D5128 /* URLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
+		8BBDB26D252074F7003D6E81 /* FileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileRouter.swift; sourceTree = "<group>"; };
+		8BBDB273252077C6003D6E81 /* ServerFileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerFileView.swift; sourceTree = "<group>"; };
+		8BBDB27B25207B12003D6E81 /* ServerFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerFile.swift; sourceTree = "<group>"; };
 		8BC08280251A2617005C2B22 /* AlarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmView.swift; sourceTree = "<group>"; };
 		8BC08288251A2624005C2B22 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		8BC0828D251A2D87005C2B22 /* UserRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRouter.swift; sourceTree = "<group>"; };
@@ -108,6 +152,10 @@
 		8BC082A1251A3338005C2B22 /* TestRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRouter.swift; sourceTree = "<group>"; };
 		8BC082A9251A3EE3005C2B22 /* LectureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureView.swift; sourceTree = "<group>"; };
 		8BC082AE251A4240005C2B22 /* AssignmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentView.swift; sourceTree = "<group>"; };
+		950E2A184821A22F64378B93 /* Pods-ImagemathStudentTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImagemathStudentTests.release.xcconfig"; path = "Target Support Files/Pods-ImagemathStudentTests/Pods-ImagemathStudentTests.release.xcconfig"; sourceTree = "<group>"; };
+		9820C30BEB480BD624DAD2D3 /* Pods_ImagemathStudent.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ImagemathStudent.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAE5247912673C61EAA2C527 /* Pods_ImagemathStudentTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ImagemathStudentTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8501AD0912A11960F61A2AF /* Pods-ImagemathStudent-ImagemathStudentUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImagemathStudent-ImagemathStudentUITests.release.xcconfig"; path = "Target Support Files/Pods-ImagemathStudent-ImagemathStudentUITests/Pods-ImagemathStudent-ImagemathStudentUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,8 +163,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BB0B1422507B8FB009D5128 /* SwiftUICharts in Frameworks */,
+				8B5288DB252341BF00B3069A /* Charts in Frameworks */,
+				8B551E882520ACFB0071E83C /* URLImage in Frameworks */,
 				8BB0B14E250BE7EA009D5128 /* Alamofire in Frameworks */,
+				0E14146DDFDDA557F8D5F677 /* Pods_ImagemathStudent.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,6 +174,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7812307CDF649827D58744C0 /* Pods_ImagemathStudentTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,12 +182,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E31D7BBDFBB1A9AF6A71640B /* Pods_ImagemathStudent_ImagemathStudentUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		76EC82B7C05E0273FA2D45D8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				85A5256602173EBDCF893530 /* Pods-ImagemathStudent.debug.xcconfig */,
+				07CBEFE37643183F9ACABEC8 /* Pods-ImagemathStudent.release.xcconfig */,
+				58F5051250B51610BFF829A8 /* Pods-ImagemathStudent-ImagemathStudentUITests.debug.xcconfig */,
+				F8501AD0912A11960F61A2AF /* Pods-ImagemathStudent-ImagemathStudentUITests.release.xcconfig */,
+				71974AD9B2FB4FE6860B607C /* Pods-ImagemathStudentTests.debug.xcconfig */,
+				950E2A184821A22F64378B93 /* Pods-ImagemathStudentTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		8B7713942505568B00D93B29 /* Lecture */ = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +221,8 @@
 				8B86BA9D250348BB0085A0D6 /* ImagemathStudentTests */,
 				8B86BAA8250348BB0085A0D6 /* ImagemathStudentUITests */,
 				8B86BA85250348B80085A0D6 /* Products */,
+				76EC82B7C05E0273FA2D45D8 /* Pods */,
+				C009A0657D17268639FD7230 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -172,6 +239,8 @@
 		8B86BA86250348B80085A0D6 /* ImagemathStudent */ = {
 			isa = PBXGroup;
 			children = (
+				8B922D32252317A300C61E30 /* GoogleService-Info.plist */,
+				8BBDB27225207794003D6E81 /* Utils */,
 				8B86BA8D250348BA0085A0D6 /* Assets.xcassets */,
 				8BC0827F251A25FF005C2B22 /* MenuScene */,
 				8BB0B151250D0883009D5128 /* APIConnection */,
@@ -183,6 +252,7 @@
 				8B6CB1EC2510A6E000800990 /* SceneDelegate.swift */,
 				8B11610D25122DE9006886F2 /* MainView.swift */,
 				8B58D9A32519EC21008E8089 /* LoginView.swift */,
+				8B49C117252492DE001089DE /* RegisterView.swift */,
 				8B86BA8B250348B80085A0D6 /* ContentView.swift */,
 				8B86BA92250348BA0085A0D6 /* LaunchScreen.storyboard */,
 				8B86BA95250348BA0085A0D6 /* Info.plist */,
@@ -236,6 +306,7 @@
 				8BB0B13825069F45009D5128 /* Test.swift */,
 				8BB0B13C25069F84009D5128 /* TestDetailView.swift */,
 				8B500794251D9144005184DB /* TestView.swift */,
+				8B5288E02523425400B3069A /* TestChartView.swift */,
 			);
 			name = Test;
 			path = ImagemathStudent/Test;
@@ -248,6 +319,7 @@
 				8BB0B1462507E20A009D5128 /* Question.swift */,
 				8B11610F251242C3006886F2 /* QnADetailView.swift */,
 				8B500799251DA104005184DB /* QnAView.swift */,
+				8B922D1F2522F5FC00C61E30 /* QnAPostView.swift */,
 			);
 			path = QnA;
 			sourceTree = "<group>";
@@ -259,10 +331,21 @@
 				8B77139925064BBF00D93B29 /* ServerModels.swift */,
 				8BB0B14F250D03A3009D5128 /* APIClient.swift */,
 				8BB0B152250D08A2009D5128 /* URLs.swift */,
+				8BBDB27B25207B12003D6E81 /* ServerFile.swift */,
 			);
 			name = APIConnection;
 			path = ImagemathStudent/APIConnection;
 			sourceTree = SOURCE_ROOT;
+		};
+		8BBDB27225207794003D6E81 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				8BBDB273252077C6003D6E81 /* ServerFileView.swift */,
+				8B922D1525221E9A00C61E30 /* DateUtils.swift */,
+				8B922D1A252229AB00C61E30 /* ImagePicker.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
 		};
 		8BC0827F251A25FF005C2B22 /* MenuScene */ = {
 			isa = PBXGroup;
@@ -281,8 +364,20 @@
 				8BC08297251A3075005C2B22 /* LectureRouter.swift */,
 				8BC0829C251A3330005C2B22 /* QnARouter.swift */,
 				8BC082A1251A3338005C2B22 /* TestRouter.swift */,
+				8BBDB26D252074F7003D6E81 /* FileRouter.swift */,
+				8B5288D525233BD700B3069A /* AlarmRouter.swift */,
 			);
 			path = Routers;
+			sourceTree = "<group>";
+		};
+		C009A0657D17268639FD7230 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9820C30BEB480BD624DAD2D3 /* Pods_ImagemathStudent.framework */,
+				85762493E68F4F8BB60FCD0A /* Pods_ImagemathStudent_ImagemathStudentUITests.framework */,
+				EAE5247912673C61EAA2C527 /* Pods_ImagemathStudentTests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -292,9 +387,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8B86BAAE250348BB0085A0D6 /* Build configuration list for PBXNativeTarget "ImagemathStudent" */;
 			buildPhases = (
+				AD8B1CD0E731023C3BF40E3D /* [CP] Check Pods Manifest.lock */,
 				8B86BA80250348B80085A0D6 /* Sources */,
 				8B86BA81250348B80085A0D6 /* Frameworks */,
 				8B86BA82250348B80085A0D6 /* Resources */,
+				8BFFDB3425233347005671BA /* Embed Frameworks */,
+				48892668A5505638EF7F5865 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -302,8 +400,9 @@
 			);
 			name = ImagemathStudent;
 			packageProductDependencies = (
-				8BB0B1412507B8FB009D5128 /* SwiftUICharts */,
 				8BB0B14D250BE7EA009D5128 /* Alamofire */,
+				8B551E872520ACFB0071E83C /* URLImage */,
+				8B5288DA252341BF00B3069A /* Charts */,
 			);
 			productName = ImagemathStudent;
 			productReference = 8B86BA84250348B80085A0D6 /* ImagemathStudent.app */;
@@ -313,6 +412,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8B86BAB1250348BB0085A0D6 /* Build configuration list for PBXNativeTarget "ImagemathStudentTests" */;
 			buildPhases = (
+				9993649DD2A33565EEA93819 /* [CP] Check Pods Manifest.lock */,
 				8B86BA96250348BB0085A0D6 /* Sources */,
 				8B86BA97250348BB0085A0D6 /* Frameworks */,
 				8B86BA98250348BB0085A0D6 /* Resources */,
@@ -331,9 +431,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8B86BAB4250348BB0085A0D6 /* Build configuration list for PBXNativeTarget "ImagemathStudentUITests" */;
 			buildPhases = (
+				3851B2EBB8F142CB25608A3B /* [CP] Check Pods Manifest.lock */,
 				8B86BAA1250348BB0085A0D6 /* Sources */,
 				8B86BAA2250348BB0085A0D6 /* Frameworks */,
 				8B86BAA3250348BB0085A0D6 /* Resources */,
+				E9BB09D320F5A755C515AC5C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -381,6 +483,8 @@
 			packageReferences = (
 				8BB0B1402507B8FB009D5128 /* XCRemoteSwiftPackageReference "ChartView" */,
 				8BB0B14C250BE7EA009D5128 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				8B551E862520ACFB0071E83C /* XCRemoteSwiftPackageReference "url-image" */,
+				8B5288D9252341BF00B3069A /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			productRefGroup = 8B86BA85250348B80085A0D6 /* Products */;
 			projectDirPath = "";
@@ -399,6 +503,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B86BA94250348BA0085A0D6 /* LaunchScreen.storyboard in Resources */,
+				8B922D33252317A300C61E30 /* GoogleService-Info.plist in Resources */,
 				8B86BA91250348BA0085A0D6 /* Preview Assets.xcassets in Resources */,
 				8B86BA8E250348BA0085A0D6 /* Assets.xcassets in Resources */,
 			);
@@ -420,6 +525,109 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3851B2EBB8F142CB25608A3B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ImagemathStudent-ImagemathStudentUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		48892668A5505638EF7F5865 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ImagemathStudent/Pods-ImagemathStudent-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ImagemathStudent/Pods-ImagemathStudent-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ImagemathStudent/Pods-ImagemathStudent-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9993649DD2A33565EEA93819 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ImagemathStudentTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AD8B1CD0E731023C3BF40E3D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ImagemathStudent-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E9BB09D320F5A755C515AC5C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ImagemathStudent-ImagemathStudentUITests/Pods-ImagemathStudent-ImagemathStudentUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ImagemathStudent-ImagemathStudentUITests/Pods-ImagemathStudent-ImagemathStudentUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ImagemathStudent-ImagemathStudentUITests/Pods-ImagemathStudent-ImagemathStudentUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8B86BA80250348B80085A0D6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -429,31 +637,40 @@
 				8BB0B13725069F31009D5128 /* TestCell.swift in Sources */,
 				8B11610E25122DE9006886F2 /* MainView.swift in Sources */,
 				8B984F9B250D2E1600AA5E8E /* AssignmentRouter.swift in Sources */,
+				8B5288D625233BD700B3069A /* AlarmRouter.swift in Sources */,
 				8BB0B1472507E20A009D5128 /* Question.swift in Sources */,
 				8BC08289251A2624005C2B22 /* SettingView.swift in Sources */,
 				8B500795251D9144005184DB /* TestView.swift in Sources */,
 				8BB0B13425069F06009D5128 /* AssignmentCell.swift in Sources */,
+				8BBDB27C25207B12003D6E81 /* ServerFile.swift in Sources */,
 				8BB0B13F25069F95009D5128 /* AssignmentDetailView.swift in Sources */,
+				8B5288E12523425400B3069A /* TestChartView.swift in Sources */,
 				8B771396250556AA00D93B29 /* LectureCell.swift in Sources */,
 				8B7713922505548400D93B29 /* Lecture.swift in Sources */,
 				8B86BA88250348B80085A0D6 /* AppDelegate.swift in Sources */,
+				8BBDB26E252074F7003D6E81 /* FileRouter.swift in Sources */,
 				8BB0B13925069F45009D5128 /* Test.swift in Sources */,
 				8BB0B1452507E1F9009D5128 /* QnACell.swift in Sources */,
 				8B86BA8C250348B80085A0D6 /* ContentView.swift in Sources */,
 				8B116110251242C3006886F2 /* QnADetailView.swift in Sources */,
 				8BB0B150250D03A3009D5128 /* APIClient.swift in Sources */,
+				8B49C118252492DE001089DE /* RegisterView.swift in Sources */,
 				8B77139825056B4300D93B29 /* NoticeView.swift in Sources */,
 				8B58D9A42519EC21008E8089 /* LoginView.swift in Sources */,
+				8B922D1B252229AC00C61E30 /* ImagePicker.swift in Sources */,
 				8B6CB1ED2510A6E000800990 /* SceneDelegate.swift in Sources */,
 				8BB0B13125069EC9009D5128 /* Assignment.swift in Sources */,
 				8BC0829D251A3330005C2B22 /* QnARouter.swift in Sources */,
 				8BC0828E251A2D87005C2B22 /* UserRouter.swift in Sources */,
 				8B50079A251DA104005184DB /* QnAView.swift in Sources */,
 				8BC08281251A2617005C2B22 /* AlarmView.swift in Sources */,
+				8B922D202522F5FC00C61E30 /* QnAPostView.swift in Sources */,
 				8B77139A25064BBF00D93B29 /* ServerModels.swift in Sources */,
+				8BBDB274252077C6003D6E81 /* ServerFileView.swift in Sources */,
 				8BC082AA251A3EE3005C2B22 /* LectureView.swift in Sources */,
 				8BC082A2251A3338005C2B22 /* TestRouter.swift in Sources */,
 				8BB0B153250D08A2009D5128 /* URLs.swift in Sources */,
+				8B922D1625221E9A00C61E30 /* DateUtils.swift in Sources */,
 				8BB0B13D25069F84009D5128 /* TestDetailView.swift in Sources */,
 				8BC08298251A3075005C2B22 /* LectureRouter.swift in Sources */,
 			);
@@ -623,19 +840,27 @@
 		};
 		8B86BAAF250348BB0085A0D6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 85A5256602173EBDCF893530 /* Pods-ImagemathStudent.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ImagemathStudent/ImagemathStudent.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"ImagemathStudent/Preview Content\"";
-				DEVELOPMENT_TEAM = YXSYRS3DCD;
+				DEVELOPMENT_TEAM = RB5X4U5H63;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = ImagemathStudent/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.haemin.ImagemathStudent;
+				OTHER_LDFLAGS = (
+					"$(OTHER_LDFLAGS)",
+					"-ObjC",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hmteam.imagemathstudent;
 				PRODUCT_NAME = ImagemathStudent;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -643,19 +868,27 @@
 		};
 		8B86BAB0250348BB0085A0D6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 07CBEFE37643183F9ACABEC8 /* Pods-ImagemathStudent.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ImagemathStudent/ImagemathStudent.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"ImagemathStudent/Preview Content\"";
-				DEVELOPMENT_TEAM = YXSYRS3DCD;
+				DEVELOPMENT_TEAM = RB5X4U5H63;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = ImagemathStudent/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.haemin.ImagemathStudent;
+				OTHER_LDFLAGS = (
+					"$(OTHER_LDFLAGS)",
+					"-ObjC",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hmteam.imagemathstudent;
 				PRODUCT_NAME = ImagemathStudent;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -663,6 +896,7 @@
 		};
 		8B86BAB2250348BB0085A0D6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 71974AD9B2FB4FE6860B607C /* Pods-ImagemathStudentTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -685,6 +919,7 @@
 		};
 		8B86BAB3250348BB0085A0D6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 950E2A184821A22F64378B93 /* Pods-ImagemathStudentTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -707,6 +942,7 @@
 		};
 		8B86BAB5250348BB0085A0D6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 58F5051250B51610BFF829A8 /* Pods-ImagemathStudent-ImagemathStudentUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -727,6 +963,7 @@
 		};
 		8B86BAB6250348BB0085A0D6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F8501AD0912A11960F61A2AF /* Pods-ImagemathStudent-ImagemathStudentUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -787,6 +1024,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		8B5288D9252341BF00B3069A /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/Charts.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.6.0;
+			};
+		};
+		8B551E862520ACFB0071E83C /* XCRemoteSwiftPackageReference "url-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dmytro-anokhin/url-image.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.19;
+			};
+		};
 		8BB0B1402507B8FB009D5128 /* XCRemoteSwiftPackageReference "ChartView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/AppPear/ChartView.git";
@@ -806,10 +1059,15 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		8BB0B1412507B8FB009D5128 /* SwiftUICharts */ = {
+		8B5288DA252341BF00B3069A /* Charts */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 8BB0B1402507B8FB009D5128 /* XCRemoteSwiftPackageReference "ChartView" */;
-			productName = SwiftUICharts;
+			package = 8B5288D9252341BF00B3069A /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = Charts;
+		};
+		8B551E872520ACFB0071E83C /* URLImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8B551E862520ACFB0071E83C /* XCRemoteSwiftPackageReference "url-image" */;
+			productName = URLImage;
 		};
 		8BB0B14D250BE7EA009D5128 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -15,6 +15,7 @@ enum QnARouter:APIRouteable{
     case getQuestionFileList(questionSeq: Int)
     case getAnswerList(questionSeq: Int)
     case getAnswerFileList(answerSeq: Int)
+    case postQuestion(title: String, contents: String)
     
     var path: String{
         switch self{
@@ -26,6 +27,8 @@ enum QnARouter:APIRouteable{
             return "/qna/answer/"+String(questionSeq)
         case .getAnswerFileList(let answerSeq):
             return "/qna/answer/file/"+String(answerSeq)
+        case .postQuestion:
+            return "/qna/question"
         }
     }
     
@@ -39,6 +42,8 @@ enum QnARouter:APIRouteable{
             return .get
         case .getAnswerFileList:
             return .get
+        case .postQuestion:
+            return .post
         }
     }
     
@@ -52,6 +57,8 @@ enum QnARouter:APIRouteable{
             return nil
         case .getAnswerFileList:
             return nil
+        case .postQuestion(let title, let contents):
+            return ["title":title,"contents":contents]
         }
     }
     

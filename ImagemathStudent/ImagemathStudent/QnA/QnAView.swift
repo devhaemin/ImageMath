@@ -12,37 +12,47 @@ struct QnAView: View {
     @State var questions = Question.getDummyData();
     
     var body: some View {
-        List(self.questions, id: \.questionSeq) { question in
-            ZStack{
-                
-                QnACell(question: question)
-                NavigationLink(destination:
-                                Text(question.title))
-                {
-                    EmptyView()
-                }.buttonStyle(PlainButtonStyle())
-            }
-        }.navigationBarTitle("", displayMode: .inline)
-        .navigationBarItems(leading: Image(uiImage: #imageLiteral(resourceName: "logo_img_small")).resizable().frame(width:140,height: 50), trailing: HStack{
-            NavigationLink(destination:AlarmView()){
-                Image(uiImage: #imageLiteral(resourceName: "img_alarm"))
-                    .resizable()
-                    .frame(width:40, height: 40)
-            }.buttonStyle(PlainButtonStyle())
-            NavigationLink(destination:SettingView()){
-                Image(uiImage: #imageLiteral(resourceName: "img_setting")).resizable()
-                    .frame(width:40, height: 40)
-            }.buttonStyle(PlainButtonStyle())
-        })
-        .onAppear(perform: {
-            Question.getQuestionList { (response) in
-                do{
-                    questions = try response.get()
-                }catch{
-                    print(response)
+        VStack(alignment:.trailing){
+            NavigationLink(
+                destination: QnAPostView(),
+                label: {
+                    Text("+질문하기").padding()
+                })
+            List(self.questions, id: \.questionSeq) { question in
+                ZStack{
+                    
+                    QnACell(question: question)
+                    NavigationLink(destination:
+                                    QnADetailView(question: question))
+                    {
+                        EmptyView()
+                    }.buttonStyle(PlainButtonStyle())
                 }
-            }
-        })
+            }.navigationBarTitle("", displayMode: .inline)
+            .navigationBarItems(leading: Image(uiImage: #imageLiteral(resourceName: "logo_img_small")).resizable().frame(width:140,height: 50), trailing: HStack{
+                NavigationLink(destination:AlarmView()){
+                    Image(uiImage: #imageLiteral(resourceName: "img_alarm"))
+                        .resizable()
+                        .frame(width:40, height: 40)
+                }.buttonStyle(PlainButtonStyle())
+                NavigationLink(destination:SettingView()){
+                    Image(uiImage: #imageLiteral(resourceName: "img_setting")).resizable()
+                        .frame(width:40, height: 40)
+                }.buttonStyle(PlainButtonStyle())
+            })
+            .onAppear(perform: {
+                Question.getQuestionList { (response) in
+                    do{
+                        questions = try response.get()
+                        questions.sort{
+                            return $0.postTime > $1.postTime
+                        }
+                    }catch{
+                        print(response)
+                    }
+                }
+            })
+        }
     }
 }
 
