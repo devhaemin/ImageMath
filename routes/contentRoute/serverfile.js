@@ -70,8 +70,8 @@ function getAssignmentAnswer(req, res){
     if(!userInfo){
         res.status(400).send("잘못된 요청입니다.");
     }else {
-        connection.query("SELECT * FROM FileInfo WHERE boardType = ? and userSeq = ? and postSeq = ?",
-            [BOARD_ASSIGNMENT_ANSWER_FILE, userInfo.userSeq, assignmentSeq], function (err, result) {
+        connection.query("SELECT * FROM FileInfo WHERE boardType = ? and postSeq = ?",
+            [BOARD_ASSIGNMENT_ANSWER_FILE, assignmentSeq], function (err, result) {
                 if(err){
                     res.status(400).send("Server Error!");
                 }else{
@@ -99,8 +99,8 @@ function getTestAnswer(req, res){
     if(!userInfo){
         res.status(400).send("잘못된 요청입니다.");
     }else {
-        connection.query("SELECT * FROM FileInfo WHERE boardType = ? and userSeq = ? and postSeq = ?",
-            [BOARD_TEST_ANSWER_FILE, userInfo.userSeq, testSeq], function (err, result) {
+        connection.query("SELECT * FROM FileInfo WHERE boardType = ? and postSeq = ?",
+            [BOARD_TEST_ANSWER_FILE, testSeq], function (err, result) {
                 if(err){
                     res.status(400).send("Server Error!");
                 }else{
