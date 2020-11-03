@@ -79,7 +79,7 @@ function getVideoPostList(req, res){
 }
 
 /**
- * @api {MultiPart} {post} video 비디오 포스팅 작성
+ * @api {MultiPart} video 비디오 포스팅 작성
  * @apiName postVideoFile
  * @apiGroup Video
  * @apiHeader x-access-token 사용자 액세스 토큰

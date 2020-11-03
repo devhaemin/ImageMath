@@ -148,10 +148,14 @@ define({ "api": [
         ]
       }
     },
-    "version": "0.0.0",
-    "filename": "routes/basicRoute/auth.js",
-    "groupTitle": "Auth",
     "success": {
+      "examples": [
+        {
+          "title": "Success-Response :",
+          "content": "HTTP/1.1 200 OK\n{\n    \"userSeq\": 15,\n    \"name\": \"조교\",\n    \"birthday\": \"2000-12-12\",\n    \"email\": \"tutor@gmail.com\",\n    \"password\": \"~~~\",\n    \"accessToken\": \"eyJhbGciOiJIUzK3OPQ9.dHV0b3JAZ21haWwuY29t.fI1CeHpLshyHcLMf3M06US\",\n    \"fcmToken\": null,\n    \"gender\": 0,\n    \"salt\": \"~~~\",\n    \"userType\": \"tutor\",\n    \"phone\": \"01012345678\",\n    \"studentCode\": \"0000000\",\n    \"schoolName\": \"00고\",\n    \"registerTime\": 1589603903081\n}",
+          "type": "json"
+        }
+      ],
       "fields": {
         "200": [
           {
@@ -254,7 +258,10 @@ define({ "api": [
           }
         ]
       }
-    }
+    },
+    "version": "0.0.0",
+    "filename": "routes/basicRoute/auth.js",
+    "groupTitle": "Auth"
   },
   {
     "type": "get",
@@ -1806,7 +1813,7 @@ define({ "api": [
     "groupTitle": "Video"
   },
   {
-    "type": "update",
+    "type": "post",
     "url": "video/:videoSeq",
     "title": "영상 포스팅 수정",
     "name": "modifyVideoFile",
@@ -1857,8 +1864,8 @@ define({ "api": [
   },
   {
     "type": "MultiPart",
-    "url": "{post}",
-    "title": "video 비디오 포스팅 작성",
+    "url": "video",
+    "title": "비디오 포스팅 작성",
     "name": "postVideoFile",
     "group": "Video",
     "header": {
