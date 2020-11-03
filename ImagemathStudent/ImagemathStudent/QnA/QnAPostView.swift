@@ -21,6 +21,7 @@ struct QnAPostView: View {
     @State private var inputFiles: [ServerFile] = [ServerFile]()
     
     @State private var fileSeq = 0;
+    
      
     func loadImage() {
         guard let inputImage = inputImage else { return }
@@ -46,6 +47,7 @@ struct QnAPostView: View {
                 for image in inputImages{
                     submitAssignmentImage(inputImage: image)
                 }
+                self.presentationMode.wrappedValue.dismiss()
             }catch{
                 
             }

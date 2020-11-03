@@ -25,6 +25,15 @@ struct QnADetailView: View {
                 }
             }
         }.navigationBarTitle("답변 확인하기")
+        .onAppear{
+            Answer.getAnswerList(questionSeq: question.questionSeq) { (response) in
+                do{
+                    answers = try response.get();
+                }catch{
+                    print(response);
+                }
+            }
+        }
     }
 }
 

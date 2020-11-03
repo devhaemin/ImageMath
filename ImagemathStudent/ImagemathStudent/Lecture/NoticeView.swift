@@ -50,7 +50,7 @@ struct NoticeCell: View{
             HStack{
                 Text("NO. "+String(notice.noticeSeq!)).font(.system(size: 12))
                 Spacer()
-                Text("3시간 전 게시").font(.system(size: 12))
+                Text(DateUtils.getRelativeTimeString(unixtime: notice.postTime!)).font(.system(size: 12))
             }
             Spacer().frame(height: 4)
             Text(notice.title!)

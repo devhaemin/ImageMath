@@ -43,6 +43,7 @@ struct LectureView: View {
                 }
             }.padding(.top)
             .padding(.horizontal)
+            if(lectures.count != 0){
             List {
                 ForEach(self.lectures, id: \.lectureSeq){ lecture in
                     ZStack {
@@ -55,6 +56,11 @@ struct LectureView: View {
                     .padding(.vertical,8)
                     .background(Color.white)
                 }
+            }
+            }else{
+                Spacer()
+                Text("등록된 수업이 없습니다.\n우측 상단의 추가하기 버튼을 눌러 추가해주세요.")
+                Spacer()
             }
         }.onAppear(perform: {
             Lecture.getMyLectureList { (response) in

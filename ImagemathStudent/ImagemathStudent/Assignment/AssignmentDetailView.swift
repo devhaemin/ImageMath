@@ -92,13 +92,13 @@ struct AssignmentDetailView: View {
                 VStack(alignment:.leading){
                     Rectangle().frame(height: 2).foregroundColor(Color("borderColor"))
                     Text("해설지").font(.system(size:14)).padding(.leading).padding(.top, 8)
-                    if(assignment.submitState == 0){
+                    if(assignment.submitState == 0 || assignment.submitState == 1 || assignment.submitState == 5 || assignment.endTime < Int(Date().timeIntervalSince1970) * 1000 ){
                         ZStack{
                             Rectangle().frame( height: 36).foregroundColor(Color.gray)
                             Text("통과 후 열람가능합니다").foregroundColor(Color.white)
                         }.padding(.bottom, 8)
                     }else{
-                        //To-do : File List View 만들어서 넣기.
+                        ServerFileView(fileList: $answerFiles)
                     }
                     Rectangle().frame(height: 2).foregroundColor(Color("borderColor"))
                 }

@@ -31,14 +31,16 @@ struct ContentView: View {
                             }
                         }
                         User.sendPushToken(fcmToken: userDefaultsManager.fcmToken){ (response) in
-                            
+                            print("Send Server my fcmToken >>"+userDefaultsManager.fcmToken)
+                            print(response)
                         }
                     })
             }else if(loginAble){
                 MainView().background(Color.white)
                     .onAppear{
                         User.sendPushToken(fcmToken: userDefaultsManager.fcmToken){ (response) in
-                            
+                            print("Send Server my fcmToken"+userDefaultsManager.fcmToken)
+                            print(response)
                         }
                     }
             }else{
@@ -49,7 +51,7 @@ struct ContentView: View {
                     Alert(title: Text("네트워크 오류"),message: Text("아이디 혹은 비밀번호가 일치하지 않습니다.\n혹은 네트워크 연결 상태를 확인해주세요."))
                     })
                     }else{
-                        RegisterView()
+                        RegisterView(registerVisible: $registerVisible)
                     }
                 }
             }
@@ -61,3 +63,4 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+ 

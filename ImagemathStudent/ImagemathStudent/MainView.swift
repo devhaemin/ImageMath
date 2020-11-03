@@ -28,6 +28,7 @@ struct MainView: View {
                 Image(uiImage: #imageLiteral(resourceName: "second"))
                 Text("수강중인 강좌")
             }.tag(0)
+            .navigationViewStyle(StackNavigationViewStyle())
             
             
             //*********************************
@@ -40,6 +41,7 @@ struct MainView: View {
                 Image(uiImage: #imageLiteral(resourceName: "second"))
                 Text("과제")
             }.tag(1)
+            .navigationViewStyle(StackNavigationViewStyle())
             
             
             //*********************************
@@ -53,6 +55,7 @@ struct MainView: View {
                 Image(uiImage: #imageLiteral(resourceName: "second"))
                 Text("테스트")
             }.tag(2)
+            .navigationViewStyle(StackNavigationViewStyle())
             
             
             //*********************************
@@ -66,9 +69,10 @@ struct MainView: View {
                 Image(uiImage: #imageLiteral(resourceName: "second"))
                 Text("Q&A")
             }.tag(3)
+            .navigationViewStyle(StackNavigationViewStyle())
             
         }.onAppear(){
-            self.selectedView = 3
+            self.selectedView = 0
         }
     }
 }
@@ -87,6 +91,8 @@ struct CheckboxToggleStyle: ToggleStyle {
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView()
+        Group {
+            MainView()
+        }
     }
 }

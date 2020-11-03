@@ -28,7 +28,10 @@ struct DefaultServerModel: Decodable{
     
 }
 extension User{
-    
+    static func register(user:User, completion: @escaping (Result<User,Error>) -> Void){
+        let router = UserRouter.register(user: user)
+        APIClient.perform(router, completion: completion)
+    }
     static func emailLogin(email:String, password:String, completion: @escaping (Result<User, Error>) -> Void){
         let router = UserRouter.login(email: email, password: password)
         APIClient.perform(router, completion: completion)

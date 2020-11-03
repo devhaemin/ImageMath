@@ -10,7 +10,8 @@ import SwiftUI
 
 struct TestDetailView: View {
     let test:Test
-    let answerFiles = ServerFile.getDummyData()
+    @State var answerFiles = ServerFile.getDummyData()
+    
     var body: some View {
         VStack(alignment: .leading){
             /**
@@ -72,13 +73,21 @@ struct TestDetailView: View {
                 Rectangle().frame(height: 2).foregroundColor(Color("borderColor"))
                 Text("해설지").font(.system(size:14)).padding(.leading).padding(.top, 8)
                 Spacer().frame(height: 30)
-                //To-do : File List View 만들어서 넣기.
+                ServerFileView(fileList: $answerFiles)
                 Rectangle().frame(height: 2).foregroundColor(Color("borderColor"))
             }.padding(.vertical)
-            
-            
             Spacer()
         }.navigationBarTitle("테스트 상세보기")
+        .onAppear(perform: {
+            ServerFile.getTestAnswerFiles(testSeq: test.testSeq) { (response) in
+                do{
+                    answerFiles = try response.get();
+                    print(answerFiles)
+                }catch{
+                    print(response)
+                }
+            }
+        })
     }
 }
 

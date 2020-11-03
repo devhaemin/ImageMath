@@ -32,28 +32,34 @@ struct AssignmentView: View {
             }.padding(.trailing)
             .padding(.top)
             Spacer().frame(height:14)
-            ScrollView(){
-                VStack {
-                    ForEach(dateHolders, id: \.date){ dateHolder in
-                        Section(header: HStack{
-                            Rectangle().frame(width:2, height: 40)
-                                .foregroundColor(Color.init("etoosColor"))
-                            Text(getTimeDate(date: dateHolder.date)).font(.system(size: 24))
-                            Spacer()
-                        }.padding(.horizontal))
-                        {
-                            ForEach(dateHolder.items, id: \.assignmentSeq){ assignment in
-                                
-                                NavigationLink( destination: AssignmentDetailView(assignment: assignment)){
-                                    AssignmentMiniCell(assignment: assignment)
-                                        .padding(.horizontal)
-                                }.buttonStyle(PlainButtonStyle())
-                                
+            if(dateHolders.count != 0){
+                ScrollView(){
+                    VStack {
+                        ForEach(dateHolders, id: \.date){ dateHolder in
+                            Section(header: HStack{
+                                Rectangle().frame(width:2, height: 40)
+                                    .foregroundColor(Color.init("etoosColor"))
+                                Text(getTimeDate(date: dateHolder.date)).font(.system(size: 24))
+                                Spacer()
+                            }.padding(.horizontal))
+                            {
+                                ForEach(dateHolder.items, id: \.assignmentSeq){ assignment in
+                                    
+                                    NavigationLink( destination: AssignmentDetailView(assignment: assignment)){
+                                        AssignmentMiniCell(assignment: assignment)
+                                            .padding(.horizontal)
+                                    }.buttonStyle(PlainButtonStyle())
+                                    
+                                }
                             }
-                        }
-                        .padding(.vertical,8)
-                    }.background(Color.white)
+                            .padding(.vertical,8)
+                        }.background(Color.white)
+                    }
                 }
+            }else{
+                Spacer()
+                Text("과제 목록이 없습니다.")
+                Spacer()
             }
             
         }.navigationBarTitle("", displayMode: .inline)

@@ -11,6 +11,9 @@
 		7812307CDF649827D58744C0 /* Pods_ImagemathStudentTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAE5247912673C61EAA2C527 /* Pods_ImagemathStudentTests.framework */; };
 		8B11610E25122DE9006886F2 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B11610D25122DE9006886F2 /* MainView.swift */; };
 		8B116110251242C3006886F2 /* QnADetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B11610F251242C3006886F2 /* QnADetailView.swift */; };
+		8B12DCCD255057C20025683A /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B12DCCC255057C20025683A /* VideoView.swift */; };
+		8B12DCD3255058200025683A /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B12DCD2255058200025683A /* Video.swift */; };
+		8B12DCD72550582D0025683A /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B12DCD62550582D0025683A /* VideoCell.swift */; };
 		8B49C118252492DE001089DE /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B49C117252492DE001089DE /* RegisterView.swift */; };
 		8B500795251D9144005184DB /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B500794251D9144005184DB /* TestView.swift */; };
 		8B50079A251DA104005184DB /* QnAView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B500799251DA104005184DB /* QnAView.swift */; };
@@ -31,6 +34,7 @@
 		8B86BA94250348BA0085A0D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B86BA92250348BA0085A0D6 /* LaunchScreen.storyboard */; };
 		8B86BA9F250348BB0085A0D6 /* ImagemathStudentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B86BA9E250348BB0085A0D6 /* ImagemathStudentTests.swift */; };
 		8B86BAAA250348BB0085A0D6 /* ImagemathStudentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B86BAA9250348BB0085A0D6 /* ImagemathStudentUITests.swift */; };
+		8B8C53E9253589030080C7D3 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8C53E8253589030080C7D3 /* RadioButton.swift */; };
 		8B922D1625221E9A00C61E30 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B922D1525221E9A00C61E30 /* DateUtils.swift */; };
 		8B922D1B252229AC00C61E30 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B922D1A252229AB00C61E30 /* ImagePicker.swift */; };
 		8B922D202522F5FC00C61E30 /* QnAPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B922D1F2522F5FC00C61E30 /* QnAPostView.swift */; };
@@ -102,6 +106,9 @@
 		8B11610C25122A99006886F2 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		8B11610D25122DE9006886F2 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		8B11610F251242C3006886F2 /* QnADetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QnADetailView.swift; sourceTree = "<group>"; };
+		8B12DCCC255057C20025683A /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
+		8B12DCD2255058200025683A /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
+		8B12DCD62550582D0025683A /* VideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
 		8B49C117252492DE001089DE /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		8B500794251D9144005184DB /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		8B500799251DA104005184DB /* QnAView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QnAView.swift; sourceTree = "<group>"; };
@@ -126,6 +133,7 @@
 		8B86BAA5250348BB0085A0D6 /* ImagemathStudentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImagemathStudentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B86BAA9250348BB0085A0D6 /* ImagemathStudentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagemathStudentUITests.swift; sourceTree = "<group>"; };
 		8B86BAAB250348BB0085A0D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B8C53E8253589030080C7D3 /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
 		8B922D1525221E9A00C61E30 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		8B922D1A252229AB00C61E30 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		8B922D1F2522F5FC00C61E30 /* QnAPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QnAPostView.swift; sourceTree = "<group>"; };
@@ -202,6 +210,16 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		8B12DCCB255057A80025683A /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				8B12DCCC255057C20025683A /* VideoView.swift */,
+				8B12DCD2255058200025683A /* Video.swift */,
+				8B12DCD62550582D0025683A /* VideoCell.swift */,
+			);
+			path = Video;
+			sourceTree = "<group>";
+		};
 		8B7713942505568B00D93B29 /* Lecture */ = {
 			isa = PBXGroup;
 			children = (
@@ -239,6 +257,7 @@
 		8B86BA86250348B80085A0D6 /* ImagemathStudent */ = {
 			isa = PBXGroup;
 			children = (
+				8B12DCCB255057A80025683A /* Video */,
 				8B922D32252317A300C61E30 /* GoogleService-Info.plist */,
 				8BBDB27225207794003D6E81 /* Utils */,
 				8B86BA8D250348BA0085A0D6 /* Assets.xcassets */,
@@ -343,6 +362,7 @@
 				8BBDB273252077C6003D6E81 /* ServerFileView.swift */,
 				8B922D1525221E9A00C61E30 /* DateUtils.swift */,
 				8B922D1A252229AB00C61E30 /* ImagePicker.swift */,
+				8B8C53E8253589030080C7D3 /* RadioButton.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -634,6 +654,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BC082AF251A4240005C2B22 /* AssignmentView.swift in Sources */,
+				8B8C53E9253589030080C7D3 /* RadioButton.swift in Sources */,
 				8BB0B13725069F31009D5128 /* TestCell.swift in Sources */,
 				8B11610E25122DE9006886F2 /* MainView.swift in Sources */,
 				8B984F9B250D2E1600AA5E8E /* AssignmentRouter.swift in Sources */,
@@ -661,6 +682,7 @@
 				8B6CB1ED2510A6E000800990 /* SceneDelegate.swift in Sources */,
 				8BB0B13125069EC9009D5128 /* Assignment.swift in Sources */,
 				8BC0829D251A3330005C2B22 /* QnARouter.swift in Sources */,
+				8B12DCD72550582D0025683A /* VideoCell.swift in Sources */,
 				8BC0828E251A2D87005C2B22 /* UserRouter.swift in Sources */,
 				8B50079A251DA104005184DB /* QnAView.swift in Sources */,
 				8BC08281251A2617005C2B22 /* AlarmView.swift in Sources */,
@@ -668,6 +690,8 @@
 				8B77139A25064BBF00D93B29 /* ServerModels.swift in Sources */,
 				8BBDB274252077C6003D6E81 /* ServerFileView.swift in Sources */,
 				8BC082AA251A3EE3005C2B22 /* LectureView.swift in Sources */,
+				8B12DCD3255058200025683A /* Video.swift in Sources */,
+				8B12DCCD255057C20025683A /* VideoView.swift in Sources */,
 				8BC082A2251A3338005C2B22 /* TestRouter.swift in Sources */,
 				8BB0B153250D08A2009D5128 /* URLs.swift in Sources */,
 				8B922D1625221E9A00C61E30 /* DateUtils.swift in Sources */,
@@ -843,9 +867,11 @@
 			baseConfigurationReference = 85A5256602173EBDCF893530 /* Pods-ImagemathStudent.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGN_ENTITLEMENTS = ImagemathStudent/ImagemathStudent.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_ASSET_PATHS = "\"ImagemathStudent/Preview Content\"";
 				DEVELOPMENT_TEAM = RB5X4U5H63;
 				ENABLE_PREVIEWS = YES;
@@ -854,6 +880,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.91;
 				OTHER_LDFLAGS = (
 					"$(OTHER_LDFLAGS)",
 					"-ObjC",
@@ -871,9 +898,11 @@
 			baseConfigurationReference = 07CBEFE37643183F9ACABEC8 /* Pods-ImagemathStudent.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGN_ENTITLEMENTS = ImagemathStudent/ImagemathStudent.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_ASSET_PATHS = "\"ImagemathStudent/Preview Content\"";
 				DEVELOPMENT_TEAM = RB5X4U5H63;
 				ENABLE_PREVIEWS = YES;
@@ -882,6 +911,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.91;
 				OTHER_LDFLAGS = (
 					"$(OTHER_LDFLAGS)",
 					"-ObjC",

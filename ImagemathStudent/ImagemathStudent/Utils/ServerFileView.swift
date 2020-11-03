@@ -14,6 +14,11 @@ struct ServerFileView: View {
     var body: some View {
         VStack{
             ForEach(fileList, id: \.fileSeq){ file in
+                Button(action: {
+                    if let url = URL(string: file.fileUrl ?? "") {
+                        UIApplication.shared.open(url)
+                    }
+                }){
                 HStack{
                     Image(uiImage: #imageLiteral(resourceName: "img_file_etoos"))
                     Spacer().frame(width:8)
@@ -24,6 +29,7 @@ struct ServerFileView: View {
                 .padding(.vertical,4)
                 .background(Color.gray.opacity(0.4))
                 .listRowInsets(EdgeInsets())
+                }
             }
         }
     }

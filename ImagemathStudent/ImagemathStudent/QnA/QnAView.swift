@@ -7,9 +7,12 @@
 //
 
 import SwiftUI
+import SwiftUIRefresh
 
 struct QnAView: View {
     @State var questions = Question.getDummyData();
+    @State var isShowingRefresh = false;
+    
     
     var body: some View {
         VStack(alignment:.trailing){
@@ -18,17 +21,35 @@ struct QnAView: View {
                 label: {
                     Text("+질문하기").padding()
                 })
-            List(self.questions, id: \.questionSeq) { question in
-                ZStack{
-                    
-                    QnACell(question: question)
-                    NavigationLink(destination:
-                                    QnADetailView(question: question))
-                    {
-                        EmptyView()
-                    }.buttonStyle(PlainButtonStyle())
+            if(questions.isEmpty){
+                VStack{
+                    Spacer()
+                    HStack{
+                        Spacer()
+                        Text("질문한 내용이 없습니다.\n우측 상단 버튼을 눌러 질문해주세요!")
+                        Spacer()
+                    }
+                    Spacer()
                 }
-            }.navigationBarTitle("", displayMode: .inline)
+            }
+            ScrollView{
+                VStack{
+                ForEach(self.questions, id: \.questionSeq) { question in
+                    
+                        
+                        NavigationLink(destination:
+                                        QnADetailView(question: question))
+                        {
+                            QnACell(question: question)
+                        }.buttonStyle(PlainButtonStyle())
+                    
+                }
+                }
+            }
+            .pullToRefresh(isShowing: $isShowingRefresh, onRefresh: {
+                refresh();
+            })
+            .navigationBarTitle("", displayMode: .inline)
             .navigationBarItems(leading: Image(uiImage: #imageLiteral(resourceName: "logo_img_small")).resizable().frame(width:140,height: 50), trailing: HStack{
                 NavigationLink(destination:AlarmView()){
                     Image(uiImage: #imageLiteral(resourceName: "img_alarm"))
@@ -38,20 +59,26 @@ struct QnAView: View {
                 NavigationLink(destination:SettingView()){
                     Image(uiImage: #imageLiteral(resourceName: "img_setting")).resizable()
                         .frame(width:40, height: 40)
-                }.buttonStyle(PlainButtonStyle())
+                }.buttonStyle(FlatLinkStyle())
             })
+            
             .onAppear(perform: {
-                Question.getQuestionList { (response) in
-                    do{
-                        questions = try response.get()
-                        questions.sort{
-                            return $0.postTime > $1.postTime
-                        }
-                    }catch{
-                        print(response)
-                    }
-                }
+                refresh()
             })
+        }
+    }
+    
+    func refresh(){
+        Question.getQuestionList { (response) in
+            do{
+                questions = try response.get()
+                questions.sort{
+                    return $0.postTime > $1.postTime
+                }
+                isShowingRefresh = false;
+            }catch{
+                print(response)
+            }
         }
     }
 }
@@ -59,5 +86,10 @@ struct QnAView: View {
 struct QnAView_Previews: PreviewProvider {
     static var previews: some View {
         QnAView()
+    }
+}
+struct FlatLinkStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
     }
 }

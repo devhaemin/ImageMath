@@ -26,6 +26,18 @@ struct TestView: View {
                 Text("수업").font(.system(size: 18))
                 Spacer().frame(width:24)
                 Rectangle().frame(width:1, height: 20)
+                    .actionSheet(isPresented: $selectLectureVisible) {
+                        var buttons: [ActionSheet.Button] = myLectures.map {
+                            let lecture = $0
+                            return ActionSheet.Button.default(Text($0.name!), action: {
+                                currentLecture = lecture
+                                refresh()
+                            })
+                        }
+                        buttons.append(ActionSheet.Button.cancel(Text("취소")))
+                        return ActionSheet(title: Text("수업 선택하기"), message: Text("승인 요청할 수업을 선택해주세요."), buttons:buttons
+                        )
+                    }
                 Spacer()
                 Button(action: {
                     selectLectureVisible = true;
@@ -78,19 +90,6 @@ struct TestView: View {
                     Text("등록된 시험 결과가 없습니다.\n수업을 선택해주세요.")
                     Spacer()
                 }
-        }
-        
-        .actionSheet(isPresented: $selectLectureVisible) {
-            var buttons: [ActionSheet.Button] = myLectures.map {
-                let lecture = $0
-                return ActionSheet.Button.default(Text($0.name!), action: {
-                    currentLecture = lecture
-                    refresh()
-                })
-            }
-            buttons.append(ActionSheet.Button.cancel(Text("취소")))
-            return ActionSheet(title: Text("수업 선택하기"), message: Text("승인 요청할 수업을 선택해주세요."), buttons:buttons
-            )
         }
         .navigationBarTitle("", displayMode: .inline)
         .navigationBarItems(leading: Image(uiImage: #imageLiteral(resourceName: "logo_img_small")).resizable().frame(width:140,height: 50), trailing: HStack{

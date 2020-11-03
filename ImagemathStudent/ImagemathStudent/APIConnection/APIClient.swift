@@ -42,7 +42,7 @@ extension APIRouteable {
 }
 class UserDefaultsManager: ObservableObject {
     @Published var fcmToken: String = UserDefaults.standard.string(forKey: "FcmToken") ?? ""{
-        didSet { UserDefaults.standard.set(self.accessToken, forKey: "FcmToken")}
+        didSet { UserDefaults.standard.set(self.fcmToken, forKey: "FcmToken")}
     }
     
     @Published var accessToken: String = UserDefaults.standard.string(forKey: "AccessToken") ?? ""{
