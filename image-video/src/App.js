@@ -3,6 +3,7 @@ import './App.css';
 import { Route, Link, Switch } from 'react-router-dom';
 
 import { Head } from './inc'
+import { Main } from './page/index.js'
 
 class App extends Component {
   constructor(props) {
@@ -13,9 +14,15 @@ class App extends Component {
 
   render() {
     return(
-    <div>
-        <Head />
-    </div>
+      <div>
+        <div>
+          <Head />
+        </div>
+        <div>
+          <Main />
+        </div>
+      </div>
+    
     )
   }
 }
