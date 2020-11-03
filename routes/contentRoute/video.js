@@ -66,7 +66,7 @@ function getVideoPostList(req, res){
     if(!userInfo){
         res.status(403).send("Token Expired!");
     }else{
-        connection.query("SELECT * FROM VIDEO ORDER BY uploadTime desc",
+        connection.query("SELECT * FROM Video ORDER BY uploadTime desc",
             function (err, videoList) {
             if(err){
                 console.log(err);
