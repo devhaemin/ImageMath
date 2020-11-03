@@ -20,7 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="36413532-2186-4b51-bc32-d36d86fd342c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/routes/contentRoute/video.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/contentRoute/serverfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/contentRoute/serverfile.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,7 +167,8 @@
       <workItem from="1600840757291" duration="32000" />
       <workItem from="1601108377061" duration="9620000" />
       <workItem from="1602574735417" duration="501000" />
-      <workItem from="1603258358631" duration="634000" />
+      <workItem from="1603258358631" duration="1452000" />
+      <workItem from="1604328612974" duration="3077000" />
     </task>
     <servers />
   </component>
@@ -194,23 +198,13 @@
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="946" y="94" key="#Dockerfile/0.23.1680.1027@0.23.1680.1027" timestamp="1600523016558" />
-    <state x="19" y="179" key="#SQL_Dialects" timestamp="1594712362559">
-      <screen x="0" y="0" width="1707" height="1027" />
-    </state>
-    <state x="19" y="179" key="#SQL_Dialects/0.0.1707.1027@0.0.1707.1027" timestamp="1594712362559" />
-    <state x="446" y="176" key="#SQL_Resolution_Scopes" timestamp="1594722097112">
-      <screen x="0" y="0" width="1707" height="1027" />
-    </state>
-    <state x="446" y="176" key="#SQL_Resolution_Scopes/0.0.1707.1027@0.0.1707.1027" timestamp="1594722097112" />
     <state x="609" y="118" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600522820818">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state x="557" y="148" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1707.1027@0.0.1707.1027" timestamp="1595320038164" />
     <state x="609" y="118" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1680.1027@0.23.1680.1027" timestamp="1600522820818" />
     <state x="690" y="316" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1600522652371">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state x="1030" y="326" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1707.1027@0.0.1707.1027" timestamp="1594706861600" />
     <state x="690" y="316" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1680.1027@0.23.1680.1027" timestamp="1600522652371" />
     <state x="578" y="290" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1600757753225">
       <screen x="0" y="23" width="1680" height="1027" />
@@ -220,70 +214,42 @@
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="740" y="320" key="FileChooserDialogImpl/0.23.1680.1027@0.23.1680.1027" timestamp="1600758239432" />
-    <state x="767" y="82" key="FileDocumentManager.FileCacheConflict" timestamp="1595319615093">
-      <screen x="0" y="0" width="1707" height="1027" />
-    </state>
-    <state x="767" y="82" key="FileDocumentManager.FileCacheConflict/0.0.1707.1027@0.0.1707.1027" timestamp="1595319615093" />
     <state width="798" height="311" key="GridCell.Tab.0.bottom" timestamp="1601299162872">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state width="1663" height="275" key="GridCell.Tab.0.bottom/0.0.1707.1027@0.0.1707.1027" timestamp="1595331489963" />
     <state width="798" height="311" key="GridCell.Tab.0.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1601299162872" />
     <state width="798" height="311" key="GridCell.Tab.0.center" timestamp="1601299162871">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state width="1663" height="275" key="GridCell.Tab.0.center/0.0.1707.1027@0.0.1707.1027" timestamp="1595331489963" />
     <state width="798" height="311" key="GridCell.Tab.0.center/0.23.1680.1027@0.23.1680.1027" timestamp="1601299162871" />
     <state width="798" height="311" key="GridCell.Tab.0.left" timestamp="1601299162870">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state width="1663" height="275" key="GridCell.Tab.0.left/0.0.1707.1027@0.0.1707.1027" timestamp="1595331489963" />
     <state width="798" height="311" key="GridCell.Tab.0.left/0.23.1680.1027@0.23.1680.1027" timestamp="1601299162870" />
     <state width="798" height="311" key="GridCell.Tab.0.right" timestamp="1601299162871">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state width="1663" height="275" key="GridCell.Tab.0.right/0.0.1707.1027@0.0.1707.1027" timestamp="1595331489963" />
     <state width="798" height="311" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1601299162871" />
     <state width="243" height="477" key="HiddenNamespacesPopup" timestamp="1600758423561">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state width="207" height="477" key="HiddenNamespacesPopup/0.0.1707.1027@0.0.1707.1027" timestamp="1595235893713" />
     <state width="243" height="477" key="HiddenNamespacesPopup/0.23.1680.1027@0.23.1680.1027" timestamp="1600758423561" />
     <state x="351" y="182" key="SettingsEditor" timestamp="1601185974325">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state x="357" y="159" key="SettingsEditor/0.0.1707.1027@0.0.1707.1027" timestamp="1595320094958" />
     <state x="351" y="182" key="SettingsEditor/0.23.1680.1027@0.23.1680.1027" timestamp="1601185974325" />
-    <state width="200" height="461" key="SqlResolveConfigurable" timestamp="1594722091118">
-      <screen x="0" y="0" width="1707" height="1027" />
-    </state>
-    <state width="200" height="461" key="SqlResolveConfigurable/0.0.1707.1027@0.0.1707.1027" timestamp="1594722091118" />
-    <state x="650" y="344" width="407" height="334" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1594712805034">
-      <screen x="0" y="0" width="1707" height="1027" />
-    </state>
-    <state x="650" y="344" width="407" height="334" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog/0.0.1707.1027@0.0.1707.1027" timestamp="1594712805034" />
     <state x="781" y="216" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1600004165473">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state x="211" y="168" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1707.1027@0.0.1707.1027" timestamp="1595319439268" />
     <state x="781" y="216" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.23.1680.1027@0.23.1680.1027" timestamp="1600004165473" />
-    <state x="783" y="342" key="com.intellij.ide.util.TipDialog" timestamp="1595320132774">
-      <screen x="0" y="0" width="1707" height="1027" />
-    </state>
-    <state x="783" y="342" key="com.intellij.ide.util.TipDialog/0.0.1707.1027@0.0.1707.1027" timestamp="1595320132774" />
-    <state x="545" y="277" width="815" height="562" key="find.popup" timestamp="1600758286299">
+    <state x="545" y="277" width="815" height="562" key="find.popup" timestamp="1604379952006">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state x="554" y="268" width="726" height="490" key="find.popup/0.0.1707.1027@0.0.1707.1027" timestamp="1595322007790" />
-    <state x="545" y="277" width="815" height="562" key="find.popup/0.23.1680.1027@0.23.1680.1027" timestamp="1600758286299" />
-    <state x="808" y="324" key="jetbrains.nodejs.interpreters-dialog" timestamp="1595353411775">
+    <state x="545" y="277" width="815" height="562" key="find.popup/0.23.1680.1027@0.23.1680.1027" timestamp="1604379952006" />
+    <state x="242" y="189" key="new project wizard" timestamp="1604381649278">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state x="808" y="324" key="jetbrains.nodejs.interpreters-dialog/0.23.1680.1027@0.23.1680.1027" timestamp="1595353411775" />
-    <state x="416" y="222" key="new project wizard" timestamp="1598945084898">
-      <screen x="0" y="23" width="1680" height="1027" />
-    </state>
-    <state x="416" y="222" key="new project wizard/0.23.1680.1027@0.23.1680.1027" timestamp="1598945084898" />
+    <state x="242" y="189" key="new project wizard/0.23.1680.1027@0.23.1680.1027" timestamp="1604381649278" />
     <state x="925" y="250" width="670" height="676" key="search.everywhere.popup" timestamp="1600147066890">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>

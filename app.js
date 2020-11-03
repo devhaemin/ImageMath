@@ -84,6 +84,9 @@ app.use('/qna', qnaRoute);
 const fcmRoute = require('./routes/basicRoute/fcmPush');
 app.use('/push', fcmRoute);
 
+const videoRoute = require('./routes/contentRoute/video');
+app.use('/video', videoRoute);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

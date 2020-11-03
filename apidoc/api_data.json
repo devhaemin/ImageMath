@@ -793,15 +793,15 @@
   },
   {
     "type": "get",
-    "url": "lecture/student",
-    "title": "학생 전용 수업 목록",
+    "url": "lecture/student/:lectureSeq",
+    "title": "수업별 학생 목록",
     "name": "Get_Student_LectureList",
     "group": "Lecture",
     "permission": [
       {
-        "name": "student",
+        "name": "tutor",
         "title": "User access only",
-        "description": "<p>This optional description belong to to the group student</p>"
+        "description": "<p>This optional description belong to to the group tutor</p>"
       }
     ],
     "header": {
@@ -836,15 +836,15 @@
   },
   {
     "type": "get",
-    "url": "lecture/student/:lectureSeq",
-    "title": "수업별 학생 목록",
+    "url": "lecture/student",
+    "title": "학생 전용 수업 목록",
     "name": "Get_Student_LectureList",
     "group": "Lecture",
     "permission": [
       {
-        "name": "tutor",
+        "name": "student",
         "title": "User access only",
-        "description": "<p>This optional description belong to to the group tutor</p>"
+        "description": "<p>This optional description belong to to the group student</p>"
       }
     ],
     "header": {
@@ -1262,7 +1262,7 @@
   },
   {
     "type": "get",
-    "url": "answer/:questionSeq",
+    "url": "answer/file/:answerSeq",
     "title": "답변 목록",
     "name": "Get_Answer_List_by_questionSeq",
     "group": "QnA",
@@ -1291,7 +1291,7 @@
   },
   {
     "type": "get",
-    "url": "answer/file/:answerSeq",
+    "url": "answer/:questionSeq",
     "title": "답변 목록",
     "name": "Get_Answer_List_by_questionSeq",
     "group": "QnA",
@@ -1448,7 +1448,7 @@
     "groupTitle": "ServerFile"
   },
   {
-    "type": "",
+    "type": "get",
     "url": "file/assignment/answer",
     "title": "과제 답안지 파일 확인",
     "name": "getAssignmentAnswer",
@@ -1489,7 +1489,7 @@
     "groupTitle": "ServerFile"
   },
   {
-    "type": "",
+    "type": "get",
     "url": "file/assignment/ownsubmit",
     "title": "과제 제출된 파일 확인",
     "name": "getOwnAssignmentSubmitFiles",
@@ -1530,7 +1530,7 @@
     "groupTitle": "ServerFile"
   },
   {
-    "type": "",
+    "type": "get",
     "url": "file/test/answer",
     "title": "테스트 답안지 파일 확인",
     "name": "getTestAnswer",
@@ -1562,6 +1562,47 @@
             "optional": false,
             "field": "Int",
             "description": "<p>testSeq 테스 번호</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/contentRoute/serverfile.js",
+    "groupTitle": "ServerFile"
+  },
+  {
+    "type": "get",
+    "url": "file/video/attachedVideo",
+    "title": "비디오 파일 가져오",
+    "name": "getUploadedVideoFile",
+    "group": "ServerFile",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "optional": false,
+            "field": "x-access-token",
+            "description": "<p>사용자 액세스 토큰</p>"
+          }
+        ]
+      }
+    },
+    "permission": [
+      {
+        "name": "normal",
+        "title": "User access only",
+        "description": "<p>This optional description belong to to the group normal</p>"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "optional": false,
+            "field": "Int",
+            "description": "<p>videoSeq 비디오 번호</p>"
           }
         ]
       }
@@ -1640,5 +1681,163 @@
     "version": "0.0.0",
     "filename": "routes/contentRoute/test.js",
     "groupTitle": "Test"
+  },
+  {
+    "type": "delete",
+    "url": "video/:videoSeq",
+    "title": "해당 영상 포스팅 삭제",
+    "name": "deleteVideoFile",
+    "group": "Video",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "optional": false,
+            "field": "x-access-token",
+            "description": "<p>사용자 액세스 토큰</p>"
+          }
+        ]
+      }
+    },
+    "permission": [
+      {
+        "name": "tutor",
+        "title": "User access only",
+        "description": "<p>This optional description belong to to the group tutor</p>"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "optional": false,
+            "field": "Int",
+            "description": "<p>videoSeq 영상 번호</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/contentRoute/video.js",
+    "groupTitle": "Video"
+  },
+  {
+    "type": "get",
+    "url": "video",
+    "title": "비디오 포스팅 리스트",
+    "name": "getVideoPostList",
+    "group": "Video",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "optional": false,
+            "field": "x-access-token",
+            "description": "<p>사용자 액세스 토큰</p>"
+          }
+        ]
+      }
+    },
+    "permission": [
+      {
+        "name": "normal",
+        "title": "User access only",
+        "description": "<p>This optional description belong to to the group normal</p>"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "routes/contentRoute/video.js",
+    "groupTitle": "Video"
+  },
+  {
+    "type": "update",
+    "url": "video/:videoSeq",
+    "title": "영상 포스팅 수정",
+    "name": "modifyVideoFile",
+    "group": "Video",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "optional": false,
+            "field": "x-access-token",
+            "description": "<p>사용자 액세스 토큰</p>"
+          }
+        ]
+      }
+    },
+    "permission": [
+      {
+        "name": "tutor",
+        "title": "User access only",
+        "description": "<p>This optional description belong to to the group tutor</p>"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "optional": false,
+            "field": "Int",
+            "description": "<p>videoSeq 영상 번호</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/contentRoute/video.js",
+    "groupTitle": "Video"
+  },
+  {
+    "type": "MultiPart",
+    "url": "{post}",
+    "title": "video 비디오 포스팅 작성",
+    "name": "postVideoFile",
+    "group": "Video",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "optional": false,
+            "field": "x-access-token",
+            "description": "<p>사용자 액세스 토큰</p>"
+          }
+        ]
+      }
+    },
+    "permission": [
+      {
+        "name": "tutor",
+        "title": "User access only",
+        "description": "<p>This optional description belong to to the group tutor</p>"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "optional": false,
+            "field": "String",
+            "description": "<p>title 제목</p>"
+          },
+          {
+            "group": "Parameter",
+            "optional": false,
+            "field": "Video",
+            "description": "<p>video 영상 파일</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/contentRoute/video.js",
+    "groupTitle": "Video"
   }
 ]

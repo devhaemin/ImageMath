@@ -10,6 +10,7 @@ const BOARD_TEST_ANSWER_FILE = "test-submit-answer"
 const BOARD_QUESTION_ATTACH_FILE = "question-submit-files"
 const BOARD_ANSWER_ATTACH_FILE = "answer-submit-files";
 const BOARD_NOTICE_ATTACH_FILE = 'notice-submit-images';
+const BOARD_VIDEO_ATTACH_VIDEO = 'video-attached';
 
 
 const connection = cUtil.connection;
@@ -21,9 +22,10 @@ router.get("/test/answer",getTestAnswer)
 router.get("/question/attachedFile", getQuestionAttachFile)
 router.get("/answer/attachedFile", getAnswerAttachFile)
 router.get("/notice/attachedFile", getNoticeAttachFile)
+router.get("/video/attachedVideo", getVideoAttachVideo)
 
 /**
- * @api file/assignment/ownsubmit 과제 제출된 파일 확인
+ * @api {get} file/assignment/ownsubmit 과제 제출된 파일 확인
  * @apiName getOwnAssignmentSubmitFiles
  * @apiGroup ServerFile
  * @apiHeader x-access-token 사용자 액세스 토큰
@@ -53,7 +55,7 @@ function getAssignmentSubmitFiles(req, res) {
 }
 
 /**
- * @api file/assignment/answer 과제 답안지 파일 확인
+ * @api {get} file/assignment/answer 과제 답안지 파일 확인
  * @apiName getAssignmentAnswer
  * @apiGroup ServerFile
  * @apiHeader x-access-token 사용자 액세스 토큰
@@ -82,7 +84,7 @@ function getAssignmentAnswer(req, res){
 }
 
 /**
- * @api file/test/answer 테스트 답안지 파일 확인
+ * @api {get} file/test/answer 테스트 답안지 파일 확인
  * @apiName getTestAnswer
  * @apiGroup ServerFile
  * @apiHeader x-access-token 사용자 액세스 토큰
@@ -193,4 +195,34 @@ function getNoticeAttachFile(req, res) {
     }
 
 }
+
+/**
+ * @api {get} file/video/attachedVideo 비디오 파일 가져오
+ * @apiName getUploadedVideoFile
+ * @apiGroup ServerFile
+ * @apiHeader x-access-token 사용자 액세스 토큰
+ * @apiPermission normal
+ * @apiParam Int videoSeq 비디오 번호
+ *
+ *
+ */
+
+function getVideoAttachVideo(req, res){
+    const userInfo = req.userInfo;
+    const videoSeq = req.query.videoSeq;
+    if(userInfo){
+        connection.query("select * from FileInfo where boardType = ? and postSeq = ?", [BOARD_VIDEO_ATTACH_VIDEO, videoSeq],
+            function(err, fileList){
+            if(err){
+                console.log(err);
+                res.status(400).send("File Query Error!");
+            }else{
+                res.status(200).send(fileList);
+            }
+        });
+    }else{
+        res.status(403).send("token error!");
+    }
+}
+
 module.exports = router;
