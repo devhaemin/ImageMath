@@ -197,13 +197,30 @@ function getNoticeAttachFile(req, res) {
 }
 
 /**
- * @api {get} file/video/attachedVideo 비디오 파일 가져오
+ * @api {get} file/video/attachedVideo 비디오 파일 가져오기
  * @apiName getUploadedVideoFile
  * @apiGroup ServerFile
  * @apiHeader x-access-token 사용자 액세스 토큰
  * @apiPermission normal
- * @apiParam Int videoSeq 비디오 번호
+ * @apiParam {Int} videoSeq 비디오 번호
  *
+ * @apiSuccess {Int} fileSeq 파일 번호
+ * @apiSuccess {Int} fileName 파일 이름
+ * @apiSuccess {Int} fileUrl 파일 URL
+ *
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *         "fileSeq" : 13,
+ *         "boardType" : "video-attached",
+ *         "postSeq" : 99,
+ *         "bucket" : "imagemath",
+ *         "fileUrl" : "https://imagemath.s3.ap-northeast-2.amazonaws.com/1604375350638_%EC%84%A4.pdf",
+ *         "fileName" : "1604375350638_설.pdf",
+ *         "fileType" : "video",
+ *         "uploadTime" : 1604375350,
+ *         "userSeq" : 21
+ *     }
  *
  */
 

@@ -41,6 +41,24 @@ router.update('/:videoSeq', modifyVideoFile);
  * @apiHeader x-access-token 사용자 액세스 토큰
  * @apiPermission normal
  *
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
+ *     [
+ *       {
+ *       "videoSeq": 1,
+ *       "title": "동영상 제목",
+ *       "contents": "동영상 내용",
+ *       "uploadTime": 1604383318520,
+ *       "userSeq": 13
+ *       },
+ *       {
+ *       "videoSeq": 2,
+ *       "title": "동영상 두번째 제목",
+ *       "contents": "동영상 내용",
+ *       "uploadTime": 1604383328520,
+ *       "userSeq": 15
+ *       }
+ *     ]
  *
  */
 function getVideoPostList(req, res){
@@ -57,7 +75,9 @@ function getVideoPostList(req, res){
  * @apiParam String contents 내용
  * @apiParam Video video 영상 파일
  *
- *
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {}
  */
 function postVideoFile(req, res){
 
@@ -71,6 +91,9 @@ function postVideoFile(req, res){
  * @apiPermission tutor
  * @apiParam Int videoSeq 영상 번호
  *
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {}
  *
  */
 function deleteVideoPost(req, res){
@@ -85,7 +108,9 @@ function deleteVideoPost(req, res){
  * @apiPermission tutor
  * @apiParam Int videoSeq 영상 번호
  *
- *
+ *@apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {}
  */
 function modifyVideoFile(req, res){
 

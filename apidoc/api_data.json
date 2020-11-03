@@ -1573,7 +1573,7 @@
   {
     "type": "get",
     "url": "file/video/attachedVideo",
-    "title": "비디오 파일 가져오",
+    "title": "비디오 파일 가져오기",
     "name": "getUploadedVideoFile",
     "group": "ServerFile",
     "header": {
@@ -1600,12 +1600,47 @@
         "Parameter": [
           {
             "group": "Parameter",
+            "type": "Int",
             "optional": false,
-            "field": "Int",
-            "description": "<p>videoSeq 비디오 번호</p>"
+            "field": "videoSeq",
+            "description": "<p>비디오 번호</p>"
           }
         ]
       }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Int",
+            "optional": false,
+            "field": "fileSeq",
+            "description": "<p>파일 번호</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Int",
+            "optional": false,
+            "field": "fileName",
+            "description": "<p>파일 이름</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Int",
+            "optional": false,
+            "field": "fileUrl",
+            "description": "<p>파일 URL</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"fileSeq\" : 13,\n    \"boardType\" : \"video-attached\",\n    \"postSeq\" : 99,\n    \"bucket\" : \"imagemath\",\n    \"fileUrl\" : \"https://imagemath.s3.ap-northeast-2.amazonaws.com/1604375350638_%EC%84%A4.pdf\",\n    \"fileName\" : \"1604375350638_설.pdf\",\n    \"fileType\" : \"video\",\n    \"uploadTime\" : 1604375350,\n    \"userSeq\" : 21\n}",
+          "type": "json"
+        }
+      ]
     },
     "version": "0.0.0",
     "filename": "routes/contentRoute/serverfile.js",
@@ -1719,6 +1754,15 @@
         ]
       }
     },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{}",
+          "type": "json"
+        }
+      ]
+    },
     "version": "0.0.0",
     "filename": "routes/contentRoute/video.js",
     "groupTitle": "Video"
@@ -1748,6 +1792,15 @@
         "description": "<p>This optional description belong to to the group normal</p>"
       }
     ],
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n[\n  {\n  \"videoSeq\": 1,\n  \"title\": \"동영상 제목\",\n  \"contents\": \"동영상 내용\",\n  \"uploadTime\": 1604383318520,\n  \"userSeq\": 13\n  },\n  {\n  \"videoSeq\": 2,\n  \"title\": \"동영상 두번째 제목\",\n  \"contents\": \"동영상 내용\",\n  \"uploadTime\": 1604383328520,\n  \"userSeq\": 15\n  }\n]",
+          "type": "json"
+        }
+      ]
+    },
     "version": "0.0.0",
     "filename": "routes/contentRoute/video.js",
     "groupTitle": "Video"
@@ -1788,6 +1841,15 @@
           }
         ]
       }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{}",
+          "type": "json"
+        }
+      ]
     },
     "version": "0.0.0",
     "filename": "routes/contentRoute/video.js",
@@ -1835,6 +1897,15 @@
           }
         ]
       }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{}",
+          "type": "json"
+        }
+      ]
     },
     "version": "0.0.0",
     "filename": "routes/contentRoute/video.js",
