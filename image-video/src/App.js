@@ -1,26 +1,24 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import './App.css';
+import { Route, Link, Switch } from 'react-router-dom';
 
-
-import { Home, Test } from './inc';
+import { Head } from './inc'
 
 class App extends Component {
-  constructor(props){
+  constructor(props) {
     super(props)
     this.state = {
-
     }
   }
+
   render() {
-    return (
-      <div className='App'>
-        <BrowserRouter>
-          <Route path="/" component={Home} exact/>
-          <Route path="/test" component={Test}/>
-        </BrowserRouter>
-      </div>
-    );
+    return(
+    <div>
+        <Head />
+    </div>
+    )
   }
 }
 
 export default App;
+
