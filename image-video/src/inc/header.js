@@ -10,7 +10,7 @@ class header extends Component {
             visible : false,
             id : "",
             password : "",
-            isLogin : '관리자 로그인',
+            isLogin : 'login',
         }
     }
 
@@ -53,6 +53,10 @@ class header extends Component {
         return value ? value[2] : null;
     }
 
+    _deleteCookie = function(name) {
+        document.cookie = name + '=; expires=Thu, 01 Jan 1999 00:00:10 GMT;';
+    }
+
     _emailLogin = function(){
         fetch("http://api-doc.imagemath.kr:3000/auth/login", {
           method: "POST",
@@ -79,6 +83,7 @@ class header extends Component {
               console.log(response.accessToken);
               alert("로그인 되었습니다.")
               this._closeModal();
+              this.setState({isLogin : 'logout'})
             } else{
               alert("조교만 로그인할 수 있습니다.");
             }
@@ -86,16 +91,63 @@ class header extends Component {
           });
     }
 
+    _logOut = function(){
+        this._deleteCookie();
+    }
+
+    _isLogin = function(){
+        fetch('http://api-doc.imagemath.kr:3000/auth/autologin',{
+            method : 'GET',
+            headers : {
+                "x-access-token" : this._getCookie('accessToken')
+            }
+        })
+
+            .then(response => response.json())
+            .then(response => {
+                if(this._getCookie("accessToken") === response.accessToken){
+                    this._deleteCookie('accessToken');
+                    alert('로그아웃 되었습니다');
+                    this.setState({isLogin : 'login'})
+                    console.log(this.response)
+
+                }else {
+                    this._openModal()
+                }
+
+            })
     
-  render() {
-    console.log('아이디 : ' + this.state.id + ', 비밀번호 : ' + this.state.password);
+        }
+
+    _isLoginAlert = function () {
+        fetch('http://api-doc.imagemath.kr:3000/auth/autologin',{
+            method : 'GET',
+            headers: {
+                "x-access-token" : this._getCookie('accessToken')
+            }
+        })
+
+        .then(response => response.json())
+        .then(response => {
+            if(!(this._getCookie('accessToken')===response.accessToken)){
+                alert('로그인 해주세요')
+                this._openModal()
+            }
+            else{
+                
+            }
+        })
+
+    }
+
     
+  render() {    
     
 
     return (
         <div class='header_grid'>
             <div className='acenter'>
-                <h5> <Link to='/write'> 포스트 작성 </Link> </h5>
+                <h5 onClick = {()=>this._isLoginAlert()}> 포스트 작성 </h5>
             </div>
             <div className='acenter'>
                 <Route path='/'/>
@@ -103,7 +155,7 @@ class header extends Component {
             </div>
 
             <div className='acenter'> 
-                <h5 onClick={() => this._openModal()}>관리자 로그인</h5>
+                <h5 onClick={() => this._isLogin()}>{this.state.isLogin}</h5>
                 <Modal visible={this.state.visible} 
                         width="400" 
                         height="350" 
@@ -119,7 +171,7 @@ class header extends Component {
                                 </div>
                                 <div className='login_input_div' style={{'marginTop' : '40px'}}>
                                     <p>관리자 Password</p>
-                                    <input type='text' name='password' onChange={() => this._changePW()}/>
+                                    <input type='password' name='password' onChange={() => this._changePW()}/>
                                 </div>
 
                                 <div className='submit_div'>
