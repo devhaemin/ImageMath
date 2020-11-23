@@ -28,7 +28,7 @@
     "name": "이미지수학 API",
     "title": "이미지 수학 API DOCUMENTATION",
     "description": "이미지 수학 앱 개발을 위한 REST API 문서입니다.",
-    "url": "http://apidoc.imagemath.kr:3000/",
+    "url": "http://api-doc.imagemath.kr:3000/",
     "version": "0.0.0"
   }
 }
