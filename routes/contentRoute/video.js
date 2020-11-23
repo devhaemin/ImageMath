@@ -34,6 +34,7 @@ router.patch('/:videoSeq/:userSeq', modifyVideoPermission);
 router.post('/', upload.single('video'), postVideoFile);
 router.delete('/:videoSeq', deleteVideoPost);
 router.post('/:videoSeq', modifyVideoFile);
+router.get('/:videoSeq/user', getPermissionUserList);
 
 /**
  * @api {get} video/lecture/:lectureSeq 비디오 수업별 포스팅 리스트
@@ -127,6 +128,35 @@ function modifyVideoPermission(req, res) {
             });
     }else{
         res.status(403).send("Token error!");
+    }
+}
+
+/**
+ * @api {get} video/:videoSeq/user 권한을 가진 학생 목록
+ * @apiName getPermissionUserList
+ * @apiGroup Video
+ * @apiHeader x-access-token 사용자 액세스 토큰
+ * @apiPermission tutor
+ *
+ *
+ */
+function getPermissionUserList(req, res) {
+    const userInfo = req.userInfo;
+    const videoSeq = req.params.videoSeq;
+    if (!userInfo) {
+        res.status(403).send("Token Expired!");
+    }else if(userInfo.userType !== 'tutor') {
+        connection.query("SELECT va.*, ui.userSeq, ui.studentCode, ui.birthday, ui.name, ui.phone, ui.gender, ui.registerTime, ui.schoolName FROM VideoAdm AS va JOIN UserInfo AS ui WHERE va.userSeq = ui.userSeq and va.videoSeq = ? ORDER BY ui.userSeq",
+            videoSeq,function (err, videoList) {
+                if (err) {
+                    console.log(err);
+                    res.status(500).send("MySQL Query Error!");
+                } else {
+                    res.status(200).send(videoList);
+                }
+            })
+    }else{
+        res.status(403).send("Token Error!");
     }
 }
 
