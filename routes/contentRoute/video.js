@@ -29,106 +29,10 @@ const upload = multer({
 });
 
 router.get('/', getVideoPostList);
-router.get('/lecture/:lectureSeq', getVideoByLecture);
-router.patch('/:videoSeq/:userSeq', modifyVideoPermission);
 router.post('/', upload.single('video'), postVideoFile);
 router.delete('/:videoSeq', deleteVideoPost);
 router.post('/:videoSeq', modifyVideoFile);
 
-/**
- * @api {get} video/lecture/:lectureSeq 비디오 수업별 포스팅 리스트
- * @apiName getVideoByLecture
- * @apiGroup Video
- * @apiHeader x-access-token 사용자 액세스 토큰
- * @apiPermission normal
- *
- * @apiSuccessExample {json} Success-Response:
- *     HTTP/1.1 200 OK
- *     [
- *       {
- *       "videoSeq": 1,
- *       "title": "동영상 제목",
- *       "contents": "동영상 내용",
- *       "uploadTime": 1604383318520,
- *       "userSeq": 13
- *       },
- *       {
- *       "videoSeq": 2,
- *       "title": "동영상 두번째 제목",
- *       "contents": "동영상 내용",
- *       "uploadTime": 1604383328520,
- *       "userSeq": 15
- *       }
- *     ]
- *
- */
-
-function getVideoByLecture(req, res) {
-    const userInfo = req.userInfo;
-    const lectureSeq = req.lectureSeq;
-    if (!userInfo) {
-        res.status(403).send("Token Expired!");
-    }else if(userInfo.userType !== 'tutor') {
-        connection.query("SELECT va.*, vi.* FROM VideoAdm AS va JOIN Video AS vi WHERE va.userSeq = ? and va.videoSeq = vi.videoSeq and va.hasAccess = 1 and vi.lectureSeq = ? ORDER BY vi.uploadTime desc",
-            [userInfo.userSeq, lectureSeq],function (err, videoList) {
-                if (err) {
-                    console.log(err);
-                    res.status(500).send("MySQL Query Error!");
-                } else {
-                    res.status(200).send(videoList);
-                }
-            })
-    }else{
-        connection.query("SELECT va.*, vi.* FROM VideoAdm AS va JOIN Video AS vi WHERE va.videoSeq = vi.videoSeq and vi.lectureSeq = ? ORDER BY vi.uploadTime desc",
-            [lectureSeq],function (err, videoList) {
-                if (err) {
-                    console.log(err);
-                    res.status(500).send("MySQL Query Error!");
-                } else {
-                    res.status(200).send(videoList);
-                }
-            })
-    }
-}
-
-
-/**
- * @api {patch} video/:videoSeq/user 비디오 접근 권한 수정
- * @apiName modifyVideoPermission
- * @apiGroup Video
- * @apiHeader x-access-token 사용자 액세스 토큰
- * @apiPermission tutor
- *
- * @apiParam {Number} videoSeq
- * @apiParam {Number} userSeq
- * @apiParam {Number} hasAccess // 0 : false, 1 : true
- *
- * @apiSuccessExample {json} Success-Response:
- *     HTTP/1.1 200 OK
- *     {}
- *
- */
-function modifyVideoPermission(req, res) {
-    const userInfo = req.userInfo;
-    const videoSeq = req.params.videoSeq;
-    const userSeq = req.params.userSeq;
-    const hasAccess = req.body.hasAccess;
-
-    if (!userInfo) {
-        res.status(403).send("Token Expired!");
-    }else if(userInfo.userType !== 'tutor') {
-            connection.query("INSERT INTO VideoAdm (videoSeq, userSeq,hasAccess) VALUES (?,?,?) ON DUPLICATE KEY UPDATE hasAccess = ?",[videoSeq, userSeq, hasAccess, hasAccess], function (err, result) {
-                if(err){
-                    console.log(err);
-                    res.status(500).send({"message" : "Internal MySQL Error!"});
-                }else{
-                    res.status(200);
-                }
-            });
-    }else{
-        res.status(403).send("Token error!");
-    }
-}
 
 /**
  * @api {get} video 비디오 포스팅 리스트
@@ -161,19 +65,9 @@ function getVideoPostList(req, res) {
     const userInfo = req.userInfo;
     if (!userInfo) {
         res.status(403).send("Token Expired!");
-    }else if(userInfo.userType !== 'tutor') {
-        connection.query("SELECT va.*, vi.* FROM VideoAdm AS va JOIN Video AS vi WHERE va.userSeq = ? and va.videoSeq = vi.videoSeq and va.hasAccess = 1 ORDER BY vi.uploadTime desc",
-            userInfo.userSeq,function (err, videoList) {
-                if (err) {
-                    console.log(err);
-                    res.status(500).send("MySQL Query Error!");
-                } else {
-                    res.status(200).send(videoList);
-                }
-            })
-    }else{
-        connection.query("SELECT va.*, vi.* FROM VideoAdm AS va JOIN Video AS vi WHERE va.videoSeq = vi.videoSeq ORDER BY vi.uploadTime desc",
-            userInfo.userSeq,function (err, videoList) {
+    } else {
+        connection.query("SELECT * FROM Video ORDER BY uploadTime desc",
+            function (err, videoList) {
                 if (err) {
                     console.log(err);
                     res.status(500).send("MySQL Query Error!");
@@ -214,6 +108,7 @@ function postVideoFile(req, res) {
                 "userSeq": userInfo.userSeq,
                 "uploadTime": Date.now()
             }
+
             connection.query('INSERT INTO Video SET ?', params,
                 function (err, result) {
                     if (err) {
