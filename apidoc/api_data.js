@@ -1902,7 +1902,7 @@ define({ "api": [
   },
   {
     "type": "patch",
-    "url": "video/:videoSeq/user",
+    "url": "video/:videoSeq/:userSeq",
     "title": "비디오 접근 권한 수정",
     "name": "modifyVideoPermission",
     "group": "Video",

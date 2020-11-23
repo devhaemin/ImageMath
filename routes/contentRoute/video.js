@@ -93,7 +93,7 @@ function getVideoByLecture(req, res) {
 
 
 /**
- * @api {patch} video/:videoSeq/user 비디오 접근 권한 수정
+ * @api {patch} video/:videoSeq/:userSeq 비디오 접근 권한 수정
  * @apiName modifyVideoPermission
  * @apiGroup Video
  * @apiHeader x-access-token 사용자 액세스 토큰
