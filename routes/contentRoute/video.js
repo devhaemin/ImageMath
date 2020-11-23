@@ -29,7 +29,7 @@ const upload = multer({
 });
 
 router.get('/', getVideoPostList);
-router.post('/', upload.single('video') ,postVideoFile);
+router.post('/', upload.single('video'), postVideoFile);
 router.delete('/:videoSeq', deleteVideoPost);
 router.post('/:videoSeq', modifyVideoFile);
 
@@ -61,20 +61,20 @@ router.post('/:videoSeq', modifyVideoFile);
  *     ]
  *
  */
-function getVideoPostList(req, res){
+function getVideoPostList(req, res) {
     const userInfo = req.userInfo;
-    if(!userInfo){
+    if (!userInfo) {
         res.status(403).send("Token Expired!");
-    }else{
+    } else {
         connection.query("SELECT * FROM Video ORDER BY uploadTime desc",
             function (err, videoList) {
-            if(err){
-                console.log(err);
-                res.status(500).send("MySQL Query Error!");
-            }else{
-                res.status(200).send(videoList);
-            }
-        })
+                if (err) {
+                    console.log(err);
+                    res.status(500).send("MySQL Query Error!");
+                } else {
+                    res.status(200).send(videoList);
+                }
+            })
     }
 }
 
@@ -92,37 +92,43 @@ function getVideoPostList(req, res){
  *     HTTP/1.1 200 OK
  *     {}
  */
-function postVideoFile(req, res){
+function postVideoFile(req, res) {
     const userInfo = req.userInfo;
 
     console.log(req.file);
+    if (req.file) {
+        if (!userInfo) {
+            res.status(403).send("Token Expired!");
+        } else if (userInfo.userType !== "tutor") {
+            res.status(403).send("Only tutor can post");
+        } else {
+            const params = {
+                "title": req.body.title,
+                "contents": req.body.contents,
+                "userSeq": userInfo.userSeq,
+                "uploadTime": Date.now()
+            }
 
-    if(!userInfo){
-        res.status(403).send("Token Expired!");
-    }else if(userInfo.userType !== "tutor"){
-        res.status(403).send("Only tutor can post");
-    }else{
-        const params = {
-            "title" : req.body.title,
-            "contents" : req.body.contents,
-            "userSeq" : userInfo.userSeq,
-            "uploadTime" : Date.now()
+            connection.query('INSERT INTO Video SET ?', params,
+                function (err, result) {
+                    if (err) {
+                        console.log(err);
+                        res.status(500).send("MySQL Query Error!");
+                    } else {
+                        console.log(result);
+                        insertVideoFileInfo(userInfo, result.insertId, req.file);
+                        res.status(200).send({});
+                    }
+                });
         }
-
-        connection.query('INSERT INTO Video SET ?', params,
-            function (err, result) {
-                if(err){
-                    console.log(err);
-                    res.status(500).send("MySQL Query Error!");
-                }else{
-                    console.log(result);
-                    insertVideoFileInfo(userInfo, result.insertId, req.file);
-                    res.status(200).send({});
-                }
-        });
+    } else {
+        res.status(400).send({"message": "Please upload with file"});
     }
+
 }
-function insertVideoFileInfo(userInfo, videoSeq, file){
+
+function insertVideoFileInfo(userInfo, videoSeq, file) {
+
     const fileParams = {
         boardType: BOARD_VIDEO_ATTACH_VIDEO,
         postSeq: videoSeq,
@@ -135,10 +141,11 @@ function insertVideoFileInfo(userInfo, videoSeq, file){
     };
     connection.query('INSERT INTO FileInfo SET ?', fileParams,
         function (err, result) {
-            if(err){
+            if (err) {
                 console.log(err);
             }
         })
+
 }
 
 /**
@@ -154,31 +161,32 @@ function insertVideoFileInfo(userInfo, videoSeq, file){
  *     {}
  *
  */
-function deleteVideoPost(req, res){
+function deleteVideoPost(req, res) {
     const userInfo = req.userInfo;
     const videoSeq = req.params.videoSeq;
-    if(!userInfo){
+    if (!userInfo) {
         res.status(403).send("Token Expired!");
-    }else{
+    } else {
         connection.query('delete from FileInfo where postSeq = ?', videoSeq,
-                function(err, result){
-                if(err){
+            function (err, result) {
+                if (err) {
                     console.log(err);
-                }else{
+                } else {
 
                 }
-                }
-            );
+            }
+        );
         connection.query('delete from Video where videoSeq = ?', videoSeq,
             function (err, result) {
-                if(err){
+                if (err) {
                     console.log(err);
-                }else{
+                } else {
                     res.status(200).send({});
                 }
             });
     }
 }
+
 /**
  * @api {post} video/:videoSeq 영상 포스팅 수정
  * @apiName modifyVideoFile
@@ -191,13 +199,9 @@ function deleteVideoPost(req, res){
  *     HTTP/1.1 200 OK
  *     {}
  */
-function modifyVideoFile(req, res){
+function modifyVideoFile(req, res) {
 
 }
-
-
-
-
 
 
 module.exports = router;
