@@ -2005,7 +2005,7 @@
   },
   {
     "type": "MultiPart",
-    "url": "video",
+    "url": "video/:lectureSeq",
     "title": "비디오 포스팅 작성",
     "name": "postVideoFile",
     "group": "Video",
@@ -2033,15 +2033,31 @@
         "Parameter": [
           {
             "group": "Parameter",
+            "type": "Number",
             "optional": false,
-            "field": "String",
-            "description": "<p>title 제목</p>"
+            "field": "lectureSeq",
+            "description": "<p>수업 시퀀스 번호</p>"
           },
           {
             "group": "Parameter",
+            "type": "String",
             "optional": false,
-            "field": "Video",
-            "description": "<p>video 영상 파일</p>"
+            "field": "title",
+            "description": "<p>제목</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "contents",
+            "description": "<p>내용</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Video",
+            "optional": false,
+            "field": "video",
+            "description": "<p>영상 파일</p>"
           }
         ]
       }

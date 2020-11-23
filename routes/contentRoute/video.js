@@ -251,14 +251,15 @@ function getVideoPostList(req, res) {
 }
 
 /**
- * @api {MultiPart} video 비디오 포스팅 작성
+ * @api {MultiPart} video/:lectureSeq 비디오 포스팅 작성
  * @apiName postVideoFile
  * @apiGroup Video
  * @apiHeader x-access-token 사용자 액세스 토큰
  * @apiPermission tutor
- * @apiParam String title 제목
- * @apiParam String contents 내용
- * @apiParam Video video 영상 파일
+ * @apiParam {Number} lectureSeq 수업 시퀀스 번호
+ * @apiParam {String} title 제목
+ * @apiParam {String} contents 내용
+ * @apiParam {Video} video 영상 파일
  *
  * @apiSuccessExample {json} Success-Response:
  *     HTTP/1.1 200 OK
@@ -280,7 +281,8 @@ function postVideoFile(req, res) {
                 "title": req.body.title,
                 "contents": req.body.contents,
                 "userSeq": userInfo.userSeq,
-                "uploadTime": Date.now()
+                "uploadTime": Date.now(),
+                "lectureSeq" : req.body.lectureSeq
             }
             connection.query('INSERT INTO Video SET ?', params,
                 function (err, result) {
