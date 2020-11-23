@@ -800,15 +800,15 @@ define({ "api": [
   },
   {
     "type": "get",
-    "url": "lecture/student/:lectureSeq",
-    "title": "수업별 학생 목록",
+    "url": "lecture/student",
+    "title": "학생 전용 수업 목록",
     "name": "Get_Student_LectureList",
     "group": "Lecture",
     "permission": [
       {
-        "name": "tutor",
+        "name": "student",
         "title": "User access only",
-        "description": "<p>This optional description belong to to the group tutor</p>"
+        "description": "<p>This optional description belong to to the group student</p>"
       }
     ],
     "header": {
@@ -843,15 +843,15 @@ define({ "api": [
   },
   {
     "type": "get",
-    "url": "lecture/student",
-    "title": "학생 전용 수업 목록",
+    "url": "lecture/student/:lectureSeq",
+    "title": "수업별 학생 목록",
     "name": "Get_Student_LectureList",
     "group": "Lecture",
     "permission": [
       {
-        "name": "student",
+        "name": "tutor",
         "title": "User access only",
-        "description": "<p>This optional description belong to to the group student</p>"
+        "description": "<p>This optional description belong to to the group tutor</p>"
       }
     ],
     "header": {
@@ -1776,6 +1776,44 @@ define({ "api": [
   },
   {
     "type": "get",
+    "url": "video/lecture/:lectureSeq",
+    "title": "비디오 수업별 포스팅 리스트",
+    "name": "getVideoByLecture",
+    "group": "Video",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "optional": false,
+            "field": "x-access-token",
+            "description": "<p>사용자 액세스 토큰</p>"
+          }
+        ]
+      }
+    },
+    "permission": [
+      {
+        "name": "normal",
+        "title": "User access only",
+        "description": "<p>This optional description belong to to the group normal</p>"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n[\n  {\n  \"videoSeq\": 1,\n  \"title\": \"동영상 제목\",\n  \"contents\": \"동영상 내용\",\n  \"uploadTime\": 1604383318520,\n  \"userSeq\": 13\n  },\n  {\n  \"videoSeq\": 2,\n  \"title\": \"동영상 두번째 제목\",\n  \"contents\": \"동영상 내용\",\n  \"uploadTime\": 1604383328520,\n  \"userSeq\": 15\n  }\n]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "routes/contentRoute/video.js",
+    "groupTitle": "Video"
+  },
+  {
+    "type": "get",
     "url": "video",
     "title": "비디오 포스팅 리스트",
     "name": "getVideoPostList",
@@ -1845,6 +1883,71 @@ define({ "api": [
             "optional": false,
             "field": "Int",
             "description": "<p>videoSeq 영상 번호</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "routes/contentRoute/video.js",
+    "groupTitle": "Video"
+  },
+  {
+    "type": "patch",
+    "url": "video/:videoSeq/user",
+    "title": "비디오 접근 권한 수정",
+    "name": "modifyVideoPermission",
+    "group": "Video",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "optional": false,
+            "field": "x-access-token",
+            "description": "<p>사용자 액세스 토큰</p>"
+          }
+        ]
+      }
+    },
+    "permission": [
+      {
+        "name": "tutor",
+        "title": "User access only",
+        "description": "<p>This optional description belong to to the group tutor</p>"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "videoSeq",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "userSeq",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "hasAccess",
+            "description": "<p>// 0 : false, 1 : true</p>"
           }
         ]
       }
