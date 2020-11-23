@@ -279,7 +279,7 @@ async function postVideoFile(req, res) {
                 "contents": req.body.contents,
                 "userSeq": userInfo.userSeq,
                 "uploadTime": Date.now(),
-                "lectureSeq" : req.body.lectureSeq
+                "lectureSeq" : req.params.lectureSeq
             }
             connection.query('INSERT INTO Video SET ?', params,
                 async function (err, result) {
