@@ -64,7 +64,7 @@ router.get('/:videoSeq/user', getPermissionUserList);
 
 function getVideoByLecture(req, res) {
     const userInfo = req.userInfo;
-    const lectureSeq = req.lectureSeq;
+    const lectureSeq = req.params.lectureSeq;
     if (!userInfo) {
         res.status(403).send("Token Expired!");
     }else if(userInfo.userType !== 'tutor') {
@@ -78,7 +78,7 @@ function getVideoByLecture(req, res) {
                 }
             })
     }else{
-        connection.query("SELECT va.*, vi.* FROM VideoAdm AS va JOIN Video AS vi WHERE va.videoSeq = vi.videoSeq and vi.lectureSeq = ? ORDER BY vi.uploadTime desc",
+        connection.query("SELECT vi.* FROM Video AS vi WHERE vi.lectureSeq = ? ORDER BY vi.uploadTime desc",
             [lectureSeq],function (err, videoList) {
                 if (err) {
                     console.log(err);
