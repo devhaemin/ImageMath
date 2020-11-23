@@ -31,9 +31,8 @@ const upload = multer({
 router.get('/', getVideoPostList);
 router.get('/lecture/:lectureSeq', getVideoByLecture);
 router.patch('/:videoSeq/:userSeq', modifyVideoPermission);
-router.post('/', upload.single('video'), postVideoFile);
+router.post('/:lectureSeq', upload.single('video'), postVideoFile);
 router.delete('/:videoSeq', deleteVideoPost);
-router.post('/:videoSeq', modifyVideoFile);
 router.get('/:videoSeq/user', getPermissionUserList);
 
 /**
@@ -365,22 +364,6 @@ function deleteVideoPost(req, res) {
                 }
             });
     }
-}
-
-/**
- * @api {post} video/:videoSeq 영상 포스팅 수정
- * @apiName modifyVideoFile
- * @apiGroup Video
- * @apiHeader x-access-token 사용자 액세스 토큰
- * @apiPermission tutor
- * @apiParam Int videoSeq 영상 번호
- *
- *@apiSuccessExample {json} Success-Response:
- *     HTTP/1.1 200 OK
- *     {}
- */
-function modifyVideoFile(req, res) {
-
 }
 
 
