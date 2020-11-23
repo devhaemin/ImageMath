@@ -1799,6 +1799,15 @@ define({ "api": [
         "description": "<p>This optional description belong to to the group tutor</p>"
       }
     ],
+    "success": {
+      "examples": [
+        {
+          "title": "HTTP/1.1 200 OK",
+          "content": "HTTP/1.1 200 OK\n[\n{\n   \"userSeq\": 15,\n   \"name\": \"조교\",\n   \"birthday\": \"2000-12-12\",\n   \"email\": \"tutor@gmail.com\",\n   \"password\": \"~~~\",\n   \"accessToken\": \"eyJhbGciOiJIUzK3OPQ9.dHV0b3JAZ21haWwuY29t.fI1CeHpLshyHcLMf3M06US\",\n   \"fcmToken\": null,\n   \"gender\": 0,\n   \"salt\": \"~~~\",\n   \"userType\": \"tutor\",\n   \"phone\": \"01012345678\",\n   \"studentCode\": \"0000000\",\n   \"schoolName\": \"00고\",\n   \"registerTime\": 1589603903081\n},\n{\n   \"userSeq\": 15,\n   \"name\": \"조교\",\n   \"birthday\": \"2000-12-12\",\n   \"email\": \"tutor@gmail.com\",\n   \"password\": \"~~~\",\n   \"accessToken\": \"eyJhbGciOiJIUzK3OPQ9.dHV0b3JAZ21haWwuY29t.fI1CeHpLshyHcLMf3M06US\",\n   \"fcmToken\": null,\n   \"gender\": 0,\n   \"salt\": \"~~~\",\n   \"userType\": \"tutor\",\n   \"phone\": \"01012345678\",\n   \"studentCode\": \"0000000\",\n   \"schoolName\": \"00고\",\n   \"registerTime\": 1589603903081\n}\n]",
+          "type": "json"
+        }
+      ]
+    },
     "version": "0.0.0",
     "filename": "routes/contentRoute/video.js",
     "groupTitle": "Video"

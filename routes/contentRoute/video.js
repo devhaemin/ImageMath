@@ -138,6 +138,42 @@ function modifyVideoPermission(req, res) {
  * @apiHeader x-access-token 사용자 액세스 토큰
  * @apiPermission tutor
  *
+ * @apiSuccessExample
+ * HTTP/1.1 200 OK
+ * [
+ * {
+ *    "userSeq": 15,
+ *    "name": "조교",
+ *    "birthday": "2000-12-12",
+ *    "email": "tutor@gmail.com",
+ *    "password": "~~~",
+ *    "accessToken": "eyJhbGciOiJIUzK3OPQ9.dHV0b3JAZ21haWwuY29t.fI1CeHpLshyHcLMf3M06US",
+ *    "fcmToken": null,
+ *    "gender": 0,
+ *    "salt": "~~~",
+ *    "userType": "tutor",
+ *    "phone": "01012345678",
+ *    "studentCode": "0000000",
+ *    "schoolName": "00고",
+ *    "registerTime": 1589603903081
+ * },
+ * {
+ *    "userSeq": 15,
+ *    "name": "조교",
+ *    "birthday": "2000-12-12",
+ *    "email": "tutor@gmail.com",
+ *    "password": "~~~",
+ *    "accessToken": "eyJhbGciOiJIUzK3OPQ9.dHV0b3JAZ21haWwuY29t.fI1CeHpLshyHcLMf3M06US",
+ *    "fcmToken": null,
+ *    "gender": 0,
+ *    "salt": "~~~",
+ *    "userType": "tutor",
+ *    "phone": "01012345678",
+ *    "studentCode": "0000000",
+ *    "schoolName": "00고",
+ *    "registerTime": 1589603903081
+ * }
+ * ]
  *
  */
 function getPermissionUserList(req, res) {
