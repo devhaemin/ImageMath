@@ -2012,7 +2012,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{}",
+          "content": "HTTP/1.1 200 OK\n{\n\"insertId\" : 14,\n...\n}",
           "type": "json"
         }
       ]

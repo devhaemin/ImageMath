@@ -196,11 +196,13 @@ function getVideoPostList(req, res) {
  *
  * @apiSuccessExample {json} Success-Response:
  *     HTTP/1.1 200 OK
- *     {}
+ *     {
+ *     "insertId" : 14,
+ *     ...
+ *     }
  */
 function postVideoFile(req, res) {
     const userInfo = req.userInfo;
-
     console.log(req.file);
     if (req.file) {
         if (!userInfo) {
@@ -222,7 +224,7 @@ function postVideoFile(req, res) {
                     } else {
                         console.log(result);
                         insertVideoFileInfo(userInfo, result.insertId, req.file);
-                        res.status(200).send({});
+                        res.status(200).send(result);
                     }
                 });
         }
