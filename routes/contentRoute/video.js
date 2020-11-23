@@ -268,7 +268,7 @@ function getVideoPostList(req, res) {
  *     ...
  *     }
  */
-function postVideoFile(req, res) {
+async function postVideoFile(req, res) {
     const userInfo = req.userInfo;
     console.log(req.file);
     if (req.file) {
@@ -285,13 +285,13 @@ function postVideoFile(req, res) {
                 "lectureSeq" : req.body.lectureSeq
             }
             connection.query('INSERT INTO Video SET ?', params,
-                function (err, result) {
+                async function (err, result) {
                     if (err) {
                         console.log(err);
                         res.status(500).send("MySQL Query Error!");
                     } else {
                         console.log(result);
-                        insertVideoFileInfo(userInfo, result.insertId, req.file);
+                        await insertVideoFileInfo(userInfo, result.insertId, req.file);
                         res.status(200).send(result);
                     }
                 });
@@ -303,23 +303,28 @@ function postVideoFile(req, res) {
 }
 
 function insertVideoFileInfo(userInfo, videoSeq, file) {
+    return new Promise(function(resolve, reject){
+        const fileParams = {
+            boardType: BOARD_VIDEO_ATTACH_VIDEO,
+            postSeq: videoSeq,
+            bucket: 'imagemath',
+            fileUrl: file.location,
+            fileName: file.key,
+            fileType: 'video',
+            uploadTime: Math.floor(new Date().getTime() / 1000),
+            userSeq: userInfo.userSeq
+        };
+        connection.query('INSERT INTO FileInfo SET ?', fileParams,
+            function (err, result) {
+                if (err) {
+                    console.log(err);
+                    reject(err);
+                }else{
+                    resolve(result);
+                }
+            })
 
-    const fileParams = {
-        boardType: BOARD_VIDEO_ATTACH_VIDEO,
-        postSeq: videoSeq,
-        bucket: 'imagemath',
-        fileUrl: file.location,
-        fileName: file.key,
-        fileType: 'video',
-        uploadTime: Math.floor(new Date().getTime() / 1000),
-        userSeq: userInfo.userSeq
-    };
-    connection.query('INSERT INTO FileInfo SET ?', fileParams,
-        function (err, result) {
-            if (err) {
-                console.log(err);
-            }
-        })
+    });
 
 }
 
