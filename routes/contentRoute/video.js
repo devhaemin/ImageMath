@@ -296,7 +296,7 @@ async function postVideoFile(req, res) {
                 });
         }
     } else {
-        console.log("No File!");
+        console.log(req);
         res.status(400).send({"message": "Please upload with file"});
     }
 
