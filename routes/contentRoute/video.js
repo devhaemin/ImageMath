@@ -18,7 +18,6 @@ const upload = multer({
         bucket: 'imagemath',
         ContentType: multerS3.AUTO_CONTENT_TYPE,
         key: (req, file, cb) => {
-            console.log(file);
             let str = file.originalname;
             let res = str.substring(str.length - 5, str.length);
             cb(null, Date.now() + "_" + res);
@@ -269,7 +268,6 @@ function getVideoPostList(req, res) {
  */
 async function postVideoFile(req, res) {
     const userInfo = req.userInfo;
-    console.log(req.file);
     if (req.file) {
         if (!userInfo) {
             res.status(403).send("Token Expired!");
@@ -296,7 +294,6 @@ async function postVideoFile(req, res) {
                 });
         }
     } else {
-        console.log(req);
         res.status(400).send({"message": "Please upload with file"});
     }
 
