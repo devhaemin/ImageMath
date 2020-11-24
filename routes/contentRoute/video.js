@@ -115,7 +115,7 @@ function modifyVideoPermission(req, res) {
 
     if (!userInfo) {
         res.status(403).send("Token Expired!");
-    }else if(userInfo.userType !== 'tutor') {
+    }else if(userInfo.userType === 'tutor') {
             connection.query("INSERT INTO VideoAdm (videoSeq, userSeq,hasAccess) VALUES (?,?,?) ON DUPLICATE KEY UPDATE hasAccess = ?",[videoSeq, userSeq, hasAccess, hasAccess], function (err, result) {
                 if(err){
                     console.log(err);
