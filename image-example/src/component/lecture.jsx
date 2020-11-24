@@ -8,6 +8,7 @@ export class Lecture extends Component {
         this.state = {
             lecture:[],
         }
+
     }
 
     componentDidMount() {

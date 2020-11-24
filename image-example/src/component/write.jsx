@@ -47,8 +47,12 @@ export class Write extends Component {
                 .then(response => {
                     if (response.status === 200) {
                         alert('포스트가 등록되었습니다')
+                        this.props.history.goBack()
+
                     } else {
                         alert("포스트 등록에 실패하였습니다.")
+                        this.props.history.goBack()
+
                     }
                     return response
                 })

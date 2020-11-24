@@ -18,7 +18,6 @@ class Video extends Component {
     }
 
 
-
     _getVideoList = function (){
         const board_id = this.props.match.params.lectureSeq;
 
@@ -28,13 +27,20 @@ class Video extends Component {
                 'x-access-token': _getAccessToken()
             }
         })
-            .then(response => response.json())
+            .then(response => {
+                if (response.status === 200) {
+                    return response.json()
+                } else {
+                    alert("조교만 로그인 할 수 있습니다. 다시 로그인 해주세요")
+                }
+            })
             .then(response => {
                 this.setState({
                     videos: response
                 })
-                if(this.state.videos.length===0) {
-                    alert('영상이 없습니다')
+                if (response.length===0) {
+                    alert('비디오 목록이 없습니다.');
+                    this.props.history.goBack()
                 }
             })
     }
@@ -49,14 +55,15 @@ class Video extends Component {
                 {list ? list.map((video) => {
                     const video_view_url = '/video_view/'+this.props.match.params.lectureSeq+'/' + video.videoSeq
                         return(
-                            <div className={'student_list'} key={video.videoSeq}>
-                                <div className={'student_seq'}> <Link className={'link'} to={video_view_url} style={{ textDecoration: 'none' }}>{video.videoSeq}</Link></div>
-                                <div>
+                            <div className={'lecture_list'} key={video.videoSeq}>
+                                <div className={'green_font'}>{video.videoSeq}</div>
+                                <div className={'video_title'}>
                                     <Link className={'link'} to={video_view_url} style={{ textDecoration: 'none' }}>{video.title}</Link>
                                 </div>
-                                <div>
+                                <div className={'video_content'}>
                                     <Link className={'link'} to={video_view_url} style={{ textDecoration: 'none' }}>{video.contents}</Link>
                                 </div>
+
                             </div>
                         )
                     })

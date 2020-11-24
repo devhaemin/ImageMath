@@ -86,6 +86,16 @@
     color: #28948d;
 }
 
+.video_title{
+    width: 50%;
+    padding-left: 50px;
+}
+
+.video_content{
+    width: 50%;
+}
+
+
 .student_list{
     display: flex;
     justify-content: space-around;
@@ -103,4 +113,45 @@
     height: 25px;
 }
 
+.video_view_btn{
+    display: flex;
+    flex-direction: row-reverse;
+    padding-right: 20px;
+}
+
+.download_btn{
+    padding: 5px;
+    color: white;
+    font-size: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: solid 1px #28948d;
+    background-color: #28948d;
+    font-family: 나눔고딕;
+    text-decoration: none;
+}
+
+.video_view_title{
+    display: flex;
+    justify-content: space-between;
+}
+
+.list_title{
+    padding: 10px 10px 30px 70px;
+    font-family: 나눔고딕;
+    font-size: 25px;
+    color: #28948d;
+}
+.list_access{
+    padding: 15px 30px 30px 10px;
+    font-family: 나눔고딕;
+    font-size: 20px;
+    color: #28948d;
+}
+
+.video_list{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px 10px 30px;
+}
 

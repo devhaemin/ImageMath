@@ -9,18 +9,20 @@ class VideoView extends Component {
             data: '',
             video: '',
             students : [],
-            checkedStudentSeq : []
+            accessStudentSeq : []
         }
         this._deleteVideo = this._deleteVideo.bind(this);
         this._getVideo = this._getVideo.bind(this);
+        this._isChecked = this._isChecked.bind(this);
     }
 
     componentDidMount() {
         this.setState({
             token : _getAccessToken()
         })
-        this._getVideo()
+        this._getVideo();
         this._getStudentList();
+        this._accessStudent();
     }
 
     _deleteVideo = function (){
@@ -32,14 +34,13 @@ class VideoView extends Component {
                 'x-access-token': _getAccessToken()
             }
         })
-            .then(response => response.json())
             .then(response => {
-                console.log(response)
                 if(response.status===200){
-                    return response
-                    alert('삭제가 완료되었습니다')
+                    alert('삭제되었습니다')
+                    this.props.history.goBack()
                 }
             })
+
     }
 
     _getVideo = function () {
@@ -53,11 +54,9 @@ class VideoView extends Component {
             .then(response => response.json())
 
             .then(response => {
-                console.log(response)
                 this.setState({
                     video : response[0].fileUrl
                 })
-                console.log(this.state.video)
             })
     }
 
@@ -72,15 +71,62 @@ class VideoView extends Component {
         })
             .then(response => response.json())
             .then(response => {
-                console.log(response)
                 this.setState({
                     students: response
                 })
+                console.log(response)
             })
     }
 
-    _isChecked = function (){
-        
+    _isChecked = function (e){
+        if(e.target.checked) {
+            this.state.ischecked = true
+        } else{
+            this.state.ischecked = false
+        }
+
+
+        const videoSeq = this.props.match.params.videoSeq;
+        const userSeq = e.target.value;
+        const hasAccess = this.state.ischecked
+
+        fetch(`http://api-doc.imagemath.kr:3000/video/${videoSeq}/${userSeq}`,{
+            method :'PATCH',
+            headers: {
+                'x-access-token': _getAccessToken()
+            },
+            body: JSON.stringify({
+                hasAccess : hasAccess
+            }),
+        })
+            .then(response=> response.json())
+            .then(response => {
+                console.log(response)
+            })
+    }
+
+    _accessStudent = function (){
+        const videoSeq = this.props.match.params.videoSeq;
+
+        fetch(`http://api-doc.imagemath.kr:3000/video/${videoSeq}/user`,{
+            headers: {
+                'x-access-token': _getAccessToken()
+            },
+        })
+            .then(response => response.json())
+            .then(response => {
+                const list = response;
+                list.map((accessStudent) => {
+                    this.state.accessStudentSeq.push(accessStudent.userSeq)
+                })
+                console.log(this.state.accessStudentSeq)
+            })
+    }
+
+    _isAccess=function (userSeq){
+        this.state.accessStudentSeq.map((accessStudent)=>{
+            if(accessStudent===userSeq) return true
+        })
     }
 
 
@@ -90,20 +136,33 @@ class VideoView extends Component {
         return (
             <div>
                 <div>
-                    <video width={'350px'} height={'300px'} controls>
+                    <video width={'100%'} height={'100%'} controls>
                         <source src={this.state.video} type="video/mp4"/>
                     </video>
                 </div>
-                <a href={this.state.video}>다운로드</a>
-                <button onClick={this._deleteVideo}>삭제</button>
+                <div className={'video_view_btn'}>
+                    <a className={'download_btn'} href={this.state.video}>다운로드</a>
+                    <button className={'download_btn'} onClick={this._deleteVideo}>삭제</button>
+                </div>
+
+                <div className={'video_view_title'}>
+                    <div></div>
+                    <div className={'list_title'}>학생 목록</div>
+                    <div className={'list_access'}>권한</div>
+                </div>
+
+
                 {list ? list.map((student) => {
                         return(
-                            <div className={'student_list'} key={student.userSeq}>
-                                <div className={'student_seq'}>{student.userSeq}</div>
+                            <div className={'video_list'} key={student.userSeq}>
+                                <div>{student.userSeq}</div>
                                 <div>
                                     {student.name}
                                 </div>
-                                <div><input className={'checkbox'} type={'checkbox'} /></div>
+                                {this._isAccess(student.userSeq)
+                                    ? <div className={'std_checkbox'}><input type={'checkbox'} className={'checkbox'} value={student.userSeq} onChange={this._isChecked} checked/></div>
+                                    : <div><input type={'checkbox'} className={'checkbox'} value={student.userSeq} onChange={this._isChecked} /></div>
+                                }
                             </div>
                         )
                     })
