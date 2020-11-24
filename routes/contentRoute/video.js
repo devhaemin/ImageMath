@@ -179,7 +179,7 @@ function getPermissionUserList(req, res) {
     const videoSeq = req.params.videoSeq;
     if (!userInfo) {
         res.status(403).send("Token Expired!");
-    }else if(userInfo.userType !== 'tutor') {
+    }else if(userInfo.userType === 'tutor') {
         connection.query("SELECT va.*, ui.userSeq, ui.studentCode, ui.birthday, ui.name, ui.phone, ui.gender, ui.registerTime, ui.schoolName FROM VideoAdm AS va JOIN UserInfo AS ui WHERE va.userSeq = ui.userSeq and va.videoSeq = ? ORDER BY ui.userSeq",
             videoSeq,function (err, videoList) {
                 if (err) {
