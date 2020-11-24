@@ -1,0 +1,51 @@
+.header_grid{
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.logo_img{
+  padding-top: 20px;
+}
+
+.login_tit{
+  display: flex;
+  justify-content: center;
+  padding-bottom: 15px;
+  border-bottom: solid 5px #28948d;
+}
+
+.login_input {
+  display: flex;
+  flex-direction: column;
+  padding: 0 15px 0 15px;
+}
+
+.login_input p{
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.login_sub{
+  display: flex;
+  justify-content: space-around;
+  padding-top: 27px;
+}
+
+.login_button{
+  font-size: 25px;
+  font-family: 나눔고딕;
+  color: #28948d;
+}
+
+
+.modal_btn{
+  background: #28948d;
+  color: #fff;
+  border: none;
+  cursor:pointer;
+  width: 60px;
+  height: 30px;
+  border-radius: 3px;
+
+}
