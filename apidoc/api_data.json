@@ -1814,6 +1814,44 @@
   },
   {
     "type": "get",
+    "url": "video/:videoSeq/:lectureSeq/user",
+    "title": "수업별 학생 전체 비디오 권한 목록",
+    "name": "getPermissionUserListWithLecture",
+    "group": "Video",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "optional": false,
+            "field": "x-access-token",
+            "description": "<p>사용자 액세스 토큰</p>"
+          }
+        ]
+      }
+    },
+    "permission": [
+      {
+        "name": "tutor",
+        "title": "User access only",
+        "description": "<p>This optional description belong to to the group tutor</p>"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "HTTP/1.1 200 OK",
+          "content": "HTTP/1.1 200 OK\n[\n{\n   \"userSeq\": 15,\n   \"name\": \"조교\",\n   \"birthday\": \"2000-12-12\",\n   \"email\": \"tutor@gmail.com\",\n   \"password\": \"~~~\",\n   \"accessToken\": \"eyJhbGciOiJIUzK3OPQ9.dHV0b3JAZ21haWwuY29t.fI1CeHpLshyHcLMf3M06US\",\n   \"fcmToken\": null,\n   \"gender\": 0,\n   \"salt\": \"~~~\",\n   \"userType\": \"tutor\",\n   \"phone\": \"01012345678\",\n   \"studentCode\": \"0000000\",\n   \"schoolName\": \"00고\",\n   \"registerTime\": 1589603903081\n},\n{\n   \"userSeq\": 15,\n   \"name\": \"조교\",\n   \"birthday\": \"2000-12-12\",\n   \"email\": \"tutor@gmail.com\",\n   \"password\": \"~~~\",\n   \"accessToken\": \"eyJhbGciOiJIUzK3OPQ9.dHV0b3JAZ21haWwuY29t.fI1CeHpLshyHcLMf3M06US\",\n   \"fcmToken\": null,\n   \"gender\": 0,\n   \"salt\": \"~~~\",\n   \"userType\": \"tutor\",\n   \"phone\": \"01012345678\",\n   \"studentCode\": \"0000000\",\n   \"schoolName\": \"00고\",\n   \"registerTime\": 1589603903081\n}\n]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "routes/contentRoute/video.js",
+    "groupTitle": "Video"
+  },
+  {
+    "type": "get",
     "url": "video/lecture/:lectureSeq",
     "title": "비디오 수업별 포스팅 리스트",
     "name": "getVideoByLecture",
@@ -1880,56 +1918,6 @@
         {
           "title": "Success-Response:",
           "content": "HTTP/1.1 200 OK\n[\n  {\n  \"videoSeq\": 1,\n  \"title\": \"동영상 제목\",\n  \"contents\": \"동영상 내용\",\n  \"uploadTime\": 1604383318520,\n  \"userSeq\": 13\n  },\n  {\n  \"videoSeq\": 2,\n  \"title\": \"동영상 두번째 제목\",\n  \"contents\": \"동영상 내용\",\n  \"uploadTime\": 1604383328520,\n  \"userSeq\": 15\n  }\n]",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "routes/contentRoute/video.js",
-    "groupTitle": "Video"
-  },
-  {
-    "type": "post",
-    "url": "video/:videoSeq",
-    "title": "영상 포스팅 수정",
-    "name": "modifyVideoFile",
-    "group": "Video",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "optional": false,
-            "field": "x-access-token",
-            "description": "<p>사용자 액세스 토큰</p>"
-          }
-        ]
-      }
-    },
-    "permission": [
-      {
-        "name": "tutor",
-        "title": "User access only",
-        "description": "<p>This optional description belong to to the group tutor</p>"
-      }
-    ],
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "optional": false,
-            "field": "Int",
-            "description": "<p>videoSeq 영상 번호</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{}",
           "type": "json"
         }
       ]

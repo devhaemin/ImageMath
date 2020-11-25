@@ -33,6 +33,7 @@ router.patch('/:videoSeq/:userSeq', modifyVideoPermission);
 router.post('/:lectureSeq', upload.single('video'), postVideoFile);
 router.delete('/:videoSeq', deleteVideoPost);
 router.get('/:videoSeq/user', getPermissionUserList);
+router.get('/:videoSeq/:lectureSeq/user',getPermissionUserListWithLecture);
 
 /**
  * @api {get} video/lecture/:lectureSeq 비디오 수업별 포스팅 리스트
@@ -182,6 +183,72 @@ function getPermissionUserList(req, res) {
     }else if(userInfo.userType === 'tutor') {
         connection.query("SELECT va.*, ui.userSeq, ui.studentCode, ui.birthday, ui.name, ui.phone, ui.gender, ui.registerTime, ui.schoolName FROM VideoAdm AS va JOIN UserInfo AS ui WHERE va.userSeq = ui.userSeq and va.videoSeq = ? ORDER BY ui.userSeq",
             videoSeq,function (err, videoList) {
+                if (err) {
+                    console.log(err);
+                    res.status(500).send("MySQL Query Error!");
+                } else {
+                    res.status(200).send(videoList);
+                }
+            })
+    }else{
+        res.status(403).send("Token Error!");
+    }
+}
+
+/**
+ * @api {get} video/:videoSeq/:lectureSeq/user 수업별 학생 전체 비디오 권한 목록
+ * @apiName getPermissionUserListWithLecture
+ * @apiGroup Video
+ * @apiHeader x-access-token 사용자 액세스 토큰
+ * @apiPermission tutor
+ *
+ * @apiSuccessExample
+ * HTTP/1.1 200 OK
+ * [
+ * {
+ *    "userSeq": 15,
+ *    "name": "조교",
+ *    "birthday": "2000-12-12",
+ *    "email": "tutor@gmail.com",
+ *    "password": "~~~",
+ *    "accessToken": "eyJhbGciOiJIUzK3OPQ9.dHV0b3JAZ21haWwuY29t.fI1CeHpLshyHcLMf3M06US",
+ *    "fcmToken": null,
+ *    "gender": 0,
+ *    "salt": "~~~",
+ *    "userType": "tutor",
+ *    "phone": "01012345678",
+ *    "studentCode": "0000000",
+ *    "schoolName": "00고",
+ *    "registerTime": 1589603903081
+ * },
+ * {
+ *    "userSeq": 15,
+ *    "name": "조교",
+ *    "birthday": "2000-12-12",
+ *    "email": "tutor@gmail.com",
+ *    "password": "~~~",
+ *    "accessToken": "eyJhbGciOiJIUzK3OPQ9.dHV0b3JAZ21haWwuY29t.fI1CeHpLshyHcLMf3M06US",
+ *    "fcmToken": null,
+ *    "gender": 0,
+ *    "salt": "~~~",
+ *    "userType": "tutor",
+ *    "phone": "01012345678",
+ *    "studentCode": "0000000",
+ *    "schoolName": "00고",
+ *    "registerTime": 1589603903081
+ * }
+ * ]
+ *
+ */
+function getPermissionUserListWithLecture(req, res) {
+    const userInfo = req.userInfo;
+    const videoSeq = req.params.videoSeq;
+    const lectureSeq = req.params.lectureSeq;
+    if (!userInfo) {
+        res.status(403).send("Token Expired!");
+    }else if(userInfo.userType === 'tutor') {
+        connection.query("SELECT if(isnull(va.videoSeq), ?, va.videoSeq) AS videoSeq, va.videoAdmSeq, if(isnull(va.hasAccess), 0, va.hasAccess) AS hasAccess, ul.* FROM VideoAdm AS va RIGHT JOIN (select ui.*, la.lectureSeq from LectureAdm as la JOIN UserInfo as ui where la.lectureSeq = ? and la.userSeq = ui.userSeq) AS ul ON va.userSeq = ul.userSeq and va.videoSeq = ? ORDER BY ul.userSeq",
+            [videoSeq, lectureSeq, videoSeq],function (err, videoList) {
                 if (err) {
                     console.log(err);
                     res.status(500).send("MySQL Query Error!");
