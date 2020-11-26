@@ -1,5 +1,5 @@
 import React,  {Component} from 'react';
-
+import ReactPlayer from 'react-player'
 import {_getAccessToken} from "../cookie";
 
 class VideoView extends Component {
@@ -9,7 +9,7 @@ class VideoView extends Component {
             data: '',
             video: '',
             students : [],
-            accessStudentSeq : []
+            ischecked : false
         }
         this._deleteVideo = this._deleteVideo.bind(this);
         this._getVideo = this._getVideo.bind(this);
@@ -22,7 +22,6 @@ class VideoView extends Component {
         })
         this._getVideo();
         this._getStudentList();
-        this._accessStudent();
     }
 
     _deleteVideo = function (){
@@ -62,8 +61,9 @@ class VideoView extends Component {
 
     _getStudentList = function (){
         const lectureSeq = this.props.match.params.lectureSeq;
+        const videoSeq = this.props.match.params.videoSeq;
 
-        fetch(`http://api-doc.imagemath.kr:3000/lecture/student/${lectureSeq}` ,{
+        fetch(`http://api-doc.imagemath.kr:3000/video/${videoSeq}/${lectureSeq}/user` ,{
             method :'GET',
             headers: {
                 'x-access-token': _getAccessToken()
@@ -74,17 +74,17 @@ class VideoView extends Component {
                 this.setState({
                     students: response
                 })
-                console.log(response)
+                console.log(this.state.students)
+
             })
     }
 
     _isChecked = function (e){
         if(e.target.checked) {
-            this.state.ischecked = true
+            this.state.ischecked = 1
         } else{
-            this.state.ischecked = false
+            this.state.ischecked = 0
         }
-
 
         const videoSeq = this.props.match.params.videoSeq;
         const userSeq = e.target.value;
@@ -93,42 +93,21 @@ class VideoView extends Component {
         fetch(`http://api-doc.imagemath.kr:3000/video/${videoSeq}/${userSeq}`,{
             method :'PATCH',
             headers: {
-                'x-access-token': _getAccessToken()
+                'x-access-token': _getAccessToken(),
+                'Content-type': 'application/json; charset=UTF-8'
             },
             body: JSON.stringify({
                 hasAccess : hasAccess
             }),
         })
-            .then(response=> response.json())
+            .then(response=> {
+                console.log(response);
+                return response.json()
+            })
             .then(response => {
                 console.log(response)
             })
     }
-
-    _accessStudent = function (){
-        const videoSeq = this.props.match.params.videoSeq;
-
-        fetch(`http://api-doc.imagemath.kr:3000/video/${videoSeq}/user`,{
-            headers: {
-                'x-access-token': _getAccessToken()
-            },
-        })
-            .then(response => response.json())
-            .then(response => {
-                const list = response;
-                list.map((accessStudent) => {
-                    this.state.accessStudentSeq.push(accessStudent.userSeq)
-                })
-                console.log(this.state.accessStudentSeq)
-            })
-    }
-
-    _isAccess=function (userSeq){
-        this.state.accessStudentSeq.map((accessStudent)=>{
-            if(accessStudent===userSeq) return true
-        })
-    }
-
 
     render() {
         const list = this.state.students
@@ -136,9 +115,7 @@ class VideoView extends Component {
         return (
             <div>
                 <div>
-                    <video width={'100%'} height={'100%'} controls>
-                        <source src={this.state.video} type="video/mp4"/>
-                    </video>
+                    <ReactPlayer url={this.state.video} width={'100%'} height={'500px'} controls/>
                 </div>
                 <div className={'video_view_btn'}>
                     <a className={'download_btn'} href={this.state.video}>다운로드</a>
@@ -146,7 +123,7 @@ class VideoView extends Component {
                 </div>
 
                 <div className={'video_view_title'}>
-                    <div></div>
+                    <div className={'list_std'}>학생 번호</div>
                     <div className={'list_title'}>학생 목록</div>
                     <div className={'list_access'}>권한</div>
                 </div>
@@ -155,13 +132,13 @@ class VideoView extends Component {
                 {list ? list.map((student) => {
                         return(
                             <div className={'video_list'} key={student.userSeq}>
-                                <div>{student.userSeq}</div>
+                                <div className={'green_font'}>{student.userSeq}</div>
                                 <div>
                                     {student.name}
                                 </div>
-                                {this._isAccess(student.userSeq)
-                                    ? <div className={'std_checkbox'}><input type={'checkbox'} className={'checkbox'} value={student.userSeq} onChange={this._isChecked} checked/></div>
-                                    : <div><input type={'checkbox'} className={'checkbox'} value={student.userSeq} onChange={this._isChecked} /></div>
+                                {student.hasAccess==1
+                                    ?   <div className={'std_checkbox'}><input type={'checkbox'} className={'checkbox'} value={student.userSeq} onChange={this._isChecked} checked/></div>
+                                    :   <div className={'std_checkbox'}><input type={'checkbox'} className={'checkbox'} value={student.userSeq} onChange={this._isChecked} /></div>
                                 }
                             </div>
                         )

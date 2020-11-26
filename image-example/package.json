@@ -6,8 +6,11 @@
     "react": "^17.0.1",
     "react-awesome-modal": "^2.0.5",
     "react-dom": "^17.0.1",
+    "react-player": "^2.7.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "2.1.7"
+    "react-scripts": "2.1.7",
+    "redux": "^4.0.5",
+    "video-react": "^0.14.1"
   },
   "scripts": {
     "start": "react-scripts start",
