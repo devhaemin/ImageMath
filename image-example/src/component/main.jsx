@@ -23,7 +23,6 @@ class Main extends Component {
                 <div>
                     <Route path='/' component={Lecture} exact/>
                     <Route path='/write/:data' component={Write}/>
-                    <Route path={'/lecture'} component={Lecture}/>
                     <Route path={'/video/:lectureSeq'} component={Video}/>
                     <Route path={'/video_view/:lectureSeq/:videoSeq'} component={VideoView}/>
 

@@ -9,7 +9,7 @@ class VideoView extends Component {
             data: '',
             video: '',
             students : [],
-            ischecked : false
+            ischecked : ''
         }
         this._deleteVideo = this._deleteVideo.bind(this);
         this._getVideo = this._getVideo.bind(this);
@@ -75,7 +75,6 @@ class VideoView extends Component {
                     students: response
                 })
                 console.log(this.state.students)
-
             })
     }
 
@@ -137,7 +136,7 @@ class VideoView extends Component {
                                     {student.name}
                                 </div>
                                 {student.hasAccess==1
-                                    ?   <div className={'std_checkbox'}><input type={'checkbox'} className={'checkbox'} value={student.userSeq} onChange={this._isChecked} checked/></div>
+                                    ?   <div className={'std_checkbox'}><input type={'checkbox'} className={'checkbox'} value={student.userSeq} onChange={this._isChecked} defaultChecked={'checked'} /></div>
                                     :   <div className={'std_checkbox'}><input type={'checkbox'} className={'checkbox'} value={student.userSeq} onChange={this._isChecked} /></div>
                                 }
                             </div>
