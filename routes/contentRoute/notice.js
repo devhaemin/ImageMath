@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const cUtil = require('../../customUtil');
 const multer = require('multer');
-const storage = multer.memoryStorage();
 let AWS = require('aws-sdk');
 AWS.config.region = 'ap-northeast-2';
 
