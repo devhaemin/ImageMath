@@ -59,7 +59,7 @@ export class LoginButton extends Component {
     }
 
     _emailLogin = function () {
-        fetch('http://api-doc.imagemath.kr:3000/auth/login', {
+        fetch('https://api-doc.imagemath.kr:3001/auth/login', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json'

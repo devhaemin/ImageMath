@@ -21,7 +21,7 @@ export class Lecture extends Component {
     }
 
     _getLecture = function (){
-        fetch('http://api-doc.imagemath.kr:3000/lecture')
+        fetch('https://api-doc.imagemath.kr:3001/lecture')
             .then(response => {
                 if (response.status === 200) {
                     return response.json()

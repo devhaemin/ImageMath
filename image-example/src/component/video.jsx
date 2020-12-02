@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {_deleteAccessToken, _getAccessToken} from "../cookie";
 import {Link} from "react-router-dom";
+import ProgressBar from "react-bootstrap/ProgressBar";
 
 export class Video extends Component {
     constructor(props) {
@@ -22,7 +23,7 @@ export class Video extends Component {
     _getVideoList = function (){
         const board_id = this.props.match.params.lectureSeq;
 
-        fetch(`http://api-doc.imagemath.kr:3000/video/lecture/${board_id}`,{
+        fetch(`https://api-doc.imagemath.kr:3001/video/lecture/${board_id}`,{
             method:'GET',
             headers: {
                 'x-access-token': _getAccessToken()
@@ -66,7 +67,6 @@ export class Video extends Component {
                                 <div className={'video_content'}>
                                     <Link className={'link'} to={video_view_url} style={{ textDecoration: 'none' }}>{video.contents}</Link>
                                 </div>
-
                             </div>
                         )
                     })

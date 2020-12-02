@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {_getAccessToken} from "../cookie";
-
+import ProgressBar from 'react-bootstrap/ProgressBar'
 
 export class Write extends Component {
     constructor(props) {
@@ -38,7 +38,7 @@ export class Write extends Component {
             formData.append('contents',contents);
             formData.append('video', this.state.file);
 
-            fetch(`http://api-doc.imagemath.kr:3000/video/${board_id}`,{
+            fetch(`https://api-doc.imagemath.kr:3001/video/${board_id}`,{
                 method : 'POST' ,
                 headers: {
                     'x-access-token': _getAccessToken()
@@ -78,6 +78,7 @@ export class Write extends Component {
 
                 <div>
                     <input type={'file'} name={'files'} id={'content_file'} onChange={(e) => this._onChange(e.target.files)}/>
+                    <ProgressBar now={'60'} />
                 </div>
 
                 <div id={'post_submit'}>

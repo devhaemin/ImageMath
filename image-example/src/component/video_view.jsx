@@ -28,7 +28,7 @@ class VideoView extends Component {
     _deleteVideo = function (){
         const videoSeq = this.props.match.params.videoSeq;
 
-        fetch(`http://api-doc.imagemath.kr:3000/video/${videoSeq}`,{
+        fetch(`https://api-doc.imagemath.kr:3001/video/${videoSeq}`,{
             method : 'DELETE',
             headers: {
                 'x-access-token': _getAccessToken()
@@ -46,7 +46,7 @@ class VideoView extends Component {
     _getVideo = function () {
         const videoSeq = this.props.match.params.videoSeq;
 
-        fetch(`http://api-doc.imagemath.kr:3000/file/video/attachedVideo?videoSeq=${videoSeq}`, {
+        fetch(`https://api-doc.imagemath.kr:3001/file/video/attachedVideo?videoSeq=${videoSeq}`, {
             headers:{
                 'x-access-token': _getAccessToken()
             }
@@ -70,7 +70,7 @@ class VideoView extends Component {
         const lectureSeq = this.props.match.params.lectureSeq;
         const videoSeq = this.props.match.params.videoSeq;
 
-        fetch(`http://api-doc.imagemath.kr:3000/video/${videoSeq}/${lectureSeq}/user` ,{
+        fetch(`https://api-doc.imagemath.kr:3001/video/${videoSeq}/${lectureSeq}/user` ,{
             method :'GET',
             headers: {
                 'x-access-token': _getAccessToken()
@@ -105,7 +105,7 @@ class VideoView extends Component {
         const userSeq = e.target.value;
         const hasAccess = this.state.ischecked
 
-        fetch(`http://api-doc.imagemath.kr:3000/video/${videoSeq}/${userSeq}`,{
+        fetch(`https://api-doc.imagemath.kr:3001/video/${videoSeq}/${userSeq}`,{
             method :'PATCH',
             headers: {
                 'x-access-token': _getAccessToken(),
