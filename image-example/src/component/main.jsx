@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './css/main.css';
-import {  Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { Write } from './write';
 import Lecture from "./lecture";
 import Video from "./video";
@@ -16,20 +16,26 @@ class Main extends Component {
 
     render() {
         return (
-            <div className='Mains'>
-                <div id='Mains-left'>
+                <div className='Mains'>
+                    <div id='Mains-left'>
+                    </div>
+                    <div>
+                        <BrowserRouter>
+                            <div>
+                                <Switch>
+                                    <Route path='/' component={Lecture} exact/>
+                                    <Route path='/write/:data' component={Write}/>
+                                    <Route path={'/video/:lectureSeq'} component={Video}/>
+                                    <Route path={'/video_view/:lectureSeq/:videoSeq'} component={VideoView}/>
+                                </Switch>
+                            </div>
+
+                        </BrowserRouter>
+                    </div>
+                    <div id='Mains-right'>
+                    </div>
                 </div>
 
-                <div>
-                    <Route path='/' component={Lecture} exact/>
-                    <Route path='/write/:data' component={Write}/>
-                    <Route path={'/video/:lectureSeq'} component={Video}/>
-                    <Route path={'/video_view/:lectureSeq/:videoSeq'} component={VideoView}/>
-
-                </div>
-                <div id='Mains-right'>
-                </div>
-            </div>
         );
     }
 }

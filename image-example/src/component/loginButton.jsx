@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import '../App.css';
 import Modal from "react-awesome-modal";
 import * as Cookie from '../cookie';
+import {Link, withRouter} from "react-router-dom";
 import {_deleteAccessToken, _getAccessToken} from "../cookie";
 
 
@@ -12,6 +13,7 @@ export class LoginButton extends Component {
             visible: false,
             id: "",
             password: "",
+            token : undefined
         }
         this._openModal = this._openModal.bind(this);
         this._closeModal = this._closeModal.bind(this);
@@ -19,7 +21,6 @@ export class LoginButton extends Component {
         this._changePW = this._changePW.bind(this);
         this._emailLogin = this._emailLogin.bind(this);
         this._emailLogout = this._emailLogout.bind(this);
-
     }
 
     componentDidMount() {
@@ -92,14 +93,13 @@ export class LoginButton extends Component {
             })
     }
 
-    _emailLogout = function () {
+    _emailLogout()  {
         _deleteAccessToken()
         this.setState({
             token : undefined
         })
         alert('로그아웃 되었습니다')
-        window.location.reload(false);
-
+        window.location.href="/"
     }
 
     render() {
@@ -131,3 +131,4 @@ export class LoginButton extends Component {
         );
     }
 }
+export default withRouter(LoginButton)

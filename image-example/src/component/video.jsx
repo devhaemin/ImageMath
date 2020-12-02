@@ -1,13 +1,14 @@
 import React, {Component} from 'react';
-import {_getAccessToken} from "../cookie";
+import {_deleteAccessToken, _getAccessToken} from "../cookie";
 import {Link} from "react-router-dom";
 
-class Video extends Component {
+export class Video extends Component {
     constructor(props) {
         super(props);
         this.state = {
             videos : [],
-            lectureSeq:''
+            lectureSeq:'',
+            token : undefined
         }
     }
     componentDidMount() {
@@ -30,17 +31,19 @@ class Video extends Component {
             .then(response => {
                 if (response.status === 200) {
                     return response.json()
-                } else {
-                    alert("조교만 로그인 할 수 있습니다. 다시 로그인 해주세요")
+                } else if(response.status ===403) {
+                    alert("토큰이 만료되었습니다. 다시 로그인 해주세요")
+                    // this._emailLogout()
+                    this.props.history.goBack();
                 }
             })
             .then(response => {
                 this.setState({
                     videos: response
                 })
-                if (response.length===0) {
+                if (this.state.videos.length===0) {
                     alert('비디오 목록이 없습니다.');
-                    this.props.history.goBack()
+                    this.props.history.goBack();
                 }
             })
     }

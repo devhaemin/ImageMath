@@ -9,7 +9,8 @@ class VideoView extends Component {
             data: '',
             video: '',
             students : [],
-            ischecked : ''
+            ischecked : '',
+            token : undefined
         }
         this._deleteVideo = this._deleteVideo.bind(this);
         this._getVideo = this._getVideo.bind(this);
@@ -50,8 +51,14 @@ class VideoView extends Component {
                 'x-access-token': _getAccessToken()
             }
         })
-            .then(response => response.json())
-
+            .then(response => {
+                if (response.status === 200) {
+                    return response.json()
+                } else if(response.status ==403) {
+                    alert("토큰이 만료되었습니다. 다시 로그인 해주세요")
+                    this._emailLogout()
+                }
+            })
             .then(response => {
                 this.setState({
                     video : response[0].fileUrl
@@ -69,13 +76,22 @@ class VideoView extends Component {
                 'x-access-token': _getAccessToken()
             },
         })
-            .then(response => response.json())
+            .then(response => {
+                if (response.status === 200) {
+                    return response.json()
+                } else if(response.status ==403) {
+                    alert("토큰이 만료되었습니다. 다시 로그인 해주세요")
+                    this._emailLogout()
+                    this.props.history.goBack();
+                }
+            })
             .then(response => {
                 this.setState({
                     students: response
                 })
                 console.log(this.state.students)
             })
+
     }
 
     _isChecked = function (e){
@@ -99,9 +115,13 @@ class VideoView extends Component {
                 hasAccess : hasAccess
             }),
         })
-            .then(response=> {
-                console.log(response);
-                return response.json()
+            .then(response => {
+                if (response.status === 200) {
+                    return response.json()
+                } else if(response.status ==403) {
+                    alert("토큰이 만료되었습니다. 다시 로그인 해주세요")
+                    this._emailLogout()
+                }
             })
             .then(response => {
                 console.log(response)

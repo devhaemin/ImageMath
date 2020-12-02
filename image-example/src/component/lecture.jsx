@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {_getAccessToken} from "../cookie";
+import {_deleteAccessToken, _getAccessToken} from "../cookie";
 import {Link} from "react-router-dom";
 
 export class Lecture extends Component {
@@ -7,6 +7,7 @@ export class Lecture extends Component {
         super(props);
         this.state = {
             lecture:[],
+            token : undefined
         }
 
     }
@@ -21,12 +22,28 @@ export class Lecture extends Component {
 
     _getLecture = function (){
         fetch('http://api-doc.imagemath.kr:3000/lecture')
-            .then(response => response.json())
+            .then(response => {
+                if (response.status === 200) {
+                    return response.json()
+                } else if(response.status ==403) {
+                    alert("토큰이 만료되었습니다. 다시 로그인 해주세요")
+                    this._emailLogout()
+                    this.props.history.push('/')
+                }
+            })
             .then(response => {
                 this.setState({
                     lecture: response,
                 })
             })
+    }
+
+    _emailLogout()  {
+        _deleteAccessToken()
+        this.setState({
+            token : undefined
+        })
+        alert('로그아웃 되었습니다')
     }
 
 
@@ -48,7 +65,7 @@ export class Lecture extends Component {
                                 }
                                 {this.state.token
                                     ? <div className={'green_font'}><Link to={write_url} className={'link'} style={{ textDecoration: 'none' }}>포스트 작성</Link></div>
-                                    : <div className={'green_font'} className={'link'} onClick={()=>alert('로그인 해주세요.')}>포스트 작성</div>
+                                    : <div className={'green_font'} className={'link'} onClick={()=>alert('로그인 해주세요.')}>비디오작성</div>
                                 }
                             </div>
                         </div>

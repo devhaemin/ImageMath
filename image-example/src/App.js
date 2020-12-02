@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import { Header } from './component';
 import Main from "./component/main";
 
-
-
 class App extends Component {
 
     render() {

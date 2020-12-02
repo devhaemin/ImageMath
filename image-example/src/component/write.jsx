@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {_getAccessToken} from "../cookie";
 
+
 export class Write extends Component {
     constructor(props) {
         super(props);
@@ -51,7 +52,8 @@ export class Write extends Component {
 
                     } else {
                         alert("포스트 등록에 실패하였습니다.")
-                        this.props.history.goBack()
+                        console.log(response)
+                        // this.props.history.goBack()
 
                     }
                     return response
@@ -79,7 +81,7 @@ export class Write extends Component {
                 </div>
 
                 <div id={'post_submit'}>
-                    <button onClick={()=>this._submitBoard()}>포스트 등록</button>
+                    <button onClick={()=>this._submitBoard()}>동영상 등록</button>
                 </div>
 
             </div>
