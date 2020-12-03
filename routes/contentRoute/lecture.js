@@ -22,19 +22,36 @@ router.delete('/:lectureSeq', deleteLecture);
  * @apiName Get LectureList
  * @apiGroup Lecture
  * @apiPermission normal
+ *
+ * @apiParam {Boolean} exceptExpired
  */
 
 function lecture(req, res) {
-    const sql = "select lectureSeq, name, academySeq, time, weekDay, totalDate, week, studentNum, reqStudentCnt, academyName, IF(isExpired,'true','false') as isExpired from LectureInfo order by lectureSeq DESC";
-    connection.query(sql, function (err, result) {
-        if (err) {
-            console.log(err);
-            res.status(400).send("lecture search error");
-        } else {
-            console.log("lecture List");
-            res.status(200).send(result);
-        }
-    })
+    const exceptExpired = req.exceptExpired;
+    if(exceptExpired && exceptExpired === 'true'){
+        const sql = "select lectureSeq, name, academySeq, time, weekDay, totalDate, week, studentNum, reqStudentCnt, academyName, IF(isExpired,'true','false') as isExpired from LectureInfo where isExpired = ? order by lectureSeq DESC";
+        connection.query(sql,0 ,function (err, result) {
+            if (err) {
+                console.log(err);
+                res.status(400).send("lecture search error");
+            } else {
+                console.log("lecture List");
+                res.status(200).send(result);
+            }
+        })
+    }else{
+        const sql = "select lectureSeq, name, academySeq, time, weekDay, totalDate, week, studentNum, reqStudentCnt, academyName, IF(isExpired,'true','false') as isExpired from LectureInfo order by lectureSeq DESC";
+        connection.query(sql, function (err, result) {
+            if (err) {
+                console.log(err);
+                res.status(400).send("lecture search error");
+            } else {
+                console.log("lecture List");
+                res.status(200).send(result);
+            }
+        })
+    }
+
 }
 
 /**
