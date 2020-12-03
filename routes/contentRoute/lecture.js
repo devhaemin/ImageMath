@@ -27,7 +27,7 @@ router.delete('/:lectureSeq', deleteLecture);
  */
 
 function lecture(req, res) {
-    const exceptExpired = req.exceptExpired;
+    const exceptExpired = req.query.exceptExpired;
     if(exceptExpired && exceptExpired === 'true'){
         const sql = "select lectureSeq, name, academySeq, time, weekDay, totalDate, week, studentNum, reqStudentCnt, academyName, IF(isExpired,'true','false') as isExpired from LectureInfo where isExpired = ? order by lectureSeq DESC";
         connection.query(sql,0 ,function (err, result) {
