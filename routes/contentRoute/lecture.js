@@ -147,7 +147,7 @@ function recognitionLec(req, res) {
     if (!userInfo) {
         res.status(400).send("토큰이 만료되었습니다.");
     } else if (userInfo.userType === "tutor") {
-        connection.query("select ui.userSeq, ui.studentCode from UserInfo AS ui JOIN LectureInfo AS li where ui.userSeq = ? and li.lectureSeq = ?", [studentSeq, lectureSeq], function (err, result) {
+        connection.query("select ui.userSeq, ui.studentCode, li.name from UserInfo AS ui JOIN LectureInfo AS li where ui.userSeq = ? and li.lectureSeq = ?", [studentSeq, lectureSeq], function (err, result) {
             if (err) {
                 console.log(err);
                 res.status(400).send("학생을 찾을 수 없습니다.");
