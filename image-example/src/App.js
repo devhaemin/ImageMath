@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import { Header } from './component';
 import Main from "./component/main";
-import {progressBarFetch, setOriginalFetch} from "react-fetch-progressbar";
 
 class App extends Component {
     componentWillMount() {
