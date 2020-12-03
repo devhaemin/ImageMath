@@ -73,65 +73,25 @@ function studentLectureList(req, res) {
 
     if (userInfo && userInfo.userType === "student") {
         if(exceptExpired && exceptExpired === 'true') {
-            const sql2 = "select lectureSeq from LectureAdm where userSeq = ? order by lectureSeq desc";
-
-            connection.query(sql2, userInfo.userSeq, function (error, results) {
-                    if (error) {
-                        console.log(error);
-                        res.status(400).send("수업 시퀀스 에러");
-                    } else {
-                        let ret = [];
-                        let length = results.length;
-
-                        let idx = 0;
-                        if (length === 0) {
-                            res.status(200).send([]);
-                        }
-                        for (let i = 0; i < length; i++) {
-                            let sql3 = "select lectureSeq, name, academySeq, time, weekDay, totalDate, week, studentNum, reqStudentCnt, academyName, IF(isExpired,'true','false') as isExpired from LectureInfo where isExpired = ? and lectureSeq = ?";
-                            connection.query(sql3,[0, results[i].lectureSeq], function (error, results) {
-                                ret.push(results[0]);
-
-                                if (idx === length - 1) {
-                                    res.status(200).send(ret);
-                                    console.log(userInfo.userSeq + "의 수업목록을 조회합니다.");
-                                }
-                                idx++;
-                            });
-                        }
+            connection.query('select * from LectureAdm AS la JOIN LectureInfo AS li ON la.userSeq = ? and la.lectureSeq = li.lectureSeq and li.isExpired = ?'
+                ,[userInfo.userSeq, 0], function (err, result) {
+                    if(err){
+                        console.log(err);
+                        res.status(500).send({"message" : "Internal SQL Error!"});
+                    }else{
+                        res.status(200).send(result);
                     }
-                }
-            );
+                })
         }else{
-            const sql2 = "select lectureSeq from LectureAdm where userSeq = ? order by lectureSeq desc";
-
-            connection.query(sql2, userInfo.userSeq, function (error, results) {
-                    if (error) {
-                        console.log(error);
-                        res.status(400).send("수업 시퀀스 에러");
-                    } else {
-                        let ret = [];
-                        let length = results.length;
-
-                        let idx = 0;
-                        if (length === 0) {
-                            res.status(200).send([]);
-                        }
-                        for (let i = 0; i < length; i++) {
-                            let sql3 = "select lectureSeq, name, academySeq, time, weekDay, totalDate, week, studentNum, reqStudentCnt, academyName, IF(isExpired,'true','false') as isExpired from LectureInfo where lectureSeq = ?";
-                            connection.query(sql3, results[i].lectureSeq, function (error, results) {
-                                ret.push(results[0]);
-
-                                if (idx === length - 1) {
-                                    res.status(200).send(ret);
-                                    console.log(userInfo.userSeq + "의 수업목록을 조회합니다.");
-                                }
-                                idx++;
-                            });
-                        }
+            connection.query('select * from LectureAdm AS la JOIN LectureInfo AS li ON la.userSeq = ? and la.lectureSeq = li.lectureSeq'
+                ,[userInfo.userSeq], function (err, result) {
+                    if(err){
+                        console.log(err);
+                        res.status(500).send({"message" : "Internal SQL Error!"});
+                    }else{
+                        res.status(200).send(result);
                     }
-                }
-            );
+                })
         }
     } else if (!userInfo) {
         res.status(400).send("권한이 없습니다.");
