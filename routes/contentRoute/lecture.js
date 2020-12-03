@@ -73,7 +73,7 @@ function studentLectureList(req, res) {
 
     if (userInfo && userInfo.userType === "student") {
         if(exceptExpired && exceptExpired === 'true') {
-            connection.query('select * from LectureAdm AS la JOIN LectureInfo AS li ON la.userSeq = ? and la.lectureSeq = li.lectureSeq and li.isExpired = ?'
+            connection.query('select li.lectureSeq, name, academySeq, li.time, weekDay, totalDate, week, studentNum, reqStudentCnt, academyName, IF(isExpired,\'true\',\'false\') as isExpired from LectureAdm AS la JOIN LectureInfo AS li ON la.userSeq = ? and la.lectureSeq = li.lectureSeq and li.isExpired = ?'
                 ,[userInfo.userSeq, 0], function (err, result) {
                     if(err){
                         console.log(err);
@@ -83,7 +83,7 @@ function studentLectureList(req, res) {
                     }
                 })
         }else{
-            connection.query('select * from LectureAdm AS la JOIN LectureInfo AS li ON la.userSeq = ? and la.lectureSeq = li.lectureSeq'
+            connection.query('select li.lectureSeq, name, academySeq, li.time, weekDay, totalDate, week, studentNum, reqStudentCnt, academyName, IF(isExpired,\'true\',\'false\') as isExpired from LectureAdm AS la JOIN LectureInfo AS li ON la.userSeq = ? and la.lectureSeq = li.lectureSeq'
                 ,[userInfo.userSeq], function (err, result) {
                     if(err){
                         console.log(err);
