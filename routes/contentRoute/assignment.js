@@ -573,19 +573,23 @@ function assignmentSeq(req, res) {
             res.status(400).send("assignmentSeq error");
         } else {
             console.log("assignmentSeq query");
-            connection.query("select * from FileInfo where postSeq = ? and boardType = ?", [assignmentSeq, "assignment-answer"], function (err, answerFilesSql) {
-                if (err) {
-                    console.log(err);
-                    res.status(400).send("error");
-                } else if (answerFilesSql.length === 0) {
-                    res.status(200).send(result[0]);
-                } else {
-                    let ret = result[0];
-                    ret.answerFiles = answerFilesSql;
-                    console.log(ret);
-                    res.status(200).send(ret);
-                }
-            })
+            if(result.length !== 0) {
+                connection.query("select * from FileInfo where postSeq = ? and boardType = ?", [assignmentSeq, "assignment-answer"], function (err, answerFilesSql) {
+                    if (err) {
+                        console.log(err);
+                        res.status(400).send("error");
+                    } else if (answerFilesSql.length === 0) {
+                        res.status(200).send(result[0]);
+                    } else {
+                        let ret = result[0];
+                        ret.answerFiles = answerFilesSql;
+                        console.log(ret);
+                        res.status(200).send(ret);
+                    }
+                })
+            }else{
+                res.status(200).send({})
+            }
         }
     })
 }
