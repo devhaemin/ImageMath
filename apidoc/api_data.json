@@ -764,6 +764,19 @@
         "description": "<p>This optional description belong to to the group normal</p>"
       }
     ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": false,
+            "field": "exceptExpired",
+            "description": ""
+          }
+        ]
+      }
+    },
     "version": "0.0.0",
     "filename": "routes/contentRoute/lecture.js",
     "groupTitle": "Lecture"
