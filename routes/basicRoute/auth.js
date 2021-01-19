@@ -199,6 +199,7 @@ function registerUser(req, res) {
                     let token = jwt.sign(req.body.email, timestamp.toString(16), {
                         algorithm: 'HS256'
                     });
+                    let isSuccess = true;
                     let accessTokenSubStr = token.substr(0, 64);
                     let param2 = {
                         name: array.name,
@@ -219,7 +220,7 @@ function registerUser(req, res) {
                         if (err) {
                             console.log("insert query error")
                             console.log(err);
-                            res.status(500).send('500 SERVER ERROR, db3');
+                            isSuccess = false;
                         } else {
                             console.log('REGISTER SUCCESS');
                         }
@@ -228,8 +229,12 @@ function registerUser(req, res) {
                         if (error) {
                             console.log(error);
                             console.log("reqLectureSeq error");
+                            isSuccess = false;
                         } else {
-                            res.status(200).send(result[0]);
+                            if(isSuccess)
+                                res.status(200).send(result[0]);
+                            else
+                                res.status(500).send({});
                         }
                     })
                 })
