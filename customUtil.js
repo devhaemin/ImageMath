@@ -13,16 +13,15 @@ var s3 = new AWS.S3();
 var serviceAccount = require("./key/imagemath-server-firebase-adminsdk-tkois-54443dad9e.json");
 
 admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://imagemath-server.firebaseio.com"
+    credential: admin.credential.cert(serviceAccount),
+    databaseURL: "https://imagemath-server.firebaseio.com"
 });
 
 
-
-util.connectionQuery = function(connection, sql, params) {
+util.connectionQuery = function (connection, sql, params) {
     return new Promise((resolve, reject) => {
         if (params.length == 0) {
-            connection.query(sql, function(error, results, next) {
+            connection.query(sql, function (error, results, next) {
                 if (err) {
                     reject(err);
                 } else {
@@ -30,7 +29,7 @@ util.connectionQuery = function(connection, sql, params) {
                 }
             });
         } else {
-            connection.query(sql, params, function(error, results, next) {
+            connection.query(sql, params, function (error, results, next) {
                 if (err) {
                     reject(err);
                 } else {
@@ -51,29 +50,29 @@ util.connection = mysql.createConnection({
     multipleStatements: true
 });
 
-util.tokenMiddleWare = function(req, res, next){
+util.tokenMiddleWare = function (req, res, next) {
     var token = req.headers['x-access-token'];
-    if(token){
-        util.connection.query("select * from UserInfo where accessToken = ?", token, function (err ,userInfo) {
-            if(err){
+    if (token) {
+        util.connection.query("select * from UserInfo where accessToken = ?", token, function (err, userInfo) {
+            if (err) {
                 console.log(err);
                 next();
-            }else if(!userInfo){
+            } else if (!userInfo) {
                 next();
-            }else if(userInfo.length === 0){
+            } else if (userInfo.length === 0) {
                 next();
-            }else{
+            } else {
                 req.userInfo = userInfo[0];
                 next();
             }
         });
-    }else{
+    } else {
         next();
     }
 };
 
 
-util.isDelivered = function(arr){
+util.isDelivered = function (arr) {
     isDelivered = true;
     for (var i = 0; i < arr.length; i++) {
         if (!toString(arr[i])) {
@@ -83,56 +82,57 @@ util.isDelivered = function(arr){
     return isDelivered;
 };
 
-util.checkAuth = function(req, res){
+util.checkAuth = function (req, res) {
     var token = req.headers['x-access-token'];
-    this.connection.query("select * from UserInfo where token = ?", token, function(err, userInfos){
-        if(err){
+    this.connection.query("select * from UserInfo where token = ?", token, function (err, userInfos) {
+        if (err) {
             res.send(500)
         }
     })
 };
 
 util.sendPushMessage = sendPushMessage;
-function sendPushMessage(targetSeq, title, content){
+
+function sendPushMessage(targetSeq, title, content) {
     var connection = util.connection;
-    if(targetSeq == null) return;
-    connection.query("select fcmToken from UserInfo where userSeq = ?", targetSeq, function(err, userInfos){
-        if(err){
+    if (targetSeq == null) return;
+    connection.query("select fcmToken from UserInfo where userSeq = ?", targetSeq, function (err, userInfos) {
+        if (err) {
             console.log(err);
-        }else{
+        } else {
             var values = {
-                userSeq : targetSeq,
-                title : title,
-                content : content,
-                postTime : Date.now()
+                userSeq: targetSeq,
+                title: title,
+                content: content,
+                postTime: Date.now()
             };
-            connection.query("INSERT INTO Alarm SET ?", values, function(err, result){
-                if(err){
+            connection.query("INSERT INTO Alarm SET ?", values, function (err, result) {
+                if (err) {
                     console.log(err);
-                }else if(userInfos != undefined && userInfos.length != 0){
-                    var fcm_target_token = userInfos[0].fcmToken;
-                    if(fcm_target_token != null){
-                    var fcm_message = {
-                        notification: {
-                            title : title,
-                            body : content
-                        },
-                        token : fcm_target_token
-                    };
-                    admin.messaging().send(fcm_message)
-                    .then(function(res){
-                        
-                    })
-                    .catch(function(err){
-                        console.log(err);
-                    })
-                }
-                }else{
+                } else if (userInfos && userInfos.length !== 0) {
+                    let fcm_target_token = userInfos[0].fcmToken;
+                    if (fcm_target_token && fcm_target_token !== "") {
+                        let fcm_message = {
+                            notification: {
+                                title: title,
+                                body: content
+                            },
+                            token: fcm_target_token
+                        };
+                        console.log("FCM MESSAGE : " + fcm_message);
+                        admin.messaging().send(fcm_message)
+                            .then(function (res) {
+                            })
+                            .catch(function (err) {
+                                console.log(err);
+                            })
+                    }
+                } else {
                     console.log("No User!");
                 }
             })
         }
-    })   
+    })
 }
 
 module.exports = util;

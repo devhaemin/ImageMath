@@ -18,10 +18,10 @@ function postPushAlarm(req, res) {
             if (err) {
                 console.log(err);
                 res.status(400).send('token error');
-            } else if (result.length == 0) {
+            } else if (result.length === 0) {
                 console.log("토큰에 맞는 유저 정보가 없습니다.");
                 res.status(400).send('token error');
-            } else if(result[0].userType == "tutor"){
+            } else if(result[0].userType === "tutor"){
                 cUtil.sendPushMessage(userSeq,"이미지수학 알림" ,message);
                 res.status(200).send('Success!');
             } else{
