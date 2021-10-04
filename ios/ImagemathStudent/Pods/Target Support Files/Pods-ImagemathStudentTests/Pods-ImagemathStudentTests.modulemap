@@ -1,0 +1,6 @@
+framework module Pods_ImagemathStudentTests {
+  umbrella header "Pods-ImagemathStudentTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
