@@ -1,0 +1,18 @@
+#left_side{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+#left_side button{
+    margin-bottom: 10px;
+    height: 30px;
+    color: white;
+    font-size: 15px;
+    border-radius: 2px;
+    cursor: pointer;
+    border: solid 1px #28948d;
+    background-color: #28948d;
+    font-family: 나눔고딕;
+}

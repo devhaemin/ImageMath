@@ -1,0 +1,167 @@
+.Mains {
+    display: grid;
+    grid-template-columns: 19% 62% 19%;
+}
+
+#Mains-left { border-right: solid 1px #28948d; }
+#Mains-right { border-left: solid 1px #28948d; }
+
+.link {
+    color: black;
+}
+
+.link:hover{
+    color: #28948d;
+}
+
+.Write {
+    padding: 20px;
+    padding-left: 30px;
+}
+
+.Write div {
+    margin-top: 30px;
+    margin-left: 50px;
+}
+
+#title_txt {
+    width: 87%;
+    padding-bottom: 30px;
+    border: none;
+    font-size: 22px;
+    border-bottom: solid 3px #28948d;
+}
+
+#content_txt{
+    width: 87%;
+    resize: none;
+    border: none;
+    height: 200px;
+    border-bottom: solid 3px #28948d;
+
+}
+
+#content_file{
+    color: #28948d;
+    padding-bottom: 30px;
+
+}
+
+#content_txt:focus{outline: none}
+#title_txt:focus { outline: none;}
+#content_file:focus{outline: none}
+
+#post_submit {
+    text-align: right;
+}
+
+#post_submit button{
+    width: 120px;
+    height: 35px;
+    padding: 5px;
+    color: white;
+    font-size: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: solid 1px #28948d;
+    background-color: #28948d;
+    font-family: 나눔고딕;
+}
+
+.lecture_list{
+    display: flex;
+    padding: 0 40px 30px 40px;
+    font-family: 나눔고딕;
+    font-size: 25px;
+}
+
+.list_content{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-left: 40px;
+}
+
+.green_font{
+    color: #28948d;
+}
+
+.video_title{
+    width: 50%;
+    padding-left: 50px;
+}
+
+.video_content{
+    width: 50%;
+}
+
+
+.student_list{
+    display: flex;
+    justify-content: space-around;
+    padding: 0 0 30px 40px;
+    font-size: 25px;
+    font-family: 나눔고딕;
+}
+
+.student_seq{
+    color: #28948d;
+}
+
+.checkbox{
+    width: 25px;
+    height: 25px;
+}
+
+.video_view_btn{
+    display: flex;
+    flex-direction: row-reverse;
+    padding-right: 20px;
+}
+
+.download_btn{
+    padding: 5px;
+    color: white;
+    font-size: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: solid 1px #28948d;
+    background-color: #28948d;
+    font-family: 나눔고딕;
+    text-decoration: none;
+}
+
+.video_view_title{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+
+
+.video_list{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 50px 10px 50px;
+}
+
+.list_title{
+    color: #28948d;
+    font-family: 나눔고딕;
+    padding-right: 30px;
+    font-size: 20px;
+
+}
+
+.list_std{
+    color: #28948d;
+    font-family: 나눔고딕;
+    padding-left: 7px;
+}
+
+.list_access{
+    color: #28948d;
+    font-family: 나눔고딕;
+    padding-right: 30px;
+}
+
