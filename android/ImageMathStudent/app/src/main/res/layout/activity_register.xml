@@ -1,0 +1,647 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/register_bg"
+    tools:context=".View.RegisterProcess.RegisterTermsActivity">
+
+    <Button
+        android:id="@+id/btn_register"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:background="@drawable/etoos_rounded_box"
+        android:text="확인"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <ScrollView
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/btn_email_confirm"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="8dp"
+                android:background="@color/register_btn"
+                android:text="인증하기"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/edit_email"
+                app:layout_constraintLeft_toRightOf="@id/edit_email"
+                app:layout_constraintRight_toRightOf="@id/dummy_img"
+                app:layout_constraintTop_toBottomOf="@id/dummy_text_email"
+                app:layout_constraintTop_toTopOf="@id/edit_email" />
+
+            <Button
+                android:id="@+id/btn_phone_confirm"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="8dp"
+                android:background="@color/register_btn"
+                android:nextFocusDown="@id/edit_code"
+                android:text="인증하기"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@id/edit_phone"
+                app:layout_constraintLeft_toRightOf="@id/edit_phone"
+                app:layout_constraintRight_toRightOf="@id/dummy_img"
+                app:layout_constraintTop_toBottomOf="@id/dummy_text_phone"
+                app:layout_constraintTop_toTopOf="@id/edit_phone" />
+
+            <Button
+                android:id="@+id/btn_code_confirm"
+                android:layout_width="70dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="8dp"
+                android:background="@color/register_btn"
+                android:text="확인"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@id/edit_code"
+                app:layout_constraintLeft_toRightOf="@id/edit_code"
+                app:layout_constraintRight_toRightOf="@id/dummy_img"
+                app:layout_constraintTop_toBottomOf="@id/edit_phone"
+                app:layout_constraintTop_toTopOf="@id/edit_code" />
+
+            <Button
+                android:id="@+id/btn_search_lecture"
+                android:layout_width="70dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="8dp"
+                android:background="@color/register_btn"
+                android:text="검색"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/edit_lecture"
+                app:layout_constraintLeft_toRightOf="@id/edit_lecture"
+                app:layout_constraintRight_toRightOf="@id/dummy_img"
+                app:layout_constraintTop_toBottomOf="@id/dummy_text_lecture"
+                app:layout_constraintTop_toTopOf="@id/edit_lecture" />
+
+
+            <Button
+                android:id="@+id/btn_add_lecture"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:background="@color/register_add_btn"
+                android:text="+추가하기"
+                android:textColor="@android:color/black"
+                android:visibility="gone"
+                app:layout_constraintLeft_toLeftOf="@+id/btn_back"
+                app:layout_constraintRight_toRightOf="@id/dummy_img"
+                app:layout_constraintTop_toBottomOf="@id/viewholder_lecture" />
+
+            <Button
+                android:id="@+id/btn_search_school"
+                android:layout_width="70dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="8dp"
+                android:background="@color/register_btn"
+                android:text="검색"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/edit_school"
+                app:layout_constraintLeft_toRightOf="@id/edit_school"
+                app:layout_constraintRight_toRightOf="@id/dummy_img"
+                app:layout_constraintTop_toBottomOf="@id/dummy_text_school"
+                app:layout_constraintTop_toTopOf="@id/edit_school" />
+
+
+            <EditText
+                android:id="@+id/edit_name"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/etoos_reactangle"
+                android:hint="이미지"
+                android:inputType="textPersonName"
+                android:lines="1"
+                android:maxLines="1"
+                android:nextFocusDown="@id/dummy_text_gender"
+                android:paddingStart="14dp"
+                android:singleLine="true"
+                android:textSize="18sp"
+                app:layout_constraintLeft_toLeftOf="@id/btn_back"
+                app:layout_constraintRight_toRightOf="@id/dummy_img"
+                app:layout_constraintTop_toBottomOf="@+id/dummy_text_name" />
+
+
+            <EditText
+                android:id="@+id/edit_birthYear"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/etoos_reactangle"
+                android:gravity="center"
+                android:hint="0000"
+                android:inputType="numberDecimal"
+                android:lines="1"
+                android:maxLength="4"
+                android:maxLines="1"
+                android:nextFocusDown="@id/edit_birthMonth"
+                android:singleLine="true"
+                android:textSize="18sp"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintHorizontal_weight="3"
+                app:layout_constraintLeft_toLeftOf="@id/btn_back"
+                app:layout_constraintRight_toLeftOf="@+id/dummy_text_birth_year"
+                app:layout_constraintTop_toBottomOf="@+id/dummy_text_birth" />
+
+            <EditText
+                android:id="@+id/edit_birthMonth"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/etoos_reactangle"
+                android:gravity="center"
+                android:hint="00"
+                android:inputType="numberDecimal"
+                android:lines="1"
+                android:maxLength="2"
+                android:maxLines="1"
+                android:nextFocusDown="@id/edit_birthDay"
+                android:singleLine="true"
+                android:textSize="18sp"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintLeft_toRightOf="@id/dummy_text_birth_year"
+                app:layout_constraintRight_toLeftOf="@+id/dummy_text_birth_month"
+                app:layout_constraintTop_toBottomOf="@+id/dummy_text_birth" />
+
+            <EditText
+                android:id="@+id/edit_birthDay"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/etoos_reactangle"
+                android:gravity="center"
+                android:hint="00"
+                android:inputType="numberDecimal"
+                android:lines="1"
+                android:maxLength="2"
+                android:maxLines="1"
+                android:nextFocusDown="@+id/edit_email"
+                android:singleLine="true"
+                android:textSize="18sp"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintLeft_toRightOf="@id/dummy_text_birth_month"
+                app:layout_constraintRight_toLeftOf="@+id/dummy_text_birth_day"
+                app:layout_constraintTop_toBottomOf="@+id/dummy_text_birth" />
+
+            <EditText
+                android:id="@+id/edit_email"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/etoos_reactangle"
+                android:hint="이메일 입력"
+                android:lines="1"
+                android:maxLines="1"
+                android:nextFocusDown="@id/edit_pw"
+                android:paddingStart="14dp"
+                android:singleLine="true"
+                android:textSize="18sp"
+                app:layout_constraintLeft_toLeftOf="@id/btn_back"
+                app:layout_constraintRight_toLeftOf="@+id/btn_email_confirm"
+                app:layout_constraintTop_toBottomOf="@+id/dummy_text_email" />
+
+            <EditText
+                android:id="@+id/edit_pw"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/etoos_reactangle"
+                android:hint="비밀번호 입력"
+                android:inputType="textPassword"
+                android:lines="1"
+                android:maxLines="1"
+                android:nextFocusDown="@id/edit_pw_re"
+                android:paddingStart="14dp"
+                android:singleLine="true"
+                android:textSize="18sp"
+                app:layout_constraintLeft_toLeftOf="@id/btn_back"
+                app:layout_constraintRight_toRightOf="@id/dummy_img"
+                app:layout_constraintTop_toBottomOf="@+id/dummy_text_pw" />
+
+            <EditText
+                android:id="@+id/edit_pw_re"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/etoos_reactangle"
+                android:hint="비밀번호 확인 입력"
+                android:inputType="textPassword"
+                android:lines="1"
+                android:maxLines="1"
+                android:nextFocusDown="@id/edit_phone"
+                android:paddingStart="14dp"
+                android:singleLine="true"
+                android:textSize="18sp"
+                app:layout_constraintLeft_toLeftOf="@id/btn_back"
+                app:layout_constraintRight_toRightOf="@id/dummy_img"
+                app:layout_constraintTop_toBottomOf="@+id/dummy_text_pw_re" />
+
+            <EditText
+                android:id="@+id/edit_phone"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/etoos_reactangle"
+                android:hint="- 등 특수문자를 제외한 숫자만 입력"
+                android:inputType="phone"
+                android:lines="1"
+                android:maxLines="1"
+                android:nextFocusRight="@id/btn_phone_confirm"
+                android:paddingStart="14dp"
+                android:singleLine="true"
+                android:textSize="18sp"
+                app:layout_constraintLeft_toLeftOf="@id/btn_back"
+                app:layout_constraintRight_toLeftOf="@+id/btn_phone_confirm"
+                app:layout_constraintTop_toBottomOf="@+id/dummy_text_phone" />
+
+            <EditText
+                android:id="@+id/edit_code"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/etoos_reactangle"
+                android:enabled="false"
+                android:hint="인증번호 입력"
+                android:inputType="numberDecimal"
+                android:lines="1"
+                android:maxLines="1"
+                android:nextFocusRight="@id/btn_code_confirm"
+                android:paddingStart="14dp"
+                android:singleLine="true"
+                android:textSize="18sp"
+                app:layout_constraintLeft_toLeftOf="@id/btn_back"
+                app:layout_constraintRight_toLeftOf="@+id/btn_code_confirm"
+                app:layout_constraintTop_toBottomOf="@+id/edit_phone" />
+
+
+            <EditText
+                android:id="@+id/edit_lecture"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/etoos_reactangle"
+                android:focusable="false"
+                android:hint="검색 버튼을 눌러주세요."
+                android:inputType="none"
+                android:lines="1"
+                android:maxLines="1"
+                android:paddingStart="14dp"
+                android:singleLine="true"
+                android:textSize="18sp"
+                android:visibility="gone"
+                app:layout_constraintLeft_toLeftOf="@id/btn_back"
+                app:layout_constraintRight_toLeftOf="@id/btn_search_lecture"
+                app:layout_constraintTop_toBottomOf="@+id/dummy_text_lecture" />
+
+            <EditText
+                android:id="@+id/edit_school"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/etoos_reactangle"
+                android:hint="00고 또는 N수생 이라고 입력해주세요."
+                android:inputType="text"
+                android:lines="1"
+                android:maxLines="1"
+                android:paddingStart="14dp"
+                android:singleLine="true"
+                android:textSize="18sp"
+                app:layout_constraintLeft_toLeftOf="@id/btn_back"
+                app:layout_constraintRight_toLeftOf="@id/btn_search_school"
+                app:layout_constraintTop_toBottomOf="@+id/dummy_text_school" />
+
+            <EditText
+                android:id="@+id/edit_student_code"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/etoos_reactangle"
+                android:hint="스쿨링 코드를 입력해주세요."
+                android:inputType="text"
+                android:lines="1"
+                android:maxLines="1"
+                android:paddingStart="14dp"
+                android:singleLine="true"
+                android:textSize="18sp"
+                app:layout_constraintLeft_toLeftOf="@id/btn_back"
+                app:layout_constraintRight_toLeftOf="@id/btn_search_school"
+                app:layout_constraintTop_toBottomOf="@+id/dummy_text_code" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                app:layout_constraintTop_toBottomOf="@id/edit_student_code"
+                />
+
+            <ImageButton
+                android:id="@+id/btn_back"
+                android:layout_width="20dp"
+                android:layout_height="0dp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="40dp"
+                android:background="?attr/selectableItemBackground"
+                android:scaleType="centerCrop"
+                android:src="@drawable/btn_goback"
+                app:layout_constraintDimensionRatio="1:2"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <ImageView
+                android:id="@+id/dummy_img"
+                android:layout_width="40dp"
+                android:layout_height="0dp"
+                android:layout_marginRight="24dp"
+                android:src="@drawable/img_showstep_second"
+                app:layout_constraintBottom_toBottomOf="@id/btn_back"
+                app:layout_constraintDimensionRatio="3:1"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/btn_back" />
+
+            <LinearLayout
+                android:id="@+id/viewholder_lecture"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="vertical"
+                app:layout_constraintLeft_toLeftOf="@id/btn_back"
+                app:layout_constraintRight_toRightOf="@id/dummy_img"
+                app:layout_constraintTop_toBottomOf="@id/edit_lecture" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginLeft="14dp"
+                android:gravity="center"
+                android:text="회원가입"
+                android:textColor="@android:color/black"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@id/btn_back"
+                app:layout_constraintLeft_toRightOf="@+id/btn_back"
+                app:layout_constraintTop_toTopOf="@id/btn_back" />
+
+
+            <TextView
+                android:id="@+id/dummy_text_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="30dp"
+                android:text="이름"
+                android:textColor="@android:color/black"
+                android:textSize="14sp"
+                app:layout_constraintLeft_toLeftOf="@id/btn_back"
+                app:layout_constraintTop_toBottomOf="@id/btn_back" />
+
+            <TextView
+                android:id="@+id/dummy_text_gender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="30dp"
+                android:text="성별"
+                android:textColor="@android:color/black"
+                android:textSize="14sp"
+                app:layout_constraintLeft_toLeftOf="@id/btn_back"
+                app:layout_constraintTop_toBottomOf="@id/edit_name" />
+
+            <TextView
+                android:id="@+id/dummy_text_gender_male"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:text="남성"
+                android:textColor="@android:color/black"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@id/toggle_gender_male"
+                app:layout_constraintLeft_toRightOf="@id/toggle_gender_male"
+                app:layout_constraintTop_toTopOf="@id/toggle_gender_male" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:text="여성"
+                android:textColor="@android:color/black"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@id/toggle_gender_male"
+                app:layout_constraintLeft_toRightOf="@id/toggle_gender_female"
+                app:layout_constraintTop_toTopOf="@id/toggle_gender_male" />
+
+            <TextView
+                android:id="@+id/dummy_text_birth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="30dp"
+                android:text="생년월일"
+                android:textColor="@android:color/black"
+                android:textSize="14sp"
+                app:layout_constraintLeft_toLeftOf="@id/btn_back"
+                app:layout_constraintTop_toBottomOf="@id/toggle_gender_male" />
+
+            <TextView
+                android:id="@+id/dummy_text_birth_year"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:gravity="center"
+                android:text="년"
+                app:layout_constraintBottom_toBottomOf="@id/edit_birthYear"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintLeft_toRightOf="@id/edit_birthYear"
+                app:layout_constraintRight_toLeftOf="@id/edit_birthMonth"
+                app:layout_constraintTop_toTopOf="@+id/edit_birthYear" />
+
+            <TextView
+                android:id="@+id/dummy_text_birth_month"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:gravity="center"
+                android:text="월"
+                app:layout_constraintBottom_toBottomOf="@id/edit_birthYear"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintLeft_toRightOf="@id/edit_birthMonth"
+                app:layout_constraintRight_toLeftOf="@+id/edit_birthDay"
+                app:layout_constraintTop_toTopOf="@+id/edit_birthYear" />
+
+            <TextView
+                android:id="@+id/dummy_text_birth_day"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginLeft="8dp"
+                android:gravity="center"
+                android:text="일"
+                app:layout_constraintBottom_toBottomOf="@id/edit_birthYear"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintLeft_toRightOf="@id/edit_birthDay"
+                app:layout_constraintRight_toRightOf="@id/edit_name"
+                app:layout_constraintTop_toTopOf="@+id/edit_birthYear" />
+
+            <TextView
+                android:id="@+id/dummy_text_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="30dp"
+                android:text="이메일"
+                android:textColor="@android:color/black"
+                android:textSize="14sp"
+                app:layout_constraintLeft_toLeftOf="@id/btn_back"
+                app:layout_constraintTop_toBottomOf="@id/edit_birthYear" />
+
+            <TextView
+                android:id="@+id/dummy_text_pw"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="30dp"
+                android:text="비밀번호"
+                android:textColor="@android:color/black"
+                android:textSize="14sp"
+                app:layout_constraintLeft_toLeftOf="@id/btn_back"
+                app:layout_constraintTop_toBottomOf="@id/edit_email" />
+
+            <TextView
+                android:id="@+id/text_pw_rule"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="@string/pw_rule"
+                android:textSize="12sp"
+                app:layout_constraintLeft_toLeftOf="@id/btn_back"
+                app:layout_constraintRight_toRightOf="@id/dummy_img"
+                app:layout_constraintTop_toBottomOf="@id/edit_pw" />
+
+            <TextView
+                android:id="@+id/dummy_text_pw_re"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="30dp"
+                android:text="비밀번호 확인"
+                android:textColor="@android:color/black"
+                android:textSize="14sp"
+                app:layout_constraintLeft_toLeftOf="@id/btn_back"
+                app:layout_constraintTop_toBottomOf="@id/text_pw_rule" />
+
+            <TextView
+                android:id="@+id/text_pw_re_confirm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="비밀번호와 일치하지 않습니다."
+                android:textColor="@android:color/holo_red_dark"
+                android:textSize="12sp"
+                android:visibility="invisible"
+                app:layout_constraintLeft_toLeftOf="@id/btn_back"
+                app:layout_constraintTop_toBottomOf="@id/edit_pw_re" />
+
+            <TextView
+                android:id="@+id/dummy_text_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="30dp"
+                android:text="휴대폰 번호"
+                android:textColor="@android:color/black"
+                android:textSize="14sp"
+                app:layout_constraintLeft_toLeftOf="@id/btn_back"
+                app:layout_constraintTop_toBottomOf="@id/text_pw_re_confirm" />
+
+            <TextView
+                android:id="@+id/dummy_text_lecture"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="30dp"
+                android:text="수업정보"
+                android:textColor="@android:color/black"
+                android:textSize="14sp"
+                android:visibility="gone"
+                app:layout_constraintLeft_toLeftOf="@id/btn_back"
+                app:layout_constraintTop_toBottomOf="@id/edit_code" />
+
+            <TextView
+                android:id="@+id/dummy_text_school"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="30dp"
+                android:text="학교정보"
+                android:textColor="@android:color/black"
+                android:textSize="14sp"
+                app:layout_constraintLeft_toLeftOf="@id/btn_back"
+                app:layout_constraintTop_toBottomOf="@id/btn_add_lecture" />
+
+            <TextView
+                android:id="@+id/dummy_text_code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="30dp"
+                android:text="학생코드"
+                android:textColor="@android:color/black"
+                android:textSize="14sp"
+                app:layout_constraintLeft_toLeftOf="@id/btn_back"
+                app:layout_constraintTop_toBottomOf="@id/edit_school" />
+
+            <CheckBox
+                android:id="@+id/toggle_gender_male"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:checked="false"
+                app:layout_constraintLeft_toLeftOf="@id/dummy_text_gender"
+                app:layout_constraintTop_toBottomOf="@id/dummy_text_gender" />
+
+            <CheckBox
+                android:id="@+id/toggle_gender_female"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="140dp"
+                android:layout_marginTop="14dp"
+                android:checked="false"
+                app:layout_constraintLeft_toRightOf="@id/dummy_text_gender_male"
+                app:layout_constraintTop_toBottomOf="@id/dummy_text_gender" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

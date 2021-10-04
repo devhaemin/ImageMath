@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="4dp"
+    android:layout_marginRight="4dp"
+    app:cardElevation="0dp">
+
+    <com.haemin.imagemathstudent.View.UI.ToggleConstraintLayout
+        android:id="@+id/toggle_whole_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="320dp"
+        android:background="?attr/selectableItemBackground"
+        app:checked="true"
+        app:drawableOff="@drawable/box_lecture_off"
+        app:drawableOn="@drawable/box_lecture_on"
+        tools:checked="true">
+
+        <TextView
+            android:id="@+id/text_lecture_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="38dp"
+            android:text="종로 이투스 수(가) 심화반"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text_lecture_times"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="24dp"
+            android:text="수 20:00 - 22:00\n목 18:00 - 20:00"
+            android:textSize="10sp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/text_lecture_name" />
+
+        <TextView
+            android:id="@+id/text_academy_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="종로 이투스"
+            android:textSize="10sp"
+            app:layout_constraintRight_toRightOf="@+id/text_lecture_times"
+            app:layout_constraintTop_toBottomOf="@id/text_lecture_times" />
+
+        <TextView
+            android:id="@+id/text_lecture_duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2019.03.08 - 2019.12.20"
+            android:textSize="10sp"
+            app:layout_constraintRight_toRightOf="@+id/text_academy_name"
+            app:layout_constraintTop_toBottomOf="@+id/text_academy_name" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/btn_notice_group"
+            android:layout_width="0dp"
+            android:layout_height="110dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/text_lecture_name"
+            app:layout_constraintRight_toRightOf="@id/text_lecture_times">
+
+            <ImageView
+                android:id="@+id/img_notice"
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:src="@drawable/img_notice"
+                app:layout_constraintDimensionRatio="221:64"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/text_notice_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="+ 더보기"
+                android:textColor="@color/etoos_color"
+                android:textSize="11sp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/text_notice_preview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:lineSpacingExtra="8dp"
+                android:text="12.5 휴강공지(12.11 21:00시 보강)\n레벨테스트 12.10일 진행합니다."
+                android:textColor="@android:color/black"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@id/dummy_notice_line"
+                app:layout_constraintLeft_toRightOf="@id/dummy_notice_line"
+                app:layout_constraintTop_toTopOf="@id/dummy_notice_line" />
+
+            <View
+                android:id="@+id/dummy_notice_line"
+                android:layout_width="3dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="20dp"
+                android:background="@android:color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="4dp"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/btn_list_group">
+
+            <ImageView
+                android:id="@+id/dummy_icon_neglect"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginEnd="8dp"
+                android:padding="3dp"
+                android:src="@drawable/icon_neglect"
+                app:layout_constraintBottom_toBottomOf="@id/text_assignment_neglect"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintRight_toLeftOf="@id/text_assignment_neglect"
+                app:layout_constraintTop_toTopOf="@id/text_assignment_neglect" />
+
+            <TextView
+                android:textSize="12sp"
+                android:id="@+id/text_assignment_neglect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="32dp"
+                android:text="불성실 1개"
+                android:textColor="@android:color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <ImageView
+                android:id="@+id/dummy_icon_unsubmit"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginEnd="8dp"
+                android:padding="3dp"
+                android:src="@drawable/icon_unsubmit"
+                app:layout_constraintBottom_toBottomOf="@id/text_assignment_unsubmit"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintRight_toLeftOf="@id/text_assignment_unsubmit"
+                app:layout_constraintTop_toTopOf="@id/text_assignment_unsubmit" />
+
+            <TextView
+                android:textSize="12sp"
+                android:id="@+id/text_assignment_unsubmit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="미제출 1개"
+                android:textColor="@android:color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/dummy_icon_neglect"
+                app:layout_constraintTop_toTopOf="parent" />
+            <ImageView
+                android:id="@+id/dummy_icon_pass"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginEnd="8dp"
+                android:padding="1dp"
+                android:src="@drawable/img_showpass_big"
+                app:layout_constraintBottom_toBottomOf="@id/text_assignment_neglect"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintRight_toLeftOf="@id/text_assignment_pass"
+                app:layout_constraintTop_toTopOf="@id/text_assignment_neglect" />
+
+            <TextView
+                android:textSize="12sp"
+                android:id="@+id/text_assignment_pass"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="통과 1개"
+                android:textColor="@android:color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/dummy_icon_unsubmit"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.haemin.imagemathstudent.View.UI.ToggleConstraintLayout
+            android:id="@+id/btn_list_group"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="28dp"
+            android:layout_marginRight="28dp"
+            app:drawableOff="@drawable/btn_task_off"
+            android:visibility="gone"
+            app:drawableOn="@drawable/btn_task_on"
+            app:layout_constraintBottom_toTopOf="@+id/btn_notice_group"
+            app:layout_constraintDimensionRatio="722:141"
+            app:layout_constraintTop_toBottomOf="@id/text_lecture_name"
+            tools:checked="true">
+
+            <Button
+                android:id="@+id/btn_assignment"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@null"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/btn_test"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/btn_test"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@null"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/btn_assignment"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </com.haemin.imagemathstudent.View.UI.ToggleConstraintLayout>
+
+    </com.haemin.imagemathstudent.View.UI.ToggleConstraintLayout>
+
+</androidx.cardview.widget.CardView>

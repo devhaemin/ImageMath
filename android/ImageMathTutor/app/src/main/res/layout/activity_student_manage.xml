@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".View.Activity.StudentTestActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginBottom="4dp"
+        android:elevation="4dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="14dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="18dp"
+            android:background="?attr/selectableItemBackground"
+            android:scaleType="centerCrop"
+            android:src="@drawable/btn_goback"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="22:33"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text_lecture_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:text="종로 이투스 수(가) 심화반"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/btn_back"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/dummy_text_student_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        android:text="학생내역"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
+        android:textSize="18sp" />
+    <Button
+        android:id="@+id/btn_post_push"
+        android:layout_marginEnd="14dp"
+        app:layout_constraintRight_toLeftOf="@id/btn_delete_students"
+        app:layout_constraintBottom_toBottomOf="@id/dummy_text_list_divide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="알림 전송"/>
+
+    <Button
+        android:id="@+id/btn_delete_students"
+        android:layout_marginEnd="14dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/dummy_text_list_divide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="선택한 학생 삭제"/>
+
+    <View
+        android:id="@+id/dummy_text_list_divide"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/dummy_text_student_list"
+        app:layout_constraintLeft_toLeftOf="@id/dummy_text_student_list"
+        android:layout_width="40dp"
+        android:layout_height="3dp"
+        android:background="@android:color/black" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/tab_list"
+        app:layout_constraintTop_toBottomOf="@id/dummy_text_list_divide"
+        android:layout_width="match_parent"
+        android:layout_marginTop="24dp"
+        android:layout_height="60dp">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:id="@+id/group_toggle_check_student"
+            app:layout_constraintHorizontal_weight="0.75"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/dummy_divide_1"
+            app:layout_constraintTop_toTopOf="parent">
+            <CheckBox
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:id="@+id/toggle_check_all_student"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            app:layout_constraintHorizontal_weight="1.25"
+            android:gravity="center"
+            app:layout_constraintRight_toLeftOf="@id/dummy_divide_2"
+            app:layout_constraintLeft_toRightOf="@id/dummy_divide_1"
+            android:id="@+id/text_student_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="이름"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/text_student_code"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="학생코드"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintLeft_toRightOf="@id/dummy_divide_2"
+            app:layout_constraintRight_toLeftOf="@id/dummy_divide_3"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            app:layout_constraintHorizontal_weight="1.75"
+            android:gravity="center"
+            app:layout_constraintLeft_toRightOf="@id/dummy_divide_3"
+            app:layout_constraintRight_toLeftOf="@id/dummy_divide_4"
+            android:id="@+id/text_student_school"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="학교"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            app:layout_constraintLeft_toRightOf="@id/dummy_divide_4"
+            app:layout_constraintRight_toRightOf="parent"
+            android:id="@+id/btn_student_info"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="#BFBFBF"
+            android:text="자세히\n알아보기"
+            android:textColor="@android:color/white" />
+
+        <View
+            android:visibility="invisible"
+            android:layout_marginStart="0dp"
+            app:layout_constraintLeft_toRightOf="@id/group_toggle_check_student"
+            app:layout_constraintRight_toLeftOf="@id/text_student_name"
+            android:id="@+id/dummy_divide_1"
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:background="#A7A7A7" />
+
+        <View
+            android:visibility="invisible"
+            app:layout_constraintLeft_toRightOf="@id/text_student_name"
+            app:layout_constraintRight_toLeftOf="@id/text_student_code"
+            android:id="@+id/dummy_divide_2"
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:background="#A7A7A7" />
+
+        <View
+            android:visibility="invisible"
+            app:layout_constraintLeft_toRightOf="@id/text_student_code"
+            app:layout_constraintRight_toLeftOf="@id/text_student_school"
+            android:id="@+id/dummy_divide_3"
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:background="#A7A7A7" />
+
+        <View
+            android:visibility="invisible"
+            app:layout_constraintLeft_toRightOf="@id/text_student_school"
+            app:layout_constraintRight_toLeftOf="@id/btn_student_info"
+            android:id="@+id/dummy_divide_4"
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:background="#A7A7A7" />
+
+        <View
+            android:id="@+id/dummy_divide_under"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#A7A7A7"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tab_list"
+        android:id="@+id/recycler_student_manage" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

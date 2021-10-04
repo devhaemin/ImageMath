@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".TestFragmentMVP.TestFragment">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/group_test_lecture"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/bg_cardview_rounded_box"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/dummy_text_lecture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:text="수업"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text_lecture_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="40dp"
+            android:text="수업을 선택해주세요."
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="12dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="12dp"
+            android:background="#A8A8A8"
+            app:layout_constraintLeft_toRightOf="@id/dummy_text_lecture" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:visibility="invisible"
+        android:id="@+id/text_submit_more"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/group_test_lecture"
+        android:layout_marginStart="36dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:textSize="14sp"
+        android:text="추가제출 : 1개"
+        android:layout_marginTop="14dp" />
+
+    <ImageView
+        android:id="@+id/dummy_icon_complete"
+        android:layout_width="14dp"
+        android:layout_height="14dp"
+        android:layout_marginEnd="8dp"
+        android:padding="2dp"
+        android:src="@drawable/img_showcomplete"
+        app:layout_constraintTop_toTopOf="@id/dummy_text_complete"
+        app:layout_constraintBottom_toBottomOf="@id/dummy_text_complete"
+        app:layout_constraintRight_toLeftOf="@id/dummy_text_complete" />
+
+    <TextView
+        android:textSize="12sp"
+        android:textColor="@android:color/black"
+        android:id="@+id/dummy_text_complete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="완료"
+        android:layout_marginEnd="18dp"
+        app:layout_constraintTop_toTopOf="@id/dummy_text_submit"
+        app:layout_constraintBottom_toBottomOf="@id/dummy_text_submit"
+        app:layout_constraintRight_toLeftOf="@id/dummy_icon_submit" />
+
+    <ImageView
+        android:id="@+id/dummy_icon_submit"
+        android:layout_width="14dp"
+        android:layout_height="14dp"
+        android:layout_marginEnd="8dp"
+        android:padding="2dp"
+        android:src="@drawable/img_showsubmit"
+        app:layout_constraintTop_toTopOf="@id/dummy_text_submit"
+        app:layout_constraintBottom_toBottomOf="@id/dummy_text_submit"
+        app:layout_constraintRight_toLeftOf="@id/dummy_text_submit" />
+
+    <TextView
+        android:textSize="12sp"
+        android:textColor="@android:color/black"
+        android:id="@+id/dummy_text_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="등록"
+        android:layout_marginEnd="18dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/text_submit_more" />
+    <Button
+        android:id="@+id/btn_add_test"
+        android:layout_width="100dp"
+        android:layout_height="36dp"
+        android:elevation="0dp"
+        android:gravity="center"
+        android:text="+테스트추가"
+        android:textSize="12sp"
+        android:layout_marginEnd="14dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dummy_icon_submit" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_test"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/btn_add_test"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="50dp">
+
+    <Button
+        android:id="@+id/btn_student_info"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="#BFBFBF"
+        android:text="세부정보"
+        app:layout_constraintLeft_toRightOf="@id/dummy_divide_4"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/text_student_code"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="0005"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toRightOf="@id/dummy_divide_2"
+        app:layout_constraintRight_toLeftOf="@id/dummy_divide_3"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_student_school"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="서울고등학교"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_weight="1.75"
+        app:layout_constraintLeft_toRightOf="@id/dummy_divide_3"
+        app:layout_constraintRight_toLeftOf="@id/dummy_divide_4"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_student_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="김학생"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_weight="1.25"
+        app:layout_constraintLeft_toRightOf="@id/dummy_divide_1"
+        app:layout_constraintRight_toLeftOf="@id/dummy_divide_2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:id="@+id/group_toggle_check_student"
+        app:layout_constraintHorizontal_weight="0.75"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/dummy_divide_1"
+        app:layout_constraintTop_toTopOf="parent">
+        <CheckBox
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/toggle_check_student"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <View
+        android:id="@+id/dummy_divide_1"
+        android:layout_width="2dp"
+        android:layout_height="match_parent"
+        android:background="#A7A7A7"
+        app:layout_constraintLeft_toRightOf="@id/group_toggle_check_student"
+        app:layout_constraintRight_toLeftOf="@id/text_student_name" />
+
+    <View
+        android:id="@+id/dummy_divide_2"
+        android:layout_width="2dp"
+        android:layout_height="match_parent"
+        android:background="#A7A7A7"
+        app:layout_constraintLeft_toRightOf="@id/text_student_name"
+        app:layout_constraintRight_toLeftOf="@id/text_student_code" />
+
+    <View
+        android:id="@+id/dummy_divide_3"
+        android:layout_width="2dp"
+        android:layout_height="match_parent"
+        android:background="#A7A7A7"
+        app:layout_constraintLeft_toRightOf="@id/text_student_code"
+        app:layout_constraintRight_toLeftOf="@id/text_student_school" />
+
+    <View
+        android:id="@+id/dummy_divide_4"
+        android:layout_width="2dp"
+        android:layout_height="match_parent"
+        android:background="#A7A7A7"
+        app:layout_constraintLeft_toRightOf="@id/text_student_school"
+        app:layout_constraintRight_toLeftOf="@id/btn_student_info" />
+</androidx.constraintlayout.widget.ConstraintLayout>

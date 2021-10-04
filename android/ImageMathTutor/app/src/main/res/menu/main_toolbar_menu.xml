@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/btn_alarm"
+        android:icon="@drawable/img_alarm"
+        android:title="알림"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/btn_setting"
+        android:icon="@drawable/img_setting"
+        android:title="설정"
+        app:showAsAction="always" />
+</menu>

@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">이미지수학 조교</string>
+
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="pw_rule">영문, 숫자를 조합한 최소 8자리 이상으로 사용해 주세요.</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

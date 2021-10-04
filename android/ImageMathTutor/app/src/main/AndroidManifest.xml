@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.haemin.imagemathtutor">
+
+    <application
+        android:name=".GlobalApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/icon"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/icon_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".AnswerAddMVP.AnswerAddActivity"></activity>
+        <activity android:name=".QuestionInfoMVP.QuestionInfoActivity" />
+        <activity android:name=".StudentInfoMVP.StudentInfoActivity" />
+        <activity android:name=".AssignmentAddMVP.AssignmentAddActivity" />
+        <activity android:name=".TestAddMVP.TestAddActivity" />
+        <activity android:name=".TestEditMVP.TestEditActivity" />
+        <activity android:name=".TestInfoMVP.TestInfoActivity" />
+        <activity android:name=".AssignmentInfoMVP.AssignmentInfoActivity" />
+        <activity android:name=".AssignmentEditMVP.AssignmentEditActivity" />
+        <activity android:name=".View.Activity.StudentTestActivity" />
+        <activity android:name=".StudentManageMVP.StudentManageActivity" />
+        <activity android:name=".View.Activity.RecognitionActivity" />
+        <activity android:name=".LectureAddMVP.AddLectureActivity" />
+        <activity android:name=".NoticeEditMVP.NoticeEditActivity" />
+        <activity android:name=".NoticeMVP.NoticeActivity" />
+        <activity android:name=".View.Activity.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".View.RegisterProcess.RegisterSuccessActivity" />
+        <activity android:name=".View.RegisterProcess.RegisterActivity" />
+        <activity android:name=".View.RegisterProcess.RegisterTermsActivity" />
+        <activity android:name=".View.Activity.LoginActivity" />
+        <activity
+            android:name=".View.Activity.SplashActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/app_name"
+            android:theme="@style/FullscreenTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+</manifest>

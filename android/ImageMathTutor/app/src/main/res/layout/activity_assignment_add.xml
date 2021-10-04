@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginBottom="4dp"
+            android:elevation="4dp"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageButton
+                android:id="@+id/btn_back"
+                android:layout_width="14dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="18dp"
+                android:background="?attr/selectableItemBackground"
+                android:scaleType="centerCrop"
+                android:src="@drawable/btn_goback"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="22:33"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/btn_edit_complete"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:background="?attr/selectableItemBackground"
+                android:scaleType="fitCenter"
+                android:src="@drawable/btn_editcomplete_small"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/text_assignment_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:text="과제 등록"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/btn_back"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/group_assignment_day"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:layout_marginTop="30dp"
+            app:layout_constraintLeft_toLeftOf="@id/edit_assignment_name"
+            app:layout_constraintRight_toRightOf="@id/edit_assignment_name"
+            app:layout_constraintTop_toBottomOf="@id/edit_assignment_name">
+
+            <TextView
+                android:id="@+id/dummy_text_upload_day"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="24dp"
+                android:text="해당하는 수업"
+                android:textColor="@android:color/black"
+                android:textSize="12sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/dummy_text_end_day"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="제출 마감일"
+                android:textColor="@android:color/black"
+                android:textSize="12sp"
+                app:layout_constraintLeft_toLeftOf="@id/dummy_text_upload_day"
+                app:layout_constraintTop_toBottomOf="@id/dummy_text_upload_day" />
+
+            <TextView
+                android:id="@+id/dummy_text_lecture_day"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="수업일"
+                android:textColor="@android:color/black"
+                android:textSize="12sp"
+                app:layout_constraintLeft_toLeftOf="@id/dummy_text_upload_day"
+                app:layout_constraintTop_toBottomOf="@id/dummy_text_end_day" />
+
+            <TextView
+                android:id="@+id/text_assignment_lecture"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="클릭해서 선택하기"
+                android:textColor="@android:color/black"
+                android:textSize="12sp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/dummy_text_upload_day" />
+
+            <TextView
+                android:id="@+id/text_end_day"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="클릭해서 선택하기"
+                android:textColor="@android:color/black"
+                android:textSize="12sp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/dummy_text_end_day" />
+
+            <TextView
+                android:id="@+id/text_lecture_day"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="클릭해서 선택하기"
+                android:textColor="@android:color/black"
+                android:textSize="12sp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/dummy_text_lecture_day" />
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/edit_disabled"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="24dp"
+                android:background="@color/edit_disabled"
+                app:layout_constraintTop_toBottomOf="@id/dummy_text_lecture_day" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:layout_marginTop="40dp"
+            app:layout_constraintRight_toLeftOf="@id/group_assignment_day"
+            app:layout_constraintTop_toBottomOf="@id/group_assignment_day"
+            android:layout_width="3dp"
+            android:layout_height="40dp"
+            android:background="@android:color/black"/>
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_assignment_name"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="14dp"
+            android:background="@color/edit_bg"
+            android:gravity="center_vertical"
+            android:hint="과제 이름"
+            android:inputType="text"
+            android:maxLength="40"
+            android:paddingStart="14dp"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            app:layout_constraintTop_toBottomOf="@id/toolbar" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_assignment_contents"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="40dp"
+            android:background="@color/edit_bg"
+            android:inputType="textMultiLine"
+            android:padding="18dp"
+            android:hint="과제 공지사항"
+            android:maxLength="40"
+            android:gravity="top"
+            android:paddingStart="14dp"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            app:layout_constraintTop_toBottomOf="@id/group_assignment_day" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/dummy_group_answer_file"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            app:layout_constraintTop_toBottomOf="@id/edit_assignment_contents">
+
+            <TextView
+                android:id="@+id/dummy_text_answer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="18dp"
+                android:text="해설지"
+                android:textColor="@android:color/black"
+                android:textSize="14sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <Button
+                android:id="@+id/btn_add_file"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/img_edit"
+                app:layout_constraintTop_toTopOf="@id/dummy_text_answer"
+                app:layout_constraintBottom_toBottomOf="@id/dummy_text_answer"
+                app:layout_constraintLeft_toRightOf="@id/dummy_text_answer"
+                android:layout_marginStart="18dp"
+                android:elevation="0dp"/>
+
+            <View
+                android:id="@+id/dummy_line_divide_1"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="@color/edit_disabled"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/dummy_line_divide_2"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_marginTop="28dp"
+                android:background="@color/edit_disabled"
+                app:layout_constraintTop_toBottomOf="@id/group_file" />
+
+            <LinearLayout
+                android:id="@+id/group_file"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="18dp"
+                app:layout_constraintTop_toBottomOf="@id/dummy_text_answer" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

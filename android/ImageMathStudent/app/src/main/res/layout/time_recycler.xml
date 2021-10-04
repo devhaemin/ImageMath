@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_marginTop="14dp"
+    android:layout_height="50dp">
+
+    <EditText
+        android:maxLines="1"
+        android:id="@+id/edit_lecture_time_day"
+        android:layout_width="60dp"
+        android:layout_height="match_parent"
+        android:layout_marginStart="30dp"
+        android:background="@color/edit_disabled"
+        android:gravity="center"
+        android:maxLength="1"
+        android:hint="월"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <EditText
+        android:maxLength="5"
+        android:maxLines="1"
+        android:id="@+id/edit_time_first"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="14dp"
+        android:layout_marginStart="30dp"
+        android:background="@color/edit_disabled"
+        android:gravity="center"
+        android:hint="18 : 00"
+        app:layout_constraintLeft_toRightOf="@id/edit_lecture_time_day"
+        app:layout_constraintRight_toLeftOf="@id/dummy_text_wave" />
+
+    <EditText
+        android:maxLength="5"
+        android:maxLines="1"
+        android:id="@+id/edit_time_second"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="14dp"
+        android:layout_marginStart="14dp"
+        android:background="@color/edit_disabled"
+        android:gravity="center"
+        android:hint="20 : 00"
+        app:layout_constraintLeft_toRightOf="@+id/dummy_text_wave"
+        app:layout_constraintRight_toLeftOf="@id/btn_delete" />
+
+    <ImageButton
+        android:id="@+id/btn_delete"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="30dp"
+        android:background="?attr/selectableItemBackground"
+        android:src="@drawable/btn_delete"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/dummy_text_wave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="~"
+        app:layout_constraintBottom_toBottomOf="@id/edit_time_first"
+        app:layout_constraintLeft_toRightOf="@id/edit_time_first"
+        app:layout_constraintRight_toLeftOf="@id/edit_time_second"
+        app:layout_constraintTop_toTopOf="@id/edit_time_first" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

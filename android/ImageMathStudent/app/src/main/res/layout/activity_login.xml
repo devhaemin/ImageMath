@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    tools:context=".View.Activity.LoginActivity">
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/etoos_rounded_box"
+        android:text="로그인"
+        android:textColor="#ffffff"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toggle_save_email" />
+
+
+    <EditText
+        android:id="@+id/edit_email"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:background="@drawable/etoos_reactangle"
+        android:hint="이메일"
+        android:inputType="textEmailAddress"
+        android:lines="1"
+        android:maxLines="1"
+        android:nextFocusDown="@id/edit_pw"
+        android:paddingStart="24dp"
+        android:singleLine="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_logo"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.4" />
+
+    <EditText
+        android:id="@+id/edit_pw"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/etoos_reactangle"
+        android:hint="비밀번호"
+        android:inputType="textPassword"
+        android:lines="1"
+        android:maxLines="1"
+        android:paddingStart="24dp"
+        android:singleLine="true"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_email" />
+
+    <ImageView
+        android:id="@+id/login_logo"
+        android:layout_width="240dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="80dp"
+        android:src="@drawable/logo_img"
+        app:layout_constraintDimensionRatio="16:9"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/etoos_logo"
+        android:layout_width="80dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="32dp"
+        android:src="@drawable/logo_etoos"
+        app:layout_constraintDimensionRatio="315:74"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <TextView
+        android:id="@+id/text_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="회원가입"
+        android:textColor="@android:color/black"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/dummy_text1"
+        app:layout_constraintTop_toTopOf="@id/dummy_line" />
+
+    <TextView
+        android:id="@+id/text_find_pw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="비밀번호 찾기"
+        android:textColor="@android:color/black"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintLeft_toRightOf="@id/dummy_text1"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/dummy_line" />
+
+    <TextView
+        android:id="@+id/dummy_text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="   .   "
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintLeft_toRightOf="@id/text_register"
+        app:layout_constraintRight_toLeftOf="@id/text_find_pw"
+        app:layout_constraintTop_toTopOf="@id/dummy_line" />
+
+    <CheckBox
+        android:id="@+id/toggle_save_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="14dp"
+        android:textOn=""
+        android:textOff=""
+        android:text=""
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edit_pw" />
+
+    <TextView
+        android:layout_marginStart="14dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/toggle_save_email"
+        app:layout_constraintTop_toTopOf="@id/toggle_save_email"
+        app:layout_constraintBottom_toBottomOf="@id/toggle_save_email"
+        android:text="이메일 저장하기"/>
+    <View
+        android:id="@+id/dummy_line"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="14dp"
+        android:background="#979696"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_login" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

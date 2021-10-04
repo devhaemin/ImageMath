@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="140dp"
+    android:layout_marginLeft="4dp"
+    android:layout_marginRight="4dp"
+    android:layout_marginTop="4dp"
+    android:layout_marginBottom="4dp"
+    app:cardCornerRadius="14dp"
+    app:cardElevation="4dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/icon_status"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img_showsubmit"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text_lecture_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:text="종로 이투스 수(가) 심화반"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/icon_status"
+            app:layout_constraintLeft_toRightOf="@id/icon_status"
+            app:layout_constraintTop_toTopOf="@id/icon_status" />
+
+        <TextView
+            android:id="@+id/text_assignment_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=": NEW SIX START 216p - 237p"
+            app:layout_constraintLeft_toLeftOf="@id/text_lecture_name"
+            app:layout_constraintTop_toBottomOf="@id/text_lecture_name"/>
+        <TextView
+            android:id="@+id/text_assignment_submit_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:layout_marginTop="24dp"
+            android:text="18 / 21"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/dummy_text_student"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="총인원 :"
+            android:textColor="@android:color/black"
+            android:textSize="12sp"
+            app:layout_constraintLeft_toLeftOf="@id/text_lecture_name"
+            app:layout_constraintTop_toBottomOf="@id/text_lecture_name" />
+
+        <TextView
+            android:id="@+id/text_student"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="30dp"
+            android:text="21 / 24"
+            android:textSize="12sp"
+            app:layout_constraintLeft_toRightOf="@id/dummy_text_student"
+            app:layout_constraintTop_toBottomOf="@id/text_lecture_name" />
+
+        <TextView
+            android:id="@+id/dummy_text_upload_day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="등록일 :"
+            android:textColor="@android:color/black"
+            android:textSize="12sp"
+            app:layout_constraintLeft_toLeftOf="@id/text_lecture_name"
+            app:layout_constraintTop_toBottomOf="@id/dummy_text_student" />
+
+        <TextView
+            android:id="@+id/text_upload_day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:text="2019.09.01"
+            android:textSize="12sp"
+            app:layout_constraintLeft_toRightOf="@id/dummy_text_upload_day"
+            app:layout_constraintTop_toTopOf="@id/dummy_text_upload_day" />
+
+        <TextView
+            android:id="@+id/dummy_text_end_day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="마감일 :"
+            android:textColor="@android:color/black"
+            android:textSize="12sp"
+            app:layout_constraintLeft_toLeftOf="@id/text_lecture_name"
+            app:layout_constraintTop_toBottomOf="@id/dummy_text_upload_day" />
+
+        <TextView
+            android:id="@+id/text_end_day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:text="2019.09.01"
+            android:textSize="12sp"
+            app:layout_constraintLeft_toRightOf="@id/dummy_text_upload_day"
+            app:layout_constraintTop_toTopOf="@id/dummy_text_end_day" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.cardview.widget.CardView>

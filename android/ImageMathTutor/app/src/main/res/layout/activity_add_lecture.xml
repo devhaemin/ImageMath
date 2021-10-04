@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".LectureAddMVP.AddLectureActivity">
+
+    <Button
+        android:id="@+id/btn_upload_lecture"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/etoos_color"
+        android:text="개설 / 수정하기"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/btn_add_time"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginEnd="14dp"
+                android:layout_marginStart="14dp"
+                android:gravity="center"
+                android:text="+추가하기"
+                app:layout_constraintTop_toBottomOf="@id/group_lecture_times" />
+
+            <EditText
+                android:id="@+id/edit_academy"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="14dp"
+                android:background="@color/edit_disabled"
+                android:editable="false"
+                android:focusable="false"
+                android:hint="학원을 선택해주세요."
+                android:paddingStart="12dp"
+                app:layout_constraintTop_toBottomOf="@id/dummy_text_academy" />
+
+            <EditText
+                android:nextFocusDown="@id/btn_add_time"
+                android:maxLines="1"
+                android:id="@+id/edit_lecture_name"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="14dp"
+                android:background="@color/edit_disabled"
+                android:hint="수업 이름을 입력해주세요."
+                android:paddingStart="12dp"
+                app:layout_constraintTop_toBottomOf="@id/dummy_text_lecture" />
+
+            <EditText
+                android:nextFocusDown="@id/edit_duration_second"
+                android:maxLength="10"
+                android:maxLines="1"
+                android:id="@+id/edit_duration_first"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="14dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginBottom="100dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:background="@color/edit_disabled"
+                android:gravity="center"
+                android:text="2020.03.01"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/dummy_text_wave"
+                app:layout_constraintTop_toBottomOf="@id/dummy_text_lecture_duration" />
+
+            <EditText
+                android:maxLength="10"
+                android:maxLines="1"
+                android:id="@+id/edit_duration_second"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="14dp"
+                android:background="@color/edit_disabled"
+                android:gravity="center"
+                android:text="2020.12.31"
+                app:layout_constraintLeft_toRightOf="@+id/dummy_text_wave"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dummy_text_lecture_duration" />
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginEnd="12dp"
+                android:src="@drawable/btn_select"
+                app:layout_constraintBottom_toBottomOf="@id/edit_academy"
+                app:layout_constraintRight_toRightOf="@id/edit_academy"
+                app:layout_constraintTop_toTopOf="@id/edit_academy" />
+
+            <LinearLayout
+                android:id="@+id/group_lecture_times"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/dummy_text_lecture_time" />
+
+            <TextView
+                android:id="@+id/dummy_text_academy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="32dp"
+                android:text="학원"
+                android:textColor="@android:color/black"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+            <TextView
+                android:id="@+id/dummy_text_lecture"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="32dp"
+                android:text="수업명"
+                android:textColor="@android:color/black"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edit_academy" />
+
+            <TextView
+                android:id="@+id/dummy_text_lecture_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="32dp"
+                android:text="수업 시간"
+                android:textColor="@android:color/black"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edit_lecture_name" />
+
+            <TextView
+                android:id="@+id/dummy_text_lecture_duration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="32dp"
+                android:text="수업 기간"
+                android:textColor="@android:color/black"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btn_add_time" />
+
+            <TextView
+                android:id="@+id/dummy_text_wave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="~"
+                app:layout_constraintBottom_toBottomOf="@id/edit_duration_first"
+                app:layout_constraintLeft_toRightOf="@id/edit_duration_first"
+                app:layout_constraintRight_toLeftOf="@id/edit_duration_second"
+                app:layout_constraintTop_toTopOf="@id/edit_duration_first" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginBottom="4dp"
+                android:elevation="4dp"
+                android:background="@android:color/white"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="18dp"
+                    android:text="수업 개설하기"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/black"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    tools:visibility="visible" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
